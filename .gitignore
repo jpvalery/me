@@ -58,7 +58,6 @@ typings/
 .env
 
 .cache/
-public
 yarn-error.log
 .tern-port
 .DS_Store
