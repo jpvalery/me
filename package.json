@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^0.2.0",
     "@mdx-js/react": "^1.6.22",
     "autoprefixer": "^10.2.1",
     "fathom-client": "^3.0.0",

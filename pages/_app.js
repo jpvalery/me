@@ -11,6 +11,7 @@ import * as Fathom from 'fathom-client'
 
 import SEO from '../next-seo-config';
 
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }) {
@@ -40,9 +41,10 @@ return (
       </Head>
       <DefaultSeo {...SEO} />
         <div className="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto py-16">
-            <Component {...pageProps} />
-          </div>
+          <Header />
+            <div className="max-w-3xl mx-auto py-16">
+              <Component {...pageProps} />
+            </div>
           <Footer />
         </div>
   </ThemeProvider>
