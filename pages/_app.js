@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import "tailwindcss/tailwind.css";
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -10,6 +10,8 @@ import { MDXProvider } from '@mdx-js/react';
 import * as Fathom from 'fathom-client'
 
 import SEO from '../next-seo-config';
+
+import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -37,7 +39,12 @@ return (
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
+        <div className="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto py-16">
+            <Component {...pageProps} />
+          </div>
+          <Footer />
+        </div>
   </ThemeProvider>
 );
 }
