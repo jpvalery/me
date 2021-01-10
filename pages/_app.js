@@ -9,16 +9,14 @@ import { DefaultSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
 import * as Fathom from 'fathom-client'
 
-import SEO from '../next-seo.config';
-import MDXComponents from '@/components/MDXComponents';
+import SEO from '../next-seo-config';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
 useEffect(() => {
   // Initialize Fathom when the app loads
-  Fathom.load();
-  Fathom.setSiteId('ENV_FATHOM_SITEID');
+  Fathom.load('ENV_FATHOM_SITEID');
 
   function onRouteChangeComplete() {
     Fathom.trackPageview()
@@ -35,13 +33,11 @@ useEffect(() => {
 
 return (
   <ThemeProvider attribute="class">
-    <MDXProvider components={MDXComponents}>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
-    </MDXProvider>
   </ThemeProvider>
 );
 }
