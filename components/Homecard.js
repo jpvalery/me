@@ -7,13 +7,13 @@ export default function Homecard () {
     <div className="ml-4 mt-4">
       <div className="flex items-center">
         <div className="flex-shrink-0">
-          <img className="h-12 w-12 rounded-full" src="/static/jp-valery-avatar.jpg" alt="" />
+          <img className="h-16 w-16 rounded-full" src="/static/jp-valery-avatar.webp" alt="" />
         </div>
         <div className="ml-4">
           <h2 className="text-2xl leading-6 font-bold text-gray-900">
             Jp Valery
           </h2>
-          <p className="text-sm text-gray-500 my-2">
+          <p className="text-sm text-gray-600 my-2">
               <span className="font-semibold">@jpvalery</span> everywhere that matters
           </p>
         </div>
