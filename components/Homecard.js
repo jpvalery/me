@@ -1,7 +1,7 @@
 export default function Homecard () {
   return (
 
-  <div className="overflow-hidden shadow rounded-lg divide-y divide-gray-200 my-12">
+  <div className="overflow-hidden shadow rounded-lg divide-y divide-gray-200 mt-12">
   <div className="bg-gray-100 px-4 py-5 sm:px-6">
   <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
     <div className="ml-4 mt-4">
