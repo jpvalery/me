@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import Unsplash from '../components/dashboard/Unsplash';
+import Betaseries from '../components/dashboard/Betaseries';
 
 export default function Now() {
   return (
@@ -10,6 +11,7 @@ export default function Now() {
           Jp in numbers
         </h1>
         <Unsplash />
+        <Betaseries />
       </main>
     </div>
   )
