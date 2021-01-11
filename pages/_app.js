@@ -6,7 +6,6 @@ import Head from 'next/head';
 
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
-import { MDXProvider } from '@mdx-js/react';
 import * as Fathom from 'fathom-client'
 
 import SEO from '../next-seo-config';
