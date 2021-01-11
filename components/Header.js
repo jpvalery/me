@@ -8,7 +8,7 @@ import Raccoon from '../icons/Raccoon';
 export default function Header () {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   return (
-      <div className="max-w-3xl mx-auto sticky top-0 pt-4 bg-white bg-opacity-90">
+      <div className="max-w-3xl mx-auto sticky top-0 z-50 pt-4 bg-white bg-opacity-90">
         <div className="flex justify-between border-b-2 border-gray-100 py-6">
             <NextLink href="/">
               <span className="w-24 h-12 -mt-9">
@@ -297,11 +297,11 @@ export default function Header () {
               </>
             )}
           </Menu>
+            <NextLink href="/writings">
               <span className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
-                <a href="#">
-                  Blog
-                </a>
+                  Writings
               </span>
+            </NextLink>
             </div>
           </div>
 
