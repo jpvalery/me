@@ -45,7 +45,7 @@ export default function Header () {
               leaveTo="opacity-0 scale-90"
             >
                 <Menu.Items static as={React.Fragment}>
-                    <div className="absolute z-100 -ml-80 mt-12 outline-none">
+                    <div className="absolute z-50 -ml-80 mt-12 outline-none">
                       <div className="w-screen max-w-md rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-8 bg-white px-8 py-8">
                           <Menu.Item>
@@ -170,7 +170,7 @@ export default function Header () {
               leaveTo="opacity-0 scale-90"
             >
             <Menu.Items static as={React.Fragment}>
-            <div className="absolute z-100 -ml-96 mt-12 outline-none">
+            <div className="absolute z-50 -ml-96 mt-12 outline-none">
               <div className="w-screen max-w-md rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div className="relative grid gap-8 bg-white px-8 py-8">
                               <Menu.Item>

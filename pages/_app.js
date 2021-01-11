@@ -40,9 +40,9 @@ return (
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
-        <div className="max-w-6xl mx-auto py-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto py-6 px-6">
           <Header />
-            <div className="max-w-3xl mx-auto py-16">
+            <div className="max-w-3xl mx-auto py-12">
               <Component {...pageProps} />
             </div>
           <Footer />
