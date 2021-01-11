@@ -251,6 +251,26 @@ export default function Header () {
                                 )}
                               </Menu.Item>
 
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <NextLink href="/cemetery">
+                                  <span className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                                    <svg className="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                    </svg>
+                                    <div className="ml-4">
+                                      <p className="text-base font-medium text-gray-900">
+                                        /cemetery
+                                      </p>
+                                      <p className="mt-1 text-sm text-gray-500">
+                                        Deprecated/abandoned projects
+                                      </p>
+                                    </div>
+                                    </span>
+                                  </NextLink>
+                                )}
+                              </Menu.Item>
+
                               </div>
                               <Menu.Item>
                                 {({ active }) => (
@@ -275,7 +295,7 @@ export default function Header () {
             )}
           </Menu>
 
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900  ml-4">
                   Blog
                 </a>
             </div>
