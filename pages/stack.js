@@ -6,7 +6,7 @@ export default function Stack() {
           What am I using?
         </h1>
         <p className="mt-4">Here's some select items that I use and that made a positive impact in my work/life/craft</p>
-        <container className="mt-4 grid grid-cols-2 gap-8">
+        <container className="mt-4 grid grid-cols1 sm:grid-cols-2 gap-8">
           <div className="bg-white overflow-hidden shadow rounded-lg p-5">
               <h3 className="flex items-center text-lg font-semibold text-gray-900">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 mr-2">
