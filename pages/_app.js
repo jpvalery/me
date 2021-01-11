@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
 
 useEffect(() => {
   // Initialize Fathom when the app loads
-  Fathom.load('ENV_FATHOM_SITEID');
+  Fathom.load(process.env.ENV_FATHOM_SITEID);
 
   function onRouteChangeComplete() {
     Fathom.trackPageview()
