@@ -6,8 +6,7 @@ import MetricCard from './Card';
 
 export default function Betaseries() {
   const { data } = useSWR('/api/betaseries', fetcher);
-
-  const episodes = format(data.stats.episodes);
+  const episodes = format(data);
   const link = 'https://www.betaseries.com/membre/jpvalery';
 
   return (
