@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Transition, Menu } from '@headlessui/react'
 import NextLink from 'next/link';
 import React from 'react';
+import Raccoon from '../icons/Raccoon';
 
 
 export default function Header () {
@@ -10,7 +11,9 @@ export default function Header () {
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-between border-b-2 border-gray-100 py-6">
             <NextLink href="/">
-              logo
+              <span className="w-24 h-12 -mt-9">
+                <Raccoon />
+              </span>
             </NextLink>
 
           <div className="-mr-2 -my-2 md:hidden">
@@ -150,7 +153,7 @@ export default function Header () {
           <Menu>
           {({ open }) => (
             <>
-            <Menu.Button className="group bg-white text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
+            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
             <span>About</span>
 
             <svg className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -294,10 +297,11 @@ export default function Header () {
               </>
             )}
           </Menu>
-
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900  ml-4">
+              <span className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
+                <a href="#">
                   Blog
                 </a>
+              </span>
             </div>
           </div>
 
