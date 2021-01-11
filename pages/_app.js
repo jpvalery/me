@@ -37,7 +37,6 @@ return (
   <ThemeProvider attribute="class">
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <link rel="canonical" href="https://jpvalery.me"/>
       </Head>
       <DefaultSeo {...SEO} />
         <div className="max-w-6xl mx-auto pb-6 px-6">

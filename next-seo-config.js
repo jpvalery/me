@@ -5,7 +5,7 @@ const description =
 const SEO = {
   title,
   description,
-  canonical: 'https://jpvalery.com',
+  canonical: 'https://jpvalery.me',
   openGraph: {
     type: 'website',
     locale: 'en_CA',
