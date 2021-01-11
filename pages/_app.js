@@ -1,7 +1,7 @@
 import "tailwindcss/tailwind.css";
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
+import Router from 'next/router'
 import Head from 'next/head';
 
 import { ThemeProvider } from 'next-themes';
@@ -13,25 +13,16 @@ import SEO from '../next-seo-config';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+// Record a pageview when route changes
+Router.events.on('routeChangeComplete', () => {
+  Fathom.trackPageview();
+});
+
 function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-
-useEffect(() => {
-  // Initialize Fathom when the app loads
-  Fathom.load(process.env.ENV_FATHOM_SITEID);
-
-  function onRouteChangeComplete() {
-    Fathom.trackPageview()
-  }
-  // Record a pageview when route changes
-  router.events.on('routeChangeComplete', onRouteChangeComplete)
-
-  // Unassign event listener
-  return () => {
-    router.events.off('routeChangeComplete', onRouteChangeComplete)
-  }
-}, [])
-
+    // Initialize Fathom when the app loads
+  useEffect(() => {
+    Fathom.load('VVGVMHHZ');
+  }, []);
 
 return (
   <ThemeProvider attribute="class">
