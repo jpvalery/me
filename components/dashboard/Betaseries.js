@@ -10,6 +10,6 @@ export default function Betaseries() {
   const link = 'https://www.betaseries.com/membre/jpvalery';
 
   return (
-      <MetricCard header="Betaseries - Episodes" link={link} metric={episodes} />
+      <MetricCard header="Betaseries - Episodes seen" link={link} metric={episodes} />
   );
 }
