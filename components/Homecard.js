@@ -7,7 +7,7 @@ export default function Homecard () {
     <div className="ml-4 mt-4">
       <div className="flex items-center">
         <div className="flex-shrink-0">
-          <img className="h-12 w-12 rounded-full" src="https://jpvalery.com/static/jp-valery-avatar.jpg" alt="" />
+          <img className="h-12 w-12 rounded-full" src="/static/jp-valery-avatar.jpg" alt="" />
         </div>
         <div className="ml-4">
           <h2 className="text-2xl leading-6 font-bold text-gray-900">
