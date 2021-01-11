@@ -22,11 +22,11 @@ export default function Header () {
             </button>
           </div>
 
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex">
           <Menu>
           {({ open }) => (
             <>
-            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900">
+            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
             <span>Photography</span>
             <svg className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -42,8 +42,8 @@ export default function Header () {
               leaveTo="opacity-0 scale-90"
             >
                 <Menu.Items static as={React.Fragment}>
-                    <div className="absolute -ml-72 mt-12 w-screen max-w-md">
-                      <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div className="absolute z-100 -ml-80 mt-12 outline-none">
+                      <div className="w-screen max-w-md rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                         <div className="relative grid gap-8 bg-white px-8 py-8">
                           <Menu.Item>
                             {({ active }) => (
@@ -150,7 +150,7 @@ export default function Header () {
           <Menu>
           {({ open }) => (
             <>
-            <Menu.Button className="group bg-white text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900">
+            <Menu.Button className="group bg-white text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
             <span>About</span>
 
             <svg className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -167,9 +167,9 @@ export default function Header () {
               leaveTo="opacity-0 scale-90"
             >
             <Menu.Items static as={React.Fragment}>
-                <div className="absolute -ml-72 mt-12 w-screen max-w-md">
-                  <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div className="relative grid gap-8 bg-white px-8 py-8">
+            <div className="absolute z-100 -ml-96 mt-12 outline-none">
+              <div className="w-screen max-w-md rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                <div className="relative grid gap-8 bg-white px-8 py-8">
                               <Menu.Item>
                                 {({ active }) => (
                                   <NextLink href="/about">
