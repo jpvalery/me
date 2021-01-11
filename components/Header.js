@@ -8,7 +8,7 @@ import Raccoon from '../icons/Raccoon';
 export default function Header () {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   return (
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto sticky top-0 pt-4 bg-white bg-opacity-90">
         <div className="flex justify-between border-b-2 border-gray-100 py-6">
             <NextLink href="/">
               <span className="w-24 h-12 -mt-9">
