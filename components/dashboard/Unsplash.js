@@ -1,15 +1,15 @@
-import useSWR from 'swr';
-import format from 'comma-number';
+import useSWR from "swr";
+import format from "comma-number";
 
-import fetcher from '../../lib/fetcher';
-import MetricCard from './Card';
+import fetcher from "../../lib/fetcher";
+import MetricCard from "./Card";
 
 export default function Unsplash() {
-  const { data } = useSWR('/api/unsplash', fetcher);
+  const { data } = useSWR("/api/unsplash", fetcher);
 
   const downloads = format(data?.downloads);
   const views = format(data?.views);
-  const link = 'https://unsplash.com/@jpvalery';
+  const link = "https://unsplash.com/@jpvalery";
 
   return (
     <div className="grid gap-4 grid-cols-1 w-full sm:grid-cols-2">

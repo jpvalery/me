@@ -6,9 +6,9 @@ export default function Writings() {
           Writings
         </h1>
         <article class="prose prose-xl mt-4">
-        <p>Hoping to populate this section soon</p>
+          <p>Hoping to populate this section soon</p>
         </article>
       </main>
     </div>
-  )
+  );
 }
