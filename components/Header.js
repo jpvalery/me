@@ -17,7 +17,7 @@ export default function Header () {
             </NextLink>
 
           <div className="-mr-2 -my-2 md:hidden">
-            <button type="button" onClick={() => setIsMobileOpen(!isMobileOpen)} className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <button type="button" onClick={() => setIsMobileOpen(!isMobileOpen)} className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
               <span className="sr-only">Open menu</span>
               <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -29,7 +29,7 @@ export default function Header () {
           <Menu>
           {({ open }) => (
             <>
-            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
+            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none focus:outline-none">
             <span>Photography</span>
             <svg className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -169,7 +169,7 @@ export default function Header () {
           <Menu>
           {({ open }) => (
             <>
-            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
+            <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none focus:outline-none">
             <span>About</span>
 
             <svg className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -341,7 +341,7 @@ export default function Header () {
                   </div>
 
                   <div className="-mr-2">
-                    <button type="button" onClick={() => setIsMobileOpen(!isMobileOpen)} className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button type="button" onClick={() => setIsMobileOpen(!isMobileOpen)} className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
                       <span className="sr-only">Close menu</span>
                       <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
