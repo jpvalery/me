@@ -22,5 +22,8 @@
     "swr": "^0.4.0",
     "tailwindcss": "^2.0.2",
     "unsplash-js": "6.3.0"
+  },
+  "devDependencies": {
+    "prettier": "2.2.1"
   }
 }
