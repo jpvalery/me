@@ -6,24 +6,13 @@ import Head from "next/head";
 
 import { ThemeProvider } from "next-themes";
 import { DefaultSeo } from "next-seo";
-import * as Fathom from "fathom-client";
 
 import SEO from "../next-seo-config";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-// Record a pageview when route changes
-Router.events.on("routeChangeComplete", () => {
-  Fathom.trackPageview();
-});
-
 function MyApp({ Component, pageProps }) {
-  // Initialize Fathom when the app loads
-  useEffect(() => {
-    Fathom.load("VVGVMHHZ");
-  }, []);
-
   return (
     <ThemeProvider attribute="class">
       <Head>

@@ -9,7 +9,14 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <script
+            async
+            defer
+            data-website-id="3a96b2ba-8032-491e-9ec5-df513cf57d50"
+            src="https://analytics.jpvalery.com/umami.js"
+          ></script>
+        </Head>
         <body>
           <Main />
           <NextScript />
