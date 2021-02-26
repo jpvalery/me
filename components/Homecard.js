@@ -80,8 +80,7 @@ export default function Homecard() {
             />
           </svg>
           <span>
-            Growth Operations Manager @{" "}
-            <a href="https://locallogic.co">Local Logic</a>
+            Growth Operations / Customer Success
           </span>
         </span>
 
