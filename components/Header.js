@@ -484,7 +484,7 @@ export default function Header() {
                             <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                               <div className="flow-root w-full">
                                 <a
-                                  href="https://jpvalery.typeform.com/to/y96C4A"
+                                  href="https://contact.jpvalery.me"
                                   className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
                                 >
                                   <svg
@@ -769,6 +769,32 @@ export default function Header() {
                         </span>
                       </span>
                     </NextLink>
+
+                    <a href="https://contact.jpvalery.me">
+                      <span
+                        href="#"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                      >
+                        <svg
+                          className="flex-shrink-0 h-6 w-6 text-indigo-800"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"
+                          />
+                        </svg>
+                        <span className="ml-3 text-base font-medium text-gray-900">
+                          Get in touch
+                        </span>
+                      </span>
+                    </a>
                   </nav>
                 </div>
               </div>
