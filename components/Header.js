@@ -252,7 +252,7 @@ export default function Header() {
                             <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                               <div className="flow-root w-full">
                                 <a
-                                  href="mailto:contact@jpvalery.photo"
+                                  href="https://contact.jpvalery.me/photography"
                                   className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
                                 >
                                   <svg
