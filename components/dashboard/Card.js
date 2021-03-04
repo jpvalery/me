@@ -1,13 +1,13 @@
 export default function MetricCard({ header, link, metric }) {
   return (
-    <div className="metric-card bg-white overflow-hidden shadow rounded-lg p-5">
+    <div className="metric-card bg-gray-800 overflow-hidden shadow rounded-lg p-5">
       <a
         aria-label={header}
         target="_blank"
         rel="noopener noreferrer"
         href={link}
       >
-        <div className="flex items-center text-sm font-medium text-gray-500">
+        <div className="flex items-center text-sm font-medium text-gray-300">
           {header}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export default function MetricCard({ header, link, metric }) {
           </svg>
         </div>
       </a>
-      <p className="mt-1 text-3xl font-semibold text-gray-900">
+      <p className="mt-1 text-3xl font-semibold text-white">
         {metric || "-"}
       </p>
     </div>
