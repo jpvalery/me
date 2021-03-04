@@ -2,7 +2,7 @@ export default function Stack() {
   return (
     <div>
       <main>
-        <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+        <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
           What am I using?
         </h1>
         <p className="mt-4">
@@ -10,8 +10,8 @@ export default function Stack() {
           my work/life/craft
         </p>
         <container className="mt-4 grid grid-cols1 sm:grid-cols-2 gap-8">
-          <div className="bg-white overflow-hidden shadow rounded-lg p-5">
-            <h3 className="flex items-center text-lg font-semibold text-gray-900">
+          <div className="bg-gray-800 overflow-hidden shadow rounded-lg p-5">
+            <h3 className="flex items-center text-lg font-semibold text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -29,7 +29,7 @@ export default function Stack() {
               Everyday tech
             </h3>
             <div className="mt-4">
-              <span className="prose">
+              <span className="prose text-gray-300">
                 <ul>
                   <li>iPhone SE 2020</li>
                   <li>Apple Watch Series 3</li>
@@ -40,8 +40,8 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="metric-card bg-white overflow-hidden shadow rounded-lg p-5">
-            <h3 className="flex items-center text-lg font-semibold text-gray-900">
+          <div className="metric-card bg-gray-800 overflow-hidden shadow rounded-lg p-5">
+            <h3 className="flex items-center text-lg font-semibold text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -59,7 +59,7 @@ export default function Stack() {
               Software
             </h3>
             <div className="mt-4">
-              <span className="prose">
+              <span className="prose text-gray-300">
                 <ul>
                   <li>Firefox (diehard)</li>
                   <li>1Password</li>
@@ -71,8 +71,8 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="metric-card bg-white overflow-hidden shadow rounded-lg p-5">
-            <h3 className="flex items-center text-lg font-semibold text-gray-900">
+          <div className="metric-card bg-gray-800 overflow-hidden shadow rounded-lg p-5">
+            <h3 className="flex items-center text-lg font-semibold text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -96,7 +96,7 @@ export default function Stack() {
               Photography
             </h3>
             <div className="mt-4">
-              <span className="prose">
+              <span className="prose text-gray-300">
                 <ul>
                   <li>Canon EOS 6D</li>
                   <li>Olympus OMD-M10-MkII</li>
@@ -109,8 +109,8 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="metric-card bg-white overflow-hidden shadow rounded-lg p-5">
-            <h3 className="flex items-center text-lg font-semibold text-gray-900">
+          <div className="metric-card bg-gray-800 overflow-hidden shadow rounded-lg p-5">
+            <h3 className="flex items-center text-lg font-semibold text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -128,7 +128,7 @@ export default function Stack() {
               Gaming
             </h3>
             <div className="mt-4">
-              <span className="prose">
+              <span className="prose text-gray-300">
                 <ul>
                   <li>Xbox Series X</li>
                   <li>Steelseries Arctis 3</li>
@@ -140,8 +140,8 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="metric-card bg-white overflow-hidden shadow rounded-lg p-5">
-            <h3 className="flex items-center text-lg font-semibold text-gray-900">
+          <div className="metric-card bg-gray-800 overflow-hidden shadow rounded-lg p-5">
+            <h3 className="flex items-center text-lg font-semibold text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -159,7 +159,7 @@ export default function Stack() {
               Office - Work
             </h3>
             <div className="mt-4">
-              <span className="prose">
+              <span className="prose text-gray-300">
                 <ul>
                   <li>MBP 13&quot; 2019</li>
                   <li>Dell 24&quot; monitor</li>
@@ -172,8 +172,8 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="metric-card bg-white overflow-hidden shadow rounded-lg p-5">
-            <h3 className="flex items-center text-lg font-semibold text-gray-900">
+          <div className="metric-card bg-gray-800 overflow-hidden shadow rounded-lg p-5">
+            <h3 className="flex items-center text-lg font-semibold text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -191,7 +191,7 @@ export default function Stack() {
               Office - Personal
             </h3>
             <div className="mt-4">
-              <span className="prose">
+              <span className="prose text-gray-300">
                 <ul>
                   <li>iMac 27&quot; 2017</li>
                   <li>Asus 19&quot;</li>

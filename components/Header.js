@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Transition, Menu } from "@headlessui/react";
 import NextLink from "next/link";
 import React from "react";
-import Raccoon from "../icons/Raccoon";
+import Raccoon from "../elements/icons/Raccoon";
 
 export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   return (
-    <div className="max-w-3xl mx-auto sticky top-0 z-50 pt-4 bg-white bg-opacity-90">
-      <div className="flex justify-between border-b-2 border-gray-100 py-6">
+    <div className="max-w-3xl mx-auto sticky top-0 z-50 pt-4 bg-gray-900 bg-opacity-90">
+      <div className="flex justify-between border-b-2 border-gray-800 py-6">
         <NextLink href="/">
           <span className="w-24 h-12 -mt-9">
             <Raccoon />
@@ -44,7 +44,7 @@ export default function Header() {
           <Menu>
             {({ open }) => (
               <>
-                <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none focus:outline-none">
+                <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-white ml-4 outline-none focus:outline-none">
                   <span>Photography</span>
                   <svg
                     className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -289,7 +289,7 @@ export default function Header() {
           <Menu>
             {({ open }) => (
               <>
-                <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none focus:outline-none">
+                <Menu.Button className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-white ml-4 outline-none focus:outline-none">
                   <span>About</span>
 
                   <svg
@@ -518,7 +518,7 @@ export default function Header() {
             )}
           </Menu>
           <NextLink href="/writings">
-            <span className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 ml-4 outline-none">
+            <span className="group text-gray-500 inline-flex items-center text-base font-medium hover:text-white ml-4 outline-none">
               Writings
             </span>
           </NextLink>

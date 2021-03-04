@@ -1,9 +1,9 @@
 export default function Tombstone({ title, years, link, description }) {
   return (
     <div className="overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-      <div className="bg-gray-50 px-4 py-5 sm:px-6">
+      <div className="bg-gray-500 px-4 py-5 sm:px-6">
         <div className="flex justify-between items-center">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center text-gray-900">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -18,10 +18,10 @@ export default function Tombstone({ title, years, link, description }) {
                 d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
               />
             </svg>
-            <h2 className="text-xl leading-6 font-bold text-gray-900">
+            <h2 className="text-xl leading-6 font-bold">
               {title}
             </h2>
-            <span className="text-xs ml-2 pt-1 font-medium text-gray-500 leading-6">
+            <span className="text-xs ml-2 pt-1 font-medium text-gray-800 leading-6">
               ({years || "-"})
             </span>
           </div>
@@ -44,7 +44,7 @@ export default function Tombstone({ title, years, link, description }) {
           </div>
         </div>
       </div>
-      <div className="px-8 py-4">{description || "-"}</div>
+      <div className="p-6 bg-gray-800">{description || "-"}</div>
     </div>
   );
 }

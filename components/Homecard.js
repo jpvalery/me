@@ -1,7 +1,7 @@
 export default function Homecard() {
   return (
-    <div className="overflow-hidden shadow rounded-lg divide-y divide-gray-200 mt-12">
-      <div className="bg-gray-100 px-4 py-5 sm:px-6">
+    <div className="overflow-hidden shadow rounded-lg divide-y divide-gray-600 mt-12">
+      <div className="bg-gray-500 px-4 py-5 sm:px-6">
         <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
           <div className="ml-4 mt-4">
             <div className="flex items-center">
@@ -16,7 +16,7 @@ export default function Homecard() {
                 <h2 className="text-2xl leading-6 font-bold text-gray-900">
                   Jp Valery
                 </h2>
-                <p className="text-sm text-gray-600 my-2">
+                <p className="text-sm text-gray-800 my-2">
                   <span className="font-semibold">@jpvalery</span> everywhere
                   that matters
                 </p>
@@ -43,10 +43,10 @@ export default function Homecard() {
           </div>
         </div>
       </div>
-      <div className="grid md:grid-cols-1 lg:grid-cols-2  gap-4 grid-flow-row px-4 py-5 sm:p-6">
-        <span className="text-gray-900 flex items-center px-3 py-2 text-sm font-medium">
+      <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 grid-flow-row px-4 py-5 sm:p-6 bg-gray-800">
+        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
           <svg
-            className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -63,9 +63,9 @@ export default function Homecard() {
           <span>Montréal, QC - Canada</span>
         </span>
 
-        <span className="text-gray-900 flex items-center px-3 py-2 text-sm font-medium">
+        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
           <svg
-            className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -82,9 +82,9 @@ export default function Homecard() {
           <span>Growth Operations / Customer Success</span>
         </span>
 
-        <span className="text-gray-900 flex items-center px-3 py-2 text-sm font-medium">
+        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
           <svg
-            className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -101,9 +101,9 @@ export default function Homecard() {
           <span>Français, English, Español, HTML</span>
         </span>
 
-        <span className="text-gray-900 flex items-center px-3 py-2 text-sm font-medium">
+        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
           <svg
-            className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -120,9 +120,9 @@ export default function Homecard() {
           <span>He / Him / His</span>
         </span>
 
-        <span className="text-gray-900 flex items-start px-3 py-2 text-sm font-medium">
+        <span className="text-white flex items-start px-3 py-2 text-sm font-medium">
           <svg
-            className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -144,9 +144,9 @@ export default function Homecard() {
           </ul>
         </span>
 
-        <span className="text-gray-900 flex items-start px-3 py-2 text-sm font-medium">
+        <span className="text-white flex items-start px-3 py-2 text-sm font-medium">
           <svg
-            className="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

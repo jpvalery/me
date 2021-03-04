@@ -1,11 +1,11 @@
-import GitHub from "../icons/Github";
-import LinkedIn from "../icons/Linkedin";
-import Twitter from "../icons/Twitter";
-import Unsplash from "../icons/Unsplash";
+import GitHub from "../elements/icons/Github";
+import LinkedIn from "../elements/icons/Linkedin";
+import Twitter from "../elements/icons/Twitter";
+import Unsplash from "../elements/icons/Unsplash";
 
 export default function Footer() {
   return (
-    <footer className="bg-white">
+    <footer>
       <div className="max-w-3xl mx-auto py-12 md:flex md:items-center md:justify-between">
         <div className="flex justify-center space-x-6 md:order-2">
           <a

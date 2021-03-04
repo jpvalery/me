@@ -17,7 +17,7 @@ class MyDocument extends Document {
             src="https://analytics.jpvalery.com/umami.js"
           ></script>
         </Head>
-        <body>
+        <body className="bg-gray-900 text-white">
           <Main />
           <NextScript />
         </body>
