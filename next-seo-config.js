@@ -1,14 +1,15 @@
 const title = "Jp Valery 🦝";
 const description = "Polymath based in Montréal, QC. This is my lil plot of land on the interwebs";
+const siteUrl = "https://jpvalery.me"
 
 const SEO = {
   title: title,
   description: description,
-  canonical: "https://jpvalery.me",
+  canonical: siteUrl,
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://jpvalery.com",
+    url: siteUrl,
     title: title,
     description: description,
     images: [
@@ -22,7 +23,7 @@ const SEO = {
   },
   twitter: {
     handle: "@jpvalery",
-    site: "jpvalery.com",
+    site: siteUrl,
     cardType: "summary_large_image",
   },
 };
