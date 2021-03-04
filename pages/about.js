@@ -5,7 +5,7 @@ export default function Now() {
         <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
           Who the heck is Jp
         </h1>
-        <article class="prose prose-xl text-gray-300 prose-indigo mt-4">
+        <article className="prose prose-xl text-gray-300 prose-indigo mt-4">
           <p>
             I guess that's what you're trying to figure out if you're on this
             page.
