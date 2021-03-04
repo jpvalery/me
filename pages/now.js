@@ -5,10 +5,10 @@ export default function Now() {
         <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
           What am I up to now?
         </h1>
-        <p class="text-base font-semibold mt-4 tracking-wide uppercase text-gray-500">
+        <p className="text-base font-semibold mt-4 tracking-wide uppercase text-gray-500">
           Last updated: January 10th, 2021
         </p>
-        <article class="prose prose-xl text-gray-300 prose-indigo mt-4">
+        <article className="prose prose-xl text-gray-300 prose-indigo mt-4">
           <p>Well... 2020 was a effing dumpster fire, wasn't it?</p>
           <p>
             I'm hoping 2021 will be better (<em>as everyone probably is</em>)
