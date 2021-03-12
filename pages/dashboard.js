@@ -8,12 +8,12 @@ export default function Now() {
   return (
     <div>
       <main>
-        <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
           Jp in numbers
         </h1>
         <container className="mt-8 grid grid-cols-1 gap-4">
           <Unsplash />
-          <div className="grid gap-4 grid-cols-1 w-full sm:grid-cols-2">
+          <div className="w-full grid gap-4 grid-cols-1 sm:grid-cols-2">
             <Betaseries />
             <MetricCard
               header="IMDB - Show/Movies seen"

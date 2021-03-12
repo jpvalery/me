@@ -1,35 +1,35 @@
 export default function Homecard() {
   return (
-    <div className="overflow-hidden shadow rounded-lg divide-y divide-gray-600 mt-12">
-      <div className="bg-gray-500 px-4 py-5 sm:px-6">
-        <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
-          <div className="ml-4 mt-4">
+    <div className="mt-12 overflow-hidden rounded-lg shadow divide-y divide-gray-600">
+      <div className="px-4 py-5 bg-gray-500 sm:px-6">
+        <div className="flex flex-wrap items-center justify-between -mt-4 -ml-4 sm:flex-nowrap">
+          <div className="mt-4 ml-4">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <img
-                  className="h-16 w-16 rounded-full"
+                  className="w-16 h-16 rounded-full"
                   src="/static/jp-valery-avatar.webp"
                   alt=""
                 />
               </div>
               <div className="ml-4">
-                <h2 className="text-2xl leading-6 font-bold text-gray-900">
+                <h2 className="text-2xl font-bold text-gray-900 leading-6">
                   Jp Valery
                 </h2>
-                <p className="text-sm text-gray-800 my-2">
+                <p className="my-2 text-sm text-gray-800">
                   <span className="font-semibold">@jpvalery</span> everywhere
                   that matters
                 </p>
               </div>
             </div>
           </div>
-          <div className="ml-4 mt-4 flex-shrink-0 flex z-0">
+          <div className="z-0 flex flex-shrink-0 mt-4 ml-4">
             <a
               href="mailto:contact@jpvalery.me"
-              className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+              className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 shadow-sm rounded-md hover:bg-gray-50 focus:outline-none"
             >
               <svg
-                className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                className="w-5 h-5 mr-2 -ml-1 text-gray-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -43,10 +43,10 @@ export default function Homecard() {
           </div>
         </div>
       </div>
-      <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 grid-flow-row px-4 py-5 sm:p-6 bg-gray-800">
-        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
+      <div className="px-4 py-5 bg-gray-800 grid md:grid-cols-1 lg:grid-cols-2 gap-4 grid-flow-row sm:p-6">
+        <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
           <svg
-            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -63,9 +63,9 @@ export default function Homecard() {
           <span>Montréal, QC - Canada</span>
         </span>
 
-        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
+        <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
           <svg
-            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -82,9 +82,9 @@ export default function Homecard() {
           <span>Growth Operations / Customer Success</span>
         </span>
 
-        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
+        <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
           <svg
-            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -101,9 +101,9 @@ export default function Homecard() {
           <span>Français, English, Español, HTML</span>
         </span>
 
-        <span className="text-white flex items-center px-3 py-2 text-sm font-medium">
+        <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
           <svg
-            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -120,9 +120,9 @@ export default function Homecard() {
           <span>He / Him / His</span>
         </span>
 
-        <span className="text-white flex items-start px-3 py-2 text-sm font-medium">
+        <span className="flex items-start px-3 py-2 text-sm font-medium text-white">
           <svg
-            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -144,9 +144,9 @@ export default function Homecard() {
           </ul>
         </span>
 
-        <span className="text-white flex items-start px-3 py-2 text-sm font-medium">
+        <span className="flex items-start px-3 py-2 text-sm font-medium text-white">
           <svg
-            className="text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
+            className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

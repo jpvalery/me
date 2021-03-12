@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <main>
-        <h1 className="text-5xl tracking-tight font-extrabold text-white">
+        <h1 className="text-5xl font-extrabold tracking-tight text-white">
           Oh. Hi there!
         </h1>
         <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
