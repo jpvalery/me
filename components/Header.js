@@ -10,7 +10,7 @@ export default function Header() {
     <div className="sticky top-0 z-50 max-w-3xl pt-4 mx-auto bg-gray-900 bg-opacity-90">
       <div className="flex justify-between py-6 border-b-2 border-gray-800">
         <NextLink href="/">
-          <span className="w-24 h-12 -mt-9">
+          <span className="w-24 h-12 cursor-pointer -mt-9">
             <Raccoon />
           </span>
         </NextLink>
@@ -72,7 +72,7 @@ export default function Header() {
                   <Menu.Items static as={React.Fragment}>
                     <div className="absolute z-50 mt-12 outline-none -ml-80">
                       <div className="w-screen max-w-md overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative px-8 py-8 bg-white grid gap-8">
+                        <div className="relative grid gap-8 px-8 py-8 bg-white">
                           <Menu.Item>
                             {({ active }) => (
                               <a
@@ -249,8 +249,8 @@ export default function Header() {
                         </div>
                         <Menu.Item>
                           {({ active }) => (
-                            <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                              <div className="w-full flow-root">
+                            <div className="px-5 py-5 space-y-6 bg-gray-50 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                              <div className="flow-root w-full">
                                 <a
                                   href="https://contact.jpvalery.me/photography"
                                   className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100"
@@ -318,7 +318,7 @@ export default function Header() {
                   <Menu.Items static as={React.Fragment}>
                     <div className="absolute z-50 mt-12 outline-none -ml-96">
                       <div className="w-screen max-w-md overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative px-8 py-8 bg-white grid gap-8">
+                        <div className="relative grid gap-8 px-8 py-8 bg-white">
                           <Menu.Item>
                             {({ active }) => (
                               <NextLink href="/about">
@@ -481,8 +481,8 @@ export default function Header() {
                         </div>
                         <Menu.Item>
                           {({ active }) => (
-                            <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                              <div className="w-full flow-root">
+                            <div className="px-5 py-5 space-y-6 bg-gray-50 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                              <div className="flow-root w-full">
                                 <a
                                   href="https://contact.jpvalery.me"
                                   className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100"
@@ -537,9 +537,9 @@ export default function Header() {
         {(ref) => (
           <div
             ref={ref}
-            className="absolute inset-x-0 top-0 p-2 transition transform origin-top-right md:hidden"
+            className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden"
           >
-            <div className="bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
+            <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
                   <div></div>
