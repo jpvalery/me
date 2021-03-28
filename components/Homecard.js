@@ -1,6 +1,6 @@
 export default function Homecard() {
   return (
-    <div className="mt-12 overflow-hidden rounded-lg shadow divide-y divide-gray-600">
+    <div className="mt-12 overflow-hidden divide-y divide-gray-600 rounded-lg shadow">
       <div className="px-4 py-5 bg-gray-500 sm:px-6">
         <div className="flex flex-wrap items-center justify-between -mt-4 -ml-4 sm:flex-nowrap">
           <div className="mt-4 ml-4">
@@ -13,7 +13,7 @@ export default function Homecard() {
                 />
               </div>
               <div className="ml-4">
-                <h2 className="text-2xl font-bold text-gray-900 leading-6">
+                <h2 className="text-2xl font-bold leading-6 text-gray-900">
                   Jp Valery
                 </h2>
                 <p className="my-2 text-sm text-gray-800">
@@ -26,7 +26,7 @@ export default function Homecard() {
           <div className="z-0 flex flex-shrink-0 mt-4 ml-4">
             <a
               href="mailto:contact@jpvalery.me"
-              className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 shadow-sm rounded-md hover:bg-gray-50 focus:outline-none"
+              className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none"
             >
               <svg
                 className="w-5 h-5 mr-2 -ml-1 text-gray-400"
@@ -43,7 +43,7 @@ export default function Homecard() {
           </div>
         </div>
       </div>
-      <div className="px-4 py-5 bg-gray-800 grid md:grid-cols-1 lg:grid-cols-2 gap-4 grid-flow-row sm:p-6">
+      <div className="grid grid-flow-row gap-4 px-4 py-5 bg-gray-800 md:grid-cols-1 lg:grid-cols-2 sm:p-6">
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
           <svg
             className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-300"
@@ -79,7 +79,7 @@ export default function Homecard() {
               d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </svg>
-          <span>Growth Operations / Customer Success</span>
+          <span>Customer Success Manager @ Customer.io</span>
         </span>
 
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">

@@ -1,6 +1,7 @@
 const title = "Jp Valery 🦝";
-const description = "Polymath based in Montréal, QC. This is my lil plot of land on the interwebs";
-const siteUrl = "https://jpvalery.me"
+const description =
+  "Polymath based in Montréal, QC. This is my lil plot of land on the interwebs";
+const siteUrl = "https://jpvalery.me";
 
 const SEO = {
   title: title,
@@ -14,10 +15,10 @@ const SEO = {
     description: description,
     images: [
       {
-        url: 'https://jpvalery.me/static/og-banner.jpg',
+        url: "https://jpvalery.me/static/og-banner.jpg",
         width: 1920,
         height: 1280,
-        alt: 'Open Graph Image',
+        alt: "Open Graph Image",
       },
     ],
   },

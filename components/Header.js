@@ -19,7 +19,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
+            className="inline-flex items-center justify-center p-2 bg-gray-700 rounded-md text-gray-50 hover:text-gray-900 hover:bg-gray-500 focus:outline-none"
           >
             <span className="sr-only">Open menu</span>
             <svg
@@ -353,38 +353,6 @@ export default function Header() {
 
                           <Menu.Item>
                             {({ active }) => (
-                              <NextLink href="/now">
-                                <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
-                                  <svg
-                                    className="flex-shrink-0 w-6 h-6 text-indigo-800"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                  >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth={2}
-                                      d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"
-                                    />
-                                  </svg>
-                                  <div className="ml-4">
-                                    <p className="text-base font-medium text-gray-900">
-                                      /now
-                                    </p>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                      What am I up to lately?
-                                    </p>
-                                  </div>
-                                </span>
-                              </NextLink>
-                            )}
-                          </Menu.Item>
-
-                          <Menu.Item>
-                            {({ active }) => (
                               <NextLink href="/stack">
                                 <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
                                   <svg
@@ -478,6 +446,37 @@ export default function Header() {
                               </NextLink>
                             )}
                           </Menu.Item>
+
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="https://growthmontreal.com"
+                                target="_blank"
+                                className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
+                              >
+                                <span className="flex-shrink-0 w-6 h-6 text-2xl text-indigo-800">
+                                  𝔊
+                                </span>
+                                <div className="ml-4">
+                                  <p className="inline-flex text-base font-medium text-gray-900">
+                                    Advisorship & Consultancy
+                                    <svg
+                                      className="w-4 h-4 mt-1 ml-2 text-gray-700"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 20 20"
+                                      fill="currentColor"
+                                    >
+                                      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                    </svg>
+                                  </p>
+                                  <p className="mt-1 text-sm text-gray-500">
+                                    Sustainable growth for early-stage SaaS
+                                  </p>
+                                </div>
+                              </a>
+                            )}
+                          </Menu.Item>
                         </div>
                         <Menu.Item>
                           {({ active }) => (
@@ -537,40 +536,36 @@ export default function Header() {
         {(ref) => (
           <div
             ref={ref}
-            className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden"
+            className="absolute inset-x-0 p-2 transition origin-top-right transform top-6 md:hidden"
           >
             <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
-              <div className="px-5 pt-5 pb-6">
-                <div className="flex items-center justify-between">
-                  <div></div>
-
-                  <div className="-mr-2">
-                    <button
-                      type="button"
-                      onClick={() => setIsMobileOpen(!isMobileOpen)}
-                      className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
+              <div className="relative p-5">
+                <div className="absolute top-2 right-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileOpen(!isMobileOpen)}
+                    className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
+                  >
+                    <span className="sr-only">Close menu</span>
+                    <svg
+                      className="w-6 h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
                     >
-                      <span className="sr-only">Close menu</span>
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
                 </div>
 
-                <div className="mt-6">
+                <div className="w-11/12">
                   <nav className="grid gap-y-8">
                     <a
                       href="https://jpvalery.photo"
@@ -668,6 +663,26 @@ export default function Header() {
                         </span>
                       </span>
                     </NextLink>
+
+                    <a
+                      href="https://growthmontreal.com"
+                      target="_blank"
+                      className="flex items-center p-3 -m-3 rounded-md hover:bg-gray-50"
+                    >
+                      <span className="text-2xl text-indigo-800">𝔊</span>
+                      <span className="inline-flex ml-3 text-base font-medium text-gray-900">
+                        Advisorship/Consultancy
+                        <svg
+                          className="w-4 h-4 mt-1 ml-2 text-gray-700"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                          <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                        </svg>
+                      </span>
+                    </a>
 
                     <NextLink href="/now">
                       <span className="flex items-center p-3 -m-3 rounded-md hover:bg-gray-50">
