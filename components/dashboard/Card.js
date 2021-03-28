@@ -20,9 +20,7 @@ export default function MetricCard({ header, link, metric }) {
           </svg>
         </div>
       </a>
-      <p className="mt-1 text-3xl font-semibold text-white">
-        {metric || "-"}
-      </p>
+      <p className="mt-1 text-3xl font-semibold text-white">{metric || "-"}</p>
     </div>
   );
 }
