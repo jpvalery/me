@@ -1,3 +1,5 @@
+import { ExternalLinkIcon } from "@heroicons/react/solid";
+
 export default function Writings() {
   return (
     <main>
@@ -20,15 +22,7 @@ export default function Writings() {
           <a href="https://ujaap.com" target="_blank">
             <span className="inline-flex text-base font-medium text-gray-300">
               UJaaP.com
-              <svg
-                className="w-4 h-4 mt-1 ml-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-              </svg>
+              <ExternalLinkIcon className="w-4 h-4 mt-1 ml-2" />
             </span>
           </a>
         </div>
@@ -36,24 +30,16 @@ export default function Writings() {
         <div className="grid grid-flow-row gap-2 p-4 text-white bg-gray-800 rounded">
           <h1 className="text-xl font-bold">Cuisinomicon</h1>
           <p>
-            A collection of improvised or invented recipes for delicious food and drinks.
+            A collection of improvised or invented recipes for delicious food
+            and drinks.
           </p>
           <a href="https://cuisinomicon.com" target="_blank">
             <span className="inline-flex text-base font-medium text-gray-300">
               cuisinomicon.com
-              <svg
-                className="w-4 h-4 mt-1 ml-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-              </svg>
+              <ExternalLinkIcon className="w-4 h-4 mt-1 ml-2" />
             </span>
           </a>
         </div>
-
       </div>
     </main>
   );

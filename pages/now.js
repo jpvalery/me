@@ -1,3 +1,5 @@
+import NextLink from "next/link";
+
 export default function Now() {
   return (
     <main>
@@ -5,53 +7,66 @@ export default function Now() {
         What am I up to now?
       </h1>
       <p className="mt-4 text-base font-semibold tracking-wide text-gray-500 uppercase">
-        Last updated: January 10th, 2021
+        Last updated: March 30th, 2021
       </p>
-      <article className="mt-4 prose prose-xl text-gray-300 prose-indigo">
-        <p>Well... 2020 was a effing dumpster fire, wasn't it?</p>
+      <article className="py-4 prose prose-xl text-gray-300 prose-indigo">
         <p>
-          I'm hoping 2021 will be better (<em>as everyone probably is</em>) but
-          let's say that I'm cautiously optimistic. Let's see how things are
-          after our latest lockdown.
+          2021 started pretty crazy—no reasons to change the winning recipe of
+          2020, eh?
         </p>
         <p>
-          On the bright side, I think the dumpster fire allowed me to really
-          figure out what was important for me and what I wanted from my life.
+          I left my role at Local Logic in February. I tried to get alignment on
+          my future at the company after blowing past all my objectives and
+          working non-stop for a year. I was told to quit. So, I went{" "}
+          <em>yolo</em> and did just that.
         </p>
         <p>
-          We also had a great harvest in our veggie garden over the summer and I
-          converted my landlord and neighbor to the joy of growing your own
-          food.
+          I have to say I'm pretty proud of me for doing so. It was both a crazy
+          and a courageous choice to draw the line and say "no more". I think
+          that a few years ago I would have kept enduring the abuse and
+          toxicity, rather than calling it quits
         </p>
         <p>
-          I also built a flight sim chair out of wood and a recycled auto seat,
-          as well as a custom joystick with an Arduino and some soldered
-          buttons.
+          <em>Fortis Fortuna Adiuvat</em> as they say.
         </p>
         <p>
-          These days I'm playing mostly Apex Legends and Rainbow Six Siege. The
-          latest Red Dead Online update was a bloody joke and literally made me
-          churn from the game. I've also started{" "}
-          <a href="https://lichess.org/@/jpvalery">playing chess online</a> and
-          I'm neither great nor terrible.
+          I got a couple of freelancing gigs to keep me busy while I was
+          enjoying funemployment and I landed a role at Customer.io as a
+          Customer Success Manager. If you ran into me over the past few years
+          and we chatted about marketing automation, there's a 99.999% chance I
+          annoyed you with how freaking awesome Customer.io is as a product. So,
+          I couldn't be more excited to be joining this team.
         </p>
         <p>
-          I've been reading a lot of books on self-sufficiency and homesteading.
-          I've also started preparing for the next growing seasons and can't
-          wait to receive my order of seeds.
+          These days I'm playing mostly Apex Legends, Dead by Daylight, H:CotW.
+          I'm looking forward to jumping back a bit more on Flight Simulator,
+          especially with an Oculus Quest on the way.
         </p>
         <p>
-          Oh and, you've guessed it, I'm cleaning up my websites and domains.
-          Kinda like spring cleaning but with DNS records and code and it's
-          winter.
+          I've started my seedlings for the season and as usual I'm just amazed
+          by these lil' plants making their way up through the soil. Life is
+          amazing.
         </p>
         <p>
-          <em>
-            Also wondering if I should save these updates as some sort of
-            seasonal journal.
-          </em>
+          While the first quarter of 2021 was kinda bumpy, I'm excited for the
+          rest of the year.
         </p>
       </article>
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-300"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <h2 className="px-3 text-lg font-medium bg-gray-900 text-gray-50">
+            Previous versions
+          </h2>
+        </div>
+      </div>
+      <ul>
+        <li className="hover:text-indigo-600">
+          <NextLink href="/now/2021-01-10">January 10th, 2021</NextLink>
+        </li>
+      </ul>
     </main>
   );
 }

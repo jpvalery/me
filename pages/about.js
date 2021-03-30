@@ -22,8 +22,8 @@ export default function Now() {
           Montréal in 2014. I became a dual-citizen in 2020.
         </p>
         <p>
-          I'm currently in between roles. My expertise is in growth operations
-          and customer success.
+          I'm starting a new adventure as a Customer Success Manager at
+          Customer.io in a few weeks. Enjoying funemployment till then.
         </p>
         <p>
           Before that, I've dabbled in{" "}
