@@ -7,49 +7,39 @@ export default function Now() {
         What am I up to now?
       </h1>
       <p className="mt-4 text-base font-semibold tracking-wide text-gray-500 uppercase">
-        Last updated: March 30th, 2021
+        Last updated: August 12th, 2021
       </p>
       <article className="py-4 prose prose-xl text-gray-300 prose-indigo">
         <p>
-          2021 started pretty crazy—no reasons to change the winning recipe of
-          2020, eh?
+          Almost 5 months since my last update, <em>what is up?</em>
         </p>
         <p>
-          I left my role at Local Logic in February. I tried to get alignment on
-          my future at the company after blowing past all my objectives and
-          working non-stop for a year. I was told to quit. So, I went{" "}
-          <em>yolo</em> and did just that.
+          I started my new role at Customer.io and so far so good! I'm trying
+          not to jinx it but I'm fortunate to have a nice team, great leaders,
+          and working on a product I love. I think it really makes a difference.
+          It's pretty exciting to help people extract the most out of it
+          everyday.
         </p>
         <p>
-          I have to say I'm pretty proud of me for doing so. It was both a crazy
-          and a courageous choice to draw the line and say "no more". I think
-          that a few years ago I would have kept enduring the abuse and
-          toxicity, rather than calling it quits
+          I'll be spending a few days in Gaspésie next week to see my old
+          roomate, get some marine air, and hopefully take some nice pictures
+          after almost 18 months without any photos...
         </p>
         <p>
-          <em>Fortis Fortuna Adiuvat</em> as they say.
+          These days I'm playing mostly Apex Legends (pretty proud of my 20% win
+          rate and 1 KD this season), Microsoft Flight Simulator, and bouncing
+          between Red Dead Online, Grounded, and Back4Blood Beta the rest of the
+          time.
         </p>
         <p>
-          I got a couple of freelancing gigs to keep me busy while I was
-          enjoying funemployment and I landed a role at Customer.io as a
-          Customer Success Manager. If you ran into me over the past few years
-          and we chatted about marketing automation, there's a 99.999% chance I
-          annoyed you with how freaking awesome Customer.io is as a product. So,
-          I couldn't be more excited to be joining this team.
+          Despite a uncooperative weather, my garden has been doing pretty good.
+          This year, I wanted to experiment with new species and I have had so
+          much fun seeing my cucamelons, casper eggplants, etc... growing. So
+          yummy!
         </p>
         <p>
-          These days I'm playing mostly Apex Legends, Dead by Daylight, H:CotW.
-          I'm looking forward to jumping back a bit more on Flight Simulator,
-          especially with an Oculus Quest on the way.
-        </p>
-        <p>
-          I've started my seedlings for the season and as usual I'm just amazed
-          by these lil' plants making their way up through the soil. Life is
-          amazing.
-        </p>
-        <p>
-          While the first quarter of 2021 was kinda bumpy, I'm excited for the
-          rest of the year.
+          Now, with the upcoming Fall and although I'm vaccinated, I'm wondering
+          about how the pandemic will shape the cold seaons.
         </p>
       </article>
       <div className="relative py-8">
@@ -64,6 +54,7 @@ export default function Now() {
       </div>
       <ul>
         <li className="hover:text-indigo-600">
+          <NextLink href="/now/2021-03-30">March 30th, 2021</NextLink>
           <NextLink href="/now/2021-01-10">January 10th, 2021</NextLink>
         </li>
       </ul>
