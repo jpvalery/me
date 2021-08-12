@@ -55,6 +55,8 @@ export default function Now() {
       <ul>
         <li className="hover:text-indigo-600">
           <NextLink href="/now/2021-03-30">March 30th, 2021</NextLink>
+        </li>
+        <li className="hover:text-indigo-600">
           <NextLink href="/now/2021-01-10">January 10th, 2021</NextLink>
         </li>
       </ul>
