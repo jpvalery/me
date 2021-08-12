@@ -17,7 +17,7 @@ export default function Now() {
           <MetricCard
             header="IMDB - Show/Movies seen"
             link="https://www.imdb.com/user/ur59148764/ratings?sort=your_rating,desc&ratingFilter=0&mode=detail&ref_=undefined&lastPosition=0"
-            metric="955"
+            metric="1066"
           />
         </div>
       </container>
