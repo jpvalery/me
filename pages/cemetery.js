@@ -32,7 +32,7 @@ export default function Now() {
         <Tombstone
           title="Adopte un Français"
           years="2014"
-          link="https://adopteunfrançais.ca"
+          link="https://www.behance.net/gallery/17481345/AdopteUnFrancaisca"
           description="Looking for a job and a visa to stay in Canada in 2014, I made an interactive web résumé called AdopteUnFrançais.ca (AdoptAFrenchman.ca). This led to multiple interviews and actually landing my first job at Gameloft"
         />
         <Tombstone
