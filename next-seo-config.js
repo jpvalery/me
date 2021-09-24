@@ -4,9 +4,9 @@ const description =
 const siteUrl = "https://jpvalery.me";
 
 const SEO = {
-  title: title,
+  titleTemplate: "%s | Jp Valery 🦝",
+  defaultTitle: title,
   description: description,
-  canonical: siteUrl,
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -15,9 +15,10 @@ const SEO = {
     description: description,
     images: [
       {
-        url: "https://jpvalery.me/static/og-banner.jpg",
-        width: 1920,
-        height: 1280,
+        url:
+          "https://og.jpvalery.me/**Jp%20Valery**.png?theme=dotme&md=1&fontSize=125px&images=https%3A%2F%2Fog.jpvalery.me%2Fstatic%2Fraccoon.svg&heights=300",
+        width: 1531,
+        height: 875,
         alt: "Open Graph Image",
       },
     ],
