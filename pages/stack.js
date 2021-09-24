@@ -6,6 +6,7 @@ import {
   BriefcaseIcon,
   DesktopComputerIcon,
 } from "@heroicons/react/outline";
+import { NextSeo } from "next-seo";
 
 export default function Stack() {
   return (

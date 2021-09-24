@@ -1,4 +1,5 @@
 import { ExternalLinkIcon } from "@heroicons/react/solid";
+import { NextSeo } from "next-seo";
 
 export default function Writings() {
   return (
