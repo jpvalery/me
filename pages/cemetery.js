@@ -1,4 +1,5 @@
 import Tombstone from "../components/Tombstone";
+import { NextSeo } from "next-seo";
 
 export default function Now() {
   return (

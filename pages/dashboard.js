@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 import Unsplash from "../components/dashboard/Unsplash";
 import Betaseries from "../components/dashboard/Betaseries";

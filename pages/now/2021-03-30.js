@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { NextSeo } from "next-seo";
 
 export default function Now() {
   return (
