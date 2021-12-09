@@ -1,11 +1,4 @@
 module.exports = {
-  purge: ["./pages/**/*.js", "./components/**/*.js", "./elements/**/*.js"],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
+  content: ["./pages/**/*.js", "./components/**/*.js", "./elements/**/*.js"],
   plugins: [require("@tailwindcss/typography")],
 };
