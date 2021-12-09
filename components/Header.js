@@ -197,7 +197,7 @@ export default function Header() {
                           <Menu.Item>
                             {({ active }) => (
                               <NextLink href="/about">
-                                <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
+                                <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-gray-50">
                                   <UserCircleIcon className="flex-shrink-0 w-6 h-6 text-indigo-800" />
                                   <div className="ml-4">
                                     <p className="text-base font-medium text-gray-900">
@@ -215,7 +215,7 @@ export default function Header() {
                           <Menu.Item>
                             {({ active }) => (
                               <NextLink href="/now">
-                                <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
+                                <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-gray-50">
                                   <StatusOnlineIcon className="flex-shrink-0 w-6 h-6 text-indigo-800" />
                                   <div className="ml-4">
                                     <p className="text-base font-medium text-gray-900">
@@ -233,7 +233,7 @@ export default function Header() {
                           <Menu.Item>
                             {({ active }) => (
                               <NextLink href="/stack">
-                                <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
+                                <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-gray-50">
                                   <CollectionIcon className="flex-shrink-0 w-6 h-6 text-indigo-800" />
                                   <div className="ml-4">
                                     <p className="text-base font-medium text-gray-900">
@@ -251,7 +251,7 @@ export default function Header() {
                           <Menu.Item>
                             {({ active }) => (
                               <NextLink href="/dashboard">
-                                <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
+                                <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-gray-50">
                                   <ChartSquareBarIcon className="flex-shrink-0 w-6 h-6 text-indigo-800" />
                                   <div className="ml-4">
                                     <p className="text-base font-medium text-gray-900">
@@ -269,7 +269,7 @@ export default function Header() {
                           <Menu.Item>
                             {({ active }) => (
                               <NextLink href="/cemetery">
-                                <span className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
+                                <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-gray-50">
                                   <MoonIcon className="flex-shrink-0 w-6 h-6 text-indigo-800" />
                                   <div className="ml-4">
                                     <p className="text-base font-medium text-gray-900">
