@@ -15,10 +15,9 @@
     "comma-number": "^2.0.1",
     "next": "^12.0.7",
     "next-seo": "^4.17.0",
-    "next-themes": "^0.0.10",
     "postcss": "^8.4.4",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "swr": "^0.4.0",
     "tailwindcss": "^3.0.0",
     "unsplash-js": "6.3.0"
