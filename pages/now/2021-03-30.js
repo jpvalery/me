@@ -25,7 +25,7 @@ export default function Now() {
         <p className="mt-4 text-base font-semibold tracking-wide text-gray-500 uppercase">
           Last updated: March 30th, 2021
         </p>
-        <article className="py-4 prose prose-xl text-stone-50 prose-now">
+        <article className="py-4 prose prose-xl text-stone-50 prose-a:text-now-600">
           <p>
             2021 started pretty crazy—no reasons to change the winning recipe of
             2020, eh?
@@ -82,7 +82,7 @@ export default function Now() {
           </div>
         </div>
         <ul>
-          <li className="hover:text-amber-600">
+          <li className="hover:text-now-600">
             <NextLink href="/now/2021-01-10">January 10th, 2021</NextLink>
           </li>
         </ul>

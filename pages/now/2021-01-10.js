@@ -21,7 +21,7 @@ export default function Now() {
         <h1 className="text-4xl font-extrabold tracking-tight text-white font-cartridge">
           What was I up to on January 10th 2021?
         </h1>
-        <article className="py-4 prose prose-xl text-stone-50 prose-now">
+        <article className="py-4 prose prose-xl text-stone-50 prose-a:text-now-600">
           <p>Well... 2020 was a effing dumpster fire, wasn't it?</p>
           <p>
             I'm hoping 2021 will be better (<em>as everyone probably is</em>)
