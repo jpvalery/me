@@ -2,14 +2,14 @@ import { ExternalLinkIcon } from "@heroicons/react/solid";
 
 export default function MetricCard({ header, link, metric }) {
   return (
-    <div className="p-5 overflow-hidden bg-gray-800 rounded-lg shadow metric-card">
+    <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800 metric-card">
       <a
         aria-label={header}
         target="_blank"
         rel="noopener noreferrer"
         href={link}
       >
-        <div className="flex items-center text-sm font-medium text-gray-300">
+        <div className="flex items-center text-sm font-medium text-stone-200">
           {header}
           <ExternalLinkIcon className="w-5 h-5 ml-2" />
         </div>
