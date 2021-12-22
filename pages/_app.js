@@ -1,7 +1,7 @@
 import "tailwindcss/tailwind.css";
+import "../fonts/fonts.css"
 
 import React, { useEffect } from "react";
-import Router from "next/router";
 import Head from "next/head";
 
 import { DefaultSeo } from "next-seo";

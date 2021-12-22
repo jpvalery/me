@@ -19,13 +19,13 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-          What am I up to now?
+        <h1 className="text-4xl font-extrabold tracking-tight text-white font-cartridge">
+          What was I up to on March 30th 2021?
         </h1>
         <p className="mt-4 text-base font-semibold tracking-wide text-gray-500 uppercase">
           Last updated: March 30th, 2021
         </p>
-        <article className="py-4 prose prose-xl text-gray-300 prose-indigo">
+        <article className="py-4 prose prose-xl text-stone-50 prose-now">
           <p>
             2021 started pretty crazy—no reasons to change the winning recipe of
             2020, eh?
@@ -76,13 +76,13 @@ export default function Now() {
             <div className="w-full border-t border-gray-300"></div>
           </div>
           <div className="relative flex justify-center">
-            <h2 className="px-3 text-lg font-medium bg-gray-900 text-gray-50">
+            <h2 className="px-3 text-lg font-medium bg-stone-900 text-gray-50">
               Previous versions
             </h2>
           </div>
         </div>
         <ul>
-          <li className="hover:text-indigo-600">
+          <li className="hover:text-amber-600">
             <NextLink href="/now/2021-01-10">January 10th, 2021</NextLink>
           </li>
         </ul>

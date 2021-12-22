@@ -20,15 +20,13 @@ export default function Writings() {
         }}
       />
       <main>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-          Writings
-        </h1>
+        <h1 className="text-5xl text-white font-cartridge">Writings</h1>
         <div className="grid grid-flow-row gap-4">
-          <article className="mt-4 prose prose-xl text-gray-300">
+          <article className="mt-4 prose prose-xl text-stone-50">
             <p>Hoping to populate more this section soon</p>
           </article>
 
-          <div className="grid grid-flow-row gap-2 p-4 text-white bg-gray-800 rounded">
+          <div className="grid grid-flow-row gap-2 p-4 text-white rounded bg-stone-800">
             <h1 className="text-xl font-bold">UJaaP</h1>
             <p>
               A manifesto to methodically approach your communications with your
@@ -37,21 +35,21 @@ export default function Writings() {
               benefit.
             </p>
             <a href="https://ujaap.com" target="_blank">
-              <span className="inline-flex text-base font-medium text-gray-300">
+              <span className="inline-flex text-base font-medium text-stone-50">
                 UJaaP.com
                 <ExternalLinkIcon className="w-4 h-4 mt-1 ml-2" />
               </span>
             </a>
           </div>
 
-          <div className="grid grid-flow-row gap-2 p-4 text-white bg-gray-800 rounded">
+          <div className="grid grid-flow-row gap-2 p-4 text-white rounded bg-stone-800">
             <h1 className="text-xl font-bold">Cuisinomicon</h1>
             <p>
               A collection of improvised or invented recipes for delicious food
               and drinks.
             </p>
             <a href="https://cuisinomicon.com" target="_blank">
-              <span className="inline-flex text-base font-medium text-gray-300">
+              <span className="inline-flex text-base font-medium text-stone-50">
                 cuisinomicon.com
                 <ExternalLinkIcon className="w-4 h-4 mt-1 ml-2" />
               </span>

@@ -19,10 +19,10 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+        <h1 className="text-5xl text-white font-cartridge">
           A cemetery of past projects
         </h1>
-        <p className="mt-4 text-gray-300">
+        <p className="mt-4 text-stone-50">
           Everything dies one day. This is the cemetery of things I built and
           killed off at one point
         </p>
