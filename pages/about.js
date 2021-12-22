@@ -21,7 +21,7 @@ export default function Now() {
         <h1 className="text-5xl text-white font-cartridge">
           Who the heck is Jp?
         </h1>
-        <article className="mt-4 prose prose-xl text-stone-50 prose-amber">
+        <article className="mt-4 prose prose-xl text-stone-50 prose-a:text-about-600">
           <p>
             I guess that's what you're trying to figure out if you're on this
             page.
@@ -57,7 +57,7 @@ export default function Now() {
           </p>
           <p>
             Photography has been a huge component of my life for the past
-            decade. My pictures have been viewed over 130,000,000 times on{" "}
+            decade. My pictures have been viewed over 175,000,000 times on{" "}
             <a href="https://unsplash.com/@jpvalery">Unsplash</a>, have been
             published in 2 books, and exhibited once. The last year didn't
             really motivate me to take any pictures but I hope to get back to
