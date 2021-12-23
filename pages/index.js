@@ -1,5 +1,8 @@
-import Homecard from "../components/Homecard";
+import CheatSheet from "../components/Cartridges/CheatSheet";
+import Social from "../components/Cartridges/Social";
+import Cartridge from "../components/Cartridges/Cartridge";
 import { NextSeo } from "next-seo";
+import { Tab } from "@headlessui/react";
 
 export default function Home() {
   return (
@@ -34,7 +37,9 @@ export default function Home() {
               Oh. Hi there!
             </h1>
             <h1 className="inline text-4xl text-white md:hidden font-cartridge">
-              Oh.<br />Hi there!
+              Oh.
+              <br />
+              Hi there!
             </h1>
           </div>
         </div>
@@ -45,7 +50,10 @@ export default function Home() {
           </p>
           <p className="mt-3 text-base text-stone-50 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
             I grew tired of all those concepts of blog vs portfolio vs digital
-            garden. Ugh.
+            garden.
+          </p>
+          <p className="mt-3 text-base italic text-stone-50 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            Ugh.
           </p>
           <p className="mt-3 text-base text-stone-50 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
             I just wanted to claim a small corner of the Internet to host a few
@@ -55,8 +63,46 @@ export default function Home() {
             Come in and stay awhile :)
           </p>
         </div>
-
-        <Homecard />
+        <div className="h-screen py-4">
+          <Tab.Group>
+            <div className="grid items-center h-full grid-flow-row md:grid-flow-col">
+              <div className="w-1/3">
+                <Tab.List className="grid justify-start grid-flow-row gap-2 mx-auto md:-rotate-90 w-72">
+                  <Tab
+                    className={({ selected }) =>
+                      selected ? "translate-x-6" : "hover:translate-x-3"
+                    }
+                  >
+                    <Cartridge title="Cheat Sheet" color="red" />
+                  </Tab>
+                  <Tab
+                    className={({ selected }) =>
+                      selected ? "translate-x-6" : "hover:translate-x-3"
+                    }
+                  >
+                    <Cartridge title="Social" color="orange" />
+                  </Tab>
+                  <Tab disabled
+                    className={({ selected }) =>
+                      selected ? "translate-x-6" : "hover:translate-x-3"
+                    }
+                  >
+                    <Cartridge title="TBD" color="yellow" />
+                  </Tab>
+                </Tab.List>
+              </div>
+              <Tab.Panels>
+                <Tab.Panel>
+                  <CheatSheet />
+                </Tab.Panel>
+                <Tab.Panel>
+                  <Social />
+                </Tab.Panel>
+                <Tab.Panel></Tab.Panel>
+              </Tab.Panels>
+            </div>
+          </Tab.Group>
+        </div>
       </main>
     </>
   );
