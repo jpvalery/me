@@ -19,6 +19,15 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 
+function Mlink(props) {
+  let { href, children, ...rest } = props;
+  return (
+    <NextLink href={href}>
+      <a {...rest}>{children}</a>
+    </NextLink>
+  );
+}
+
 export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   return (
@@ -58,7 +67,7 @@ export default function Header() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-90"
                 >
-                  <Menu.Items static as={React.Fragment}>
+                  <Menu.Items static>
                     <div className="absolute z-50 mt-12 outline-none -ml-80">
                       <div className="w-screen max-w-md overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid gap-8 px-8 py-8 bg-zinc-900">
@@ -190,13 +199,13 @@ export default function Header() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-90"
                 >
-                  <Menu.Items static as={React.Fragment}>
+                  <Menu.Items static>
                     <div className="absolute z-50 mt-12 outline-none -ml-96">
                       <div className="w-screen max-w-md overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid gap-8 px-8 py-8 bg-zinc-900">
                           <Menu.Item>
                             {({ active }) => (
-                              <NextLink href="/about">
+                              <Mlink href="/about">
                                 <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-zinc-800">
                                   <UserCircleIcon className="flex-shrink-0 w-8 h-8 text-about-500" />
                                   <div className="ml-4">
@@ -208,13 +217,13 @@ export default function Header() {
                                     </p>
                                   </div>
                                 </span>
-                              </NextLink>
+                              </Mlink>
                             )}
                           </Menu.Item>
 
                           <Menu.Item>
                             {({ active }) => (
-                              <NextLink href="/now">
+                              <Mlink href="/now">
                                 <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-zinc-800">
                                   <StatusOnlineIcon className="flex-shrink-0 w-8 h-8 text-now-500" />
                                   <div className="ml-4">
@@ -226,13 +235,13 @@ export default function Header() {
                                     </p>
                                   </div>
                                 </span>
-                              </NextLink>
+                              </Mlink>
                             )}
                           </Menu.Item>
 
                           <Menu.Item>
                             {({ active }) => (
-                              <NextLink href="/stack">
+                              <Mlink href="/stack">
                                 <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-zinc-800">
                                   <CollectionIcon className="flex-shrink-0 w-8 h-8 text-stack-500" />
                                   <div className="ml-4">
@@ -244,13 +253,13 @@ export default function Header() {
                                     </p>
                                   </div>
                                 </span>
-                              </NextLink>
+                              </Mlink>
                             )}
                           </Menu.Item>
 
                           <Menu.Item>
                             {({ active }) => (
-                              <NextLink href="/dashboard">
+                              <Mlink href="/dashboard">
                                 <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-zinc-800">
                                   <ChartSquareBarIcon className="flex-shrink-0 w-8 h-8 text-dashboard-500" />
                                   <div className="ml-4">
@@ -262,13 +271,13 @@ export default function Header() {
                                     </p>
                                   </div>
                                 </span>
-                              </NextLink>
+                              </Mlink>
                             )}
                           </Menu.Item>
 
                           <Menu.Item>
                             {({ active }) => (
-                              <NextLink href="/cemetery">
+                              <Mlink href="/cemetery">
                                 <span className="flex items-start p-3 -m-3 rounded-lg cursor-pointer hover:bg-zinc-800">
                                   <MoonIcon className="flex-shrink-0 w-8 h-8 text-cemetery-500" />
                                   <div className="ml-4">
@@ -280,7 +289,7 @@ export default function Header() {
                                     </p>
                                   </div>
                                 </span>
-                              </NextLink>
+                              </Mlink>
                             )}
                           </Menu.Item>
 
@@ -413,41 +422,41 @@ export default function Header() {
                       </span>
                     </a>
 
-                    <NextLink href="/now">
+                    <Mlink href="/now">
                       <span className="flex items-center p-3 -m-3 rounded-md cursor-pointer hover:bg-zinc-800">
                         <StatusOnlineIcon className="flex-shrink-0 w-8 h-8 text-now-500" />
                         <span className="ml-3 text-base font-medium text-stone-100">
                           /now
                         </span>
                       </span>
-                    </NextLink>
+                    </Mlink>
 
-                    <NextLink href="/stack">
+                    <Mlink href="/stack">
                       <span className="flex items-center p-3 -m-3 rounded-md cursor-pointer hover:bg-zinc-800">
                         <CollectionIcon className="flex-shrink-0 w-8 h-8 text-stack-500" />
                         <span className="ml-3 text-base font-medium text-stone-100">
                           /stack
                         </span>
                       </span>
-                    </NextLink>
+                    </Mlink>
 
-                    <NextLink href="/dashboard">
+                    <Mlink href="/dashboard">
                       <span className="flex items-center p-3 -m-3 rounded-md cursor-pointer hover:bg-zinc-800">
                         <ChartSquareBarIcon className="flex-shrink-0 w-8 h-8 text-dashboard-500" />
                         <span className="ml-3 text-base font-medium text-stone-100">
                           /dashboard
                         </span>
                       </span>
-                    </NextLink>
+                    </Mlink>
 
-                    <NextLink href="/cemetery">
+                    <Mlink href="/cemetery">
                       <span className="flex items-center p-3 -m-3 rounded-md cursor-pointer hover:bg-zinc-800">
                         <MoonIcon className="flex-shrink-0 w-8 h-8 text-cemetery-500" />
                         <span className="ml-3 text-base font-medium text-stone-100">
                           /cemetery
                         </span>
                       </span>
-                    </NextLink>
+                    </Mlink>
 
                     <a href="https://contact.jpvalery.me">
                       <span className="flex items-center p-3 -m-3 rounded-md hover:bg-zinc-800">
