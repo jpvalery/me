@@ -1,5 +1,5 @@
 import "tailwindcss/tailwind.css";
-import "../fonts/fonts.css"
+import "../fonts/fonts.css";
 
 import React, { useEffect } from "react";
 import Head from "next/head";

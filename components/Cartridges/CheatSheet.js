@@ -27,10 +27,7 @@ export default function CheatSheet() {
 
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
           <BriefcaseIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-purple-700" />
-          <span>
-            Customer Success Manager
-            <br />@ Customer.io
-          </span>
+          <span>Customer Success Manager @ Customer.io</span>
         </span>
 
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
