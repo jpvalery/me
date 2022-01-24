@@ -19,14 +19,14 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-5xl text-white font-cartridge">
+        <h1 className="font-cartridge text-5xl text-white">
           A cemetery of past projects
         </h1>
         <p className="mt-4 text-stone-50">
           Everything dies one day. This is the cemetery of things I built and
           killed off at one point
         </p>
-        <container className="grid grid-cols-1 gap-6 mt-8">
+        <container className="mt-8 grid grid-cols-1 gap-6">
           <Tombstone
             title="BestPricingPages"
             years="2019-2019"

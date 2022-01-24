@@ -2,28 +2,28 @@ import { ArchiveIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 
 export default function Tombstone({ title, years, link, description }) {
   return (
-    <div className="overflow-hidden divide-y rounded-lg shadow divide-stone-200">
-      <div className="px-4 py-5 bg-cemetery-800 sm:px-6">
+    <div className="divide-y divide-stone-200 overflow-hidden rounded-lg shadow">
+      <div className="bg-cemetery-800 px-4 py-5 sm:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between text-stone-50">
-            <ArchiveIcon className="w-8 h-8 mr-2" />
+            <ArchiveIcon className="mr-2 h-8 w-8" />
             <h2 className="text-2xl font-bold leading-6">{title}</h2>
-            <span className="pt-1 ml-2 text-sm font-medium leading-6">
+            <span className="ml-2 pt-1 text-sm font-medium leading-6">
               ({years || "-"})
             </span>
           </div>
           <div>
             <a
               href={link || "#"}
-              className="relative flex items-center justify-between px-4 py-2 ml-3 text-sm font-medium border rounded-md shadow-sm bg-stone-50 text-stone-700 border-stone-300 hover:bg-stone-300 focus:outline-none"
+              className="relative ml-3 flex items-center justify-between rounded-md border border-stone-300 bg-stone-50 px-4 py-2 text-sm font-medium text-stone-700 shadow-sm hover:bg-stone-300 focus:outline-none"
             >
               <span>Visit</span>
-              <ExternalLinkIcon className="w-4 h-4 ml-2" />
+              <ExternalLinkIcon className="ml-2 h-4 w-4" />
             </a>
           </div>
         </div>
       </div>
-      <div className="p-6 bg-zinc-800 text-stone-200">{description || "-"}</div>
+      <div className="bg-zinc-800 p-6 text-stone-200">{description || "-"}</div>
     </div>
   );
 }

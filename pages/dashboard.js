@@ -24,8 +24,8 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-5xl text-white font-cartridge">Jp in numbers</h1>
-        <container className="grid grid-cols-1 gap-4 mt-8">
+        <h1 className="font-cartridge text-5xl text-white">Jp in numbers</h1>
+        <container className="mt-8 grid grid-cols-1 gap-4">
           <Unsplash />
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
             <Betaseries />

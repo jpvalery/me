@@ -18,10 +18,10 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white font-cartridge">
+        <h1 className="font-cartridge text-4xl font-extrabold tracking-tight text-white">
           What was I up to on January 10th 2021?
         </h1>
-        <article className="py-4 prose prose-xl text-stone-50 prose-a:text-now-600">
+        <article className="prose prose-xl py-4 text-stone-50 prose-a:text-now-600">
           <p>Well... 2020 was a effing dumpster fire, wasn't it?</p>
           <p>
             I'm hoping 2021 will be better (<em>as everyone probably is</em>)

@@ -9,29 +9,29 @@ import {
 
 export default function CheatSheet() {
   return (
-    <div className="mt-12 overflow-hidden divide-y-4 divide-red-600 rounded-lg shadow">
-      <div className="px-4 py-5 bg-stone-100 sm:px-6">
-        <div className="flex flex-wrap items-center justify-between -mt-4 -ml-4 sm:flex-nowrap">
+    <div className="mt-12 divide-y-4 divide-red-600 overflow-hidden rounded-lg shadow">
+      <div className="bg-stone-100 px-4 py-5 sm:px-6">
+        <div className="-mt-4 -ml-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
           <div className="mt-4 ml-2">
-            <h2 className="text-3xl font-bold leading-6 text-stone-900 font-cartridge">
+            <h2 className="font-cartridge text-3xl font-bold leading-6 text-stone-900">
               Cheat sheet
             </h2>
           </div>
         </div>
       </div>
-      <div className="grid grid-flow-row grid-cols-1 gap-4 p-3 bg-stone-800 sm:p-4">
+      <div className="grid grid-flow-row grid-cols-1 gap-4 bg-stone-800 p-3 sm:p-4">
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
-          <GlobeIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-blue-500" />
+          <GlobeIcon className="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-blue-500" />
           <span>Montréal, QC - Canada</span>
         </span>
 
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
-          <BriefcaseIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-purple-700" />
+          <BriefcaseIcon className="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-purple-700" />
           <span>Customer Success Manager @ Customer.io</span>
         </span>
 
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
-          <TranslateIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-emerald-700" />
+          <TranslateIcon className="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-emerald-700" />
           <div>
             <ul className="flex flex-wrap gap-2">
               <li>Français</li>
@@ -47,12 +47,12 @@ export default function CheatSheet() {
         </span>
 
         <span className="flex items-center px-3 py-2 text-sm font-medium text-white">
-          <UserIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-yellow-500" />
+          <UserIcon className="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-yellow-500" />
           <span>He / Him / His</span>
         </span>
 
         <span className="flex items-start px-3 py-2 text-sm font-medium text-white">
-          <ThumbUpIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-green-700" />
+          <ThumbUpIcon className="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-green-700" />
           <ul className="flex flex-wrap gap-2">
             <li>Video games</li>
             <li>Photography</li>
@@ -63,7 +63,7 @@ export default function CheatSheet() {
         </span>
 
         <span className="flex items-start px-3 py-2 text-sm font-medium text-white">
-          <ThumbDownIcon className="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-rose-700" />
+          <ThumbDownIcon className="mr-3 -ml-1 h-6 w-6 flex-shrink-0 text-rose-700" />
           <ul className="flex flex-wrap gap-2">
             <li>Bullshit</li>
             <li>Endives</li>

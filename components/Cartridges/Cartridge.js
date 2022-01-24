@@ -71,10 +71,10 @@ export default function Cartridge({ title, color }) {
   const style = `flex flex-wrap items-center justify-center rounded-b-lg bg-gradient-to-b ${gradient} shadow-[inset_0_2.4em_3.6em_-1em_rgba(0,0,0,0.1)] border-black border-b border-x`;
 
   return (
-    <div className="w-72 px-3 pt-0 pb-3 bg-gradient-to-t from-zinc-500 to-neutral-600 rounded-t-md rounded-b-xl shadow-[inset_0_-0.3em_0_0_rgba(0,0,0,0.45)]">
+    <div className="w-72 rounded-t-md rounded-b-xl bg-gradient-to-t from-zinc-500 to-neutral-600 px-3 pt-0 pb-3 shadow-[inset_0_-0.3em_0_0_rgba(0,0,0,0.45)]">
       <div className={style}>
         <div className="pt-3 pb-2">
-          <h2 className="text-3xl font-bold text-stone-300 font-cartridge">
+          <h2 className="font-cartridge text-3xl font-bold text-stone-300">
             {title}
           </h2>
         </div>

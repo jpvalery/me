@@ -23,6 +23,7 @@
     "unsplash-js": "6.3.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "prettier-plugin-tailwindcss": "^0.1.3"
   }
 }
