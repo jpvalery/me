@@ -27,15 +27,15 @@ export default function Stack() {
         }}
       />
       <main>
-        <h1 className="text-5xl text-white font-cartridge">What am I using?</h1>
+        <h1 className="font-cartridge text-5xl text-white">What am I using?</h1>
         <p className="mt-4 text-stone-50">
           Here's some select items that I use and that made a positive impact in
           my work/life/craft
         </p>
-        <container className="grid gap-8 mt-4 grid-cols1 sm:grid-cols-2">
-          <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800">
+        <container className="grid-cols1 mt-4 grid gap-8 sm:grid-cols-2">
+          <div className="overflow-hidden rounded-lg bg-stone-800 p-5 shadow">
             <h3 className="flex items-center text-lg font-semibold text-stack-500">
-              <DeviceMobileIcon className="w-6 h-6 mr-2" />
+              <DeviceMobileIcon className="mr-2 h-6 w-6" />
               Everyday tech
             </h3>
             <div className="mt-4">
@@ -51,9 +51,9 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800 metric-card">
+          <div className="metric-card overflow-hidden rounded-lg bg-stone-800 p-5 shadow">
             <h3 className="flex items-center text-lg font-semibold text-stack-500">
-              <BriefcaseIcon className="w-6 h-6 mr-2" />
+              <BriefcaseIcon className="mr-2 h-6 w-6" />
               Office - Work
             </h3>
             <div className="mt-4">
@@ -72,9 +72,9 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800 metric-card">
+          <div className="metric-card overflow-hidden rounded-lg bg-stone-800 p-5 shadow">
             <h3 className="flex items-center text-lg font-semibold text-stack-500">
-              <DesktopComputerIcon className="w-6 h-6 mr-2" />
+              <DesktopComputerIcon className="mr-2 h-6 w-6" />
               Office - Personal
             </h3>
             <div className="mt-4">
@@ -90,9 +90,9 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800 metric-card">
+          <div className="metric-card overflow-hidden rounded-lg bg-stone-800 p-5 shadow">
             <h3 className="flex items-center text-lg font-semibold text-stack-500">
-              <ChipIcon className="w-6 h-6 mr-2" />
+              <ChipIcon className="mr-2 h-6 w-6" />
               Software
             </h3>
             <div className="mt-4">
@@ -108,9 +108,9 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800 metric-card">
+          <div className="metric-card overflow-hidden rounded-lg bg-stone-800 p-5 shadow">
             <h3 className="flex items-center text-lg font-semibold text-stack-500">
-              <CameraIcon className="w-6 h-6 mr-2" />
+              <CameraIcon className="mr-2 h-6 w-6" />
               Photography
             </h3>
             <div className="mt-4">
@@ -127,9 +127,9 @@ export default function Stack() {
             </div>
           </div>
 
-          <div className="p-5 overflow-hidden rounded-lg shadow bg-stone-800 metric-card">
+          <div className="metric-card overflow-hidden rounded-lg bg-stone-800 p-5 shadow">
             <h3 className="flex items-center text-lg font-semibold text-stack-500">
-              <CubeTransparentIcon className="w-6 h-6 mr-2" />
+              <CubeTransparentIcon className="mr-2 h-6 w-6" />
               Gaming
             </h3>
             <div className="mt-4">

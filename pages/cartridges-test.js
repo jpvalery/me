@@ -22,21 +22,21 @@ export default function Home() {
           ],
         }}
       />
-      <main className="max-w-2xl mx-auto">
+      <main className="mx-auto max-w-2xl">
         <div className="flex items-center justify-center gap-8 p-8">
           <div className="min-w-max">
             <img
-              className="w-24 h-24 rounded-full md:w-40 md:h-40"
+              className="h-24 w-24 rounded-full md:h-40 md:w-40"
               src="/static/jp-valery-avatar.webp"
               alt=""
             />
           </div>
 
           <div>
-            <h1 className="hidden text-white md:inline text-7xl font-cartridge">
+            <h1 className="hidden font-cartridge text-7xl text-white md:inline">
               Oh. Hi there!
             </h1>
-            <h1 className="inline text-4xl text-white md:hidden font-cartridge">
+            <h1 className="inline font-cartridge text-4xl text-white md:hidden">
               Oh.
               <br />
               Hi there!
@@ -65,9 +65,9 @@ export default function Home() {
         </div>
         <div className="h-screen py-4">
           <Tab.Group>
-            <div className="grid items-center h-full grid-flow-row md:grid-flow-col">
+            <div className="grid h-full grid-flow-row items-center md:grid-flow-col">
               <div className="w-1/3">
-                <Tab.List className="grid justify-start grid-flow-row gap-2 mx-auto md:-rotate-90 w-72">
+                <Tab.List className="mx-auto grid w-72 grid-flow-row justify-start gap-2 md:-rotate-90">
                   <Tab
                     className={({ selected }) =>
                       selected ? "translate-x-6" : "hover:translate-x-3"

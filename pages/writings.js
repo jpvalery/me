@@ -20,13 +20,13 @@ export default function Writings() {
         }}
       />
       <main>
-        <h1 className="text-5xl text-white font-cartridge">Writings</h1>
+        <h1 className="font-cartridge text-5xl text-white">Writings</h1>
         <div className="grid grid-flow-row gap-4">
-          <article className="mt-4 prose prose-xl text-stone-50">
+          <article className="prose prose-xl mt-4 text-stone-50">
             <p>Hoping to populate more this section soon</p>
           </article>
 
-          <div className="grid grid-flow-row gap-2 p-4 text-white rounded bg-stone-800">
+          <div className="grid grid-flow-row gap-2 rounded bg-stone-800 p-4 text-white">
             <h1 className="text-xl font-bold">UJaaP</h1>
             <p>
               A manifesto to methodically approach your communications with your
@@ -37,12 +37,12 @@ export default function Writings() {
             <a href="https://ujaap.com" target="_blank">
               <span className="inline-flex text-base font-medium text-stone-50">
                 UJaaP.com
-                <ExternalLinkIcon className="w-4 h-4 mt-1 ml-2" />
+                <ExternalLinkIcon className="mt-1 ml-2 h-4 w-4" />
               </span>
             </a>
           </div>
 
-          <div className="grid grid-flow-row gap-2 p-4 text-white rounded bg-stone-800">
+          <div className="grid grid-flow-row gap-2 rounded bg-stone-800 p-4 text-white">
             <h1 className="text-xl font-bold">Cuisinomicon</h1>
             <p>
               A collection of improvised or invented recipes for delicious food
@@ -51,7 +51,7 @@ export default function Writings() {
             <a href="https://cuisinomicon.com" target="_blank">
               <span className="inline-flex text-base font-medium text-stone-50">
                 cuisinomicon.com
-                <ExternalLinkIcon className="w-4 h-4 mt-1 ml-2" />
+                <ExternalLinkIcon className="mt-1 ml-2 h-4 w-4" />
               </span>
             </a>
           </div>

@@ -19,13 +19,13 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white font-cartridge">
+        <h1 className="font-cartridge text-4xl font-extrabold tracking-tight text-white">
           What was I up to on March 30th 2021?
         </h1>
-        <p className="mt-4 text-base font-semibold tracking-wide text-gray-500 uppercase">
+        <p className="mt-4 text-base font-semibold uppercase tracking-wide text-gray-500">
           Last updated: March 30th, 2021
         </p>
-        <article className="py-4 prose prose-xl text-stone-50 prose-a:text-now-600">
+        <article className="prose prose-xl py-4 text-stone-50 prose-a:text-now-600">
           <p>
             2021 started pretty crazy—no reasons to change the winning recipe of
             2020, eh?
@@ -76,7 +76,7 @@ export default function Now() {
             <div className="w-full border-t border-gray-300"></div>
           </div>
           <div className="relative flex justify-center">
-            <h2 className="px-3 text-lg font-medium bg-stone-900 text-gray-50">
+            <h2 className="bg-stone-900 px-3 text-lg font-medium text-gray-50">
               Previous versions
             </h2>
           </div>

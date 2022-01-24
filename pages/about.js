@@ -18,10 +18,10 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="text-5xl text-white font-cartridge">
+        <h1 className="font-cartridge text-5xl text-white">
           Who the heck is Jp?
         </h1>
-        <article className="mt-4 prose prose-xl text-stone-50 prose-a:text-about-600">
+        <article className="prose prose-xl mt-4 text-stone-50 prose-a:text-about-600">
           <p>
             I guess that's what you're trying to figure out if you're on this
             page.

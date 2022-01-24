@@ -19,21 +19,21 @@ export default function Home() {
           ],
         }}
       />
-      <main className="max-w-2xl mx-auto">
+      <main className="mx-auto max-w-2xl">
         <div className="flex items-center justify-center gap-8 p-8">
           <div className="min-w-max">
             <img
-              className="w-24 h-24 rounded-full md:w-40 md:h-40"
+              className="h-24 w-24 rounded-full md:h-40 md:w-40"
               src="/static/jp-valery-avatar.webp"
               alt=""
             />
           </div>
 
           <div>
-            <h1 className="hidden text-white md:inline text-7xl font-cartridge">
+            <h1 className="hidden font-cartridge text-7xl text-white md:inline">
               Oh. Hi there!
             </h1>
-            <h1 className="inline text-4xl text-white md:hidden font-cartridge">
+            <h1 className="inline font-cartridge text-4xl text-white md:hidden">
               Oh.
               <br />
               Hi there!
