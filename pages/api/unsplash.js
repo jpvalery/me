@@ -1,16 +1,16 @@
-import Unsplash, { toJson } from "unsplash-js";
-
-let unsplash;
-
 export default async (_, res) => {
-  if (!unsplash) {
-    unsplash = new Unsplash({
-      accessKey: process.env.UNSPLASH_ACCESS_TOKEN,
-    });
-  }
+  const ACCESS_TOKEN = process.env.UNSPLASH_REFACTOR_TOKEN;
+  const response = await fetch(
+    "https://api.unsplash.com//users/jpvalery/statistics",
+    {
+      headers: {
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+      method: "GET",
+    }
+  );
 
-  const userStats = await unsplash.users.statistics("jpvalery");
-  const { downloads, views } = await toJson(userStats);
+  const unsplashdata = await response.json();
 
   res.setHeader(
     "Cache-Control",
@@ -18,7 +18,7 @@ export default async (_, res) => {
   );
 
   return res.status(200).json({
-    downloads: downloads.total,
-    views: views.total,
+    downloads: unsplashdata.downloads.total,
+    views: unsplashdata.views.total,
   });
 };
