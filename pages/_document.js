@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -17,7 +17,7 @@ class MyDocument extends Document {
             src="https://analytics.jpvalery.com/umami.js"
           ></script>
         </Head>
-        <body className="bg-stone-900 text-white">
+        <body className="bg-[#16161D]">
           <Main />
           <NextScript />
         </body>

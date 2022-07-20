@@ -1,8 +1,8 @@
-import useSWR from "swr";
 import format from "comma-number";
+import useSWR from "swr";
 
+import { Scorecard } from "@jpvalery/mistral";
 import fetcher from "../../lib/fetcher";
-import MetricCard from "./Card";
 
 export default function Betaseries() {
   const { data } = useSWR("/api/betaseries", fetcher);
@@ -10,10 +10,11 @@ export default function Betaseries() {
   const link = "https://www.betaseries.com/membre/jpvalery";
 
   return (
-    <MetricCard
+    <Scorecard
       header="Betaseries - Episodes seen"
       link={link}
       metric={episodes}
+      color="amber"
     />
   );
 }

@@ -1,6 +1,6 @@
 export default async (_, res) => {
-  const API_KEY = process.env.BETASERIES_API_KEY;
-  const ACCESS_TOKEN = process.env.BETASERIES_ACCESS_TOKEN;
+  const API_KEY = process.env.BETASERIES_REFACTOR_API_KEY;
+  const ACCESS_TOKEN = process.env.BETASERIES_REFACTOR_ACCESS_TOKEN;
   const response = await fetch("https://api.betaseries.com/members/infos", {
     headers: {
       "X-BetaSeries-Version": 3.0,

@@ -1,15 +1,16 @@
 import "tailwindcss/tailwind.css";
 import "../fonts/fonts.css";
 
-import React, { useEffect } from "react";
 import Head from "next/head";
+import React from "react";
 
 import { DefaultSeo } from "next-seo";
-
 import SEO from "../next-seo-config";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { Footer, Header, MainBody } from "@jpvalery/mistral";
+import Brand from "../components/Brand";
+
+import menus from "../content/menu.json";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,13 +19,11 @@ function MyApp({ Component, pageProps }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
-      <div className="mx-auto max-w-6xl px-6 pb-6">
-        <Header />
-        <div className="mx-auto max-w-3xl py-12">
-          <Component {...pageProps} />
-        </div>
-        <Footer />
-      </div>
+      <Header menus={menus} brand={<Brand />} />
+      <MainBody>
+        <Component {...pageProps} />
+      </MainBody>
+      <Footer displaySocial />
     </>
   );
 }

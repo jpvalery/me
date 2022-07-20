@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { NextSeo } from "next-seo";
 
-import Unsplash from "../components/dashboard/Unsplash";
+import { Header1, Scorecard } from "@jpvalery/mistral";
+// We require individual components for each because SWR requires a data parameter and so we can only have one per file
 import Betaseries from "../components/dashboard/Betaseries";
-import MetricCard from "../components/dashboard/Card";
+import Unsplash from "../components/dashboard/Unsplash";
 
 export default function Now() {
   return (
@@ -24,15 +24,16 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="font-cartridge text-5xl text-white">Jp in numbers</h1>
+        <Header1>Jp in numbers</Header1>
         <container className="mt-8 grid grid-cols-1 gap-4">
-          <Unsplash />
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+            <Unsplash />
             <Betaseries />
-            <MetricCard
+            <Scorecard
               header="IMDB - Show/Movies seen"
               link="https://www.imdb.com/user/ur59148764/ratings?sort=your_rating,desc&ratingFilter=0&mode=detail&ref_=undefined&lastPosition=0"
-              metric="1,112"
+              metric="1,158"
+              color="amber"
             />
           </div>
         </container>

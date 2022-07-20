@@ -1,0 +1,154 @@
+[
+  {
+    "title": {
+      "text": "About"
+    },
+    "items": [
+      {
+        "title": "/about",
+        "description": "Who the heck am I!?",
+        "icon": "UserCircleIcon",
+        "url": "/about",
+        "urlExternal": false,
+        "color": "amber"
+      },
+      {
+        "title": "/now",
+        "description": "What am I up to lately?",
+        "icon": "StatusOnlineIcon",
+        "url": "/now",
+        "urlExternal": false,
+        "color": "lime"
+      },
+      {
+        "title": "/stack",
+        "description": "What am I using? (only really cool stuff)",
+        "icon": "CollectionIcon",
+        "url": "/stack",
+        "urlExternal": false,
+        "color": "violet"
+      },
+      {
+        "title": "/dashboard",
+        "description": "Some personal metrics",
+        "icon": "ChartSquareBarIcon",
+        "url": "/dashboard",
+        "urlExternal": false,
+        "color": "rose"
+      }
+    ],
+    "cta": {
+      "text": "Get in touch about anything",
+      "url": "https://contact.jpvalery.me/"
+    }
+  },
+  {
+    "title": {
+      "text": "Photo"
+    },
+    "items": [
+      {
+        "title": "Portfolio",
+        "description": "My photography portfolio",
+        "icon": "CameraIcon",
+        "url": "https://jpvalery.photo",
+        "urlExternal": true,
+        "color": "accent"
+      },
+      {
+        "title": "Contact Sheets",
+        "description": "An unfiltered stream of all my photos",
+        "icon": "RssIcon",
+        "url": "https://archive.jpvalery.photo",
+        "urlExternal": true,
+        "color": "purple"
+      },
+      {
+        "title": "Montréal Photo Club",
+        "description": "I founded a Photo Club in Montréal in 2019",
+        "icon": "UserGroupIcon",
+        "url": "https://montrealphoto.club",
+        "urlExternal": true,
+        "color": "sky"
+      },
+      {
+        "title": "Unsplash",
+        "description": "I share hundreds of photos for free on Unsplash",
+        "icon": "Unsplash",
+        "url": "https://unsplash.com/@jpvalery",
+        "urlExternal": true,
+        "color": "slate"
+      }
+    ],
+    "cta": {
+      "text": "Get in touch about my photography",
+      "url": "https://contact.jpvalery.me/photography"
+    }
+  },
+  {
+    "title": {
+      "text": "Work"
+    },
+    "items": [
+      {
+        "title": "Resume",
+        "description": "My professional resume if you're not into LinkedIn",
+        "icon": "ClipboardCheckIcon",
+        "url": "https://resume.jpvalery.me",
+        "urlExternal": true,
+        "color": "cyan"
+      },
+      {
+        "title": "How to work with me",
+        "description": "Helpful-to-know background and principles when working with me",
+        "icon": "SupportIcon",
+        "url": "/how-to-work-with-me",
+        "urlExternal": false,
+        "color": "indigo"
+      },
+      {
+        "title": "Advisorship & Consultancy",
+        "description": "Sustainable growth operations for early-stage SaaS",
+        "icon": "Growth",
+        "url": "https://growthmontreal.com",
+        "urlExternal": true,
+        "color": "emerald"
+      }
+    ],
+    "cta": {
+      "text": "Get in touch about work",
+      "url": "https://contact.jpvalery.me/consultancy"
+    }
+  },
+  {
+    "title": {
+      "text": "Projects"
+    },
+    "items": [
+      {
+        "title": "Flight Log",
+        "description": "Screenshots and stats of my flight simulator adventures",
+        "icon": "PaperAirplaneIcon",
+        "url": "https://flightlog.jpvalery.me",
+        "urlExternal": true,
+        "color": "sky"
+      },
+      {
+        "title": "Cuisinomicon (WIP)",
+        "description": "Recipes website",
+        "icon": "BeakerIcon",
+        "url": "https://cuisinomicon.com",
+        "urlExternal": true,
+        "color": "fuchsia"
+      },
+      {
+        "title": "/cemetery",
+        "description": "Deprecated/abandoned projects",
+        "icon": "MoonIcon",
+        "url": "/cemetery",
+        "urlExternal": false,
+        "color": "red"
+      }
+    ]
+  }
+]
