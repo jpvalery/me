@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
   integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
 
-"@jpvalery/mistral@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@jpvalery/mistral/-/mistral-0.1.14.tgz#a3b1f32ae3915d7cfd19626a8b4c9ff2fc456907"
-  integrity sha512-VA7rxfWWFbSVwafEVUZzBNKaFj3UKjn346aONk0ZoN6Db8YT5qyoDVeWjQuQj8bog/v/BWipEBDwZCnUW40bvA==
+"@jpvalery/mistral@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@jpvalery/mistral/-/mistral-0.1.15.tgz#a3936ad6e267a7f555ff79788458d5ce2d5599de"
+  integrity sha512-C1ap6VY+VHOEIJq8pq6IVq+hjuTam7R64ak356GxH+Fx/ddnVSTdcOdh+ex2gqR4XxtpeKUP8xQCdqpcF+5YtQ==
   dependencies:
     "@headlessui/react" "^1.6.5"
     "@heroicons/react" "^1.0.6"

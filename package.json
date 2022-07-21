@@ -10,7 +10,7 @@
   "dependencies": {
     "@headlessui/react": "1.6.6",
     "@heroicons/react": "^1.0.5",
-    "@jpvalery/mistral": "^0.1.14",
+    "@jpvalery/mistral": "^0.1.15",
     "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.0",
     "comma-number": "^2.0.1",
