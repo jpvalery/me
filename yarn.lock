@@ -7,18 +7,18 @@
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
   integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
 
-"@heroicons/react@^1.0.5", "@heroicons/react@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
-  integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
+"@heroicons/react@2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.10.tgz#191a305aa2dc2271903f027c9f4700ca3dfa9e7b"
+  integrity sha512-Ufr+pgAElNiRCSklnHGOR10bXb02BLlosvbDK7sCRUMOcQ3R/HCXTfXs4BUkYZ4dKpx6l5dUD06VSW1dTpTEDw==
 
-"@jpvalery/mistral@^0.1.15":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@jpvalery/mistral/-/mistral-0.1.15.tgz#a3936ad6e267a7f555ff79788458d5ce2d5599de"
-  integrity sha512-C1ap6VY+VHOEIJq8pq6IVq+hjuTam7R64ak356GxH+Fx/ddnVSTdcOdh+ex2gqR4XxtpeKUP8xQCdqpcF+5YtQ==
+"@jpvalery/mistral@0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@jpvalery/mistral/-/mistral-0.3.1.tgz#f06c9099bece15d5f54d34cd118e0cec9cbd44b8"
+  integrity sha512-0GukpOPCGAupEKWvQEQqnqigvWy0kododb11GcljVmAW7Rp4fXkHl7veaIplb7C5aoEZ5VzbHNHKGpvHcF1L/w==
   dependencies:
     "@headlessui/react" "^1.6.5"
-    "@heroicons/react" "^1.0.6"
+    "@heroicons/react" "2.0.10"
     comma-number "^2.1.0"
 
 "@next/env@12.2.2":

@@ -36,9 +36,10 @@ export default function Now() {
           Montréal in 2014. I became a dual-citizen in 2020.
         </p>
         <p>
-          I'm currently a Customer Success Manager at Customer.io where I spend
-          my days helping people have success with the platform like I did when
-          I was a user of it.
+          I'm currently a Customer Success Team Lead at Customer.io where I
+          spend my days helping people have success with the platform like I did
+          when I was a user of it while managing a team of Customer Success
+          Managers. It's a captain/player role that I really enjoy.
         </p>
         <p>
           Before that, I've dabbled in{" "}
@@ -54,15 +55,16 @@ export default function Now() {
         </p>
         <p>
           Photography has been a huge component of my life for the past decade.
-          My pictures have been viewed over 175,000,000 times on{" "}
+          My pictures have been viewed over 200,000,000 times and downloaded
+          over 1,000,000 times on{" "}
           <a href="https://unsplash.com/@jpvalery">Unsplash</a>, have been
-          published in 2 books, and exhibited once. The last year didn't really
-          motivate me to take any pictures but I hope to get back to it.
+          published in 2 books, and exhibited once. The past few years didn't
+          really motivate me to take any pictures but I hope to get back to it.
         </p>
         <p>
           I'm also a gamer. I've been playing mostly on Xbox for the past few
-          years but I hop on a computer regularly to hone my piloting skills on
-          simulators.
+          years. You'll find me mostly playing Apex Legends or Flight Simulator
+          as the core rotation, which occassional stints in other games.
         </p>
         <p>
           Last but not least, I'm really into gardening. This must be in my

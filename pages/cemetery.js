@@ -1,4 +1,4 @@
-import { ProjectCard } from "@jpvalery/mistral";
+import { Header1, ProjectCard } from "@jpvalery/mistral";
 import { NextSeo } from "next-seo";
 
 export default function Now() {
@@ -19,9 +19,9 @@ export default function Now() {
         }}
       />
       <main>
-        <h1 className="font-cartridge text-5xl text-white">
+        <Header1>
           A cemetery of past projects
-        </h1>
+        </Header1>
         <p className="mt-4 text-stone-50">
           Everything dies one day. This is the cemetery of things I built and
           killed off at one point

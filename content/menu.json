@@ -15,7 +15,7 @@
       {
         "title": "/now",
         "description": "What am I up to lately?",
-        "icon": "StatusOnlineIcon",
+        "icon": "SignalIcon",
         "url": "/now",
         "urlExternal": false,
         "color": "lime"
@@ -23,7 +23,7 @@
       {
         "title": "/stack",
         "description": "What am I using? (only really cool stuff)",
-        "icon": "CollectionIcon",
+        "icon": "RectangleStackIcon",
         "url": "/stack",
         "urlExternal": false,
         "color": "violet"
@@ -31,7 +31,7 @@
       {
         "title": "/dashboard",
         "description": "Some personal metrics",
-        "icon": "ChartSquareBarIcon",
+        "icon": "ChartBarSquareIcon",
         "url": "/dashboard",
         "urlExternal": false,
         "color": "rose"
@@ -93,7 +93,7 @@
       {
         "title": "Resume",
         "description": "My professional resume if you're not into LinkedIn",
-        "icon": "ClipboardCheckIcon",
+        "icon": "ClipboardDocumentCheckIcon",
         "url": "https://resume.jpvalery.me",
         "urlExternal": true,
         "color": "cyan"
@@ -101,7 +101,7 @@
       {
         "title": "How to work with me",
         "description": "Helpful-to-know background and principles when working with me",
-        "icon": "SupportIcon",
+        "icon": "LifebuoyIcon",
         "url": "/how-to-work-with-me",
         "urlExternal": false,
         "color": "indigo"

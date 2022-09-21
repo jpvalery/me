@@ -28,7 +28,7 @@ export default function Home() {
             <div className="grid grid-flow-row gap-2 text-sm text-stone-50">
               <div className="flex items-center gap-4">
                 <span className="h-6 w-6 flex-shrink-0 text-blue-500 drop-shadow-[0_0_0.2rem_#DBEAFE60]">
-                  <Icon icon="GlobeIcon" stroke={"1"} />
+                  <Icon icon="GlobeAmericasIcon" stroke={"1"} />
                 </span>
                 <span>Montréal, QC - Canada</span>
               </div>
@@ -42,7 +42,7 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <span className="h-6 w-6 flex-shrink-0 text-emerald-500 drop-shadow-[0_0_0.2rem_#D1FAE560]">
-                  <Icon icon="TranslateIcon" stroke={"1"} />
+                  <Icon icon="LanguageIcon" stroke={"1"} />
                 </span>
                 <div className="inline-flex">
                   <ul className="flex flex-wrap gap-2">
@@ -68,7 +68,7 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <span className="h-6 w-6 flex-shrink-0 text-green-500 drop-shadow-[0_0_0.2rem_#DCFEC760]">
-                  <Icon icon="ThumbUpIcon" stroke={"1"} />
+                  <Icon icon="HandThumbUpIcon" stroke={"1"} />
                 </span>
                 <ul className="flex flex-wrap gap-2">
                   <li>Video games</li>
@@ -81,7 +81,7 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <span className="h-6 w-6 flex-shrink-0 text-rose-500 drop-shadow-[0_0_0.2rem_#FFE4E660]">
-                  <Icon icon="ThumbDownIcon" stroke={"1"} />
+                  <Icon icon="HandThumbDownIcon" stroke={"1"} />
                 </span>
                 <ul className="flex flex-wrap gap-2">
                   <li>Bullshit</li>
