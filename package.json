@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "1.6.6",
+    "@headlessui/react": "^1.7.13",
     "@heroicons/react": "2.0.10",
-    "@jpvalery/mistral": "0.4.0",
+    "@jpvalery/mistral": "^0.4.1",
     "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.0",
     "comma-number": "^2.0.1",
