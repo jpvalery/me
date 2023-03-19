@@ -7,6 +7,7 @@ export default function Now() {
       <NextSeo
         title="Cemetery"
         description="A cemetery of past projects"
+        icon="ArchiveBoxIcon"
         openGraph={{
           title: "Cemetery",
           description: "A cemetery of past projects",
@@ -32,36 +33,42 @@ export default function Now() {
             years="2019-2020"
             link="https://ujaap.com"
             description="A manifesto to methodically approach your communications with your users based on how they interact with your product. The right message at the right time for the right person with the right benefit. Never really completed it"
+            icon="ArchiveBoxIcon"
           />
           <ProjectCard
             title="BestPricingPages"
             years="2019-2019"
             link="https://bestpricingpages.com"
             description="Inspired by ReallyGoodEmail, I challenged myself to building a Gatsby static site to document the best pricing pages out there. Pricing is oftentimes underthought and I grew tired of always going back to the same pages or bookmarks. So I made this resources for people to share. It didn't get the audience I hope it would and so I stopped maintaining it."
+            icon="ArchiveBoxIcon"
           />
           <ProjectCard
             title="Drones Nation"
             years="2015-2017"
             link="https://drones-nation.com"
             description="The sister-ship to VYSUAL, this new endeavor was taking the same model but the theme were the drones. From tips, to tutorials and reviews, we covered all-things-drones."
+            icon="ArchiveBoxIcon"
           />
           <ProjectCard
             title="VYSUAL.ORG"
             years="2013-2017"
             link="https://vysual.org"
             description="An independent magazine talking about creativity and inspiration. Our differentiator was only editorialized content (no listicles or other clickbait) in French. We were averaging 10,000 visitors per month after a year. We actually got sponsored by Google and Microsoft through non-profit programs."
+            icon="ArchiveBoxIcon"
           />
           <ProjectCard
             title="Adopte un Français"
             years="2014"
             link="https://www.behance.net/gallery/17481345/AdopteUnFrancaisca"
             description="Looking for a job and a visa to stay in Canada in 2014, I made an interactive web résumé called AdopteUnFrançais.ca (AdoptAFrenchman.ca). This led to multiple interviews and actually landing my first job at Gameloft"
+            icon="ArchiveBoxIcon"
           />
           <ProjectCard
             title="McRoach Network"
             years="2008-2013"
             link="https://mcroach.net"
             description="An independent non-profit music label I founded when I was 16. Released multiple albums, organized one tour, and we were among the first structures to distribute on Spotify back in 2010. After 5 years and as I was moving to Canada, it felt natural to put this project to rest"
+            icon="ArchiveBoxIcon"
           />
         </container>
       </main>
