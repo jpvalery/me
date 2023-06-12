@@ -37,7 +37,7 @@ export default function Home() {
                 <span className="h-6 w-6 flex-shrink-0 text-purple-500 drop-shadow-[0_0_0.2rem_#DBEAFE60]">
                   <Icon icon="BriefcaseIcon" stroke={"1"} />
                 </span>
-                <span>Customer Success Team Lead @ Customer.io</span>
+                <span>Success Team Manager @ Customer.io</span>
               </div>
 
               <div className="flex items-center gap-4">
