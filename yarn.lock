@@ -9,6 +9,13 @@
   dependencies:
     client-only "^0.0.1"
 
+"@headlessui/react@^1.7.15":
+  version "1.7.15"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.15.tgz#53ef6ae132af81b8f188414767b6e79ebf8dc73f"
+  integrity sha512-OTO0XtoRQ6JPB1cKNFYBZv2Q0JMqMGNhYP1CjPvcJvjz8YGokz8oAj89HIYZGN0gZzn/4kk9iUpmMF4Q21Gsqw==
+  dependencies:
+    client-only "^0.0.1"
+
 "@heroicons/react@2.0.10":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.10.tgz#191a305aa2dc2271903f027c9f4700ca3dfa9e7b"
@@ -19,12 +26,12 @@
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.16.tgz#562883c19ba2690c83380b42a9a5cce39dcbdb4a"
   integrity sha512-x89rFxH3SRdYaA+JCXwfe+RkE1SFTo9GcOkZettHer71Y3T7V+ogKmfw5CjTazgS3d0ClJ7p1NA+SP7VQLQcLw==
 
-"@jpvalery/mistral@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@jpvalery/mistral/-/mistral-0.4.1.tgz#4df112203085070599b473db6c554e58bb9fca02"
-  integrity sha512-QNdWDBij7IHZwJLE7JIvqlWlLi9h0nP0MAH6fVvNghwiZDWPBmaMfXkSArFmW7DE9MOlVPC+52m6AeicpvycvQ==
+"@jpvalery/mistral@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@jpvalery/mistral/-/mistral-0.4.2.tgz#85e4c99259540930c70d1e341f6a144358e5cf0e"
+  integrity sha512-ehFZs8lcd5eaQf7/MGhSXeJ7riCW6r/ZFRjI3qr3eUy0pMHbu7ySgTcnTogk+eKRPvkkqLVClWONvgNk8t5VuA==
   dependencies:
-    "@headlessui/react" "^1.7.13"
+    "@headlessui/react" "^1.7.15"
     "@heroicons/react" "^2.0.16"
     comma-number "^2.1.0"
 
