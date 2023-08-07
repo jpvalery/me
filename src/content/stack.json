@@ -1,0 +1,202 @@
+[
+	{
+		"name": "Everyday tech",
+		"content": [
+			{
+				"title": "iPhone 13 mini",
+				"description": "A great compromise between size and performance. Might change it this year"
+			},
+			{
+				"title": "iPad Pro 11\" M1",
+				"description": "The best iPad I ever had (started with an iPad 2 then an Air 2). Powerful, light, and the pencil is a game changer"
+			},
+			{
+				"title": "Apple Watch Ultra",
+				"description": "Upgraded from a Series 3. I think it's the greatest bang for the bucks when it comes to smart watches"
+			},
+			{
+				"title": "Airpods (Gen 1)",
+				"description": "Their 5 year old batteries are starting to show signs of fatigue but they're still great. I used to buy a pair of earbuds a year minimum. I haven't bought any in 5 years."
+			},
+			{
+				"title": "Steelseries Arctis 3",
+				"description": "This is the best headset I ever had and I keep recommending that line of product. The ski band is a game changer and the earmuff fabric is the best I've ever seen"
+			},
+			{
+				"title": "Airtags",
+				"description": null
+			}
+		]
+	},
+	{
+		"name": "Office — Work",
+		"content": [
+			{
+				"title": "MacBook Air M1 13\" 2021",
+				"description": "Powerful, silent, and light—what more can you ask?"
+			},
+			{
+				"title": "HP Z27 monitor",
+				"description": "I absolutely love this monitor and the quality of the image. I think 27\" is the perfect compromise of size. My only complaint is about the startup time"
+			},
+			{
+				"title": "Elgato Stream Deck",
+				"description": "Fun lil gadget to control Zoom and A/V setup"
+			},
+			{
+				"title": "Elgato Wave 3",
+				"description": "This mic has a great sound quality and works over USB-C. Really worth it if you're on Zoom or recording voice a lot "
+			},
+			{
+				"title": "Elgato Facecam",
+				"description": "It's _okay_ but I wouldn't miss it if I didn't have it tomorrow"
+			},
+			{
+				"title": "Apple Keyboard 2014",
+				"description": "A good ol' keyboard—powered by AA batteries!"
+			},
+			{
+				"title": "Magic Trackpad",
+				"description": "I can't go back to mouse"
+			},
+			{
+				"title": "Tresanti Standing Desk",
+				"description": "I didn't get the hype around standing desk. Got one. Changed the height a lot for a few weeks. haven't moved it a lot since"
+			}
+		]
+	},
+	{
+		"name": "Office — Personal",
+		"content": [
+			{
+				"title": "iMac 27\" 2017",
+				"description": "I upgraded to a 5K iMac when my 2011 MBP died. It's a 6 year old computer but still feels extremely fast and fresh"
+			},
+			{
+				"title": "Asus 19\"",
+				"description": "It's an old LED screen that I have for about 10 years now. It's not as great as it was but it does the trick"
+			},
+			{
+				"title": "Lacie HDD",
+				"description": "I'm a Lacie fan and have multiple HDDs running for almost 10 years without a hiccup"
+			},
+			{
+				"title": "Magic Keyboard",
+				"description": null
+			},
+			{
+				"title": "Magic Trackpad",
+				"description": null
+			}
+		]
+	},
+	{
+		"name": "Software",
+		"content": [
+			{
+				"title": "Firefox",
+				"description": "Die-hard fan since 2004."
+			},
+			{
+				"title": "1Password",
+				"description": "If you're not using a password manager yet, 1Password is a great option (albeit their UX and app quality are on a downhill slope"
+			},
+			{
+				"title": "Backblaze",
+				"description": "Backblaze brings me utter peace of mind by doing unlimited offsite backups. 100% worth it"
+			},
+			{
+				"title": "VSCode",
+				"description": "I was LTTP and moved from Atom but haven't looked back once"
+			},
+			{
+				"title": "Starship",
+				"description": "This makes my Terminal much fancier and easier to use"
+			}
+		]
+	},
+	{
+		"name": "Photography — Digital",
+		"content": [
+			{
+				"title": "Canon EOS 6D",
+				"description": "This is my workhorse DSLR and my first pro camera. It still shoots great and the images are still amazing"
+			},
+			{
+				"title": "Olympus OMD M10 Mk II",
+				"description": "I was looking for a smaller digital camera to carry around and got the Olympus as I believed the M4/3 would be a better option in the long run. I wasn't right."
+			},
+			{
+				"title": "Olympus E-PL1 (Infrared)",
+				"description": "I bought this second hand camera and gutted it to turn it into an infrared camera"
+			},
+			{
+				"title": "DJI Mavic Air 2",
+				"description": "I don't fly drones as much as I used to but it's a great flying camera"
+			},
+			{
+				"title": "DJI Phantom 3 Pro",
+				"description": "My original drone back from 2015. It's an absolute tank and the images are still amazing"
+			},
+			{
+				"title": "DJI Action 3",
+				"description": "My GoPro Hero 3 Black not being what it used to be, and looking for an action cam for fun, I got an Action"
+			}
+		]
+	},
+	{
+		"name": "Photography — Film",
+		"content": [
+			{
+				"title": "Mamiya RB 67",
+				"description": "I restored this fully mechanical medium format camera (light sealing, leather pieces, etc... and love the quality of the images (don't love the 2 tons weight though)"
+			},
+			{
+				"title": "Intreprid 4x5 Mk IV",
+				"description": "After trying to build a Standard Camera from 3D printed parts and running into many issues, I bit the bullet and got the Intrepid. I should have done that from the start"
+			},
+			{
+				"title": "Olympus M10",
+				"description": "This is a camera from my Mom and I love how nifty it is"
+			},
+			{
+				"title": "Canon EOS 650",
+				"description": "Got this as a free add-on after buying a second-hand lens"
+			}
+		]
+	},
+	{
+		"name": "Gaming",
+		"content": [
+			{
+				"title": "Xbox Series X",
+				"description": "It's not as mind-blowing as I thought it'd be but the loading speed, 120fps, and 4K HDR are pretty amazing"
+			},
+			{
+				"title": "Oculus Quest 2",
+				"description": "Got this from work and after a 1-year frenzy, I haven't used it a lot lately"
+			},
+			{
+				"title": "Playstation 3",
+				"description": null
+			},
+			{
+				"title": "RetroPie",
+				"description": null
+			}
+		]
+	},
+	{
+		"name": "Aviation",
+		"content": [
+			{
+				"title": "iPad M1 11\" EFB",
+				"description": "I got a second iPad as my Electronic Flight Bag so I didn't have to bring my main one on flights in the off chance it'd be damaged"
+			},
+			{
+				"title": "David Clark H10 13.4",
+				"description": "Started with a mid-range headset which I find pretty good. Might upgrade to ANR at some point and keep this one for passengers"
+			}
+		]
+	}
+]

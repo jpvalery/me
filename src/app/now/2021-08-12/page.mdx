@@ -1,0 +1,45 @@
+import Image from 'next/image';
+
+import { ContentLayout } from '@/components/ContentLayout';
+import { PreviousVersions } from '@/components/PreviousVersions';
+
+export const article = {
+	author: 'Jp Valery',
+	date: '2022-09-05',
+	title: 'What was I up to on July 20th, 2022',
+};
+
+export const metadata = {
+	title: article.title,
+	description: article.description,
+};
+
+export default (props) => <ContentLayout article={article} {...props} />;
+
+Almost 5 months since my last update, _what is up_?
+
+I started my new role at Customer.io and so far so good! I'm trying not to jinx it but I'm fortunate to have a nice team, great leaders, and working on a product I love. I think it really makes a difference. It's pretty exciting to help people extract the most out of it everyday.
+
+I'll be spending a few days in Gaspésie next week to see my old roomate, get some marine air, and hopefully take some nice pictures after almost 18 months without any photos...
+
+These days I'm playing mostly Apex Legends (pretty proud of my 20% win rate and 1 KD this season), Microsoft Flight Simulator, and bouncing between Red Dead Online, Grounded, and Back4Blood Beta the rest of the time.
+
+Despite a uncooperative weather, my garden has been doing pretty good. This year, I wanted to experiment with new species and I have had so much fun seeing my cucamelons, casper eggplants, etc... growing. So yummy!
+
+Now, with the upcoming Fall and although I'm vaccinated, I'm wondering about how the pandemic will shape the cold seaons.
+
+<div className=" not-prose">
+	<PreviousVersions />
+	<ul>
+		<li>
+			<Link href="/now/2021-03-30" className="hover:text-blue-500">
+				March 30th, 2021
+			</Link>
+		</li>
+		<li>
+			<Link href="/now/2021-01-10" className="hover:text-blue-500">
+				January 10th, 2021
+			</Link>
+		</li>
+	</ul>
+</div>
