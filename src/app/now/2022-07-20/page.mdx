@@ -1,0 +1,53 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { ContentLayout } from '@/components/ContentLayout';
+import { PreviousVersions } from '@/components/PreviousVersions';
+
+export const article = {
+	author: 'Jp Valery',
+	date: '2022-07-20',
+	title: 'What was I up to on July 20th, 2022',
+};
+
+export const metadata = {
+	title: article.title,
+	description: article.description,
+};
+
+export default (props) => <ContentLayout article={article} {...props} />;
+
+Almost a year since my last update, _what is up_?
+
+Life has been a bit chaotic, not gonna lie
+
+Between traveling to France for an emergency, trying to buy a house in the worse market in Canada's history, and separating with my long-term partner, I have to admit that it's been a bit more chaotic than I hoped.
+
+On the brighter side, I was promoted to Team Lead at Customer.io and that new challenge has been fulfilling. It strikes a nice balance of captain/player and makes for totally not boring weeks.
+
+With the waves of Covid, I haven't really traveled nor did I find the energy to plan the next travel. For a time I wanted to work remotely in the US and enjoy the nomadic privilege, but with the gas prices being where they were, this plan fizzled.
+
+I've invested in an electric bike earlier this year and this is one of the best investment I made in a while. I've already biked over 700km in less than 6 months and I'm eager to keep beating my records.
+
+As always, games take a good chunk of my time. I've been a bit burnt out by Apex and found new excitement in Fortnite, Fall Guys, and Generation Zero.
+
+<div className=" not-prose">
+	<PreviousVersions />
+	<ul>
+		<li>
+			<Link href="/now/2021-08-12" className="hover:text-blue-500">
+				August 12th, 2021
+			</Link>
+		</li>
+		<li>
+			<Link href="/now/2021-03-30" className="hover:text-blue-500">
+				March 30th, 2021
+			</Link>
+		</li>
+		<li>
+			<Link href="/now/2021-01-10" className="hover:text-blue-500">
+				January 10th, 2021
+			</Link>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,44 @@
+import Image from 'next/image';
+
+import { ContentLayout } from '@/components/ContentLayout';
+import { PreviousVersions } from '@/components/PreviousVersions';
+
+export const article = {
+	author: 'Jp Valery',
+	date: '2022-09-05',
+	title: 'What was I up to on July 20th, 2022',
+};
+
+export const metadata = {
+	title: article.title,
+	description: article.description,
+};
+
+export default (props) => <ContentLayout article={article} {...props} />;
+
+2021 started pretty crazy—no reasons to change the winning recipe of 2020, eh?
+
+I left my role at Local Logic in February. I tried to get alignment on my future at the company after blowing past all my objectives and working non-stop for a year. I was told to quit. So, I went yolo and did just that.
+
+I have to say I'm pretty proud of me for doing so. It was both a crazy and a courageous choice to draw the line and say "no more". I think that a few years ago I would have kept enduring the abuse and toxicity, rather than calling it quits
+
+Fortis Fortuna Adiuvat as they say.
+
+I got a couple of freelancing gigs to keep me busy while I was enjoying funemployment and I landed a role at Customer.io as a Customer Success Manager. If you ran into me over the past few years and we chatted about marketing automation, there's a 99.999% chance I annoyed you with how freaking awesome Customer.io is as a product. So, I couldn't be more excited to be joining this team.
+
+These days I'm playing mostly Apex Legends, Dead by Daylight, H:CotW. I'm looking forward to jumping back a bit more on Flight Simulator, especially with an Oculus Quest on the way.
+
+I've started my seedlings for the season and as usual I'm just amazed by these lil' plants making their way up through the soil. Life is amazing.
+
+While the first quarter of 2021 was kinda bumpy, I'm excited for the rest of the year.
+
+<div className=" not-prose">
+	<PreviousVersions />
+	<ul>
+		<li>
+			<Link href="/now/2021-01-10" className="hover:text-blue-500">
+				January 10th, 2021
+			</Link>
+		</li>
+	</ul>
+</div>
