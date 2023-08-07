@@ -39,8 +39,7 @@ const projects = [
 	},
 	{
 		name: 'Advisorship',
-		description:
-			'Field-tested experience to support your company',
+		description: 'Field-tested experience to support your company',
 		link: {
 			href: '/work/advisorship',
 			label: '/advisorship',
@@ -68,7 +67,10 @@ export const metadata = {
 export default function Projects() {
 	return (
 		<>
-			<SimpleLayout title="Work" intro="Some professional and work-oriented content">
+			<SimpleLayout
+				title="Work"
+				intro="Some professional and work-oriented content"
+			>
 				<ul
 					role="list"
 					className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"

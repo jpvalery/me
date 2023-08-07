@@ -55,7 +55,8 @@ function LinkIcon(props) {
 
 export const metadata = {
 	title: 'Photography',
-	description: 'From my portfolio to my contact sheets, an overview of my photography',
+	description:
+		'From my portfolio to my contact sheets, an overview of my photography',
 };
 
 export default function Projects() {

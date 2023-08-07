@@ -11,8 +11,7 @@ export const metadata = {
 		template: '%s - Jp Valery 🦝',
 		default: 'Jp Valery 🦝',
 	},
-	description:
-		`Bonjour, Hi! I'm Jp and I wear more hats than a meta-description field can fit`,
+	description: `Bonjour, Hi! I'm Jp and I wear more hats than a meta-description field can fit`,
 	alternates: {
 		types: {
 			'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
@@ -31,11 +30,10 @@ export default function RootLayout({ children }) {
 				</Providers>
 			</body>
 			<Script
-            data-website-id="3a96b2ba-8032-491e-9ec5-df513cf57d50"
-            src="https://analytics.jpvalery.com/umami.js"
+				data-website-id="3a96b2ba-8032-491e-9ec5-df513cf57d50"
+				src="https://analytics.jpvalery.com/umami.js"
 				strategy="afterInteractive"
-          />
+			/>
 		</html>
 	);
-
 }

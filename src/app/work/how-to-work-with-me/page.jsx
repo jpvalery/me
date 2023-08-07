@@ -6,8 +6,7 @@ import { Container } from '@/components/Container';
 
 export const metadata = {
 	title: 'How to work with Jp',
-	description:
-		`This is a document I'm always sharing with any new reports as a way to understand each other better and build trust.`,
+	description: `This is a document I'm always sharing with any new reports as a way to understand each other better and build trust.`,
 };
 
 export default function About() {

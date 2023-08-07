@@ -3,8 +3,7 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 
 export const metadata = {
 	title: 'More about Jp',
-	description:
-		`What I'm up to lately, my personal stack, and some dashboard metrics`,
+	description: `What I'm up to lately, my personal stack, and some dashboard metrics`,
 };
 
 const projects = [

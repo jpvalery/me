@@ -3,8 +3,7 @@ import DashboardUnsplash from '@/components/dashboard/unsplash';
 
 export const metadata = {
 	title: 'Dashboard',
-	description:
-		'Some personal metrics—mostly for the fun of connecting APIs',
+	description: 'Some personal metrics—mostly for the fun of connecting APIs',
 };
 
 export default function Dashboard() {

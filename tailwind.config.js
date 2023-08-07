@@ -110,8 +110,8 @@ module.exports = {
 					},
 
 					// Headings
-					h1:{
-						fontFamily: theme('fontFamily.cartridge')
+					h1: {
+						fontFamily: theme('fontFamily.cartridge'),
 					},
 					'h2, h3': {
 						color: 'var(--tw-prose-headings)',

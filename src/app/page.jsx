@@ -75,8 +75,7 @@ function Photos() {
 
 export const metadata = {
 	title: 'About Jp',
-	description:
-		`Bonjour, Hi! I'm Jp and I wear more hats than a meta-description field can fit`,
+	description: `Bonjour, Hi! I'm Jp and I wear more hats than a meta-description field can fit`,
 };
 
 export default function About() {
@@ -95,7 +94,7 @@ export default function About() {
 						</div>
 					</div>
 					<div className="lg:order-first lg:row-span-2">
-						<p className="font-cartridge pb-1 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+						<p className="pb-1 font-cartridge text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 							<span className="pb-2 italic">Bonjour, hi!</span>
 						</p>
 						<h1 className="font-cartridge text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

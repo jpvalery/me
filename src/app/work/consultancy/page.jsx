@@ -38,7 +38,7 @@ export default function Projects() {
 					<p>Hire me</p>
 				</Link>
 			</SimpleLayout>
-						<SimpleLayout title="Frequently Asked Questions">
+			<SimpleLayout title="Frequently Asked Questions">
 				<FAQ />
 			</SimpleLayout>
 		</>

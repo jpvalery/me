@@ -3,8 +3,7 @@ import Link from 'next/link';
 
 export const metadata = {
 	title: 'Get in touch',
-	description:
-		'Easily get in touch with me',
+	description: 'Easily get in touch with me',
 };
 
 export default function Contact() {
