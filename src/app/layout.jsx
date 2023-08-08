@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
 			</body>
 			<Script
 				data-website-id="3a96b2ba-8032-491e-9ec5-df513cf57d50"
-				src="https://analytics.jpvalery.com/umami.js"
+				src="https://analytics.jpvalery.com/script.js"
 				strategy="afterInteractive"
 			/>
 		</html>
