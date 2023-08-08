@@ -9,7 +9,7 @@ export const metadata = {
 export default function Contact() {
 	return (
 		<SimpleLayout title="Get in touch">
-			<div className="prose text-white">
+			<div className="prose text-gray-600 dark:text-gray-200">
 				<p>
 					I&apos;m gonna be real. I can&apos;t pursue every opportunity that
 					comes my way and have to be extremely picky.

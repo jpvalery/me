@@ -107,7 +107,9 @@ export function FAQ() {
 		<div className="grid max-w-2xl gap-10">
 			{questions.map(({ title, content }) => (
 				<div key={title}>
-					<h2 className="text-xl font-medium text-white">{title}</h2>
+					<h2 className="text-xl font-medium text-gray-600 dark:text-gray-200">
+						{title}
+					</h2>
 					<p className="mt-2 text-base text-gray-400">{content()}</p>
 				</div>
 			))}

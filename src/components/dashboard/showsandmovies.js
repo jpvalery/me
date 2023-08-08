@@ -44,7 +44,9 @@ export default async function DashboardShowsAndMovies() {
 
 	return (
 		<Container>
-			<h2 className="pb-8 text-4xl font-bold text-white">Shows & Movies</h2>
+			<h1 className="pb-8 font-cartridge text-4xl font-bold text-gray-600 dark:text-gray-200">
+				Shows & Movies
+			</h1>
 			<Grid numItemsSm={2} numItemsLg={3} className="gap-6">
 				{categories.map((item) => (
 					<Link href={item.link} key={item.title}>

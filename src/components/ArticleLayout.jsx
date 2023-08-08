@@ -1,13 +1,13 @@
 'use client';
 
-import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
 
 import { AppContext } from '@/app/providers';
 
-import { formatDate } from '@/lib/formatDate';
 import { Container } from '@/components/Container';
 import { Prose } from '@/components/Prose';
+import { formatDate } from '@/lib/formatDate';
 
 function ArrowLeftIcon(props) {
 	return (
@@ -46,7 +46,7 @@ export function ArticleLayout({ children, article, isRssFeed = false }) {
 					)}
 					<article>
 						<header className="flex flex-col">
-							<h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+							<h1 className="mt-6 font-cartridge text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 								{article.title}
 							</h1>
 							<time

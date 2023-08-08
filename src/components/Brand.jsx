@@ -1,8 +1,8 @@
 export default function Brand() {
 	return (
 		<div className="inline-flex items-center">
-			<p className="text-xl font-black uppercase">Jp Valery</p>
-			<div className="h-12 w-12">
+			<p className="text-base font-black uppercase md:text-xl">Jp Valery</p>
+			<div className="h-10 w-10 md:h-12 md:w-12">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 					<path
 						fill="#605f5b"

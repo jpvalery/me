@@ -16,7 +16,7 @@ export default function Projects() {
 				title="Consultancy"
 				intro="Better, Faster, Stronger Results—but not Harder"
 			>
-				<div className="prose-xl prose-a:text-advisor-500 prose text-gray-50">
+				<div className="prose-xl prose-a:text-advisor-500 prose text-gray-600 dark:text-gray-200">
 					<p>
 						According to{' '}
 						<a href="https://go.forrester.com/blogs/the-revenue-operations-charter-is-born/">

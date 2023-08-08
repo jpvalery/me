@@ -84,7 +84,7 @@ export default function Projects() {
 			<SimpleLayout>
 				<Link
 					href="/projects/cemetery"
-					className="text-base text-zinc-800 hover:text-blue-500 hover:underline dark:text-zinc-100"
+					className="text-base text-zinc-800 underline hover:text-blue-500 dark:text-zinc-100"
 				>
 					Interested in past projects?
 				</Link>

@@ -16,7 +16,7 @@ export default function Projects() {
 				title="Advisorship"
 				intro="Field-tested experience to support your company"
 			>
-				<div className="prose-xl prose-a:text-advisor-500 prose text-gray-50">
+				<div className="prose-xl prose-a:text-advisor-500 prose text-white">
 					<p>
 						According to{' '}
 						<a href="https://go.forrester.com/blogs/the-revenue-operations-charter-is-born/">
