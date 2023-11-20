@@ -10,8 +10,8 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 
 const projects = [
 	{
-		name: 'Meche (WIP)',
-		description: 'Handmade candle-making online shop',
+		name: 'Meche',
+		description: 'Online shop for handmade and environmental-friendly candles',
 		link: { href: 'https://meche.ca', label: 'meche.ca' },
 		logo: logoMeche,
 	},
