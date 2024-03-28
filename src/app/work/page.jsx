@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logoAdvisor from '@/images/logos/advisor.svg';
-import logoHire from '@/images/logos/hire.svg';
+import logoRaccoon from '@/images/logos/raccoonventures.svg';
 
 import logoResume from '@/images/logos/resume.svg';
 import logoWWM from '@/images/logos/workwithme.svg';
@@ -28,23 +27,11 @@ const projects = [
 		logo: logoWWM,
 	},
 	{
-		name: 'Consultancy',
+		name: 'Raccoon Ventures',
 		description:
-			'Get the leanest yet highest-performing operations stack your company deserves and need with none of the overhead',
-		link: {
-			href: '/work/consultancy',
-			label: '/consultancy',
-		},
-		logo: logoHire,
-	},
-	{
-		name: 'Advisorship',
-		description: 'Field-tested experience to support your company',
-		link: {
-			href: '/work/advisorship',
-			label: '/advisorship',
-		},
-		logo: logoAdvisor,
+			'My personal company to work on my side-projects or advise/consult for other companies',
+		link: { href: 'https://raccoonv.com', label: 'raccoonv.com' },
+		logo: logoRaccoon,
 	},
 ];
 

@@ -107,7 +107,7 @@ export default function About() {
 								Mid-Market teams with teammates from Nepal to California and
 								everywhere in between. I moonlight on a few side projects
 								through my personal company{' '}
-								<span className="font-bold">Raccoon Ventures</span>
+								<a href="https://raccoonv.com">Raccoon Ventures</a>.
 							</p>
 							<p>
 								Before that, I&apos;ve dabbled in{' '}
