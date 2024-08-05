@@ -4,7 +4,7 @@ import Link from 'next/link';
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
-import image4 from '@/images/photos/image-4.webp';
+import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.webp';
 import portraitImage from '@/images/portrait.jpg';
 import clsx from 'clsx';
@@ -104,9 +104,10 @@ export default function About() {
 							<p>
 								I&apos;m currently the Success Team Manager at{' '}
 								<a href="https://customer.io">Customer.io</a> where I lead our
-								Mid-Market teams with teammates from Nepal to California and
-								everywhere in between. I moonlight on a few side projects
-								through my personal company{' '}
+								Mid-Market teams and I&apos;m accountable for 8-figures annual
+								revenue with teammates from Nepal to California and everywhere
+								in between. I moonlight on a few side projects through my
+								personal company{' '}
 								<a href="https://raccoonv.com">Raccoon Ventures</a>.
 							</p>
 							<p>
@@ -114,6 +115,12 @@ export default function About() {
 								<a href="https://resume.jpvalery.me">quite a few things</a>.
 								From freelancing to multinationals, from the music industry to
 								the video game industry, from marketing to RevOps.
+							</p>
+							<p>
+								I recently achieved a childhood dream and obtained my Private
+								Pilot License (Aeroplanes). I&apos;m now building hours towards
+								getting my Commercial Pilot License, as well as obtaining my
+								Night Rating.
 							</p>
 							<p>
 								Photography has been a huge component of my life for the past
@@ -125,8 +132,8 @@ export default function About() {
 							<p>
 								I&apos;m also a gamer. I&apos;ve been playing mostly on Xbox for
 								the past few years. You&apos;ll find me mostly playing various
-								Battle Royale games or Flight Simulator as the core rotation,
-								which occassional stints in other games.
+								FPS or Flight Simulator as the core rotation, which occassional
+								stints in other games.
 							</p>
 							<p>
 								Last but not least, I&apos;m really into gardening. This must be
