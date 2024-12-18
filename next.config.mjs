@@ -8,8 +8,8 @@ const nextConfig = {
 const withMDX = nextMDX({
 	extension: /\.mdx?$/,
 	options: {
-		remarkPlugins: [['remarkGfm', { strict: true, throwOnError: true }]],
-		rehypePlugins: [['rehypeHighlight', { strict: true, throwOnError: true }]],
+		remarkPlugins: [['remark-gfm', { strict: true, throwOnError: true }]],
+		rehypePlugins: [['rehype-highlight', { strict: true, throwOnError: true }]],
 	},
 });
 
