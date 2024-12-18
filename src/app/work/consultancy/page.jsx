@@ -5,6 +5,7 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 
 export const metadata = {
 	title: 'Consultancy',
+
 	description:
 		'Get the leanest yet highest-performing operations stack your company deserves and need with none of the overhead.',
 };

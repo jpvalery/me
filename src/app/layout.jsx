@@ -11,7 +11,9 @@ export const metadata = {
 		template: '%s - Jp Valery 🦝',
 		default: 'Jp Valery 🦝',
 	},
+
 	description: `Bonjour, Hi! I'm Jp and I wear more hats than a meta-description field can fit`,
+
 	alternates: {
 		types: {
 			'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,

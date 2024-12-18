@@ -20,6 +20,7 @@ function LinkIcon(props) {
 
 export const metadata = {
 	title: 'Cemetery of Projects',
+
 	description:
 		'Everything dies one day. This is the cemetery of things I built and killed off at one point',
 };

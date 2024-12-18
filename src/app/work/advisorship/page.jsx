@@ -5,6 +5,7 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 
 export const metadata = {
 	title: 'Advisorship',
+
 	description:
 		'Getting me as an advisor for your startup is adding an involved and passionate coach to your team to help achieve sustainable growth.',
 };
