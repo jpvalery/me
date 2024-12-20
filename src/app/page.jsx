@@ -5,7 +5,7 @@ import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
-import image5 from '@/images/photos/image-5.webp';
+import image5 from '@/images/photos/image-5.jpg';
 import portraitImage from '@/images/portrait.jpg';
 import clsx from 'clsx';
 
@@ -57,7 +57,7 @@ function Photos() {
 						key={image.src}
 						className={clsx(
 							'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded bg-zinc-100 dark:bg-zinc-900 sm:w-72 sm:rounded',
-							rotations[imageIndex % rotations.length],
+							// rotations[imageIndex % rotations.length],
 						)}
 					>
 						<Image
