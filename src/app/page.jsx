@@ -95,7 +95,7 @@ export default function About() {
 					</div>
 					<div className="lg:order-first lg:row-span-2">
 						<p className="pb-1 font-departure font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl">
-							<span className="pb-2 text-4xl italic ">Bonjour, hi!</span>
+							<span className="pb-2 text-4xl italic">Bonjour, hi!</span>
 						</p>
 						<h1 className="font-departure text-2xl">
 							I&apos;m Jp and I wear more hats than a H1 can fit

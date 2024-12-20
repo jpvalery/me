@@ -69,20 +69,14 @@ export default function Projects() {
 										/>
 									</Card.Icon>
 									<Card.Block>
-										<Card.Link
-											href={project.link.href}
-											className="text-base font-semibold text-zinc-900 dark:text-zinc-100"
-										>
+										<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
 											{project.name}
-										</Card.Link>
+										</h3>
 
-										<Link
-											href={project.link.href}
-											className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500"
-										>
+										<span className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500">
 											<LinkIcon className="h-6 w-6 flex-none" />
 											<span className="ml">{project.link.label}</span>
-										</Link>
+										</span>
 
 										<Card.Description>{project.description}</Card.Description>
 									</Card.Block>

@@ -81,20 +81,14 @@ export default function Projects() {
 										/>
 									</Card.Icon>
 									<Card.Block>
-										<Card.Link
-											href={project.link.href}
-											className="text-base font-semibold text-zinc-900 dark:text-zinc-100"
-										>
+										<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
 											{project.name}
-										</Card.Link>
+										</h3>
 
-										<Link
-											href={project.link.href}
-											className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500"
-										>
+										<span className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500">
 											<LinkIcon className="h-6 w-6 flex-none" />
 											<span className="ml">{project.link.label}</span>
-										</Link>
+										</span>
 
 										<Card.Description>{project.description}</Card.Description>
 									</Card.Block>
@@ -107,7 +101,7 @@ export default function Projects() {
 			<SimpleLayout>
 				<Link
 					href="https://contact.jpvalery.me/photography"
-					className="grid h-12 max-w-fit items-center  rounded bg-zinc-900 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white sm:w-auto sm:text-sm"
+					className="grid h-12 max-w-fit items-center rounded bg-zinc-900 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white sm:w-auto sm:text-sm"
 				>
 					<p>Get in touch about my photography</p>
 				</Link>

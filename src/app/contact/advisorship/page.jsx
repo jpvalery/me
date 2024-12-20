@@ -100,10 +100,10 @@ export default function Contact() {
 
 							{/* name */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									What&apos;s your name?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<div className="mt-1">
 										<input
 											type="text"
@@ -119,10 +119,10 @@ export default function Contact() {
 
 							{/* email */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									Where can I write back to you?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<input
 										type="text"
 										name="email"
@@ -137,10 +137,10 @@ export default function Contact() {
 
 							{/* role */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									What&apos;s your role?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<div className="mt-1">
 										<input
 											type="text"
@@ -156,10 +156,10 @@ export default function Contact() {
 
 							{/* company */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									What&apos;s your company?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<div className="mt-1">
 										<input
 											type="text"
@@ -178,10 +178,10 @@ export default function Contact() {
 
 							{/* website */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									What&apos;s your website?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<div className="mt-1">
 										<input
 											type="text"
@@ -200,10 +200,10 @@ export default function Contact() {
 
 							{/* topic */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									What can I help you with?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<select
 										id="reason"
 										name="reason"
@@ -242,10 +242,10 @@ export default function Contact() {
 
 							{/* message */}
 							<div className="grid grid-flow-row gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									Can you add more details?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<textarea
 										type="text"
 										name="message"
@@ -260,10 +260,10 @@ export default function Contact() {
 
 							{/* proofread */}
 							<div className="grid grid-flow-col items-center justify-start gap-3 p-4">
-								<dt className="w-full  font-medium text-gray-500 dark:text-gray-200">
+								<dt className="w-full font-medium text-gray-500 dark:text-gray-200">
 									Have you proofread everything?
 								</dt>
-								<dd className="w-full  text-gray-900">
+								<dd className="w-full text-gray-900">
 									<input
 										type="checkbox"
 										id="checked"
@@ -321,7 +321,7 @@ export default function Contact() {
 										Your message has been sent!
 									</Dialog.Title>
 									<div className="mt-2">
-										<p className=" text-gray-500 dark:text-gray-200">
+										<p className="text-gray-500 dark:text-gray-200">
 											I&apos;ll be in touch soon
 										</p>
 									</div>
@@ -329,7 +329,7 @@ export default function Contact() {
 									<div className="mt-4">
 										<button
 											type="button"
-											className="inline-flex justify-center rounded border border-transparent bg-zinc-100 px-4 py-2  font-medium text-blue-900 hover:bg-zinc-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-internationalOrange-400 focus-visible:ring-offset-2 dark:focus-visible:ring-internationalOrange-500"
+											className="inline-flex justify-center rounded border border-transparent bg-zinc-100 px-4 py-2 font-medium text-blue-900 hover:bg-zinc-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-internationalOrange-400 focus-visible:ring-offset-2 dark:focus-visible:ring-internationalOrange-500"
 											onClick={closeSuccessModal}
 										>
 											Got it!
@@ -376,7 +376,7 @@ export default function Contact() {
 										Oopsie {':('}
 									</Dialog.Title>
 									<div className="mt-2">
-										<p className=" text-gray-500 dark:text-gray-200">
+										<p className="text-gray-500 dark:text-gray-200">
 											Something went wrong. Please try again
 										</p>
 									</div>
@@ -384,7 +384,7 @@ export default function Contact() {
 									<div className="mt-4">
 										<button
 											type="button"
-											className="inline-flex justify-center rounded border border-transparent bg-red-100 px-4 py-2  font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+											className="inline-flex justify-center rounded border border-transparent bg-red-100 px-4 py-2 font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
 											onClick={closeFailureModal}
 										>
 											Close

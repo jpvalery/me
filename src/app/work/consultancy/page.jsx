@@ -34,7 +34,7 @@ export default function Projects() {
 				</div>
 				<Link
 					href="/contact/advisorship"
-					className="grid h-12 max-w-fit items-center  rounded bg-zinc-900 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white sm:w-auto sm:text-sm"
+					className="grid h-12 max-w-fit items-center rounded bg-zinc-900 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white sm:w-auto sm:text-sm"
 				>
 					<p>Hire me</p>
 				</Link>
