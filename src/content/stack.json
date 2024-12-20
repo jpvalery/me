@@ -3,8 +3,8 @@
 		"name": "Everyday tech",
 		"content": [
 			{
-				"title": "iPhone 13 mini",
-				"description": "A great compromise between size and performance. Might change it this year"
+				"title": "iPhone 16 Pro",
+				"description": "I've never taken so many pictures with a phone"
 			},
 			{
 				"title": "iPad Pro 11\" M1",
@@ -32,7 +32,7 @@
 		"name": "Office — Work",
 		"content": [
 			{
-				"title": "MacBook Air M1 13\" 2021",
+				"title": "MacBook Air M3 13\" 2024",
 				"description": "Powerful, silent, and light—what more can you ask?"
 			},
 			{
@@ -194,8 +194,12 @@
 				"description": "I got a second iPad as my Electronic Flight Bag so I didn't have to bring my main one on flights in the off chance it'd be damaged"
 			},
 			{
+				"title": "Lightspeed Zulu 3",
+				"description": "Treated myself to a nice ANR headset when I obtained my Private Pilot Licence"
+			},
+			{
 				"title": "David Clark H10 13.4",
-				"description": "Started with a mid-range headset which I find pretty good. Might upgrade to ANR at some point and keep this one for passengers"
+				"description": "Started with a mid-range headset which I loved. It's now my headset for front-seat passengers"
 			}
 		]
 	}
