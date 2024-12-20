@@ -18,7 +18,10 @@ function ChevronRightIcon(props) {
 export function Card({ as: Component = 'div', className, children }) {
 	return (
 		<Component
-			className={clsx(className, 'group relative flex flex-col items-start')}
+			className={clsx(
+				className,
+				'border:zinc-900/5 group grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 hover:border-internationalOrange-400 dark:border-zinc-700/50 dark:hover:border-internationalOrange-500',
+			)}
 		>
 			{children}
 		</Component>
@@ -28,18 +31,15 @@ export function Card({ as: Component = 'div', className, children }) {
 Card.Link = function CardLink({ children, ...props }) {
 	return (
 		<>
-			<div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-			<Link {...props}>
-				<span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-				<span className="relative z-10">{children}</span>
-			</Link>
+			<div className="z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-50/5" />
+			<Link {...props}>{children}</Link>
 		</>
 	);
 };
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
 	return (
-		<Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+		<Component className="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
 			{href ? <Card.Link href={href}>{children}</Card.Link> : children}
 		</Component>
 	);
@@ -57,10 +57,26 @@ Card.Cta = function CardCta({ children }) {
 	return (
 		<div
 			aria-hidden="true"
-			className="relative z-10 mt-4 flex items-center text-sm font-medium text-blue-500"
+			className="relative z-10 mt-4 flex items-center text-sm font-medium text-internationalOrange-400 dark:text-internationalOrange-500"
 		>
 			{children}
 			<ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+		</div>
+	);
+};
+
+Card.Icon = function CardIcon({ children }) {
+	return (
+		<div className="z-10 flex h-16 w-16 items-center justify-center rounded bg-zinc-200/25 shadow-md shadow-zinc-900/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-500/25 dark:bg-zinc-900 dark:ring-0">
+			{children}
+		</div>
+	);
+};
+
+Card.Block = function CardBlock({ children }) {
+	return (
+		<div className="gap-y grid grid-flow-row items-start justify-start">
+			{children}
 		</div>
 	);
 };

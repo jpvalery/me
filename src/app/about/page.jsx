@@ -1,5 +1,6 @@
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import Link from 'next/link';
 
 export const metadata = {
 	title: 'More about Jp',
@@ -8,20 +9,20 @@ export const metadata = {
 
 const projects = [
 	{
-		name: '/now',
+		name: 'Now',
 		description: 'What am I up to lately?',
-		link: { href: '/now' },
+		link: { href: '/now', label: '/now' },
 	},
 	{
-		name: '/stack',
+		name: 'My stack',
 		description:
 			'What am I using for work and for fun? (only really cool stuff)',
-		link: { href: '/stack' },
+		link: { href: '/stack', label: '/stack' },
 	},
 	{
-		name: '/dashboard',
+		name: 'My dashboard',
 		description: 'Some personal metrics',
-		link: { href: '/dashboard' },
+		link: { href: '/dashboard', label: '/dashboard' },
 	},
 ];
 
@@ -39,17 +40,31 @@ function LinkIcon(props) {
 export default function About() {
 	return (
 		<SimpleLayout title="About me">
-			<ul
-				role="list"
-				className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-			>
+			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
 				{projects.map((project) => (
-					<Card as="li" key={project.name}>
-						<h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-							<Card.Link href={project.link.href}>{project.name}</Card.Link>
-						</h2>
-						<Card.Description>{project.description}</Card.Description>
-					</Card>
+					<li key={project.name}>
+						<Link href={project.link.href}>
+							<Card>
+								<Card.Block>
+									<Card.Link
+										href={project.link.href}
+										className="text-base font-semibold text-zinc-900 dark:text-zinc-100"
+									>
+										{project.name}
+									</Card.Link>
+									<Link
+										href={project.link.href}
+										className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500"
+									>
+										<LinkIcon className="h-6 w-6 flex-none" />
+										<span className="ml">{project.link.label}</span>
+									</Link>
+
+									<Card.Description>{project.description}</Card.Description>
+								</Card.Block>
+							</Card>
+						</Link>
+					</li>
 				))}
 			</ul>
 		</SimpleLayout>

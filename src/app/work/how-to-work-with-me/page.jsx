@@ -12,11 +12,11 @@ export const metadata = {
 export default function About() {
 	return (
 		<Container className="prose mx-auto mt-6 max-w-5xl space-y-7 text-zinc-600 dark:text-zinc-400">
-			<div className="mb-4 rounded-sm bg-stone-950/5 p-4 text-base italic dark:bg-stone-50/5">
+			<div className="mb-4 rounded bg-stone-950/5 p-4 text-base italic dark:bg-stone-50/5">
 				This is a document I&apos;m sharing with any new reports as a way to
 				understand each other better and build trust.
 			</div>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 				Background
 			</h3>
 			<p>
@@ -49,7 +49,7 @@ export default function About() {
 				unique perspective as having been on both sides of the screen and
 				understanding the challenges faced by our customers.
 			</p>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 				Personality
 			</h3>
 			<p>
@@ -59,7 +59,7 @@ export default function About() {
 				close to me and have been for years will tell you that it&apos;s
 				objectively a very accurate description of my overall personality.
 			</p>
-			<figure className="grid grid-flow-row items-center gap-4 rounded-sm px-6 py-0 text-sm italic text-stone-400 md:grid-flow-col">
+			<figure className="grid grid-flow-row items-center gap-4 rounded px-6 py-0 text-sm italic text-stone-400 md:grid-flow-col">
 				<a href="https://www.16personalities.com/infj-personality">
 					<div className="w-full">
 						<Image src={infj} alt="INFJ" className="h-52 object-cover" />
@@ -144,7 +144,7 @@ export default function About() {
 				I&apos;ll never raise my voice. Disagreement doesn&apos;t mean
 				disrespect.{' '}
 			</p>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 				How I approach work
 			</h3>
 			<p>
@@ -219,7 +219,7 @@ export default function About() {
 				seems that I&apos;m not picking up on something it&apos;s almost
 				certainly not voluntarily. Please explicit things :){' '}
 			</p>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 				Some words of wisdom
 			</h3>
 			<p>

@@ -55,36 +55,47 @@ export default function Projects() {
 				title="Current projects"
 				intro="These are the projects I'm currently working on in one way or another."
 			>
-				<ul
-					role="list"
-					className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-				>
+				<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
 					{projects.map((project) => (
-						<Card as="li" key={project.name}>
-							<div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-								<Image
-									src={project.logo}
-									alt=""
-									className="h-8 w-8"
-									unoptimized
-								/>
-							</div>
-							<h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-								<Card.Link href={project.link.href}>{project.name}</Card.Link>
-							</h2>
-							<p className="relative z-10 my-2 flex text-sm font-medium text-zinc-400 transition group-hover:text-blue-500 dark:text-zinc-200">
-								<LinkIcon className="h-6 w-6 flex-none" />
-								<span className="ml-2">{project.link.label}</span>
-							</p>
-							<Card.Description>{project.description}</Card.Description>
-						</Card>
+						<li key={project.name}>
+							<Link href={project.link.href}>
+								<Card>
+									<Card.Icon>
+										<Image
+											src={project.logo}
+											alt={project.name}
+											className="h-10 w-10"
+											unoptimized
+										/>
+									</Card.Icon>
+									<Card.Block>
+										<Card.Link
+											href={project.link.href}
+											className="text-base font-semibold text-zinc-900 dark:text-zinc-100"
+										>
+											{project.name}
+										</Card.Link>
+
+										<Link
+											href={project.link.href}
+											className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500"
+										>
+											<LinkIcon className="h-6 w-6 flex-none" />
+											<span className="ml">{project.link.label}</span>
+										</Link>
+
+										<Card.Description>{project.description}</Card.Description>
+									</Card.Block>
+								</Card>
+							</Link>
+						</li>
 					))}
 				</ul>
 			</SimpleLayout>
 			<SimpleLayout>
 				<Link
 					href="/projects/cemetery"
-					className="text-base text-zinc-800 underline hover:text-blue-500 dark:text-zinc-100"
+					className="text-base text-zinc-900 underline hover:text-internationalOrange-500 dark:text-zinc-100"
 				>
 					Interested in past projects?
 				</Link>

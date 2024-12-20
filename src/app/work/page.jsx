@@ -58,36 +58,47 @@ export default function Projects() {
 				title="Work"
 				intro="Some professional and work-oriented content"
 			>
-				<ul
-					role="list"
-					className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-				>
+				<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
 					{projects.map((project) => (
-						<Card as="li" key={project.name}>
-							<div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-								<Image
-									src={project.logo}
-									alt={project.name}
-									className="h-8 w-8"
-									unoptimized
-								/>
-							</div>
-							<h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-								<Card.Link href={project.link.href}>{project.name}</Card.Link>
-							</h2>
-							<p className="relative z-10 my-2 flex text-sm font-medium text-zinc-400 transition group-hover:text-blue-500 dark:text-zinc-200">
-								<LinkIcon className="h-6 w-6 flex-none" />
-								<span className="ml-2">{project.link.label}</span>
-							</p>
-							<Card.Description>{project.description}</Card.Description>
-						</Card>
+						<li key={project.name}>
+							<Link href={project.link.href}>
+								<Card>
+									<Card.Icon>
+										<Image
+											src={project.logo}
+											alt={project.name}
+											className="h-10 w-10"
+											unoptimized
+										/>
+									</Card.Icon>
+									<Card.Block>
+										<Card.Link
+											href={project.link.href}
+											className="text-base font-semibold text-zinc-900 dark:text-zinc-100"
+										>
+											{project.name}
+										</Card.Link>
+
+										<Link
+											href={project.link.href}
+											className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500"
+										>
+											<LinkIcon className="h-6 w-6 flex-none" />
+											<span className="ml">{project.link.label}</span>
+										</Link>
+
+										<Card.Description>{project.description}</Card.Description>
+									</Card.Block>
+								</Card>
+							</Link>
+						</li>
 					))}
 				</ul>
 			</SimpleLayout>
 			<SimpleLayout>
 				<Link
 					href="https://contact.jpvalery.me/consultancy"
-					className="grid h-12 max-w-fit items-center  rounded bg-zinc-800 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white sm:w-auto sm:text-sm"
+					className="grid h-12 max-w-fit items-center  rounded bg-zinc-900 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white sm:w-auto sm:text-sm"
 				>
 					<p>Get in touch about work</p>
 				</Link>

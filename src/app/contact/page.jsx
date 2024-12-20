@@ -36,7 +36,7 @@ export default function Contact() {
 			<div className="grid grid-flow-col items-center justify-start py-5">
 				<Link
 					href="/contact/generic"
-					className="sm: inline-flex w-full cursor-pointer justify-center rounded-md border border-transparent bg-gray-100 px-4 py-2 text-base font-medium text-gray-900 shadow-sm hover:bg-green-500 hover:text-white focus:bg-green-400 focus:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto"
+					className="sm: inline-flex w-full cursor-pointer justify-center rounded border border-transparent bg-gray-100 px-4 py-2 text-base font-medium text-gray-900 shadow-sm hover:bg-green-500 hover:text-white focus:bg-green-400 focus:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto"
 				>
 					Contact me
 				</Link>

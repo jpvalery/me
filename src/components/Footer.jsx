@@ -6,7 +6,7 @@ function NavLink({ href, children }) {
 	return (
 		<Link
 			href={href}
-			className="transition hover:text-blue-500 dark:hover:text-blue-400"
+			className="transition hover:text-internationalOrange-400 dark:hover:text-internationalOrange-500"
 		>
 			{children}
 		</Link>
@@ -20,7 +20,7 @@ export function Footer() {
 				<div className="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
 					<Container.Inner>
 						<div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-							<div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+							<div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-900 dark:text-zinc-200">
 								<NavLink href="/about">About</NavLink>
 								<NavLink href="/photography">Photography</NavLink>
 								<NavLink href="/work">Work</NavLink>

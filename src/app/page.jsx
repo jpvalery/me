@@ -20,9 +20,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
 		<li className={clsx(className, 'flex')}>
 			<Link
 				href={href}
-				className="group flex text-sm font-medium text-zinc-800 transition hover:text-blue-500 dark:text-zinc-200 dark:hover:text-blue-500"
+				className="group flex text-sm font-medium text-zinc-900 transition hover:text-internationalOrange-500 dark:text-zinc-200 dark:hover:text-internationalOrange-600"
 			>
-				<Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-blue-500" />
+				<Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-internationalOrange-400 dark:group-hover:fill-internationalOrange-500" />
 				<span className="ml-4">{children}</span>
 			</Link>
 		</li>
@@ -56,7 +56,7 @@ function Photos() {
 					<div
 						key={image.src}
 						className={clsx(
-							'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+							'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded bg-zinc-100 dark:bg-zinc-900 sm:w-72 sm:rounded',
 							rotations[imageIndex % rotations.length],
 						)}
 					>
@@ -83,21 +83,21 @@ export default function About() {
 		<>
 			<Container className="mt-16 sm:mt-32">
 				<div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-					<div className="lg:pl-20">
+					<div className="flex items-center justify-center lg:pl-20">
 						<div className="max-w-xs px-2.5 lg:max-w-none">
 							<Image
 								src={portraitImage}
 								alt=""
 								sizes="(min-width: 1024px) 32rem, 20rem"
-								className="aspect-square rounded-full bg-zinc-100 object-cover dark:bg-zinc-800"
+								className="aspect-square rounded-full bg-zinc-100 object-cover dark:bg-zinc-900"
 							/>
 						</div>
 					</div>
 					<div className="lg:order-first lg:row-span-2">
-						<p className="pb-1 font-cartridge text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-							<span className="pb-2 italic">Bonjour, hi!</span>
+						<p className="pb-1 font-departure font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl">
+							<span className="pb-2 text-4xl italic ">Bonjour, hi!</span>
 						</p>
-						<h1 className="font-cartridge text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+						<h1 className="font-departure text-2xl">
 							I&apos;m Jp and I wear more hats than a H1 can fit
 						</h1>
 						<div className="prose mt-6 space-y-7 text-zinc-600 dark:text-zinc-400">
@@ -124,16 +124,16 @@ export default function About() {
 							</p>
 							<p>
 								Photography has been a huge component of my life for the past
-								decade. My pictures have gathered over 225,000,000 views and
-								over 1,250,000 downloads on{' '}
+								decade. My pictures have gathered over 270,000,000 views and
+								over 1,500,000 downloads on{' '}
 								<a href="https://unsplash.com/@jpvalery">Unsplash</a>, have been
 								published in 2 books, and exhibited once.
 							</p>
 							<p>
 								I&apos;m also a gamer. I&apos;ve been playing mostly on Xbox for
-								the past few years. You&apos;ll find me mostly playing various
-								FPS or Flight Simulator as the core rotation, which occassional
-								stints in other games.
+								the past few years. You&apos;ll find me mostly playing The
+								Finals or Microsoft Flight Simulator as the core rotation, which
+								occassional stints in other games.
 							</p>
 							<p>
 								Last but not least, I&apos;m really into gardening. This must be
@@ -145,10 +145,10 @@ export default function About() {
 						</div>
 					</div>
 					<div className="lg:pl-20">
-						<div className="flex items-center justify-start space-x-6 text-zinc-800 dark:text-zinc-200 md:order-2">
+						<div className="flex items-center justify-start space-x-6 text-zinc-900 dark:text-zinc-200 md:order-2">
 							<a
 								href="https://twitter.com/jpvalery"
-								className="h-6 w-6 hover:text-blue-500 dark:hover:text-blue-500"
+								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
 							>
 								<span className="sr-only">Twitter</span>
 								<Twitter />
@@ -156,7 +156,7 @@ export default function About() {
 
 							<a
 								href="https://github.com/jpvalery"
-								className="h-6 w-6 hover:text-blue-500 dark:hover:text-blue-500"
+								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
 							>
 								<span className="sr-only">GitHub</span>
 								<GitHub />
@@ -164,7 +164,7 @@ export default function About() {
 
 							<a
 								href="https://unsplash.com/@jpvalery"
-								className="h-6 w-6 hover:text-blue-500 dark:hover:text-blue-500"
+								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
 							>
 								<span className="sr-only">Unsplash</span>
 								<Unsplash />
@@ -172,7 +172,7 @@ export default function About() {
 
 							<a
 								href="https://linkedin.com/in/jpvalery"
-								className="h-6 w-6 hover:text-blue-500 dark:hover:text-blue-500"
+								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
 							>
 								<span className="sr-only">LinkedIn</span>
 								<LinkedIn />
@@ -186,7 +186,7 @@ export default function About() {
 							contact@jpvalery.me
 						</SocialLink>
 
-						<div className="group mt-4 flex items-center text-sm font-medium text-zinc-800 transition hover:text-blue-500 dark:text-zinc-200 dark:hover:text-blue-500">
+						<div className="group mt-4 flex items-center text-sm font-medium text-zinc-900 transition hover:text-internationalOrange-500 dark:text-zinc-200 dark:hover:text-internationalOrange-600">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -194,7 +194,7 @@ export default function About() {
 								strokeWidth="1.5"
 								stroke="currentColor"
 								aria-hidden="true"
-								className="h-6 w-6 flex-none text-zinc-500 transition group-hover:text-blue-500"
+								className="h-6 w-6 flex-none text-zinc-500 transition group-hover:text-internationalOrange-400 dark:group-hover:text-internationalOrange-500"
 							>
 								<path
 									strokeLinecap="round"

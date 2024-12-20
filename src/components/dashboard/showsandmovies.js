@@ -3,7 +3,7 @@ import ExtLink from '@/components/icons/ExtLink';
 import format from 'comma-number';
 import Link from 'next/link';
 
-import { Card, Grid, Metric, Text } from '@tremor/react';
+import { Card } from '@/components/Card';
 
 async function getData() {
 	const res = await fetch(
@@ -44,22 +44,30 @@ export default async function DashboardShowsAndMovies() {
 
 	return (
 		<Container>
-			<h1 className="pb-8 font-cartridge text-4xl font-bold text-gray-600 dark:text-gray-200">
+			<h1 className="pb-8 font-departure text-4xl font-bold text-gray-600 dark:text-gray-200">
 				Shows & Movies
 			</h1>
-			<Grid numItemsSm={2} numItemsLg={3} className="gap-6">
+			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
 				{categories.map((item) => (
 					<Link href={item.link} key={item.title}>
-						<Card key={item.title}>
-							<div className="grid grid-flow-col items-end justify-start gap-2">
-								<Text>{item.title}</Text>
-								<ExtLink />
-							</div>
-							<Metric>{item.metric}</Metric>
+						<Card>
+							<Card.Block>
+								<Card.Link
+									href={item.link}
+									className="grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 hover:text-internationalOrange-400 dark:text-zinc-200 dark:hover:text-internationalOrange-500"
+								>
+									{item.title}
+									<ExtLink />
+								</Card.Link>
+
+								<span className="text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+									{item.metric}
+								</span>
+							</Card.Block>
 						</Card>
 					</Link>
 				))}
-			</Grid>
+			</ul>
 		</Container>
 	);
 }

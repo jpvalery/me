@@ -1,3 +1,4 @@
+import DashboardFlying from '@/components/dashboard/flying';
 import DashboardShowsAndMovies from '@/components/dashboard/showsandmovies';
 import DashboardUnsplash from '@/components/dashboard/unsplash';
 
@@ -9,6 +10,7 @@ export const metadata = {
 export default function Dashboard() {
 	return (
 		<div className="grid grid-flow-row gap-8 pt-16">
+			<DashboardFlying />
 			<DashboardUnsplash />
 			<DashboardShowsAndMovies />
 		</div>
