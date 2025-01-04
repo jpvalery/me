@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import logoCemetery from '@/images/logos/cemetery.svg';
 
@@ -37,24 +38,35 @@ export default function Projects() {
 					className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
 				>
 					{cemetery.map((project) => (
-						<Card as="li" key={project.name}>
-							<div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-900/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-900 dark:ring-0">
-								<Image
-									src={logoCemetery}
-									alt=""
-									className="h-8 w-8"
-									unoptimized
-								/>
-							</div>
-							<h2 className="mt-6 text-base font-semibold text-zinc-900 dark:text-zinc-100">
-								<Card.Link href={project.link.href}>{project.name}</Card.Link>
-							</h2>
-							<p className="relative z-10 my-2 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500">
-								<LinkIcon className="h-6 w-6 flex-none" />
-								<span className="ml-2">{project.link.label}</span>
-							</p>
-							<Card.Description>{project.description}</Card.Description>
-						</Card>
+						<li key={project.name}>
+							<Link href={project.link.href}>
+								<Card>
+									<Card.Block>
+										<div className="grid grid-flow-col items-center justify-start gap-x-6">
+											<Card.Icon>
+												<Image
+													src={logoCemetery}
+													alt=""
+													className="h-10 w-10"
+													unoptimized
+												/>
+											</Card.Icon>
+											<Card.Block>
+												<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+													{project.name}
+												</h3>
+
+												<span className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500">
+													<LinkIcon className="h-6 w-6 flex-none" />
+													<span className="ml">{project.link.label}</span>
+												</span>
+											</Card.Block>
+										</div>
+										<Card.Description>{project.description}</Card.Description>
+									</Card.Block>
+								</Card>
+							</Link>
+						</li>
 					))}
 				</ul>
 			</SimpleLayout>
