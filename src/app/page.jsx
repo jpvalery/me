@@ -20,9 +20,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
 		<li className={clsx(className, 'flex')}>
 			<Link
 				href={href}
-				className="group flex text-sm font-medium text-zinc-900 transition hover:text-internationalOrange-500 dark:text-zinc-200 dark:hover:text-internationalOrange-600"
+				className="group hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 flex text-sm font-medium text-zinc-900 transition dark:text-zinc-200"
 			>
-				<Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-internationalOrange-400 dark:group-hover:fill-internationalOrange-500" />
+				<Icon className="group-hover:fill-internationalOrange-400 dark:group-hover:fill-internationalOrange-500 h-6 w-6 flex-none fill-zinc-500 transition" />
 				<span className="ml-4">{children}</span>
 			</Link>
 		</li>
@@ -56,7 +56,7 @@ function Photos() {
 					<div
 						key={image.src}
 						className={clsx(
-							'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded bg-zinc-100 dark:bg-zinc-900 sm:w-72 sm:rounded',
+							'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-sm bg-zinc-100 sm:w-72 sm:rounded-sm dark:bg-zinc-900',
 							// rotations[imageIndex % rotations.length],
 						)}
 					>
@@ -94,7 +94,7 @@ export default function About() {
 						</div>
 					</div>
 					<div className="lg:order-first lg:row-span-2">
-						<p className="pb-1 font-departure font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl">
+						<p className="font-departure pb-1 font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-100">
 							<span className="pb-2 text-4xl italic">Bonjour, hi!</span>
 						</p>
 						<h1 className="font-departure text-2xl">
@@ -145,10 +145,10 @@ export default function About() {
 						</div>
 					</div>
 					<div className="lg:pl-20">
-						<div className="flex items-center justify-start space-x-6 text-zinc-900 dark:text-zinc-200 md:order-2">
+						<div className="flex items-center justify-start space-x-6 text-zinc-900 md:order-2 dark:text-zinc-200">
 							<a
 								href="https://twitter.com/jpvalery"
-								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
+								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
 							>
 								<span className="sr-only">Twitter</span>
 								<Twitter />
@@ -156,7 +156,7 @@ export default function About() {
 
 							<a
 								href="https://github.com/jpvalery"
-								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
+								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
 							>
 								<span className="sr-only">GitHub</span>
 								<GitHub />
@@ -164,7 +164,7 @@ export default function About() {
 
 							<a
 								href="https://unsplash.com/@jpvalery"
-								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
+								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
 							>
 								<span className="sr-only">Unsplash</span>
 								<Unsplash />
@@ -172,7 +172,7 @@ export default function About() {
 
 							<a
 								href="https://linkedin.com/in/jpvalery"
-								className="h-6 w-6 hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600"
+								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
 							>
 								<span className="sr-only">LinkedIn</span>
 								<LinkedIn />
@@ -186,7 +186,7 @@ export default function About() {
 							contact@jpvalery.me
 						</SocialLink>
 
-						<div className="group mt-4 flex items-center text-sm font-medium text-zinc-900 transition hover:text-internationalOrange-500 dark:text-zinc-200 dark:hover:text-internationalOrange-600">
+						<div className="group hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 mt-4 flex items-center text-sm font-medium text-zinc-900 transition dark:text-zinc-200">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -194,7 +194,7 @@ export default function About() {
 								strokeWidth="1.5"
 								stroke="currentColor"
 								aria-hidden="true"
-								className="h-6 w-6 flex-none text-zinc-500 transition group-hover:text-internationalOrange-400 dark:group-hover:text-internationalOrange-500"
+								className="group-hover:text-internationalOrange-400 dark:group-hover:text-internationalOrange-500 h-6 w-6 flex-none text-zinc-500 transition"
 							>
 								<path
 									strokeLinecap="round"

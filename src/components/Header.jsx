@@ -85,7 +85,7 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
 	return (
 		<Popover {...props}>
-			<Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-900 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+			<Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
 				Menu
 				<ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
 			</Popover.Button>
@@ -99,7 +99,7 @@ function MobileNavigation(props) {
 					leaveFrom="opacity-100"
 					leaveTo="opacity-0"
 				>
-					<Popover.Overlay className="fixed inset-0 z-50 bg-zinc-900/40 backdrop-blur-sm dark:bg-black/80" />
+					<Popover.Overlay className="fixed inset-0 z-50 bg-zinc-900/40 backdrop-blur-xs dark:bg-black/80" />
 				</Transition.Child>
 				<Transition.Child
 					as={Fragment}
@@ -112,7 +112,7 @@ function MobileNavigation(props) {
 				>
 					<Popover.Panel
 						focus
-						className="fixed inset-x-4 top-8 z-50 origin-top rounded bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-900"
+						className="fixed inset-x-4 top-8 z-50 origin-top rounded-sm bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-900"
 					>
 						<div className="flex flex-row-reverse items-center justify-between">
 							<Popover.Button aria-label="Close menu" className="-m-1 p-1">
@@ -154,7 +154,7 @@ function NavItem({ href, children }) {
 			>
 				{children}
 				{isActive && (
-					<span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-internationalOrange-400/0 via-internationalOrange-400/40 to-internationalOrange-400/0 dark:from-internationalOrange-500/0 dark:via-internationalOrange-500/40 dark:to-internationalOrange-500/0" />
+					<span className="from-internationalOrange-400/0 via-internationalOrange-400/40 to-internationalOrange-400/0 dark:from-internationalOrange-500/0 dark:via-internationalOrange-500/40 dark:to-internationalOrange-500/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r" />
 				)}
 			</Link>
 		</li>
@@ -164,7 +164,7 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
 	return (
 		<nav {...props}>
-			<ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-900 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10">
+			<ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10">
 				<NavItem href="/about">About</NavItem>
 				<NavItem href="/photography">Photography</NavItem>
 				<NavItem href="/work">Work</NavItem>
@@ -188,11 +188,11 @@ function ThemeToggle() {
 		<button
 			type="button"
 			aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
-			className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-900/90 dark:ring-white/10 dark:hover:ring-white/20"
+			className="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-900/90 dark:ring-white/10 dark:hover:ring-white/20"
 			onClick={() => setTheme(otherTheme)}
 		>
-			<SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-internationalOrange-50 [@media(prefers-color-scheme:dark)]:stroke-internationalOrange-400 [@media(prefers-color-scheme:dark)]:group-hover:fill-internationalOrange-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-internationalOrange-500" />
-			<MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-internationalOrange-500/10 [@media_not_(prefers-color-scheme:dark)]:stroke-internationalOrange-400" />
+			<SunIcon className="[@media(prefers-color-scheme:dark)]:fill-internationalOrange-50 [@media(prefers-color-scheme:dark)]:stroke-internationalOrange-400 [@media(prefers-color-scheme:dark)]:group-hover:fill-internationalOrange-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-internationalOrange-500 h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
+			<MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-internationalOrange-500/10 [@media_not_(prefers-color-scheme:dark)]:stroke-internationalOrange-400 hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
 		</button>
 	);
 }
@@ -240,7 +240,7 @@ export function Header() {
 					style={{ position: 'var(--header-position)' }}
 				>
 					<Container
-						className="top-[var(--header-top,theme(spacing.6))] w-full"
+						className="top-(--header-top,--spacing(6)) w-full"
 						style={{ position: 'var(--header-inner-position)' }}
 					>
 						<div className="relative flex gap-4">

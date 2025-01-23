@@ -20,7 +20,7 @@ export function Card({ as: Component = 'div', className, children }) {
 		<Component
 			className={clsx(
 				className,
-				'border:zinc-900/5 group grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 hover:border-internationalOrange-400 dark:border-zinc-700/50 dark:hover:border-internationalOrange-500',
+				'border:zinc-900/5 group hover:border-internationalOrange-400 dark:hover:border-internationalOrange-500 grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 dark:border-zinc-700/50',
 			)}
 		>
 			{children}
@@ -57,7 +57,7 @@ Card.Cta = function CardCta({ children }) {
 	return (
 		<div
 			aria-hidden="true"
-			className="relative z-10 mt-4 flex items-center text-sm font-medium text-internationalOrange-400 dark:text-internationalOrange-500"
+			className="text-internationalOrange-400 dark:text-internationalOrange-500 relative z-10 mt-4 flex items-center text-sm font-medium"
 		>
 			{children}
 			<ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
@@ -67,7 +67,7 @@ Card.Cta = function CardCta({ children }) {
 
 Card.Icon = function CardIcon({ children }) {
 	return (
-		<div className="z-10 flex h-16 w-16 items-center justify-center rounded bg-zinc-200/25 shadow-md shadow-zinc-900/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-500/25 dark:bg-zinc-900 dark:ring-0">
+		<div className="z-10 flex h-16 w-16 items-center justify-center rounded-sm bg-zinc-200/25 ring-1 shadow-md shadow-zinc-900/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-500/25 dark:bg-zinc-900 dark:ring-0">
 			{children}
 		</div>
 	);

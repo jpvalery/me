@@ -54,7 +54,7 @@ export default function About() {
 									</Card.Link>
 									<Link
 										href={project.link.href}
-										className="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-internationalOrange-400 dark:text-zinc-200 dark:group-hover:text-internationalOrange-500"
+										className="group-hover:text-internationalOrange-400 dark:group-hover:text-internationalOrange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200"
 									>
 										<LinkIcon className="h-6 w-6 flex-none" />
 										<span className="ml">{project.link.label}</span>

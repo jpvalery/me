@@ -65,7 +65,7 @@ export default async function DashboardFlying() {
 							<Card.Block>
 								<Card.Link
 									href={item.link}
-									className="grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 hover:text-internationalOrange-400 dark:text-zinc-200 dark:hover:text-internationalOrange-500"
+									className="hover:text-internationalOrange-400 dark:hover:text-internationalOrange-500 grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 dark:text-zinc-200"
 								>
 									{item.title}
 									<ExtLink />
