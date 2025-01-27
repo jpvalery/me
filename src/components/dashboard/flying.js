@@ -29,22 +29,22 @@ export default async function DashboardFlying() {
 	const categories = [
 		{
 			title: 'Flights',
-			metric: '39',
+			metric: '61',
 			link: 'https://foreflight.com',
 		},
 		{
-			title: 'Distance',
+			title: 'Distance (2024)',
 			metric: '1,280 NM',
 			link: 'https://foreflight.com',
 		},
 		{
 			title: 'Time',
-			metric: '55.1',
+			metric: '81.5',
 			link: 'https://foreflight.com',
 		},
 		{
 			title: 'Landings',
-			metric: '92',
+			metric: '181',
 			link: 'https://foreflight.com',
 		},
 	];
@@ -55,7 +55,7 @@ export default async function DashboardFlying() {
 				<h1 className="font-departure text-4xl font-bold text-gray-600 dark:text-gray-200">
 					Foreflight
 				</h1>
-				<span className="text-sm">Last updated: Dec 15th, 2024</span>
+				<span className="text-sm">Last updated: Jan 27th, 2025</span>
 			</div>
 
 			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
