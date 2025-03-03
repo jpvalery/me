@@ -7,6 +7,7 @@ import logoResume from '@/images/logos/resume.svg';
 import logoWWM from '@/images/logos/workwithme.svg';
 
 import { Card } from '@/components/Card';
+import Recommendations from '@/components/Recommendations';
 import { SimpleLayout } from '@/components/SimpleLayout';
 
 const projects = [
@@ -96,6 +97,12 @@ export default function Projects() {
 				>
 					<p>Get in touch about work</p>
 				</Link>
+			</SimpleLayout>
+			<SimpleLayout
+				title="Recommendations"
+				intro="Hear what people I worked with have to say"
+			>
+				<Recommendations />
 			</SimpleLayout>
 		</>
 	);

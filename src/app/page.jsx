@@ -102,12 +102,9 @@ export default function About() {
 						</h1>
 						<div className="prose mt-6 space-y-7 text-zinc-600 dark:text-zinc-400">
 							<p>
-								I&apos;m currently the Success Team Manager at{' '}
-								<a href="https://customer.io">Customer.io</a> where I lead our
-								Mid-Market teams and I&apos;m accountable for 8-figures annual
-								revenue with teammates from Nepal to California and everywhere
-								in between. I moonlight on a few side projects through my
-								personal company{' '}
+								I&apos;m currently a Customer Success Engineer at{' '}
+								<a href="https://resend.com">Resend</a>. I moonlight on a few
+								side projects through my personal company{' '}
 								<a href="https://raccoonv.com">Raccoon Ventures</a>.
 							</p>
 							<p>
@@ -117,7 +114,7 @@ export default function About() {
 								the video game industry, from marketing to RevOps.
 							</p>
 							<p>
-								I recently achieved a childhood dream and obtained my Private
+								In 2024, I achieved a childhood dream and obtained my Private
 								Pilot License (Aeroplanes). I&apos;m now building hours towards
 								getting my Commercial Pilot License, as well as obtaining my
 								Night Rating.
