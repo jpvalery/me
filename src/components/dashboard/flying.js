@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { Card } from '@/components/Card';
 
+/*
 async function getData() {
 	const res = await fetch(
 		'https://api.betaseries.com/members/infos',
@@ -21,15 +22,16 @@ async function getData() {
 
 	return res.json();
 }
+*/
 
 export default async function DashboardFlying() {
-	const data = await getData();
+	//const data = await getData();
 	//console.log(data)
 
 	const categories = [
 		{
 			title: 'Flights',
-			metric: '61',
+			metric: '72',
 			link: 'https://foreflight.com',
 		},
 		{
@@ -39,12 +41,12 @@ export default async function DashboardFlying() {
 		},
 		{
 			title: 'Time',
-			metric: '81.5',
+			metric: '97.0',
 			link: 'https://foreflight.com',
 		},
 		{
 			title: 'Landings',
-			metric: '181',
+			metric: '242',
 			link: 'https://foreflight.com',
 		},
 	];
@@ -55,7 +57,7 @@ export default async function DashboardFlying() {
 				<h1 className="font-departure text-4xl font-bold text-gray-600 dark:text-gray-200">
 					Foreflight
 				</h1>
-				<span className="text-sm">Last updated: Jan 27th, 2025</span>
+				<span className="text-sm">Last updated: May 9th, 2025</span>
 			</div>
 
 			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
