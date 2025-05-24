@@ -41,14 +41,6 @@ function MailIcon(props) {
 }
 
 function Photos() {
-	let rotations = [
-		'rotate-2',
-		'-rotate-2',
-		'rotate-2',
-		'rotate-2',
-		'-rotate-2',
-	];
-
 	return (
 		<div className="mt-16 sm:mt-20">
 			<div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
@@ -115,14 +107,14 @@ export default function About() {
 							</p>
 							<p>
 								In 2024, I achieved a childhood dream and obtained my Private
-								Pilot License (Aeroplanes). I&apos;m now building hours towards
-								getting my Commercial Pilot License, as well as obtaining my
-								Night Rating.
+								Pilot License (Aeroplanes). In 2025, I obtained my Night Rating.
+								I&apos;m now training for aerobatics as well as building hours
+								towards getting my Commercial Pilot License.
 							</p>
 							<p>
 								Photography has been a huge component of my life for the past
-								decade. My pictures have gathered over 270,000,000 views and
-								over 1,500,000 downloads on{' '}
+								decade. My pictures have gathered over 280,000,000 views and
+								over 1,650,000 downloads on{' '}
 								<a href="https://unsplash.com/@jpvalery">Unsplash</a>, have been
 								published in 2 books, and exhibited once.
 							</p>
