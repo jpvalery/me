@@ -189,7 +189,7 @@ function DesktopNavigation(props) {
 							>
 								<div className="grid grid-flow-col items-center gap-4">
 									{section.items.map((item) => (
-										<MenuItem>
+										<MenuItem key={item.label}>
 											<Link
 												key={item.label}
 												href={item.url}
