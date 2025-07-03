@@ -1,0 +1,80 @@
+[
+	{
+		"label": "About",
+		"description": "Learn more about me",
+		"url": "/about",
+		"items": [
+			{
+				"label": "/now",
+				"description": "What am I up to these days?",
+				"url": "/now"
+			},
+			{
+				"label": "/dashboard",
+				"description": "Some personal metrics",
+				"url": "/dashboard"
+			}
+		]
+	},
+	{
+		"label": "Work",
+		"description": "",
+		"url": "/work",
+		"items": [
+			{
+				"label": "Resume",
+				"description": "My online resume",
+				"url": "https://resume.jpvalery.photo"
+			},
+			{
+				"label": "Work with me",
+				"description": "How to work with me",
+				"url": "/how-to-work-with-me"
+			},
+			{
+				"label": "Recommendations",
+				"description": "Some kind words people I worked with said",
+				"url": "/recommendations"
+			},
+			{
+				"label": "Raccoon Ventures",
+				"description": "My personal company to take on projects",
+				"url": "https://raccoonv.com"
+			}
+		]
+	},
+	{
+		"label": "Projects",
+		"description": "Projects I'm currently working on",
+		"url": "/projects",
+		"items": [
+			{
+				"label": "TrimCarbon.com",
+				"description": "Verified climate projects funding",
+				"url": "https://trimcarbon.com"
+			},
+			{
+				"label": "Flaps",
+				"description": "Open-source private flights management.",
+				"url": "https://github.com/jpvalery/flaps"
+			}
+		]
+	},
+	{
+		"label": "Photography",
+		"description": "These are the projects I'm currently working on in one way or another",
+		"url": "/photography",
+		"items": [
+			{
+				"label": "Portfolio",
+				"description": "My photography portfolio",
+				"url": "https://jpvalery.photo"
+			},
+			{
+				"label": "Contact Sheets",
+				"description": "Unfiltered photo stream",
+				"url": "https://archive/jpvalery.photo"
+			}
+		]
+	}
+]

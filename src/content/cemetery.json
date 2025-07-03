@@ -1,5 +1,15 @@
 [
 	{
+		"name": "Meche",
+		"years": "2023-2024",
+		"link": {
+			"href": "https://meche.ca",
+			"label": "meche.ca"
+		},
+		"description": "Online shop for handmade and environmental-friendly candles. Overestimated the online demand and shipping hurdles. Got a few sales but nothing to sustain the activity.",
+		"icon": "ArchiveBoxIcon"
+	},
+	{
 		"name": "User Journey as a Product",
 		"years": "2019-2020",
 		"link": {

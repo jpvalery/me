@@ -38,9 +38,9 @@ export default function Projects() {
 					className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
 				>
 					{cemetery.map((project) => (
-						<li key={project.name}>
-							<Link href={project.link.href}>
-								<Card>
+						<li key={project.name} className="h-full">
+							<Link href={project.link.href} className="h-full">
+								<Card className="h-full items-start">
 									<Card.Block>
 										<div className="grid grid-flow-col items-center justify-start gap-x-6">
 											<Card.Icon>

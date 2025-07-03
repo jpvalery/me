@@ -2,18 +2,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import logoCuisinomicon from '@/images/logos/cuisinomicon.svg';
+import logoFlaps from '@/images/logos/flaps.png';
 import logoFlightlog from '@/images/logos/flightlog.svg';
-import logoMeche from '@/images/logos/meche.svg';
+import logoTrimCarbon from '@/images/logos/trimcarbon.svg';
 
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
 
 const projects = [
 	{
-		name: 'Meche',
-		description: 'Online shop for handmade and environmental-friendly candles',
-		link: { href: 'https://meche.ca', label: 'meche.ca' },
-		logo: logoMeche,
+		name: 'TrimCarbon.com',
+		description:
+			'Fund verified climate projects that remove or reduce CO₂ from the atmosphere',
+		link: {
+			href: 'https://trimcarbon.com',
+			label: 'trimcarbon.com',
+		},
+		logo: logoTrimCarbon,
+	},
+	{
+		name: 'Flaps',
+		description:
+			'FLAPS is an open-source platform for managing and booking seats on private or light aircraft flights.',
+		link: {
+			href: 'https://github.com/jpvalery/flaps',
+			label: 'jpvalery/flaps',
+		},
+		logo: logoFlaps,
 	},
 	{
 		name: 'MSFS Flightlog',
@@ -55,11 +70,14 @@ export default function Projects() {
 				title="Current projects"
 				intro="These are the projects I'm currently working on in one way or another."
 			>
-				<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
+				<ul
+					role="list"
+					className="grid grid-cols-1 content-stretch items-stretch justify-items-stretch gap-12 md:grid-cols-2"
+				>
 					{projects.map((project) => (
-						<li key={project.name}>
-							<Link href={project.link.href}>
-								<Card>
+						<li key={project.name} className="h-full">
+							<Link href={project.link.href} className="h-full">
+								<Card className="h-full">
 									<Card.Icon>
 										<Image
 											src={project.logo}

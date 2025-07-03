@@ -4,12 +4,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment, useEffect, useRef, useState } from 'react';
 
-import { Popover, Transition } from '@headlessui/react';
+import {
+	Menu,
+	MenuButton,
+	MenuItem,
+	MenuItems,
+	Popover,
+	Transition,
+} from '@headlessui/react';
+
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 
 import Brand from '@/components/Brand';
 import { Container } from '@/components/Container';
+
+import navigation from '@/content/navigation.json';
 
 function CloseIcon(props) {
 	return (
@@ -85,7 +95,7 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
 	return (
 		<Popover {...props}>
-			<Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+			<Popover.Button className="group flex items-center rounded-full bg-zinc-50/90 px-4 py-2 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-zinc-50/10 dark:hover:ring-zinc-50/20">
 				Menu
 				<ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
 			</Popover.Button>
@@ -112,7 +122,7 @@ function MobileNavigation(props) {
 				>
 					<Popover.Panel
 						focus
-						className="fixed inset-x-4 top-8 z-50 origin-top rounded-sm bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-900"
+						className="fixed inset-x-4 top-8 z-50 origin-top rounded-sm bg-zinc-50 p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-900"
 					>
 						<div className="flex flex-row-reverse items-center justify-between">
 							<Popover.Button aria-label="Close menu" className="-m-1 p-1">
@@ -125,9 +135,9 @@ function MobileNavigation(props) {
 						<nav className="mt-6">
 							<ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-900 dark:divide-zinc-100/5 dark:text-zinc-300">
 								<MobileNavItem href="/about">About</MobileNavItem>
-								<MobileNavItem href="/photography">Photography</MobileNavItem>
 								<MobileNavItem href="/work">Work</MobileNavItem>
 								<MobileNavItem href="/projects">Projects</MobileNavItem>
+								<MobileNavItem href="/photography">Photography</MobileNavItem>
 								<MobileNavItem href="/contact">Contact</MobileNavItem>
 							</ul>
 						</nav>
@@ -148,13 +158,13 @@ function NavItem({ href, children }) {
 				className={clsx(
 					'relative block px-3 py-2 transition',
 					isActive
-						? 'text-internationalOrange-400 dark:text-internationalOrange-500'
-						: 'dark:hover:text-internatioanlOrange-500 hover:text-internationalOrange-400',
+						? 'text-international-orange-400 dark:text-international-orange-500'
+						: 'dark:hover:text-international-orange-500 hover:text-international-orange-400',
 				)}
 			>
 				{children}
 				{isActive && (
-					<span className="from-internationalOrange-400/0 via-internationalOrange-400/40 to-internationalOrange-400/0 dark:from-internationalOrange-500/0 dark:via-internationalOrange-500/40 dark:to-internationalOrange-500/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r" />
+					<span className="from-international-orange-400/0 via-international-orange-400/40 to-international-orange-400/0 dark:from-international-orange-500/0 dark:via-international-orange-500/40 dark:to-international-orange-500/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r" />
 				)}
 			</Link>
 		</li>
@@ -164,11 +174,45 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
 	return (
 		<nav {...props}>
-			<ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10">
-				<NavItem href="/about">About</NavItem>
-				<NavItem href="/photography">Photography</NavItem>
-				<NavItem href="/work">Work</NavItem>
-				<NavItem href="/projects">Projects</NavItem>
+			<ul className="flex rounded-full bg-zinc-50/90 px-3 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-50 dark:ring-zinc-50/10">
+				{navigation.map((section) => (
+					<Menu key={section.label}>
+						<MenuButton className="hover:text-international-orange-500 block px-3 py-2 font-semibold transition">
+							{section.label}
+						</MenuButton>
+
+						{section.items?.length > 0 && (
+							<MenuItems
+								transition
+								anchor="bottom"
+								className="absolute z-10 mt-2 grid grid-flow-col items-center justify-center gap-2 rounded-xl bg-zinc-50 p-2 text-sm/6 ring-1 shadow-lg ring-zinc-50/10 transition duration-200 ease-in-out [--anchor-gap:--spacing(2)] data-closed:-translate-y-1 data-closed:opacity-0 dark:bg-zinc-800"
+							>
+								<div className="grid grid-flow-col items-center gap-4">
+									{section.items.map((item) => (
+										<MenuItem>
+											<Link
+												key={item.label}
+												href={item.url}
+												className="block rounded-lg px-3 py-2 transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
+											>
+												{item.label}
+												{/* <p className="text-zinc-500">{item.description}</p> */}
+											</Link>
+										</MenuItem>
+									))}
+								</div>
+								<MenuItem>
+									<Link
+										className="block max-w-fit rounded-lg px-3 py-2 text-xs italic transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
+										href={section.url}
+									>
+										See more
+									</Link>
+								</MenuItem>
+							</MenuItems>
+						)}
+					</Menu>
+				))}
 				<NavItem href="/contact">Contact</NavItem>
 			</ul>
 		</nav>
@@ -188,11 +232,11 @@ function ThemeToggle() {
 		<button
 			type="button"
 			aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
-			className="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-900/90 dark:ring-white/10 dark:hover:ring-white/20"
+			className="group rounded-full bg-zinc-50/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-900/90 dark:ring-zinc-50/10 dark:hover:ring-zinc-50/20"
 			onClick={() => setTheme(otherTheme)}
 		>
-			<SunIcon className="[@media(prefers-color-scheme:dark)]:fill-internationalOrange-50 [@media(prefers-color-scheme:dark)]:stroke-internationalOrange-400 [@media(prefers-color-scheme:dark)]:group-hover:fill-internationalOrange-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-internationalOrange-500 h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
-			<MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-internationalOrange-500/10 [@media_not_(prefers-color-scheme:dark)]:stroke-internationalOrange-400 hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
+			<SunIcon className="[@media(prefers-color-scheme:dark)]:fill-international-orange-50 [@media(prefers-color-scheme:dark)]:stroke-international-orange-400 [@media(prefers-color-scheme:dark)]:group-hover:fill-international-orange-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-international-orange-500 h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
+			<MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-international-orange-500/10 [@media_not_(prefers-color-scheme:dark)]:stroke-international-orange-400 hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
 		</button>
 	);
 }

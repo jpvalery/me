@@ -2,6 +2,7 @@
 
 import { Container } from '@/components/Container';
 import { Prose } from '@/components/Prose';
+import TimelineNavigation from '@/components/TimelineNavigation';
 
 export function ContentLayout({ children, article }) {
 	return (
@@ -18,6 +19,7 @@ export function ContentLayout({ children, article }) {
 							{children}
 						</Prose>
 					</article>
+					<TimelineNavigation />
 				</div>
 			</div>
 		</Container>
