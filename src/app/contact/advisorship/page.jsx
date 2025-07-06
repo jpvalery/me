@@ -329,7 +329,7 @@ export default function Contact() {
 									<div className="mt-4">
 										<button
 											type="button"
-											className="focus-visible:ring-internationalOrange-400 dark:focus-visible:ring-internationalOrange-500 inline-flex justify-center rounded-sm border border-transparent bg-zinc-100 px-4 py-2 font-medium text-blue-900 hover:bg-zinc-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2"
+											className="focus-visible:ring-international-orange-400 dark:focus-visible:ring-international-orange-500 inline-flex justify-center rounded-sm border border-transparent bg-zinc-100 px-4 py-2 font-medium text-blue-900 hover:bg-zinc-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2"
 											onClick={closeSuccessModal}
 										>
 											Got it!

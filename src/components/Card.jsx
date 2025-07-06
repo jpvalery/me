@@ -20,7 +20,7 @@ export function Card({ as: Component = 'div', className, children }) {
 		<Component
 			className={clsx(
 				className,
-				'border:zinc-900/5 group hover:border-internationalOrange-400 dark:hover:border-internationalOrange-500 grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 dark:border-zinc-700/50',
+				'border:zinc-900/5 group hover:border-international-orange-400 dark:hover:border-international-orange-500 grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 dark:border-zinc-700/50',
 			)}
 		>
 			{children}
@@ -57,7 +57,7 @@ Card.Cta = function CardCta({ children }) {
 	return (
 		<div
 			aria-hidden="true"
-			className="text-internationalOrange-400 dark:text-internationalOrange-500 relative z-10 mt-4 flex items-center text-sm font-medium"
+			className="text-international-orange-400 dark:text-international-orange-500 relative z-10 mt-4 flex items-center text-sm font-medium"
 		>
 			{children}
 			<ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />

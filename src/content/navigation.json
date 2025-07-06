@@ -29,17 +29,12 @@
 			{
 				"label": "Work with me",
 				"description": "How to work with me",
-				"url": "/how-to-work-with-me"
+				"url": "/work/how-to-work-with-me"
 			},
 			{
 				"label": "Recommendations",
 				"description": "Some kind words people I worked with said",
-				"url": "/recommendations"
-			},
-			{
-				"label": "Raccoon Ventures",
-				"description": "My personal company to take on projects",
-				"url": "https://raccoonv.com"
+				"url": "/work/recommendations"
 			}
 		]
 	},

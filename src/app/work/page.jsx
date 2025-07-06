@@ -7,7 +7,6 @@ import logoResume from '@/images/logos/resume.svg';
 import logoWWM from '@/images/logos/workwithme.svg';
 
 import { Card } from '@/components/Card';
-import Recommendations from '@/components/Recommendations';
 import { SimpleLayout } from '@/components/SimpleLayout';
 
 const projects = [
@@ -18,12 +17,18 @@ const projects = [
 		logo: logoResume,
 	},
 	{
+		name: 'Recommendations',
+		description: 'Hear what people I worked with have to say',
+		link: { href: '/work/recommendations', label: '/recommendations' },
+		logo: logoResume,
+	},
+	{
 		name: 'Work with me',
 		description:
 			'Helpful-to-know background and principles when working with me',
 		link: {
 			href: '/work/how-to-work-with-me',
-			label: '/how-to-work-with-me',
+			label: '/work/how-to-work-with-me',
 		},
 		logo: logoWWM,
 	},
@@ -77,7 +82,7 @@ export default function Projects() {
 											{project.name}
 										</h3>
 
-										<span className="group-hover:text-internationalOrange-400 dark:group-hover:text-internationalOrange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200">
+										<span className="group-hover:text-international-orange-400 dark:group-hover:text-international-orange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200">
 											<LinkIcon className="h-6 w-6 flex-none" />
 											<span className="ml">{project.link.label}</span>
 										</span>
@@ -97,12 +102,6 @@ export default function Projects() {
 				>
 					<p>Get in touch about work</p>
 				</Link>
-			</SimpleLayout>
-			<SimpleLayout
-				title="Recommendations"
-				intro="Hear what people I worked with have to say"
-			>
-				<Recommendations />
 			</SimpleLayout>
 		</>
 	);

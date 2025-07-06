@@ -184,7 +184,7 @@ function DesktopNavigation(props) {
 						<Menu key={section.label}>
 							<MenuButton
 								className={clsx(
-									'block px-3 py-2 font-semibold transition',
+									'block cursor-pointer px-3 py-2 font-semibold transition',
 									isActive
 										? 'text-international-orange-400 dark:text-international-orange-500'
 										: 'hover:text-international-orange-400 dark:hover:text-international-orange-500',

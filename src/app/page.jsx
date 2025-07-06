@@ -20,9 +20,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
 		<li className={clsx(className, 'flex')}>
 			<Link
 				href={href}
-				className="group hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 flex text-sm font-medium text-zinc-900 transition dark:text-zinc-200"
+				className="group hover:text-international-orange-500 dark:hover:text-international-orange-600 flex text-sm font-medium text-zinc-900 transition dark:text-zinc-200"
 			>
-				<Icon className="group-hover:fill-internationalOrange-400 dark:group-hover:fill-internationalOrange-500 h-6 w-6 flex-none fill-zinc-500 transition" />
+				<Icon className="group-hover:fill-international-orange-400 dark:group-hover:fill-international-orange-500 h-6 w-6 flex-none fill-zinc-500 transition" />
 				<span className="ml-4">{children}</span>
 			</Link>
 		</li>
@@ -95,12 +95,12 @@ export default function About() {
 						<div className="prose mt-6 space-y-7 text-zinc-600 dark:text-zinc-400">
 							<p>
 								I&apos;m currently a Customer Success Engineer at{' '}
-								<a href="https://resend.com">Resend</a>. I moonlight on a few
-								side projects through my personal company{' '}
-								<a href="https://raccoonv.com">Raccoon Ventures</a>.
+								<a href="https://resend.com">Resend</a>.
 							</p>
 							<p>
-								Before that, I&apos;ve dabbled in{' '}
+								I moonlight on a few side projects through my personal company{' '}
+								<a href="https://raccoonv.com">Raccoon Ventures</a>. Before
+								that, I&apos;ve dabbled in{' '}
 								<a href="https://resume.jpvalery.me">quite a few things</a>.
 								From freelancing to multinationals, from the music industry to
 								the video game industry, from marketing to RevOps.
@@ -113,8 +113,8 @@ export default function About() {
 							</p>
 							<p>
 								Photography has been a huge component of my life for the past
-								decade. My pictures have gathered over 280,000,000 views and
-								over 1,650,000 downloads on{' '}
+								decade. My pictures have gathered over 284,000,000 views and
+								over 1,690,000 downloads on{' '}
 								<a href="https://unsplash.com/@jpvalery">Unsplash</a>, have been
 								published in 2 books, and exhibited once.
 							</p>
@@ -129,7 +129,7 @@ export default function About() {
 								in my genes from my great-grandfather who was a farmer.
 								It&apos;s like meditation to me and I crave the taste of fresh
 								produce. Tangentially, I&apos;m interested in homesteading and
-								self-sufficieny.
+								self-sufficiency.
 							</p>
 						</div>
 					</div>
@@ -137,7 +137,7 @@ export default function About() {
 						<div className="flex items-center justify-start space-x-6 text-zinc-900 md:order-2 dark:text-zinc-200">
 							<a
 								href="https://twitter.com/jpvalery"
-								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
+								className="hover:text-international-orange-500 dark:hover:text-international-orange-600 h-6 w-6"
 							>
 								<span className="sr-only">Twitter</span>
 								<Twitter />
@@ -145,7 +145,7 @@ export default function About() {
 
 							<a
 								href="https://github.com/jpvalery"
-								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
+								className="hover:text-international-orange-500 dark:hover:text-international-orange-600 h-6 w-6"
 							>
 								<span className="sr-only">GitHub</span>
 								<GitHub />
@@ -153,7 +153,7 @@ export default function About() {
 
 							<a
 								href="https://unsplash.com/@jpvalery"
-								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
+								className="hover:text-international-orange-500 dark:hover:text-international-orange-600 h-6 w-6"
 							>
 								<span className="sr-only">Unsplash</span>
 								<Unsplash />
@@ -161,7 +161,7 @@ export default function About() {
 
 							<a
 								href="https://linkedin.com/in/jpvalery"
-								className="hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 h-6 w-6"
+								className="hover:text-international-orange-500 dark:hover:text-international-orange-600 h-6 w-6"
 							>
 								<span className="sr-only">LinkedIn</span>
 								<LinkedIn />
@@ -175,7 +175,7 @@ export default function About() {
 							contact@jpvalery.me
 						</SocialLink>
 
-						<div className="group hover:text-internationalOrange-500 dark:hover:text-internationalOrange-600 mt-4 flex items-center text-sm font-medium text-zinc-900 transition dark:text-zinc-200">
+						<div className="group hover:text-international-orange-500 dark:hover:text-international-orange-600 mt-4 flex items-center text-sm font-medium text-zinc-900 transition dark:text-zinc-200">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -183,7 +183,7 @@ export default function About() {
 								strokeWidth="1.5"
 								stroke="currentColor"
 								aria-hidden="true"
-								className="group-hover:text-internationalOrange-400 dark:group-hover:text-internationalOrange-500 h-6 w-6 flex-none text-zinc-500 transition"
+								className="group-hover:text-international-orange-400 dark:group-hover:text-international-orange-500 h-6 w-6 flex-none text-zinc-500 transition"
 							>
 								<path
 									strokeLinecap="round"
