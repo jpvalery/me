@@ -31,7 +31,7 @@ export default async function DashboardFlying() {
 	const categories = [
 		{
 			title: 'Flights',
-			metric: '72',
+			metric: '76',
 			link: 'https://foreflight.com',
 		},
 		{
@@ -41,12 +41,12 @@ export default async function DashboardFlying() {
 		},
 		{
 			title: 'Time',
-			metric: '97.0',
+			metric: '101.6',
 			link: 'https://foreflight.com',
 		},
 		{
 			title: 'Landings',
-			metric: '242',
+			metric: '252',
 			link: 'https://foreflight.com',
 		},
 	];

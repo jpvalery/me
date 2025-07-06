@@ -37,7 +37,7 @@ export default async function DashboardShowsAndMovies() {
 		},
 		{
 			title: 'IMDB — Show/Movies seen',
-			metric: '1,250',
+			metric: '1,324',
 			link: 'https://www.imdb.com/user/ur59148764/ratings?sort=your_rating,desc&ratingFilter=0&mode=detail&ref_=undefined&lastPosition=0',
 		},
 	];
