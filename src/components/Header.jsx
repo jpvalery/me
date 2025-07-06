@@ -172,47 +172,60 @@ function NavItem({ href, children }) {
 }
 
 function DesktopNavigation(props) {
+	const pathname = usePathname();
 	return (
 		<nav {...props}>
 			<ul className="flex rounded-full bg-zinc-50/90 px-3 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-50 dark:ring-zinc-50/10">
-				{navigation.map((section) => (
-					<Menu key={section.label}>
-						<MenuButton className="hover:text-international-orange-500 block px-3 py-2 font-semibold transition">
-							{section.label}
-						</MenuButton>
-
-						{section.items?.length > 0 && (
-							<MenuItems
-								transition
-								anchor="bottom"
-								className="absolute z-10 mt-2 grid grid-flow-col items-center justify-center gap-2 rounded-xl bg-zinc-50 p-2 text-sm/6 ring-1 shadow-lg ring-zinc-50/10 transition duration-200 ease-in-out [--anchor-gap:--spacing(2)] data-closed:-translate-y-1 data-closed:opacity-0 dark:bg-zinc-800"
+				{navigation.map((section) => {
+					const isActive =
+						pathname === section.url ||
+						section.items?.some((item) => pathname === item.url);
+					return (
+						<Menu key={section.label}>
+							<MenuButton
+								className={clsx(
+									'block px-3 py-2 font-semibold transition',
+									isActive
+										? 'text-international-orange-400 dark:text-international-orange-500'
+										: 'hover:text-international-orange-400 dark:hover:text-international-orange-500',
+								)}
 							>
-								<div className="grid grid-flow-col items-center gap-4">
-									{section.items.map((item) => (
-										<MenuItem key={item.label}>
-											<Link
-												key={item.label}
-												href={item.url}
-												className="block rounded-lg px-3 py-2 transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
-											>
-												{item.label}
-												{/* <p className="text-zinc-500">{item.description}</p> */}
-											</Link>
-										</MenuItem>
-									))}
-								</div>
-								<MenuItem>
-									<Link
-										className="block max-w-fit rounded-lg px-3 py-2 text-xs italic transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
-										href={section.url}
-									>
-										See more
-									</Link>
-								</MenuItem>
-							</MenuItems>
-						)}
-					</Menu>
-				))}
+								{section.label}
+							</MenuButton>
+
+							{section.items?.length > 0 && (
+								<MenuItems
+									transition
+									anchor="bottom"
+									className="absolute z-10 mt-2 grid grid-flow-col items-center justify-center gap-2 rounded-xl bg-zinc-50 p-2 text-sm/6 ring-1 shadow-lg ring-zinc-50/10 transition duration-200 ease-in-out [--anchor-gap:--spacing(2)] data-closed:-translate-y-1 data-closed:opacity-0 dark:bg-zinc-800"
+								>
+									<div className="grid grid-flow-col items-center gap-4">
+										{section.items.map((item) => (
+											<MenuItem key={item.label}>
+												<Link
+													key={item.label}
+													href={item.url}
+													className="block rounded-lg px-3 py-2 transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
+												>
+													{item.label}
+													{/* <p className="text-zinc-500">{item.description}</p> */}
+												</Link>
+											</MenuItem>
+										))}
+									</div>
+									<MenuItem>
+										<Link
+											className="block max-w-fit rounded-lg px-3 py-2 text-xs italic transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
+											href={section.url}
+										>
+											See more
+										</Link>
+									</MenuItem>
+								</MenuItems>
+							)}
+						</Menu>
+					);
+				})}
 				<NavItem href="/contact">Contact</NavItem>
 			</ul>
 		</nav>
