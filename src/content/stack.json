@@ -15,8 +15,8 @@
 				"description": "Upgraded from a Series 3. I think it's the greatest bang for the bucks when it comes to smart watches"
 			},
 			{
-				"title": "Airpods (Gen 1)",
-				"description": "Their 5 year old batteries are starting to show signs of fatigue but they're still great. I used to buy a pair of earbuds a year minimum. I haven't bought any in 5 years."
+				"title": "Airpods Pro",
+				"description": ""
 			},
 			{
 				"title": "Steelseries Arctis 3",
@@ -32,7 +32,7 @@
 		"name": "Office — Work",
 		"content": [
 			{
-				"title": "MacBook Air M3 13\" 2024",
+				"title": "MacBook Pro M4 2024",
 				"description": "Powerful, silent, and light—what more can you ask?"
 			},
 			{
@@ -52,16 +52,16 @@
 				"description": "It's _okay_ but I wouldn't miss it if I didn't have it tomorrow"
 			},
 			{
-				"title": "Apple Keyboard 2014",
-				"description": "A good ol' keyboard—powered by AA batteries!"
+				"title": "Magic Keyboard",
+				"description": ""
 			},
 			{
 				"title": "Magic Trackpad",
 				"description": "I can't go back to mouse"
 			},
 			{
-				"title": "Tresanti Standing Desk",
-				"description": "I didn't get the hype around standing desk. Got one. Changed the height a lot for a few weeks. haven't moved it a lot since"
+				"title": "Secret Lab Magnus Pro XL",
+				"description": "This is the USS Nimitz class of desk and I love all the space and tidyness"
 			}
 		]
 	},
@@ -70,7 +70,7 @@
 		"content": [
 			{
 				"title": "iMac 27\" 2017",
-				"description": "I upgraded to a 5K iMac when my 2011 MBP died. It's a 6 year old computer but still feels extremely fast and fresh"
+				"description": "I upgraded to a 5K iMac when my 2011 MBP died. It's a 7 year old computer and is starting to show its age :("
 			},
 			{
 				"title": "Asus 19\"",
@@ -112,6 +112,44 @@
 			{
 				"title": "Starship",
 				"description": "This makes my Terminal much fancier and easier to use"
+			}
+		]
+	},
+	{
+		"name": "Gaming",
+		"content": [
+			{
+				"title": "Xbox Series X",
+				"description": "It's not as mind-blowing as I thought it'd be but the loading speed, 120fps, and 4K HDR are pretty amazing"
+			},
+			{
+				"title": "Oculus Quest 2",
+				"description": "Got this from work and after a 1-year frenzy, I haven't used it a lot lately"
+			},
+			{
+				"title": "Playstation 3",
+				"description": null
+			},
+			{
+				"title": "RetroPie",
+				"description": null
+			}
+		]
+	},
+	{
+		"name": "Aviation",
+		"content": [
+			{
+				"title": "iPad M1 11\" EFB",
+				"description": "I got a second iPad as my Electronic Flight Bag so I didn't have to bring my main one on flights in the off chance it'd be damaged"
+			},
+			{
+				"title": "Lightspeed Zulu 3",
+				"description": "Treated myself to a nice ANR headset when I obtained my Private Pilot Licence"
+			},
+			{
+				"title": "David Clark H10 13.4",
+				"description": "Started with a mid-range headset which I loved. It's now my headset for front-seat passengers"
 			}
 		]
 	},
@@ -162,44 +200,6 @@
 			{
 				"title": "Canon EOS 650",
 				"description": "Got this as a free add-on after buying a second-hand lens"
-			}
-		]
-	},
-	{
-		"name": "Gaming",
-		"content": [
-			{
-				"title": "Xbox Series X",
-				"description": "It's not as mind-blowing as I thought it'd be but the loading speed, 120fps, and 4K HDR are pretty amazing"
-			},
-			{
-				"title": "Oculus Quest 2",
-				"description": "Got this from work and after a 1-year frenzy, I haven't used it a lot lately"
-			},
-			{
-				"title": "Playstation 3",
-				"description": null
-			},
-			{
-				"title": "RetroPie",
-				"description": null
-			}
-		]
-	},
-	{
-		"name": "Aviation",
-		"content": [
-			{
-				"title": "iPad M1 11\" EFB",
-				"description": "I got a second iPad as my Electronic Flight Bag so I didn't have to bring my main one on flights in the off chance it'd be damaged"
-			},
-			{
-				"title": "Lightspeed Zulu 3",
-				"description": "Treated myself to a nice ANR headset when I obtained my Private Pilot Licence"
-			},
-			{
-				"title": "David Clark H10 13.4",
-				"description": "Started with a mid-range headset which I loved. It's now my headset for front-seat passengers"
 			}
 		]
 	}
