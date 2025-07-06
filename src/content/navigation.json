@@ -13,6 +13,11 @@
 				"label": "/dashboard",
 				"description": "Some personal metrics",
 				"url": "/dashboard"
+			},
+			{
+				"label": "/stack",
+				"description": "Stuff I love",
+				"url": "/stack"
 			}
 		]
 	},
