@@ -19,7 +19,7 @@ export function Card({ as: Component = 'div', className, children }) {
 		<Component
 			className={clsx(
 				className,
-				'border:zinc-900/5 group hover:border-international-orange-400 dark:hover:border-international-orange-500 grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 dark:border-zinc-700/50',
+				'border:zinc-900/5 group grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 hover:border-international-orange-400 dark:border-zinc-700/50 dark:hover:border-international-orange-500',
 			)}
 		>
 			{children}
@@ -38,7 +38,7 @@ Card.Link = function CardLink({ children, ...props }) {
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
 	return (
-		<Component className="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+		<Component className="font-semibold text-base text-zinc-900 tracking-tight dark:text-zinc-100">
 			{href ? <Card.Link href={href}>{children}</Card.Link> : children}
 		</Component>
 	);
@@ -56,7 +56,7 @@ Card.Cta = function CardCta({ children }) {
 	return (
 		<div
 			aria-hidden="true"
-			className="text-international-orange-400 dark:text-international-orange-500 relative z-10 mt-4 flex items-center text-sm font-medium"
+			className="relative z-10 mt-4 flex items-center font-medium text-international-orange-400 text-sm dark:text-international-orange-500"
 		>
 			{children}
 			<ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
@@ -66,7 +66,7 @@ Card.Cta = function CardCta({ children }) {
 
 Card.Icon = function CardIcon({ children }) {
 	return (
-		<div className="z-10 flex h-16 w-16 items-center justify-center rounded-sm bg-zinc-200/25 ring-1 shadow-md shadow-zinc-900/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-500/25 dark:bg-zinc-900 dark:ring-0">
+		<div className="z-10 flex h-16 w-16 items-center justify-center rounded-sm bg-zinc-200/25 shadow-md shadow-zinc-900/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-500/25 dark:bg-zinc-900 dark:ring-0">
 			{children}
 		</div>
 	);
@@ -74,7 +74,7 @@ Card.Icon = function CardIcon({ children }) {
 
 Card.Block = function CardBlock({ children }) {
 	return (
-		<div className="gap-y grid grid-flow-row items-start justify-start">
+		<div className="grid grid-flow-row items-start justify-start gap-y">
 			{children}
 		</div>
 	);

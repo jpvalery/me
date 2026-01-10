@@ -1,7 +1,7 @@
 export default function Brand() {
 	return (
 		<div className="inline-flex items-center">
-			<p className="font-departure text-base font-black uppercase md:text-xl">
+			<p className="font-black font-departure text-base uppercase md:text-xl">
 				Jp Valery
 			</p>
 			<div className="h-10 w-10 md:h-12 md:w-12">

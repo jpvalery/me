@@ -93,7 +93,7 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
 	return (
 		<Popover {...props}>
-			<Popover.Button className="group flex items-center rounded-full bg-zinc-50/90 px-4 py-2 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-zinc-50/10 dark:hover:ring-zinc-50/20">
+			<Popover.Button className="group flex items-center rounded-full bg-zinc-50/90 px-4 py-2 font-medium text-sm text-zinc-900 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-zinc-50/10 dark:hover:ring-zinc-50/20">
 				Menu
 				<ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
 			</Popover.Button>
@@ -126,7 +126,7 @@ function MobileNavigation(props) {
 							<Popover.Button aria-label="Close menu" className="-m-1 p-1">
 								<CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
 							</Popover.Button>
-							<h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+							<h2 className="font-medium text-sm text-zinc-600 dark:text-zinc-400">
 								Navigation
 							</h2>
 						</div>
@@ -157,12 +157,12 @@ function NavItem({ href, children }) {
 					'relative block px-3 py-2 transition',
 					isActive
 						? 'text-international-orange-400 dark:text-international-orange-500'
-						: 'dark:hover:text-international-orange-500 hover:text-international-orange-400',
+						: 'hover:text-international-orange-400 dark:hover:text-international-orange-500',
 				)}
 			>
 				{children}
 				{isActive && (
-					<span className="from-international-orange-400/0 via-international-orange-400/40 to-international-orange-400/0 dark:from-international-orange-500/0 dark:via-international-orange-500/40 dark:to-international-orange-500/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r" />
+					<span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-international-orange-400/0 via-international-orange-400/40 to-international-orange-400/0 dark:from-international-orange-500/0 dark:via-international-orange-500/40 dark:to-international-orange-500/0" />
 				)}
 			</Link>
 		</li>
@@ -173,7 +173,7 @@ function DesktopNavigation(props) {
 	const pathname = usePathname();
 	return (
 		<nav {...props}>
-			<ul className="flex rounded-full bg-zinc-50/90 px-3 text-sm font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-50 dark:ring-zinc-50/10">
+			<ul className="flex rounded-full bg-zinc-50/90 px-3 font-medium text-sm text-zinc-900 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-50 dark:ring-zinc-50/10">
 				{navigation.map((section) => {
 					const isActive =
 						pathname === section.url ||
@@ -195,7 +195,7 @@ function DesktopNavigation(props) {
 								<MenuItems
 									transition
 									anchor="bottom"
-									className="absolute z-10 mt-2 grid grid-flow-col items-center justify-center gap-2 rounded-xl bg-zinc-50 p-2 text-sm/6 ring-1 shadow-lg ring-zinc-50/10 transition duration-200 ease-in-out [--anchor-gap:--spacing(2)] data-closed:-translate-y-1 data-closed:opacity-0 dark:bg-zinc-800"
+									className="absolute z-10 mt-2 grid grid-flow-col items-center justify-center gap-2 rounded-xl bg-zinc-50 p-2 text-sm/6 shadow-lg ring-1 ring-zinc-50/10 transition duration-200 ease-in-out [--anchor-gap:--spacing(2)] data-closed:-translate-y-1 data-closed:opacity-0 dark:bg-zinc-800"
 								>
 									<div className="grid grid-flow-col items-center gap-4">
 										{section.items.map((item) => (
@@ -243,11 +243,11 @@ function ThemeToggle() {
 		<button
 			type="button"
 			aria-label={mounted ? `Switch to ${otherTheme} theme` : 'Toggle theme'}
-			className="group rounded-full bg-zinc-50/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-900/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-900/90 dark:ring-zinc-50/10 dark:hover:ring-zinc-50/20"
+			className="group rounded-full bg-zinc-50/90 px-3 py-2 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-900/90 dark:ring-zinc-50/10 dark:hover:ring-zinc-50/20"
 			onClick={() => setTheme(otherTheme)}
 		>
-			<SunIcon className="[@media(prefers-color-scheme:dark)]:fill-international-orange-50 [@media(prefers-color-scheme:dark)]:stroke-international-orange-400 [@media(prefers-color-scheme:dark)]:group-hover:fill-international-orange-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-international-orange-500 h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
-			<MoonIcon className="[@media_not_(prefers-color-scheme:dark)]:fill-international-orange-500/10 [@media_not_(prefers-color-scheme:dark)]:stroke-international-orange-400 hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
+			<SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-international-orange-50 [@media(prefers-color-scheme:dark)]:stroke-international-orange-400 [@media(prefers-color-scheme:dark)]:group-hover:fill-international-orange-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-international-orange-500" />
+			<MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-international-orange-500/10 [@media_not_(prefers-color-scheme:dark)]:stroke-international-orange-400" />
 		</button>
 	);
 }

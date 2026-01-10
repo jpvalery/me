@@ -14,7 +14,7 @@ export default function About() {
 				This is a document I&apos;m sharing with any new reports as a way to
 				understand each other better and build trust.
 			</div>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+			<h3 className="font-bold text-3xl text-zinc-900 tracking-tight sm:text-4xl dark:text-zinc-100">
 				Background
 			</h3>
 			<p>
@@ -47,7 +47,7 @@ export default function About() {
 				unique perspective as having been on both sides of the screen and
 				understanding the challenges faced by our customers.
 			</p>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+			<h3 className="font-bold text-3xl text-zinc-900 tracking-tight sm:text-4xl dark:text-zinc-100">
 				Personality
 			</h3>
 			<p>
@@ -142,7 +142,7 @@ export default function About() {
 				I&apos;ll never raise my voice. Disagreement doesn&apos;t mean
 				disrespect.{' '}
 			</p>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+			<h3 className="font-bold text-3xl text-zinc-900 tracking-tight sm:text-4xl dark:text-zinc-100">
 				How I approach work
 			</h3>
 			<p>
@@ -165,7 +165,7 @@ export default function About() {
 				I burnt out a few times in the past but I&apos;ve made it to a point
 				where I&apos;m better at managing myself and identifying symptoms.
 			</p>
-			<h4 className="text-2xl font-bold tracking-tight text-zinc-700 sm:text-3xl dark:text-zinc-200">
+			<h4 className="font-bold text-2xl text-zinc-700 tracking-tight sm:text-3xl dark:text-zinc-200">
 				How I collaborate with other people
 			</h4>
 			<p>
@@ -182,7 +182,7 @@ export default function About() {
 				I&apos;m trying to solve.{' '}
 			</p>
 			<p>I work best in small, focused, groups.</p>
-			<h4 className="text-2xl font-bold tracking-tight text-zinc-700 sm:text-3xl dark:text-zinc-200">
+			<h4 className="font-bold text-2xl text-zinc-700 tracking-tight sm:text-3xl dark:text-zinc-200">
 				How I approach managing/leading
 			</h4>
 			<p>
@@ -217,7 +217,7 @@ export default function About() {
 				seems that I&apos;m not picking up on something it&apos;s almost
 				certainly not voluntarily. Please explicit things :){' '}
 			</p>
-			<h3 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+			<h3 className="font-bold text-3xl text-zinc-900 tracking-tight sm:text-4xl dark:text-zinc-100">
 				Some words of wisdom
 			</h3>
 			<p>

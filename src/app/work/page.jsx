@@ -75,11 +75,11 @@ export default function Projects() {
 										/>
 									</Card.Icon>
 									<Card.Block>
-										<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+										<h3 className="font-semibold text-base text-zinc-900 dark:text-zinc-100">
 											{project.name}
 										</h3>
 
-										<span className="group-hover:text-international-orange-400 dark:group-hover:text-international-orange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200">
+										<span className="relative z-10 flex font-medium text-sm text-zinc-400 transition group-hover:text-international-orange-400 dark:text-zinc-200 dark:group-hover:text-international-orange-500">
 											<LinkIcon className="h-6 w-6 flex-none" />
 											<span className="ml">{project.link.label}</span>
 										</span>
@@ -95,7 +95,7 @@ export default function Projects() {
 			<SimpleLayout>
 				<Link
 					href="https://contact.jpvalery.me/consultancy"
-					className="grid h-12 max-w-fit items-center rounded-sm bg-zinc-900 px-4 py-2 text-base font-medium text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-hidden sm:w-auto sm:text-sm dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white"
+					className="grid h-12 max-w-fit items-center rounded-sm bg-zinc-900 px-4 py-2 font-medium text-base text-white shadow-md shadow-zinc-900/20 hover:bg-emerald-500 hover:text-white hover:shadow-emerald-500/20 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:w-auto sm:text-sm dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-emerald-500 dark:hover:text-white"
 				>
 					<p>Get in touch about work</p>
 				</Link>

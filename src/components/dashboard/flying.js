@@ -58,7 +58,7 @@ export default async function DashboardFlying() {
 	return (
 		<Container>
 			<div className="grid grid-flow-row gap-2 pb-8">
-				<h1 className="font-departure text-4xl font-bold text-gray-600 dark:text-gray-200">
+				<h1 className="font-bold font-departure text-4xl text-gray-600 dark:text-gray-200">
 					Foreflight
 				</h1>
 				<span className="text-sm">Last updated: November 17th, 2025</span>
@@ -71,13 +71,13 @@ export default async function DashboardFlying() {
 							<Card.Block>
 								<Card.Link
 									href={item.link}
-									className="hover:text-internationalOrange-400 dark:hover:text-internationalOrange-500 grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 dark:text-zinc-200"
+									className="grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 hover:text-internationalOrange-400 dark:text-zinc-200 dark:hover:text-internationalOrange-500"
 								>
 									{item.title}
 									<ExtLink />
 								</Card.Link>
 
-								<span className="text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+								<span className="font-semibold text-3xl text-zinc-950 dark:text-zinc-50">
 									{item.metric}
 								</span>
 							</Card.Block>

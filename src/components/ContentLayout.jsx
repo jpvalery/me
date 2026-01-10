@@ -11,7 +11,7 @@ export function ContentLayout({ children, article }) {
 				<div className="mx-auto max-w-2xl">
 					<article>
 						<header className="flex flex-col">
-							<h1 className="font-departure mt-6 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-100">
+							<h1 className="mt-6 font-bold font-departure text-4xl text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100">
 								{article.title}
 							</h1>
 						</header>

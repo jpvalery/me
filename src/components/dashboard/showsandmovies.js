@@ -43,7 +43,7 @@ export default async function DashboardShowsAndMovies() {
 
 	return (
 		<Container>
-			<h1 className="font-departure pb-8 text-4xl font-bold text-gray-600 dark:text-gray-200">
+			<h1 className="pb-8 font-bold font-departure text-4xl text-gray-600 dark:text-gray-200">
 				Shows & Movies
 			</h1>
 			<ul className="grid grid-cols-1 gap-12 md:grid-cols-2">
@@ -53,13 +53,13 @@ export default async function DashboardShowsAndMovies() {
 							<Card.Block>
 								<Card.Link
 									href={item.link}
-									className="hover:text-internationalOrange-400 dark:hover:text-internationalOrange-500 grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 dark:text-zinc-200"
+									className="grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 hover:text-internationalOrange-400 dark:text-zinc-200 dark:hover:text-internationalOrange-500"
 								>
 									{item.title}
 									<ExtLink />
 								</Card.Link>
 
-								<span className="text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+								<span className="font-semibold text-3xl text-zinc-950 dark:text-zinc-50">
 									{item.metric}
 								</span>
 							</Card.Block>

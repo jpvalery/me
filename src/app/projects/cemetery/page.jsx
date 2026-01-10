@@ -46,11 +46,11 @@ export default function Projects() {
 											/>
 										</Card.Icon>
 										<Card.Block>
-											<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+											<h3 className="font-semibold text-base text-zinc-900 dark:text-zinc-100">
 												{project.name}
 											</h3>
 
-											<span className="group-hover:text-international-orange-400 dark:group-hover:text-international-orange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200">
+											<span className="relative z-10 flex font-medium text-sm text-zinc-400 transition group-hover:text-international-orange-400 dark:text-zinc-200 dark:group-hover:text-international-orange-500">
 												<LinkIcon className="h-6 w-6 flex-none" />
 												<span className="ml">{project.link.label}</span>
 											</span>

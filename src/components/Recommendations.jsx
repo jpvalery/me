@@ -42,16 +42,16 @@ function _classNames(...classes) {
 
 export default function Recommendations() {
 	return (
-		<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 items-start gap-8 text-sm/6 text-gray-900 sm:mt-20 md:grid-cols-2 xl:max-w-none">
+		<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 items-start gap-8 text-gray-900 text-sm/6 sm:mt-20 md:grid-cols-2 xl:max-w-none">
 			{testimonials.map((testimonial) => (
 				<figure
-					className={`max-h-min rounded-2xl bg-white ring-1 shadow-lg ring-gray-900/5 ${testimonial.large && `md:col-span-2`}`}
+					className={`max-h-min rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 ${testimonial.large && `md:col-span-2`}`}
 					key={testimonial.author.name}
 				>
-					<blockquote className="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12">
+					<blockquote className="p-6 font-semibold text-gray-900 text-lg tracking-tight sm:p-12">
 						<p className="whitespace-pre-line">{`“${testimonial.body}”`}</p>
 					</blockquote>
-					<figcaption className="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap">
+					<figcaption className="flex flex-wrap items-center gap-x-4 gap-y-4 border-gray-900/10 border-t px-6 py-4 sm:flex-nowrap">
 						<Image
 							alt=""
 							src={testimonial.author.imageUrl}

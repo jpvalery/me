@@ -57,12 +57,12 @@ export default function TimelineNavigation() {
 							>
 								<Link href={item.path} className="group relative z-10">
 									{/* Marker - stays fixed on the line */}
-									<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-300 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125" />
+									<div className="h-4 w-4 rounded-full border-4 border-zinc-300 bg-international-orange-600 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125" />
 
 									{/* Date label - scales on hover */}
 									<div className="absolute top-8 left-1/2 -translate-x-1/2 transform whitespace-nowrap">
 										<div className="rounded-lg border bg-zinc-50 px-2 py-0.5 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900">
-											<span className="group-hover:text-international-orange-600 text-[0.75rem] leading-[0.8rem] font-medium text-zinc-700 dark:text-zinc-50">
+											<span className="font-medium text-[0.75rem] text-zinc-700 leading-[0.8rem] group-hover:text-international-orange-600 dark:text-zinc-50">
 												{item.displayDate}
 											</span>
 										</div>
@@ -73,12 +73,12 @@ export default function TimelineNavigation() {
 						<div key="latest" className="relative flex flex-col items-center">
 							<Link href="/now" className="group relative z-10">
 								{/* Marker */}
-								<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-300 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125" />
+								<div className="h-4 w-4 rounded-full border-4 border-zinc-300 bg-international-orange-600 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125" />
 
 								{/* Date label */}
 								<div className="absolute top-8 left-1/2 -translate-x-1/2 transform whitespace-nowrap">
-									<div className="border-international-orange-500 rounded-lg border bg-zinc-50 px-3 py-1 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900">
-										<span className="group-hover:text-international-orange-600 text-xs font-medium text-zinc-700 dark:text-zinc-50">
+									<div className="rounded-lg border border-international-orange-500 bg-zinc-50 px-3 py-1 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900">
+										<span className="font-medium text-xs text-zinc-700 group-hover:text-international-orange-600 dark:text-zinc-50">
 											Latest
 										</span>
 									</div>
@@ -103,11 +103,11 @@ export default function TimelineNavigation() {
 									href={item.path}
 									className="group relative z-10 flex items-center"
 								>
-									<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-50 shadow-lg" />
+									<div className="h-4 w-4 rounded-full border-4 border-zinc-50 bg-international-orange-600 shadow-lg" />
 
 									<div className="ml-6">
 										<div className="rounded-lg border bg-zinc-50 px-4 py-2 shadow-md transition-shadow duration-200 group-hover:shadow-lg">
-											<span className="group-hover:text-international-orange-600 text-sm font-medium text-zinc-700">
+											<span className="font-medium text-sm text-zinc-700 group-hover:text-international-orange-600">
 												{item.displayDate}
 											</span>
 										</div>
@@ -120,11 +120,11 @@ export default function TimelineNavigation() {
 								href="/now"
 								className="group relative z-10 flex items-center"
 							>
-								<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-50 shadow-lg" />
+								<div className="h-4 w-4 rounded-full border-4 border-zinc-50 bg-international-orange-600 shadow-lg" />
 
 								<div className="ml-6">
 									<div className="rounded-lg border bg-zinc-50 px-4 py-2 shadow-md transition-shadow duration-200 group-hover:shadow-lg">
-										<span className="group-hover:text-international-orange-600 text-sm font-medium text-zinc-700">
+										<span className="font-medium text-sm text-zinc-700 group-hover:text-international-orange-600">
 											Latest
 										</span>
 									</div>
