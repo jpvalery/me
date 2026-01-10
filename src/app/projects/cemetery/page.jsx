@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-import logoCemetery from '@/images/logos/cemetery.svg';
-
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import logoCemetery from '@/images/logos/cemetery.svg';
 
 const cemetery = require('@/content/cemetery.json');
 
@@ -28,48 +26,43 @@ export const metadata = {
 
 export default function Projects() {
 	return (
-		<>
-			<SimpleLayout
-				title="Cemetery"
-				intro="Everything dies one day. This is the cemetery of things I built and killed off at one point"
-			>
-				<ul
-					role="list"
-					className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-				>
-					{cemetery.map((project) => (
-						<li key={project.name} className="h-full">
-							<Link href={project.link.href} className="h-full">
-								<Card className="h-full items-start">
-									<Card.Block>
-										<div className="grid grid-flow-col items-center justify-start gap-x-6">
-											<Card.Icon>
-												<Image
-													src={logoCemetery}
-													alt=""
-													className="h-10 w-10"
-													unoptimized
-												/>
-											</Card.Icon>
-											<Card.Block>
-												<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-													{project.name}
-												</h3>
+		<SimpleLayout
+			title="Cemetery"
+			intro="Everything dies one day. This is the cemetery of things I built and killed off at one point"
+		>
+			<ul className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+				{cemetery.map((project) => (
+					<li key={project.name} className="h-full">
+						<Link href={project.link.href} className="h-full">
+							<Card className="h-full items-start">
+								<Card.Block>
+									<div className="grid grid-flow-col items-center justify-start gap-x-6">
+										<Card.Icon>
+											<Image
+												src={logoCemetery}
+												alt=""
+												className="h-10 w-10"
+												unoptimized
+											/>
+										</Card.Icon>
+										<Card.Block>
+											<h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+												{project.name}
+											</h3>
 
-												<span className="group-hover:text-international-orange-400 dark:group-hover:text-international-orange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200">
-													<LinkIcon className="h-6 w-6 flex-none" />
-													<span className="ml">{project.link.label}</span>
-												</span>
-											</Card.Block>
-										</div>
-										<Card.Description>{project.description}</Card.Description>
-									</Card.Block>
-								</Card>
-							</Link>
-						</li>
-					))}
-				</ul>
-			</SimpleLayout>
-		</>
+											<span className="group-hover:text-international-orange-400 dark:group-hover:text-international-orange-500 relative z-10 flex text-sm font-medium text-zinc-400 transition dark:text-zinc-200">
+												<LinkIcon className="h-6 w-6 flex-none" />
+												<span className="ml">{project.link.label}</span>
+											</span>
+										</Card.Block>
+									</div>
+									<Card.Description>{project.description}</Card.Description>
+								</Card.Block>
+							</Card>
+						</Link>
+					</li>
+				))}
+			</ul>
+		</SimpleLayout>
 	);
 }

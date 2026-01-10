@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import Link from 'next/link';
 
 export const metadata = {
 	title: 'More about Jp',
@@ -40,7 +40,7 @@ function LinkIcon(props) {
 export default function About() {
 	return (
 		<SimpleLayout title="About me">
-			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
+			<ul className="grid grid-cols-1 gap-12 md:grid-cols-2">
 				{projects.map((project) => (
 					<li key={project.name}>
 						<Link href={project.link.href}>

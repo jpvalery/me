@@ -1,19 +1,17 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Container } from '@/components/Container';
+import GitHub from '@/components/icons/Github';
+import LinkedIn from '@/components/icons/Linkedin';
+import Twitter from '@/components/icons/Twitter';
+import Unsplash from '@/components/icons/Unsplash';
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.jpg';
 import portraitImage from '@/images/portrait.jpg';
-import clsx from 'clsx';
-
-import { Container } from '@/components/Container';
-import GitHub from '@/components/icons/Github';
-import LinkedIn from '@/components/icons/Linkedin';
-import Twitter from '@/components/icons/Twitter';
-import Unsplash from '@/components/icons/Unsplash';
 
 function SocialLink({ className, href, children, icon: Icon }) {
 	return (
@@ -44,7 +42,7 @@ function Photos() {
 	return (
 		<div className="mt-16 sm:mt-20">
 			<div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-				{[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+				{[image1, image2, image3, image4, image5].map((image, _imageIndex) => (
 					<div
 						key={image.src}
 						className={clsx(
@@ -94,42 +92,38 @@ export default function About() {
 						</h1>
 						<div className="prose mt-6 space-y-7 text-zinc-600 dark:text-zinc-400">
 							<p>
-								I&apos;m currently a Customer Success Engineer at{' '}
-								<a href="https://resend.com">Resend</a>.
+								By day, I'm a Customer Success Engineer at{' '}
+								<a href="https://resend.com">Resend</a>, helping people do more
+								with email—something I've been doing for{' '}
+								<a href="https://resume.jpvalery.me">over a decade</a>, both as
+								a sender and as a vendor. I occasionally tinker on side projects
+								through my company{' '}
+								<a href="https://raccoonv.com">Raccoon Ventures</a>.
 							</p>
 							<p>
-								I moonlight on a few side projects through my personal company{' '}
-								<a href="https://raccoonv.com">Raccoon Ventures</a>. Before
-								that, I&apos;ve dabbled in{' '}
-								<a href="https://resume.jpvalery.me">quite a few things</a>.
-								From freelancing to multinationals, from the music industry to
-								the video game industry, from marketing to RevOps.
+								On the ground, I'm usually gardening (
+								<em>
+									or in winter, convincing a mango tree to survive in Montréal
+								</em>
+								), 3D printing more or less useful contraptions, or cooking
+								something from scratch.
 							</p>
 							<p>
-								In 2024, I achieved a childhood dream and obtained my Private
-								Pilot License (Aeroplanes). In 2025, I obtained my Night Rating.
-								I&apos;m now training for aerobatics as well as building hours
-								towards getting my Commercial Pilot License.
+								I used to shoot photography more seriously (my photos have been
+								viewed over 294,000,000 times on{' '}
+								<a href="https://unsplash.com/@jpvalery">Unsplash</a>) but these
+								days I mostly just point my phone at things or actually go
+								through the hurdle of completely mechanical film cameras.
 							</p>
 							<p>
-								Photography has been a huge component of my life for the past
-								decade. My pictures have gathered over 284,000,000 views and
-								over 1,690,000 downloads on{' '}
-								<a href="https://unsplash.com/@jpvalery">Unsplash</a>, have been
-								published in 2 books, and exhibited once.
+								In the air, I&apos;m chasing childhood dreams. In 2024, I earned
+								my Private Pilot License. In 2025, I added a Night Rating and
+								started aerobatics training. Next up: Multi-Engine and Floats
+								ratings. The sky, it turns out, is not the limit.
 							</p>
 							<p>
-								I&apos;m also a gamer. I&apos;ve been playing mostly on Xbox for
-								the past few years. You&apos;ll find me mostly playing The
-								Finals or Microsoft Flight Simulator as the core rotation, which
-								occassional stints in other games.
-							</p>
-							<p>
-								Last but not least, I&apos;m really into gardening. This must be
-								in my genes from my great-grandfather who was a farmer.
-								It&apos;s like meditation to me and I crave the taste of fresh
-								produce. Tangentially, I&apos;m interested in homesteading and
-								self-sufficiency.
+								Curious by default. Not knowing how to do something just means
+								I&apos;ve unlocked a new sidequest.
 							</p>
 						</div>
 					</div>

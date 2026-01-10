@@ -1,9 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Fragment, useEffect, useRef, useState } from 'react';
-
 import {
 	Menu,
 	MenuButton,
@@ -12,9 +8,11 @@ import {
 	Popover,
 	Transition,
 } from '@headlessui/react';
-
 import clsx from 'clsx';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 import Brand from '@/components/Brand';
 import { Container } from '@/components/Container';
@@ -149,7 +147,7 @@ function MobileNavigation(props) {
 }
 
 function NavItem({ href, children }) {
-	let isActive = usePathname() === href;
+	const isActive = usePathname() === href;
 
 	return (
 		<li>
@@ -233,9 +231,9 @@ function DesktopNavigation(props) {
 }
 
 function ThemeToggle() {
-	let { resolvedTheme, setTheme } = useTheme();
-	let otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
-	let [mounted, setMounted] = useState(false);
+	const { resolvedTheme, setTheme } = useTheme();
+	const otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
@@ -254,9 +252,9 @@ function ThemeToggle() {
 	);
 }
 
-function clamp(number, a, b) {
-	let min = Math.min(a, b);
-	let max = Math.max(a, b);
+function _clamp(number, a, b) {
+	const min = Math.min(a, b);
+	const max = Math.max(a, b);
 	return Math.min(Math.max(number, min), max);
 }
 
@@ -278,49 +276,47 @@ function Avatar({ large = false, className, ...props }) {
 }
 
 export function Header() {
-	let isHomePage = usePathname() === '/';
-	let headerRef = useRef();
-	let avatarRef = useRef();
+	const isHomePage = usePathname() === '/';
+	const headerRef = useRef();
+	const _avatarRef = useRef();
 
 	return (
-		<>
-			<header
-				className="pointer-events-none relative z-50 flex flex-none flex-col"
-				style={{
-					height: 'var(--header-height)',
-					marginBottom: 'var(--header-mb)',
-				}}
+		<header
+			className="pointer-events-none relative z-50 flex flex-none flex-col"
+			style={{
+				height: 'var(--header-height)',
+				marginBottom: 'var(--header-mb)',
+			}}
+		>
+			<div
+				ref={headerRef}
+				className="top-0 z-10 h-16 pt-6"
+				style={{ position: 'var(--header-position)' }}
 			>
-				<div
-					ref={headerRef}
-					className="top-0 z-10 h-16 pt-6"
-					style={{ position: 'var(--header-position)' }}
+				<Container
+					className="top-(--header-top,--spacing(6)) w-full"
+					style={{ position: 'var(--header-inner-position)' }}
 				>
-					<Container
-						className="top-(--header-top,--spacing(6)) w-full"
-						style={{ position: 'var(--header-inner-position)' }}
-					>
-						<div className="relative flex gap-4">
-							<div className="flex flex-1">
-								{!isHomePage && (
-									<AvatarContainer>
-										<Avatar />
-									</AvatarContainer>
-								)}
-							</div>
-							<div className="flex flex-1 justify-end md:justify-center">
-								<MobileNavigation className="pointer-events-auto md:hidden" />
-								<DesktopNavigation className="pointer-events-auto hidden md:block" />
-							</div>
-							<div className="flex justify-end md:flex-1">
-								<div className="pointer-events-auto">
-									<ThemeToggle />
-								</div>
+					<div className="relative flex gap-4">
+						<div className="flex flex-1">
+							{!isHomePage && (
+								<AvatarContainer>
+									<Avatar />
+								</AvatarContainer>
+							)}
+						</div>
+						<div className="flex flex-1 justify-end md:justify-center">
+							<MobileNavigation className="pointer-events-auto md:hidden" />
+							<DesktopNavigation className="pointer-events-auto hidden md:block" />
+						</div>
+						<div className="flex justify-end md:flex-1">
+							<div className="pointer-events-auto">
+								<ThemeToggle />
 							</div>
 						</div>
-					</Container>
-				</div>
-			</header>
-		</>
+					</div>
+				</Container>
+			</div>
+		</header>
 	);
 }

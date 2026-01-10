@@ -1,7 +1,7 @@
-import { formatDate } from '@/lib/formatDate';
-import { getAllArticles } from '@/lib/getAllArticles';
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import { formatDate } from '@/lib/formatDate';
+import { getAllArticles } from '@/lib/getAllArticles';
 
 function Article({ article }) {
 	return (
@@ -40,7 +40,7 @@ export const metadata = {
 };
 
 export default async function ArticlesIndex() {
-	let articles = await getAllArticles();
+	const articles = await getAllArticles();
 
 	return (
 		<SimpleLayout

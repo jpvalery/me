@@ -1,5 +1,5 @@
-import { SimpleLayout } from '@/components/SimpleLayout';
 import Link from 'next/link';
+import { SimpleLayout } from '@/components/SimpleLayout';
 
 export const metadata = {
 	title: 'Get in touch',

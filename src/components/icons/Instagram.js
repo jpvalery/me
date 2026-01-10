@@ -1,8 +1,7 @@
-import React from 'react';
-
 export default function Instagram() {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+			<title>Instagram</title>
 			<path
 				fill="currentColor"
 				fillRule="evenodd"

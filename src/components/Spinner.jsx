@@ -6,6 +6,7 @@ export function Spinner() {
 			className="mr-3 -ml-1 h-5 w-5 animate-spin text-gray-600 dark:text-gray-200"
 			viewBox="0 0 24 24"
 		>
+			<title>Spinner</title>
 			<circle
 				cx="12"
 				cy="12"

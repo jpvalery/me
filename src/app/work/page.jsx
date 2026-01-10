@@ -1,13 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-import logoRaccoon from '@/images/logos/raccoonventures.svg';
-
-import logoResume from '@/images/logos/resume.svg';
-import logoWWM from '@/images/logos/workwithme.svg';
-
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import logoRaccoon from '@/images/logos/raccoonventures.svg';
+import logoResume from '@/images/logos/resume.svg';
+import logoWWM from '@/images/logos/workwithme.svg';
 
 const projects = [
 	{
@@ -64,7 +61,7 @@ export default function Projects() {
 				title="Work"
 				intro="Some professional and work-oriented content"
 			>
-				<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
+				<ul className="grid grid-cols-1 gap-12 md:grid-cols-2">
 					{projects.map((project) => (
 						<li key={project.name}>
 							<Link href={project.link.href}>

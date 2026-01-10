@@ -8,11 +8,13 @@ const timelineDates = [
 	'2022-07-20',
 	'2023-08-07',
 	'2024-12-20',
+	'2025-07-03',
+	'2026-01-09',
 ];
 
 function getTimelineItems() {
 	return timelineDates
-		.filter((dateStr) => /^\d{4}-\d{2}-\d{2}$/.test(dateStr)) // Validate YYYY-MM-DD format
+		.filter((dateStr) => /^\d{4}-\d{2}-\d{2}$/.test(dateStr))
 		.map((dateStr) => {
 			const date = new Date(`${dateStr}T13:00:00.000Z`);
 			return {
@@ -21,7 +23,6 @@ function getTimelineItems() {
 				displayDate: date.toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'short',
-					day: 'numeric',
 				}),
 			};
 		})
@@ -49,18 +50,18 @@ export default function TimelineNavigation() {
 
 					{/* Timeline items */}
 					<div className="relative flex items-center justify-between">
-						{items.map((item, index) => (
+						{items.map((item) => (
 							<div
 								key={item.date}
 								className="relative flex flex-col items-center"
 							>
-								{/* Marker */}
 								<Link href={item.path} className="group relative z-10">
-									<div className="bg-international-orange-600 group-hover:bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-300 shadow-lg transition-all duration-200 group-hover:scale-110" />
+									{/* Marker - stays fixed on the line */}
+									<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-300 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125" />
 
-									{/* Date label */}
+									{/* Date label - scales on hover */}
 									<div className="absolute top-8 left-1/2 -translate-x-1/2 transform whitespace-nowrap">
-										<div className="rounded-lg border bg-zinc-50 px-2 py-0.5 shadow-md transition-shadow duration-200 group-hover:shadow-lg dark:bg-zinc-900">
+										<div className="rounded-lg border bg-zinc-50 px-2 py-0.5 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900">
 											<span className="group-hover:text-international-orange-600 text-[0.75rem] leading-[0.8rem] font-medium text-zinc-700 dark:text-zinc-50">
 												{item.displayDate}
 											</span>
@@ -70,13 +71,13 @@ export default function TimelineNavigation() {
 							</div>
 						))}
 						<div key="latest" className="relative flex flex-col items-center">
-							{/* Marker */}
 							<Link href="/now" className="group relative z-10">
-								<div className="bg-international-orange-600 group-hover:bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-300 shadow-lg transition-all duration-200 group-hover:scale-110" />
+								{/* Marker */}
+								<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-300 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125" />
 
 								{/* Date label */}
 								<div className="absolute top-8 left-1/2 -translate-x-1/2 transform whitespace-nowrap">
-									<div className="border-international-orange-500 rounded-lg border bg-zinc-50 px-3 py-1 shadow-md transition-shadow duration-200 group-hover:shadow-lg dark:bg-zinc-900">
+									<div className="border-international-orange-500 rounded-lg border bg-zinc-50 px-3 py-1 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900">
 										<span className="group-hover:text-international-orange-600 text-xs font-medium text-zinc-700 dark:text-zinc-50">
 											Latest
 										</span>
@@ -96,16 +97,14 @@ export default function TimelineNavigation() {
 
 					{/* Timeline items */}
 					<div className="space-y-6">
-						{items.map((item, index) => (
+						{items.map((item) => (
 							<div key={item.date} className="relative flex items-center">
-								{/* Marker */}
 								<Link
 									href={item.path}
 									className="group relative z-10 flex items-center"
 								>
-									<div className="bg-international-orange-600 group-hover:bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-50 shadow-lg transition-all duration-200 group-hover:scale-110" />
+									<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-50 shadow-lg" />
 
-									{/* Date label */}
 									<div className="ml-6">
 										<div className="rounded-lg border bg-zinc-50 px-4 py-2 shadow-md transition-shadow duration-200 group-hover:shadow-lg">
 											<span className="group-hover:text-international-orange-600 text-sm font-medium text-zinc-700">
@@ -117,14 +116,12 @@ export default function TimelineNavigation() {
 							</div>
 						))}
 						<div key="latest" className="relative flex items-center">
-							{/* Marker */}
 							<Link
 								href="/now"
 								className="group relative z-10 flex items-center"
 							>
-								<div className="bg-international-orange-600 group-hover:bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-50 shadow-lg transition-all duration-200 group-hover:scale-110" />
+								<div className="bg-international-orange-600 h-4 w-4 rounded-full border-4 border-zinc-50 shadow-lg" />
 
-								{/* Date label */}
 								<div className="ml-6">
 									<div className="rounded-lg border bg-zinc-50 px-4 py-2 shadow-md transition-shadow duration-200 group-hover:shadow-lg">
 										<span className="group-hover:text-international-orange-600 text-sm font-medium text-zinc-700">

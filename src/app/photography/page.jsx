@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Card } from '@/components/Card';
+import { SimpleLayout } from '@/components/SimpleLayout';
 import logoArchivePhoto from '@/images/logos/archivephoto.svg';
 import logoPhotoClub from '@/images/logos/photoclub.svg';
 import logoPortfolio from '@/images/logos/portfolio.svg';
 import logoUnsplash from '@/images/logos/unsplash.svg';
-
-import { Card } from '@/components/Card';
-import { SimpleLayout } from '@/components/SimpleLayout';
 
 const projects = [
 	{
@@ -67,7 +65,7 @@ export default function Projects() {
 				title="Photography"
 				intro="These are the projects I'm currently working on in one way or another."
 			>
-				<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
+				<ul className="grid grid-cols-1 gap-12 md:grid-cols-2">
 					{projects.map((project) => (
 						<li key={project.name}>
 							<Link href={project.link.href}>

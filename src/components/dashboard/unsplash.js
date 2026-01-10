@@ -1,9 +1,8 @@
-import { Container } from '@/components/Container';
-import ExtLink from '@/components/icons/ExtLink';
 import format from 'comma-number';
 import Link from 'next/link';
-
 import { Card } from '@/components/Card';
+import { Container } from '@/components/Container';
+import ExtLink from '@/components/icons/ExtLink';
 
 async function getData() {
 	const res = await fetch(
@@ -45,7 +44,7 @@ export default async function DashboardUnsplash() {
 			<h1 className="font-departure pb-8 text-4xl font-bold text-gray-600 dark:text-gray-200">
 				Unsplash
 			</h1>
-			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
+			<ul className="grid grid-cols-1 gap-12 md:grid-cols-2">
 				{categories.map((item) => (
 					<Link href={item.link} key={item.title}>
 						<Card>

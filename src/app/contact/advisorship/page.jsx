@@ -1,18 +1,15 @@
 'use client';
 
-import { Fragment, useState } from 'react';
-
-import { SimpleLayout } from '@/components/SimpleLayout';
-
-import { Spinner } from '@/components/Spinner';
 import { Dialog, Transition } from '@headlessui/react';
-
+import { Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { SimpleLayout } from '@/components/SimpleLayout';
+import { Spinner } from '@/components/Spinner';
 
 export default function Contact() {
 	// Modal management
-	let [isSuccessOpen, setIsSuccessOpen] = useState(false);
-	let [isFailureOpen, setIsFailureOpen] = useState(false);
+	const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+	const [isFailureOpen, setIsFailureOpen] = useState(false);
 
 	function closeSuccessModal() {
 		setIsSuccessOpen(false);
@@ -29,16 +26,8 @@ export default function Contact() {
 		});
 	}
 
-	function openSuccessModal() {
-		setIsSuccessOpen(true);
-	}
-
 	function closeFailureModal() {
 		setIsFailureOpen(false);
-	}
-
-	function openFailureModal() {
-		setIsFailureOpen(true);
 	}
 
 	// react-hook-form
@@ -46,8 +35,7 @@ export default function Contact() {
 		register,
 		handleSubmit,
 		reset,
-		watch,
-		formState: { errors, isSubmitting },
+		formState: { isSubmitting },
 	} = useForm();
 
 	const onSubmit = async (data) => {
@@ -65,13 +53,13 @@ export default function Contact() {
 			});
 
 			// If fetch doesn't return a 200, we throw an error
-			if (backend.status != 200) {
+			if (backend.status !== 200) {
 				throw new Error('Backend encountered an error');
 			}
 
 			// then we display the modal
 			setIsSuccessOpen(true);
-		} catch (error) {
+		} catch (_error) {
 			// then we display the modal
 			setIsFailureOpen(true);
 		}

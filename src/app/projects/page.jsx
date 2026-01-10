@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Card } from '@/components/Card';
+import { SimpleLayout } from '@/components/SimpleLayout';
 import logoCuisinomicon from '@/images/logos/cuisinomicon.svg';
 import logoFlaps from '@/images/logos/flaps.png';
 import logoFlightlog from '@/images/logos/flightlog.svg';
 import logoTrimCarbon from '@/images/logos/trimcarbon.svg';
-
-import { Card } from '@/components/Card';
-import { SimpleLayout } from '@/components/SimpleLayout';
 
 const projects = [
 	{
@@ -70,10 +68,7 @@ export default function Projects() {
 				title="Current projects"
 				intro="These are the projects I'm currently working on in one way or another."
 			>
-				<ul
-					role="list"
-					className="grid grid-cols-1 content-stretch items-stretch justify-items-stretch gap-12 md:grid-cols-2"
-				>
+				<ul className="grid grid-cols-1 content-stretch items-stretch justify-items-stretch gap-12 md:grid-cols-2">
 					{projects.map((project) => (
 						<li key={project.name} className="h-full">
 							<Link href={project.link.href} className="h-full">

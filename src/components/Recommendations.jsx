@@ -36,7 +36,7 @@ const testimonials = [
 	},
 ];
 
-function classNames(...classes) {
+function _classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
 }
 

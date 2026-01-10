@@ -5,12 +5,11 @@ const questions = [
 			<>
 				This is currently just me, Jp. Born in France, moved to Montréal a
 				couple of years ago. Now a dual citizen.
-				<br />
-				I started an indie musical label when I was 16, began my professional
-				careers in non-profits and freelancing. Then, when I moved to Montréal,
-				I got into the big corporate world at Gameloft. Dabbled in a couple of
-				things between video games, robotics, ecommerce, music industry,
-				startups, artificial intelligence...
+				<br />I started an indie musical label when I was 16, began my
+				professional careers in non-profits and freelancing. Then, when I moved
+				to Montréal, I got into the big corporate world at Gameloft. Dabbled in
+				a couple of things between video games, robotics, ecommerce, music
+				industry, startups, artificial intelligence...
 				<br />
 				As a person, I&apos;m a photographer with over 130M views, an avid video
 				game player, and a gardening enthusiast.
@@ -89,8 +88,7 @@ const questions = [
 			<>
 				I&apos;ve reached a point where I know what I do, what I like, and what
 				I bring to the table.
-				<br />
-				I also know what bores me, what angers me, and the patterns to
+				<br />I also know what bores me, what angers me, and the patterns to
 				toxic/annoying/misleading/bullshitty projects.
 				<br />
 				So, I&apos;m being super radical and transparent in those questions so

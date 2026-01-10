@@ -6,7 +6,7 @@ export async function POST(request) {
 	console.log(req);
 
 	const toEmail =
-		req._type == 'photography'
+		req._type === 'photography'
 			? process.env.EMAIL_CONTACT_PHOTO
 			: process.env.EMAIL_CONTACT_GENERIC;
 

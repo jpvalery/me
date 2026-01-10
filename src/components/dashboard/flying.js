@@ -1,8 +1,7 @@
+import Link from 'next/link';
+import { Card } from '@/components/Card';
 import { Container } from '@/components/Container';
 import ExtLink from '@/components/icons/ExtLink';
-import Link from 'next/link';
-
-import { Card } from '@/components/Card';
 
 /*
 async function getData() {
@@ -65,7 +64,7 @@ export default async function DashboardFlying() {
 				<span className="text-sm">Last updated: November 17th, 2025</span>
 			</div>
 
-			<ul role="list" className="grid grid-cols-1 gap-12 md:grid-cols-2">
+			<ul className="grid grid-cols-1 gap-12 md:grid-cols-2">
 				{categories.map((item) => (
 					<Link href={item.link} key={item.title}>
 						<Card>

@@ -1,12 +1,11 @@
 'use client';
 
-import { createContext, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-
 import { ThemeProvider, useTheme } from 'next-themes';
+import { createContext, useEffect, useRef } from 'react';
 
 function usePrevious(value) {
-	let ref = useRef();
+	const ref = useRef();
 
 	useEffect(() => {
 		ref.current = value;
@@ -16,13 +15,13 @@ function usePrevious(value) {
 }
 
 function ThemeWatcher() {
-	let { resolvedTheme, setTheme } = useTheme();
+	const { resolvedTheme, setTheme } = useTheme();
 
 	useEffect(() => {
-		let media = window.matchMedia('(prefers-color-scheme: dark)');
+		const media = window.matchMedia('(prefers-color-scheme: dark)');
 
 		function onMediaChange() {
-			let systemTheme = media.matches ? 'dark' : 'light';
+			const systemTheme = media.matches ? 'dark' : 'light';
 			if (resolvedTheme === systemTheme) {
 				setTheme('system');
 			}
@@ -42,8 +41,8 @@ function ThemeWatcher() {
 export const AppContext = createContext();
 
 export function Providers({ children }) {
-	let pathname = usePathname();
-	let previousPathname = usePrevious(pathname);
+	const pathname = usePathname();
+	const previousPathname = usePrevious(pathname);
 
 	return (
 		<AppContext.Provider value={{ previousPathname }}>

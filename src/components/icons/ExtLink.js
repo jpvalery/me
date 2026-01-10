@@ -6,6 +6,7 @@ export default function ExtLink() {
 			className="h-4 w-4"
 			viewBox="0 0 20 20"
 		>
+			<title>External Link Icon</title>
 			<path
 				fillRule="evenodd"
 				d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"

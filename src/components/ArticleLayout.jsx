@@ -23,8 +23,8 @@ function ArrowLeftIcon(props) {
 }
 
 export function ArticleLayout({ children, article, isRssFeed = false }) {
-	let router = useRouter();
-	let { previousPathname } = useContext(AppContext);
+	const router = useRouter();
+	const { previousPathname } = useContext(AppContext);
 
 	if (isRssFeed) {
 		return children;

@@ -1,8 +1,6 @@
 import Image from 'next/image';
-
-import infj from '@/images/infj-personality-type-header.png';
-
 import { Container } from '@/components/Container';
+import infj from '@/images/infj-personality-type-header.png';
 
 export const metadata = {
 	title: 'How to work with Jp',
