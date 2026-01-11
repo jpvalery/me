@@ -6,11 +6,7 @@ import GitHub from '@/components/icons/Github';
 import LinkedIn from '@/components/icons/Linkedin';
 import Twitter from '@/components/icons/Twitter';
 import Unsplash from '@/components/icons/Unsplash';
-import image1 from '@/images/photos/image-1.jpg';
-import image2 from '@/images/photos/image-2.jpg';
-import image3 from '@/images/photos/image-3.jpg';
-import image4 from '@/images/photos/image-4.jpg';
-import image5 from '@/images/photos/image-5.jpg';
+import { Photos } from '@/components/Photos';
 import portraitImage from '@/images/portrait.jpg';
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -35,31 +31,6 @@ function MailIcon(props) {
 				d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
 			/>
 		</svg>
-	);
-}
-
-function Photos() {
-	return (
-		<div className="mt-16 sm:mt-20">
-			<div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-				{[image1, image2, image3, image4, image5].map((image, _imageIndex) => (
-					<div
-						key={image.src}
-						className={clsx(
-							'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-sm bg-zinc-100 sm:w-72 sm:rounded-sm dark:bg-zinc-900',
-							// rotations[imageIndex % rotations.length],
-						)}
-					>
-						<Image
-							src={image}
-							alt=""
-							sizes="(min-width: 640px) 18rem, 11rem"
-							className="absolute inset-0 h-full w-full object-cover"
-						/>
-					</div>
-				))}
-			</div>
-		</div>
 	);
 }
 
