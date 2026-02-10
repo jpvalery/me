@@ -12,14 +12,13 @@ import photoLemonMeringuePie from '@/images/photos/jp-valery-lemon-meringue-pie.
 import photoMacarons from '@/images/photos/jp-valery-macarons.jpg';
 import photoPilot1 from '@/images/photos/jp-valery-pilot-1.jpg';
 import photoPilot2 from '@/images/photos/jp-valery-pilot-2.jpg';
-import photoPilot3 from '@/images/photos/jp-valery-pilot-3.jpg';
 import photoPilot4 from '@/images/photos/jp-valery-pilot-4.jpg';
 import photoPilot5 from '@/images/photos/jp-valery-pilot-5.jpg';
 import photoPizza from '@/images/photos/jp-valery-pizza-1.jpg';
 import photoSelfie from '@/images/photos/jp-valery-selfie.jpg';
 
 const imageSets = {
-	home: [photoPilot1, photoCamera, photoPilot2, photoPizzaBaking, photoPilot3],
+	home: [photoPilot2, photoCamera, photoPilot4, photoPizzaBaking, photoPilot1],
 	date: [photoPilot4, avatar, photoPizzaBaking],
 	cooking: [photoPizza, photoLemonMeringuePie, photoMacarons],
 	aviation: [photoAerobatics2, photoCockpit, photoPilot5],
