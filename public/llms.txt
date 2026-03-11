@@ -1,0 +1,58 @@
+# Jp Valery
+
+> Personal website of Jp Valery — jpvalery.me
+
+## Who is Jp Valery?
+
+Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. Originally from Southern France, he immigrated to Canada at 22. He holds an MSc in Management (Marketing major, Design minor) from a French Grande École. He also runs Raccoon Ventures, a side company for projects and consulting.
+
+## Professional
+
+- Current role: Customer Success Engineer at Resend (email infrastructure)
+- Previous: 4 years at Customer.io
+- Side company: Raccoon Ventures (raccoonv.com) — consulting, advisorship, side projects
+- Specialties: Customer success, email infrastructure, developer tools, SaaS
+
+## Active Projects
+
+- TrimCarbon (trimcarbon.com) — Fund verified climate projects removing CO₂
+- FLAPS (github.com/jpvalery/flaps) — Open-source platform for managing/booking seats on private aircraft flights
+- MSFS Flightlog (flightlog.jpvalery.me) — Screenshots and stats from Microsoft Flight Simulator
+- Cuisinomicon (cuisinomicon.com) — Online cookbook (work in progress)
+
+## Interests
+
+- Aviation: Private Pilot License (PPL), Night Rating, aerobatics training, pursuing Multi-Engine and Floats ratings
+- Photography: 294M+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
+- Cooking & baking, gardening, 3D printing, cycling, guitar & bass, gaming
+
+## Contact
+
+- Email: contact@jpvalery.me
+- Twitter: @jpvalery
+- GitHub: github.com/jpvalery
+- Unsplash: unsplash.com/@jpvalery
+- LinkedIn: linkedin.com/in/jpvalery
+
+## Site Sections
+
+- / — Home and bio
+- /about — About hub
+- /now — What Jp is currently up to (regularly updated)
+- /stack — Gear and software
+- /dashboard — Live personal metrics (aviation, Unsplash, shows/movies)
+- /work — Professional background
+- /work/recommendations — Colleague testimonials
+- /work/how-to-work-with-me — Personal/professional README
+- /projects — Active projects
+- /projects/cemetery — Retired projects
+- /photography — Photography links and portfolio
+- /contact — Contact forms
+
+## Site Details
+
+- URL: https://jpvalery.me
+- RSS: https://jpvalery.me/feed.xml
+- Built with: Next.js 15 (App Router), Tailwind CSS v4, MDX, Headless UI
+- Fonts: JetBrains Mono, Departure Mono, Cartridge
+- Analytics: Self-hosted Umami

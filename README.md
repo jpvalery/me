@@ -1,42 +1,46 @@
-# Spotlight
+# jpvalery.me
 
-Spotlight is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+Personal website of Jp Valery — portfolio, projects, photography, and more.
 
-## Getting started
+Live at [jpvalery.me](https://jpvalery.me)
 
-To get started with this template, first install the npm dependencies:
+## Tech Stack
 
-```bash
-npm install
+- **Framework:** [Next.js 15](https://nextjs.org) (App Router, Turbopack)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com) with `@tailwindcss/typography` and `@tailwindcss/forms`
+- **Content:** MDX via `@next/mdx` with `remark-gfm` and `rehype-highlight`
+- **UI:** [Headless UI v2](https://headlessui.dev), `next-themes` for dark/light mode
+- **Fonts:** JetBrains Mono, Departure Mono
+- **Analytics:** [Umami](https://umami.is) (self-hosted)
+- **Email:** [Customer.io](https://customer.io) transactional API
+- **Linting:** [Biome v2](https://biomejs.dev)
+- **Package Manager:** pnpm
+
+## Project Structure
+
+```
+src/
+├── app/           # Next.js App Router pages and layouts
+│   ├── about/     # About hub (/now, /stack, /dashboard)
+│   ├── contact/   # Contact forms (generic, photography, advisorship, consultancy)
+│   ├── date/      # Dating profile (noindexed)
+│   ├── now/       # /now page with historical timeline
+│   ├── photography/
+│   ├── projects/  # Active projects + cemetery
+│   └── work/      # Work, recommendations, how-to-work-with-me
+├── components/    # Reusable React components
+├── content/       # JSON data (stack, cemetery, navigation)
+├── images/        # Static images
+├── lib/           # Utilities
+└── styles/        # Global styles
+public/            # Static assets
 ```
 
-Next, create a `.env.local` file in the root of your project and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
+## Sections
 
-```
-NEXT_PUBLIC_SITE_URL=https://example.com
-```
-
-Next, run the development server:
-
-```bash
-npm run dev
-```
-
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
-
-## Customizing
-
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
-
-## License
-
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
-
-## Learn more
-
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
-- [MDX](https://mdxjs.com) - the MDX documentation
+- **Home** — Bio, social links, photo strip
+- **About** — /now updates, gear/software stack, live dashboard
+- **Work** — Professional background, recommendations, advisorship & consultancy
+- **Projects** — Active projects (TrimCarbon, FLAPS, MSFS Flightlog, Cuisinomicon) and project cemetery
+- **Photography** — Links to portfolio, archive, Montréal Photo Club, Unsplash
+- **Contact** — Category-specific contact forms
