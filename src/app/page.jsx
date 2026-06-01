@@ -1,3 +1,6 @@
+import clsx from 'clsx';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Container } from '@/components/Container';
 import GitHub from '@/components/icons/Github';
 import LinkedIn from '@/components/icons/Linkedin';
@@ -5,9 +8,6 @@ import Twitter from '@/components/icons/Twitter';
 import Unsplash from '@/components/icons/Unsplash';
 import { Photos } from '@/components/Photos';
 import portraitImage from '@/images/portrait.jpg';
-import clsx from 'clsx';
-import Image from 'next/image';
-import Link from 'next/link';
 
 function SocialLink({ className, href, children, icon: Icon }) {
 	return (
