@@ -1,0 +1,5 @@
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+# Pin exact versions when adding dependencies
+saveExact: true

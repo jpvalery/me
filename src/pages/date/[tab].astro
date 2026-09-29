@@ -1,0 +1,86 @@
+---
+import { getEntry, render } from "astro:content";
+import Button from "../../components/Button.astro";
+import Container from "../../components/Container.astro";
+import Photos from "../../components/Photos.astro";
+import Prose from "../../components/Prose.astro";
+import Tile from "../../components/Tile.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// src/content/pages/date/{me,you}.md; the switcher below is fixed to these two
+export function getStaticPaths() {
+	return [{ params: { tab: "me" } }, { params: { tab: "you" } }];
+}
+
+const { tab } = Astro.params;
+const entry = await getEntry("pages", `date/${tab}`);
+if (!entry) throw new Error(`Missing src/content/pages/date/${tab}.md`);
+const { Content } = await render(entry);
+
+const link = (active: boolean) => [
+	"border px-4 py-2 text-sm uppercase tracking-wider transition",
+	active
+		? "border-international-orange-500 text-international-orange-600 dark:text-international-orange-500"
+		: "border-transparent text-stone-600 hover:text-zinc-900 dark:text-phosphor-500 dark:hover:text-phosphor-100",
+];
+---
+
+<BaseLayout title={entry.data.title} noindex>
+	<Container>
+		<div class="max-w-3xl pt-12 pb-8 sm:pt-16">
+			{
+				entry.data.notice && (
+					<aside
+						role="note"
+						class="mb-8 border border-international-orange-500 bg-stone-50 p-4 text-sm text-zinc-800 dark:bg-ink-900 dark:text-phosphor-100"
+					>
+						<p>
+							<strong class="font-semibold">Update:</strong> {entry.data.notice}
+						</p>
+					</aside>
+				)
+			}
+			<Tile label="Dating Jp" aside={tab}>
+				<Prose class="max-w-none">
+					<Content />
+				</Prose>
+			</Tile>
+		</div>
+	</Container>
+	{tab === 'me' && <Photos set="date" />}
+
+	<div
+		class="sticky right-0 bottom-0 left-0 z-50 mx-auto mt-16 flex w-full max-w-7xl justify-center bg-linear-to-t from-stone-100 via-stone-100/90 pt-6 pb-6 dark:from-ink-950 dark:via-ink-950/90"
+	>
+		<div class="grid grid-flow-row gap-2">
+			<div
+				class="grid grid-flow-col items-center justify-center border border-stone-300 bg-stone-50/90 px-3 py-1 text-zinc-900 backdrop-blur-sm dark:border-ink-700 dark:bg-ink-900/90 dark:text-phosphor-100"
+			>
+				<a href="/date/me" class:list={link(tab === 'me')}>Me</a>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					class="size-4 text-stone-500 dark:text-phosphor-500"
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+				>
+					<path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"></path>
+				</svg>
+				<a href="/date/you" class:list={link(tab === 'you')}>You</a>
+			</div>
+			<div
+				class="flex border border-stone-300 bg-stone-50/90 px-3 py-1 text-zinc-900 backdrop-blur-sm dark:border-ink-700 dark:bg-ink-900/90 dark:text-phosphor-100"
+			>
+				<Button href="/contact/date" variant="secondary">
+					Sounds like we'd be a match?
+				</Button>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

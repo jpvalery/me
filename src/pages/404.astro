@@ -1,0 +1,24 @@
+---
+import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+Astro.response.status = 404;
+---
+
+<BaseLayout title="Page not found" noindex>
+	<Container class="flex h-full items-center pt-16 sm:pt-24">
+		<div class="flex flex-col items-start">
+			<p class="text-[0.68rem] text-international-orange-600 uppercase tracking-[0.14em] dark:text-international-orange-500">Error 404</p>
+			<h1
+				class="mt-4 font-departure text-4xl text-zinc-900 sm:text-6xl dark:text-phosphor-100"
+			>
+				Page not found
+			</h1>
+			<p class="mt-4 text-base text-stone-600 dark:text-phosphor-500">
+				Sorry, we couldn’t find the page you’re looking for.
+			</p>
+			<Button href="/" variant="secondary" class="mt-6">Go back home</Button>
+		</div>
+	</Container>
+</BaseLayout>

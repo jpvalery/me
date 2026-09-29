@@ -1,0 +1,21 @@
+---
+import CardSection from "../../components/CardSection.astro";
+import CtaLink from "../../components/CtaLink.astro";
+import SimpleLayout from "../../components/SimpleLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title="Work"
+	description="My resume, recommendations and how I like to work with colleagues and clients, from a Customer Success Engineer at Resend."
+>
+	<SimpleLayout
+		title="Work"
+		intro="Some professional and work-oriented content"
+	>
+		<CardSection section="work" />
+	</SimpleLayout>
+	<SimpleLayout title="Work with me" sub>
+		<CtaLink href="https://raccoonv.com">Work with Raccoon Ventures</CtaLink>
+	</SimpleLayout>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Container from "./Container.astro";
+import Prose from "./Prose.astro";
+import Tile from "./Tile.astro";
+import Timeline from "./Timeline.astro";
+
+interface Props {
+	entry: CollectionEntry<"now">;
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const items = (await getCollection("now")).map((e) => ({
+	slug: e.id,
+	date: e.data.date,
+}));
+---
+
+<Container class="pt-8 pb-8 sm:pt-12">
+	<div class="grid gap-6 lg:grid-cols-12 lg:gap-8">
+		<Tile label="/now" aside={entry.data.date} class="lg:col-span-12">
+			<h1
+				class="max-w-4xl text-balance font-departure text-3xl text-zinc-900 sm:text-5xl dark:text-phosphor-100"
+			>
+				{entry.data.title}
+			</h1>
+		</Tile>
+		<Tile label="Entry" class="lg:col-span-8">
+			<Prose class="max-w-none">
+				<Content />
+			</Prose>
+		</Tile>
+		<Tile label="Archive" class="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
+			<Timeline items={items} vertical />
+		</Tile>
+	</div>
+</Container>

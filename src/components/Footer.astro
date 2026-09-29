@@ -1,0 +1,54 @@
+---
+import { footerLinks, socials } from "../lib/site";
+import { socialIcons } from "../lib/socialIcons";
+
+const links = [...footerLinks, { label: "Agents", url: "/agent.md" }];
+---
+
+<footer
+	class="mt-24 flex-none border-stone-300 border-t bg-stone-50 dark:border-ink-700 dark:bg-ink-900"
+>
+	<div class="mx-auto max-w-7xl px-4 py-10 sm:px-8">
+		<div class="flex flex-wrap items-center justify-between gap-x-10 gap-y-6">
+			<nav aria-label="Footer">
+				<ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm uppercase tracking-wider">
+					{
+						links.map(({ url, label }) => (
+							<li>
+								<a
+									href={url}
+									class="text-zinc-900 transition before:mr-2 before:text-international-orange-500 before:content-['›'] hover:text-international-orange-600 dark:text-phosphor-100 dark:hover:text-international-orange-500"
+								>
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+			<ul class="flex items-center gap-5">
+				{
+					socials.map(({ url, label }) => {
+						const Icon = socialIcons[label];
+						return (
+							<li>
+								<a
+									href={url}
+									class="block size-5 text-zinc-900 transition hover:text-international-orange-600 dark:text-phosphor-100 dark:hover:text-international-orange-500"
+								>
+									<span class="sr-only">{label}</span>
+									<Icon />
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</div>
+		<p
+			class="mt-8 border-stone-300 border-t pt-6 text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:border-ink-700 dark:text-phosphor-500"
+		>
+			© 1992—{new Date().getFullYear()} Jp Valery. All rights reserved
+		</p>
+	</div>
+</footer>

@@ -1,7 +1,8 @@
 [
 	{
+		"id": "everyday-tech",
 		"name": "Everyday tech",
-		"content": [
+		"items": [
 			{
 				"title": "iPhone 16 Pro",
 				"description": "I've never taken so many pictures with a phone"
@@ -15,22 +16,21 @@
 				"description": "Upgraded from a Series 3. I think it's the greatest bang for the bucks when it comes to smart watches"
 			},
 			{
-				"title": "Airpods Pro",
-				"description": ""
+				"title": "Airpods Pro"
 			},
 			{
 				"title": "Steelseries Arctis 3",
 				"description": "This is the best headset I ever had and I keep recommending that line of product. The ski band is a game changer and the earmuff fabric is the best I've ever seen"
 			},
 			{
-				"title": "Airtags",
-				"description": null
+				"title": "Airtags"
 			}
 		]
 	},
 	{
+		"id": "office-work",
 		"name": "Office — Work",
-		"content": [
+		"items": [
 			{
 				"title": "MacBook Pro M4 2024",
 				"description": "Powerful, silent, and light—what more can you ask?"
@@ -52,8 +52,7 @@
 				"description": "It's _okay_ but I wouldn't miss it if I didn't have it tomorrow"
 			},
 			{
-				"title": "Magic Keyboard",
-				"description": ""
+				"title": "Magic Keyboard"
 			},
 			{
 				"title": "Magic Trackpad",
@@ -66,8 +65,9 @@
 		]
 	},
 	{
+		"id": "office-personal",
 		"name": "Office — Personal",
-		"content": [
+		"items": [
 			{
 				"title": "iMac 27\" 2017",
 				"description": "I upgraded to a 5K iMac when my 2011 MBP died. It's a 7 year old computer and is starting to show its age :("
@@ -85,18 +85,17 @@
 				"description": "I'm a Lacie fan and have multiple HDDs running for almost 10 years without a hiccup"
 			},
 			{
-				"title": "Magic Keyboard",
-				"description": null
+				"title": "Magic Keyboard"
 			},
 			{
-				"title": "Magic Trackpad",
-				"description": null
+				"title": "Magic Trackpad"
 			}
 		]
 	},
 	{
+		"id": "software",
 		"name": "Software",
-		"content": [
+		"items": [
 			{
 				"title": "Firefox",
 				"description": "Die-hard fan since 2004."
@@ -120,8 +119,9 @@
 		]
 	},
 	{
+		"id": "gaming",
 		"name": "Gaming",
-		"content": [
+		"items": [
 			{
 				"title": "Xbox Series X",
 				"description": "It's not as mind-blowing as I thought it'd be but the loading speed, 120fps, and 4K HDR are pretty amazing"
@@ -131,18 +131,17 @@
 				"description": "Got this from work and after a 1-year frenzy, I haven't used it a lot lately"
 			},
 			{
-				"title": "Playstation 3",
-				"description": null
+				"title": "Playstation 3"
 			},
 			{
-				"title": "RetroPie",
-				"description": null
+				"title": "RetroPie"
 			}
 		]
 	},
 	{
+		"id": "aviation",
 		"name": "Aviation",
-		"content": [
+		"items": [
 			{
 				"title": "iPad M1 11\" EFB",
 				"description": "I got a second iPad as my Electronic Flight Bag so I didn't have to bring my main one on flights in the off chance it'd be damaged"
@@ -158,8 +157,9 @@
 		]
 	},
 	{
+		"id": "photography-digital",
 		"name": "Photography — Digital",
-		"content": [
+		"items": [
 			{
 				"title": "Canon EOS 6D",
 				"description": "This is my workhorse DSLR and my first pro camera. It still shoots great and the images are still amazing"
@@ -187,8 +187,9 @@
 		]
 	},
 	{
+		"id": "photography-film",
 		"name": "Photography — Film",
-		"content": [
+		"items": [
 			{
 				"title": "Mamiya RB 67",
 				"description": "I restored this fully mechanical medium format camera (light sealing, leather pieces, etc... and love the quality of the images (don't love the 2 tons weight though)"

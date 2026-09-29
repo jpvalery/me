@@ -1,0 +1,40 @@
+---
+import ContactAside from "../../components/ContactAside.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import SimpleLayout from "../../components/SimpleLayout.astro";
+import Tile from "../../components/Tile.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { forms } from "../../lib/contact";
+
+export function getStaticPaths() {
+	return Object.values(forms).map((def) => ({
+		params: { type: def.type },
+		props: { def },
+	}));
+}
+
+const { def } = Astro.props;
+---
+
+<BaseLayout
+	title={def.title}
+	description={def.description}
+	noindex={def.noindex}
+	canonical={def.type === "generic" ? "/contact" : undefined}
+>
+	<SimpleLayout title={def.title}>
+		<div class="grid gap-6 lg:grid-cols-12 lg:gap-8">
+	<Tile label="Message" class="lg:col-span-8">
+			{
+				def.intro.length > 0 && (
+					<div class="prose max-w-none pb-8 dark:prose-invert">
+						{def.intro.map((p) => <p>{p}</p>)}
+					</div>
+				)
+			}
+			<ContactForm def={def} />
+		</Tile>
+	<ContactAside class="lg:col-span-4" />
+	</div>
+	</SimpleLayout>
+</BaseLayout>

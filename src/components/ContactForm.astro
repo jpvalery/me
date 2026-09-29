@@ -1,0 +1,168 @@
+---
+import { PUBLIC_TURNSTILE_SITE_KEY } from "astro:env/client";
+import type { ContactFormDef } from "../lib/contact";
+
+interface Props {
+	def: ContactFormDef;
+}
+const { def } = Astro.props;
+const siteKey = PUBLIC_TURNSTILE_SITE_KEY;
+const input =
+	"block w-full rounded-none border-stone-300 bg-white text-zinc-900 focus:border-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950 dark:text-phosphor-100";
+---
+
+<form
+	id="contact-form"
+	data-type={def.type}
+	autocomplete="off"
+	class="mx-auto w-full"
+>
+	{
+		def.fields.map((f) => (
+			<div class="grid grid-flow-row gap-2 py-3">
+				<label
+					for={f.name}
+					class="w-full text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
+				>
+					{f.label}
+				</label>
+				{f.options ? (
+					<select
+						id={f.name}
+						name={f.name}
+						required={f.required}
+						class={`${input} mt-1 py-2 pr-10 pl-3 text-base`}
+					>
+						<option value="" disabled selected>
+							Pick one
+						</option>
+						{f.options.map((o) => (
+							<option value={o.value}>{o.label}</option>
+						))}
+					</select>
+				) : f.name === 'message' ? (
+					<textarea
+						id={f.name}
+						name={f.name}
+						rows="3"
+						required={f.required}
+						maxlength={280}
+						class={input}
+					/>
+				) : (
+					<input
+						id={f.name}
+						name={f.name}
+						type={f.name === 'email' ? 'email' : 'text'}
+						placeholder={f.placeholder}
+						required={f.required}
+						maxlength={80}
+						class={input}
+					/>
+				)}
+			</div>
+		))
+	}
+
+	<div class="grid grid-flow-col items-center justify-start gap-3 py-3">
+		<label
+			for="checked"
+			class="w-full text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
+		>
+			Have you proofread everything?
+		</label>
+		<input
+			type="checkbox"
+			id="checked"
+			name="checked"
+			required
+			class="order-first size-4 rounded-none border-stone-300 text-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950"
+		/>
+	</div>
+
+	<!-- Honeypot: hidden from people and assistive tech, bots fill it in -->
+	<div aria-hidden="true" class="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+		<label for="nickname">Leave this field empty</label>
+		<input type="text" id="nickname" name="nickname" tabindex="-1" autocomplete="off" />
+	</div>
+
+	<div class="py-3">
+		<div
+			class="cf-turnstile"
+			data-sitekey={siteKey}
+			data-theme="auto"
+			data-response-field-name="cf-turnstile-response"
+		>
+		</div>
+	</div>
+
+	<div class="grid grid-flow-col items-center justify-start pt-6">
+		<button
+			type="submit"
+			id="contact-submit"
+			class="inline-flex w-full cursor-pointer justify-center bg-international-orange-500 px-5 py-3 font-medium text-ink-950 text-sm uppercase tracking-wider outline-offset-2 transition hover:bg-international-orange-400 disabled:opacity-60 sm:w-auto"
+		>
+			Send now
+		</button>
+	</div>
+	<p id="contact-error" role="alert" class="hidden pt-3 text-red-600 text-sm"></p>
+</form>
+
+<dialog
+	id="contact-done"
+	class="m-auto w-full max-w-md border border-international-orange-500 bg-stone-50 p-6 text-left text-zinc-900 backdrop:bg-black/60 dark:bg-ink-900 dark:text-phosphor-100"
+>
+	<h3 class="font-departure text-xl">
+		Your message has been sent!
+	</h3>
+	<p class="mt-2 text-stone-600 dark:text-phosphor-500">I'll be in touch soon</p>
+	<form method="dialog" class="mt-4">
+		<button
+			class="inline-flex justify-center bg-international-orange-500 px-4 py-2 text-ink-950 text-sm uppercase tracking-wider hover:bg-international-orange-400"
+		>
+			Got it!
+		</button>
+	</form>
+</dialog>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
+></script>
+
+<script>
+	const form = document.getElementById('contact-form') as HTMLFormElement;
+	const submit = document.getElementById('contact-submit') as HTMLButtonElement;
+	const errorEl = document.getElementById('contact-error') as HTMLElement;
+	const done = document.getElementById('contact-done') as HTMLDialogElement;
+	const opened = Date.now();
+
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		errorEl.classList.add('hidden');
+		const fd = new FormData(form);
+		const body: Record<string, unknown> = { _type: form.dataset.type, ts: opened };
+		for (const [k, v] of fd.entries()) body[k] = v;
+		body.checked = fd.get('checked') === 'on';
+		submit.disabled = true;
+		try {
+			const res = await fetch('/api/send', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(body),
+			});
+			if (!res.ok) {
+				const data = (await res.json().catch(() => ({}))) as { error?: string };
+				throw new Error(data.error || 'Something went wrong. Please try again');
+			}
+			form.reset();
+			done.showModal();
+		} catch (err) {
+			errorEl.textContent =
+				err instanceof Error ? err.message : 'Something went wrong. Please try again';
+			errorEl.classList.remove('hidden');
+		} finally {
+			submit.disabled = false;
+			// Turnstile tokens are single-use
+			(window as unknown as { turnstile?: { reset(): void } }).turnstile?.reset();
+		}
+	});
+</script>

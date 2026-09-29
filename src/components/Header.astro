@@ -1,0 +1,208 @@
+---
+import { navigation as items, type NavItem } from "../lib/site";
+import Brand from "./Brand.astro";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (item: NavItem) =>
+	path === item.url ||
+	(item.url !== "/" && path.startsWith(`${item.url}/`)) ||
+	item.children?.some((c) => path === c.url);
+const box =
+	"border border-stone-300 text-zinc-900 transition hover:border-international-orange-500 dark:border-ink-700 dark:text-phosphor-100 dark:hover:border-international-orange-500";
+---
+
+<header
+	class="sticky top-0 z-40 border-stone-300 border-b bg-stone-50 dark:border-ink-700 dark:bg-ink-900"
+>
+	<div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-2 sm:px-8">
+		<a href="/" aria-label="Home" class="mr-2"><Brand /></a>
+
+		<!-- Desktop: CSS-only dropdowns -->
+		<nav class="ml-auto hidden md:block" aria-label="Main">
+			<ul class="flex gap-2">
+				{
+					items.map((item) => (
+						<li class="group relative">
+							<a
+								href={item.url}
+								aria-current={isActive(item) ? 'page' : undefined}
+								class:list={[
+									'block border px-4 py-2 text-sm uppercase tracking-wider transition',
+									isActive(item)
+										? 'border-international-orange-500 text-international-orange-600 dark:text-international-orange-500'
+										: 'border-transparent text-stone-600 hover:text-zinc-900 dark:text-phosphor-500 dark:hover:text-phosphor-100',
+								]}
+							>
+								{item.label}
+							</a>
+							{item.children && item.children.length > 0 && (
+								<div class="invisible absolute left-0 z-10 pt-1 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+									<div class="grid min-w-48 border border-stone-300 bg-stone-50 p-1 text-sm dark:border-ink-700 dark:bg-ink-900">
+										{item.children.map((child) => (
+											<a
+												href={child.url}
+												target={child.external ? '_blank' : undefined}
+												rel={child.external ? 'noopener noreferrer' : undefined}
+												class="block px-3 py-2 transition hover:bg-international-orange-500 hover:text-ink-950"
+											>
+												{child.label}
+											</a>
+										))}
+									</div>
+								</div>
+							)}
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<div class="ml-auto flex items-center gap-3 md:ml-0">
+			<button
+				type="button"
+				id="theme-toggle"
+				aria-label="Toggle theme"
+				class:list={[box, 'px-2.5 py-1.5']}
+			>
+				<svg
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					class="h-5 w-5 fill-international-orange-500/10 stroke-international-orange-500 dark:hidden"
+				>
+					<path
+						d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z"
+					></path>
+					<path
+						d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
+						fill="none"></path>
+				</svg>
+				<svg
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+					class="hidden h-5 w-5 fill-international-orange-500/20 stroke-international-orange-500 dark:block"
+				>
+					<path
+						d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
+						stroke-width="1.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+			</button>
+
+			<button
+				type="button"
+				id="menu-open"
+				aria-controls="menu"
+				class:list={[
+					box,
+					'flex items-center gap-3 px-3 py-2 text-xs uppercase tracking-widest md:hidden',
+				]}
+			>
+				<span
+					aria-hidden="true"
+					class="relative block h-0.5 w-3.5 bg-international-orange-500 before:absolute before:-top-1 before:left-0 before:h-0.5 before:w-3.5 before:bg-international-orange-500 after:absolute after:top-1 after:left-0 after:h-0.5 after:w-3.5 after:bg-international-orange-500"
+				></span>
+				Menu
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile: full-screen menu -->
+	<dialog
+		id="menu"
+		aria-label="Menu"
+		class="m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-stone-100 p-0 text-zinc-900 backdrop:bg-black/50 dark:bg-ink-950 dark:text-phosphor-100"
+	>
+		<div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-2 sm:px-8">
+			<div class="flex items-center justify-between">
+				<a href="/" aria-label="Home"><Brand /></a>
+				<button
+					type="button"
+					id="menu-close"
+					class:list={[box, 'px-3 py-2 text-xs uppercase tracking-widest']}
+				>
+					Close ✕
+				</button>
+			</div>
+			<ul>
+				{
+					items.map((item) => {
+						const kids = item.children ?? [];
+						const heading =
+							'font-departure text-3xl' +
+							(isActive(item)
+								? ' text-international-orange-600 dark:text-international-orange-500'
+								: '');
+						const sub =
+							'before:mr-1 before:text-international-orange-500 before:content-["›"]';
+						return (
+							<li class="border-stone-300 border-b dark:border-ink-700">
+								{kids.length === 0 ? (
+									<a href={item.url} class:list={['block py-5', heading]}>
+										{item.label}
+									</a>
+								) : (
+									<details class="group" open={isActive(item)}>
+										<summary
+											class:list={[
+												'flex cursor-pointer list-none items-center justify-between py-5 [&::-webkit-details-marker]:hidden',
+												heading,
+											]}
+										>
+											{item.label}
+											<span
+												aria-hidden="true"
+												class="font-sans text-2xl text-international-orange-500 transition group-open:rotate-45"
+											>
+												+
+											</span>
+										</summary>
+										<div class="flex flex-col gap-4 pb-6 text-sm text-stone-600 dark:text-phosphor-500">
+											<a href={item.url} class={sub}>
+												{item.label === 'About' ? 'About me' : `All ${item.label.toLowerCase()}`}
+											</a>
+											{kids.map((child) => (
+												<a
+													href={child.url}
+													target={child.external ? '_blank' : undefined}
+													rel={child.external ? 'noopener noreferrer' : undefined}
+													class={sub}
+												>
+													{child.label}
+												</a>
+											))}
+										</div>
+									</details>
+								)}
+							</li>
+						);
+					})
+				}
+			</ul>
+		</div>
+	</dialog>
+</header>
+
+<script>
+	document.getElementById('theme-toggle')?.addEventListener('click', () => {
+		const dark = document.documentElement.classList.toggle('dark');
+		try {
+			localStorage.setItem('theme', dark ? 'dark' : 'light');
+		} catch {}
+	});
+
+	const menu = document.getElementById('menu') as HTMLDialogElement | null;
+	document
+		.getElementById('menu-open')
+		?.addEventListener('click', () => menu?.showModal());
+	document
+		.getElementById('menu-close')
+		?.addEventListener('click', () => menu?.close());
+	// Close when resizing up to the desktop nav
+	window
+		.matchMedia('(min-width: 768px)')
+		.addEventListener('change', (e) => e.matches && menu?.close());
+</script>

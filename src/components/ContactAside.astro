@@ -1,0 +1,19 @@
+---
+import { site } from "../lib/site";
+import Tile from "./Tile.astro";
+
+const { class: className = "" } = Astro.props;
+---
+
+<Tile label="Direct" class={className}>
+	<h2 class="mb-2 font-departure text-lg">Prefer email?</h2>
+	<p class="mb-4 text-sm text-stone-600 dark:text-phosphor-500">
+		You can also write to me directly.
+	</p>
+	<a
+		href={`mailto:${site.email}`}
+		class="text-sm text-international-orange-600 hover:underline dark:text-international-orange-500"
+	>
+		{site.email}
+	</a>
+</Tile>

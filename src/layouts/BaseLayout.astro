@@ -1,0 +1,121 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import departureFont from "../fonts/DepartureMono-Regular.woff2?url";
+import jetbrainsFont from "../fonts/JetBrainsMono-Regular.woff2?url";
+import { site } from "../lib/site";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	/** Full <title> and og:title, used as is (no site name suffix) */
+	rawTitle?: string;
+	description?: string;
+	/** Absolute URL of the share image; defaults to /og.png */
+	image?: string;
+	imageAlt?: string;
+	noindex?: boolean;
+	/** Path (or URL) of the canonical page, when it differs from this one */
+	canonical?: string;
+	type?: "website" | "article";
+	/** ISO date, for articles */
+	publishedTime?: string;
+	/** Structured data, serialized as JSON-LD */
+	jsonLd?: object | object[];
+}
+
+const {
+	title,
+	rawTitle,
+	description = site.description,
+	image,
+	imageAlt = "Jp Valery, Customer Success Engineer, pilot and photographer",
+	noindex = false,
+	canonical: canonicalPath,
+	type = "website",
+	publishedTime,
+	jsonLd,
+} = Astro.props;
+
+const fullTitle = rawTitle ?? (title ? `${title} - ${site.title}` : site.title);
+const shareTitle = rawTitle ?? title ?? site.title;
+const base = Astro.site ?? Astro.url.origin;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const canonical = new URL(canonicalPath ?? path, base).href;
+const shareImage = image ?? new URL("/og.png", base).href;
+const structuredData = jsonLd
+	? JSON.stringify(jsonLd).replace(/</g, "\\u003c")
+	: undefined;
+---
+
+<!doctype html>
+<html lang="en" class="h-full antialiased">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content={site.title} />
+		<meta property="og:title" content={shareTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={shareImage} />
+		<meta property="og:image:alt" content={imageAlt} />
+		{!image && <meta property="og:image:width" content="1200" />}
+		{!image && <meta property="og:image:height" content="630" />}
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@jpvalery" />
+		<meta name="twitter:title" content={shareTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={shareImage} />
+		<meta name="twitter:image:alt" content={imageAlt} />
+		<link rel="preload" href={departureFont} as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href={jetbrainsFont} as="font" type="font/woff2" crossorigin />
+		{structuredData && <script type="application/ld+json" set:html={structuredData} />}
+		<link rel="icon" href="/favicon.ico" />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={`${site.title} RSS`}
+			href="/feed.xml"
+		/>
+		<link rel="sitemap" href="/sitemap.xml" />
+		<script is:inline>
+			(() => {
+				let stored = null;
+				try {
+					stored = localStorage.getItem('theme');
+				} catch {}
+				const dark =
+					stored === 'dark' ||
+					(stored !== 'light' &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches);
+				document.documentElement.classList.toggle('dark', dark);
+			})();
+		</script>
+	</head>
+	<body
+		class="flex min-h-full bg-stone-100 text-zinc-900 dark:bg-ink-950 dark:text-phosphor-100"
+	>
+		<div class="relative flex w-full flex-col">
+			<Header />
+			<main class="flex-auto"><slot /></main>
+			<Footer />
+		</div>
+		<!-- Dark theme only: faint CRT scanlines over the page -->
+		<div
+			aria-hidden="true"
+			class="pointer-events-none fixed inset-0 z-50 hidden bg-[repeating-linear-gradient(0deg,rgb(0_0_0/0.14)_0_1px,transparent_1px_3px)] mix-blend-multiply dark:block"
+		>
+		</div>
+		<script
+			is:inline
+			defer
+			data-website-id="3a96b2ba-8032-491e-9ec5-df513cf57d50"
+			src="https://analytics.jpvalery.com/script.js"></script>
+	</body>
+</html>

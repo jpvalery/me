@@ -10,7 +10,7 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 
 - Current role: Customer Success Engineer at Resend (email infrastructure)
 - Previous: 4 years at Customer.io
-- Side company: Raccoon Ventures (raccoonv.com) — consulting, advisorship, side projects
+- Side company: Raccoon Ventures (raccoonv.com) — advisory, consulting, side projects (advisory and consulting requests go to raccoonv.com)
 - Specialties: Customer success, email infrastructure, developer tools, SaaS
 
 ## Active Projects
@@ -22,8 +22,8 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 
 ## Interests
 
-- Aviation: Private Pilot License (PPL), Night Rating, aerobatics training, pursuing Multi-Engine and Floats ratings
-- Photography: 294M+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
+- Aviation: Private Pilot License (PPL), Night Rating, Floats rating (licensed seaplane pilot since June 2026), aerobatics training, pursuing Multi-Engine and Commercial
+- Photography: 300M+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
 - Cooking & baking, gardening, 3D printing, cycling, guitar & bass, gaming
 
 ## Contact
@@ -37,22 +37,21 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 ## Site Sections
 
 - / — Home and bio
-- /about — About hub
-- /now — What Jp is currently up to (regularly updated)
+- /now — What Jp is currently up to (latest entry); /now/YYYY-MM-DD — archive
 - /stack — Gear and software
-- /dashboard — Live personal metrics (aviation, Unsplash, shows/movies)
-- /work — Professional background
+- /dashboard — Personal metrics (aviation, Unsplash, shows/movies)
+- /work — Professional background and offers
 - /work/recommendations — Colleague testimonials
 - /work/how-to-work-with-me — Personal/professional README
-- /projects — Active projects
-- /projects/cemetery — Retired projects
+- /projects — Active projects; /projects/cemetery — retired projects
 - /photography — Photography links and portfolio
-- /contact — Contact forms
+- /contact — Contact; /contact/{generic,photography,date} — category-specific forms
+- /feed.xml — RSS feed of /now entries
 
 ## Site Details
 
 - URL: https://jpvalery.me
 - RSS: https://jpvalery.me/feed.xml
-- Built with: Next.js 15 (App Router), Tailwind CSS v4, MDX, Headless UI
+- Built with: Astro (static site on Vercel), Tailwind CSS v4
 - Fonts: JetBrains Mono, Departure Mono, Cartridge
 - Analytics: Self-hosted Umami
