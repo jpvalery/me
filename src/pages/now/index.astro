@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
-import NowEntry from '../../components/NowEntry.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import NowEntry from "../../components/NowEntry.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const [latest] = (await getCollection('now')).sort((a, b) =>
+const [latest] = (await getCollection("now")).sort((a, b) =>
 	b.data.date.localeCompare(a.data.date),
 );
-if (!latest) throw new Error('No /now entry in src/content/now');
+if (!latest) throw new Error("No /now entry in src/content/now");
 ---
 
 <BaseLayout title="Now" description="What I'm up to these days">

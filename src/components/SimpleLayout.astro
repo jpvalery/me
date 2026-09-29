@@ -1,6 +1,6 @@
 ---
-import Container from './Container.astro';
-import Tile from './Tile.astro';
+import Container from "./Container.astro";
+import Tile from "./Tile.astro";
 
 interface Props {
 	title: string;
@@ -9,7 +9,7 @@ interface Props {
 	sub?: boolean;
 }
 const { title, intro, sub = false } = Astro.props;
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <Container class={sub ? 'pb-8' : 'pt-8 pb-8 sm:pt-12'}>

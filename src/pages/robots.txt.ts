@@ -1,9 +1,9 @@
-import type { APIRoute } from 'astro';
+import type { APIRoute } from "astro";
 
 export const GET: APIRoute = ({ site }) => {
-	const base = (site ?? new URL('https://jpvalery.me'))
+	const base = (site ?? new URL("https://jpvalery.me"))
 		.toString()
-		.replace(/\/$/, '');
+		.replace(/\/$/, "");
 	return new Response(
 		`User-agent: *
 Allow: /
@@ -12,6 +12,6 @@ Disallow: /contact/date
 
 Sitemap: ${base}/sitemap.xml
 `,
-		{ headers: { 'Content-Type': 'text/plain; charset=utf-8' } },
+		{ headers: { "Content-Type": "text/plain; charset=utf-8" } },
 	);
 };

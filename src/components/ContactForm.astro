@@ -1,6 +1,6 @@
 ---
-import { PUBLIC_TURNSTILE_SITE_KEY } from 'astro:env/client';
-import type { ContactFormDef } from '../lib/contact';
+import { PUBLIC_TURNSTILE_SITE_KEY } from "astro:env/client";
+import type { ContactFormDef } from "../lib/contact";
 
 interface Props {
 	def: ContactFormDef;
@@ -8,7 +8,7 @@ interface Props {
 const { def } = Astro.props;
 const siteKey = PUBLIC_TURNSTILE_SITE_KEY;
 const input =
-	'block w-full rounded-none border-stone-300 bg-white text-zinc-900 focus:border-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950 dark:text-phosphor-100';
+	"block w-full rounded-none border-stone-300 bg-white text-zinc-900 focus:border-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950 dark:text-phosphor-100";
 ---
 
 <form

@@ -1,21 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
-import SimpleLayout from '../../components/SimpleLayout.astro';
-import Tile from '../../components/Tile.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import SimpleLayout from "../../components/SimpleLayout.astro";
+import Tile from "../../components/Tile.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const cards = (
-	await getCollection('cards', (c) => c.data.section === 'cemetery')
+	await getCollection("cards", (c) => c.data.section === "cemetery")
 ).sort((a, b) => a.data.order - b.data.order);
 
 // Descriptions start with "2023-2024 — ..."; split the years into their own column
 const rows = cards.map(({ data }) => {
 	const m = data.description?.match(/^(\d{4}(?:-\d{4})?) — (.*)$/s);
-	return { ...data, years: m?.[1] ?? '', story: m?.[2] ?? data.description };
+	return { ...data, years: m?.[1] ?? "", story: m?.[2] ?? data.description };
 });
 
 const head =
-	'px-0 py-3 text-left text-[0.68rem] font-normal uppercase tracking-[0.14em] text-stone-500 dark:text-phosphor-500';
+	"px-0 py-3 text-left text-[0.68rem] font-normal uppercase tracking-[0.14em] text-stone-500 dark:text-phosphor-500";
 ---
 
 <BaseLayout

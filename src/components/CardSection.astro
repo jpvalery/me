@@ -1,14 +1,14 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import LinkCard from './LinkCard.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+import LinkCard from "./LinkCard.astro";
 
 interface Props {
-	section: CollectionEntry<'cards'>['data']['section'];
+	section: CollectionEntry<"cards">["data"]["section"];
 	columns?: string;
 }
-const { section, columns = 'md:grid-cols-2' } = Astro.props;
+const { section, columns = "md:grid-cols-2" } = Astro.props;
 const cards = (
-	await getCollection('cards', (c) => c.data.section === section)
+	await getCollection("cards", (c) => c.data.section === section)
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 

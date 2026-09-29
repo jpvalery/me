@@ -1,16 +1,16 @@
 ---
-import { getCollection, render } from 'astro:content';
-import Container from '../../components/Container.astro';
-import Prose from '../../components/Prose.astro';
-import SimpleLayout from '../../components/SimpleLayout.astro';
-import Tile from '../../components/Tile.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from "astro:content";
+import Container from "../../components/Container.astro";
+import Prose from "../../components/Prose.astro";
+import SimpleLayout from "../../components/SimpleLayout.astro";
+import Tile from "../../components/Tile.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 // One page per src/content/pages/work/*.md
 export async function getStaticPaths() {
-	const pages = await getCollection('pages', (p) => p.id.startsWith('work/'));
+	const pages = await getCollection("pages", (p) => p.id.startsWith("work/"));
 	return pages.map((entry) => ({
-		params: { slug: entry.id.slice('work/'.length) },
+		params: { slug: entry.id.slice("work/".length) },
 		props: { entry },
 	}));
 }

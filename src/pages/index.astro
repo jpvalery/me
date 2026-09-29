@@ -1,42 +1,42 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection, getEntry, render } from 'astro:content';
-import Photos from '../components/Photos.astro';
-import RatingIcon from '../components/RatingIcon.astro';
-import Tile from '../components/Tile.astro';
-import flying from '../content/flying.json';
-import portrait from '../images/portrait.jpg';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { site, socials as socialLinks } from '../lib/site';
-import { socialIcons } from '../lib/socialIcons';
-import { tile } from '../lib/ui';
+import { Image } from "astro:assets";
+import { getCollection, getEntry, render } from "astro:content";
+import Photos from "../components/Photos.astro";
+import RatingIcon from "../components/RatingIcon.astro";
+import Tile from "../components/Tile.astro";
+import flying from "../content/flying.json";
+import portrait from "../images/portrait.jpg";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site, socials as socialLinks } from "../lib/site";
+import { socialIcons } from "../lib/socialIcons";
+import { tile } from "../lib/ui";
 
-const home = await getEntry('pages', 'home');
-if (!home) throw new Error('Missing src/content/pages/home.md');
+const home = await getEntry("pages", "home");
+if (!home) throw new Error("Missing src/content/pages/home.md");
 const { Content } = await render(home);
 
 const socials = socialLinks.map(
 	({ url, label }) => [url, label, socialIcons[label]] as const,
 );
 
-const [latestNow] = (await getCollection('now')).sort((a, b) =>
+const [latestNow] = (await getCollection("now")).sort((a, b) =>
 	b.data.date.localeCompare(a.data.date),
 );
-const nowExcerpt = (latestNow?.body ?? '')
+const nowExcerpt = (latestNow?.body ?? "")
 	.split(/\n{2,}/)[0]
-	.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-	.replace(/[*_`]/g, '');
-const projectCount = (await getCollection('cards')).filter(
-	(c) => c.data.section === 'projects',
+	.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+	.replace(/[*_`]/g, "");
+const projectCount = (await getCollection("cards")).filter(
+	(c) => c.data.section === "projects",
 ).length;
 const pilotStats = flying.stats.filter((s) =>
-	['Flights', 'Time', 'Landings'].includes(s.title),
+	["Flights", "Time", "Landings"].includes(s.title),
 );
 
 const go =
-	'mt-auto text-xs text-international-orange-600 uppercase tracking-wider hover:underline dark:text-international-orange-500';
-const h3 = 'mb-2 font-departure text-lg';
-const muted = 'text-sm text-stone-600 dark:text-phosphor-500';
+	"mt-auto text-xs text-international-orange-600 uppercase tracking-wider hover:underline dark:text-international-orange-500";
+const h3 = "mb-2 font-departure text-lg";
+const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 ---
 
 <BaseLayout title={home.data.title} description={home.data.description}>

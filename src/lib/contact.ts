@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from "zod";
 
-export type FieldName = 'name' | 'email' | 'reason' | 'message';
+export type FieldName = "name" | "email" | "reason" | "message";
 
 export interface Field {
 	name: FieldName;
@@ -20,50 +20,50 @@ export interface ContactFormDef {
 }
 
 const name: Field = {
-	name: 'name',
+	name: "name",
 	label: "What's your name?",
-	placeholder: 'Your name',
+	placeholder: "Your name",
 	required: true,
 };
 const email: Field = {
-	name: 'email',
-	label: 'Where can I write back to you?',
-	placeholder: 'you@example.com',
+	name: "email",
+	label: "Where can I write back to you?",
+	placeholder: "you@example.com",
 	required: true,
 };
-const message = (label = 'Can you add more details?'): Field => ({
-	name: 'message',
+const message = (label = "Can you add more details?"): Field => ({
+	name: "message",
 	label,
 	required: true,
 });
 
 export const forms: Record<string, ContactFormDef> = {
 	generic: {
-		type: 'generic',
-		title: 'Get in touch',
-		description: 'Easily get in touch with me',
+		type: "generic",
+		title: "Get in touch",
+		description: "Easily get in touch with me",
 		intro: [],
 		fields: [
 			name,
 			email,
 			{
-				name: 'reason',
-				label: 'What can I help you with?',
+				name: "reason",
+				label: "What can I help you with?",
 				required: true,
 				options: [
-					{ value: 'say-hi', label: 'You just wanna say hi' },
-					{ value: 'services', label: "You're interested in my services" },
-					{ value: 'photo', label: "You'd like to talk photography" },
-					{ value: 'other', label: 'Something else' },
+					{ value: "say-hi", label: "You just wanna say hi" },
+					{ value: "services", label: "You're interested in my services" },
+					{ value: "photo", label: "You'd like to talk photography" },
+					{ value: "other", label: "Something else" },
 				],
 			},
 			message(),
 		],
 	},
 	photography: {
-		type: 'photography',
-		title: 'Get in touch about photography',
-		description: 'Get in touch about my photography',
+		type: "photography",
+		title: "Get in touch about photography",
+		description: "Get in touch about my photography",
 		intro: [
 			"I'm available for editorial, commercial, and documentary projects.",
 			"While I'm currently favoring more in-depth editorial and documentary projects, I'm happy to discuss other projects if they match my vision or move me.",
@@ -73,33 +73,33 @@ export const forms: Record<string, ContactFormDef> = {
 			name,
 			email,
 			{
-				name: 'reason',
-				label: 'What can I help you with?',
+				name: "reason",
+				label: "What can I help you with?",
 				required: true,
 				options: [
 					{
-						value: 'project-pitch',
-						label: 'You want to collaborate on a project',
+						value: "project-pitch",
+						label: "You want to collaborate on a project",
 					},
-					{ value: 'hire-me', label: "You'd like to hire/commission me" },
+					{ value: "hire-me", label: "You'd like to hire/commission me" },
 					{
-						value: 'general-chat',
+						value: "general-chat",
 						label: "You'd like to chat about photography in general",
 					},
 					{
-						value: 'specific-chat',
+						value: "specific-chat",
 						label: "You'd like to chat about one of my series/projects",
 					},
-					{ value: 'other', label: 'Something else' },
+					{ value: "other", label: "Something else" },
 				],
 			},
 			message(),
 		],
 	},
 	date: {
-		type: 'date',
+		type: "date",
 		title: "Sounds like we'd be a match?",
-		description: 'Get in touch',
+		description: "Get in touch",
 		intro: [],
 		noindex: true,
 		fields: [
@@ -118,16 +118,16 @@ const MAX = { message: 280, default: 80 } as const;
 export function schemaFor(def: ContactFormDef) {
 	const shape: Record<string, z.ZodType> = {};
 	for (const f of def.fields) {
-		const max = f.name === 'message' ? MAX.message : MAX.default;
+		const max = f.name === "message" ? MAX.message : MAX.default;
 		let s: z.ZodType;
-		if (f.name === 'email')
+		if (f.name === "email")
 			s = z.string().trim().pipe(z.email().max(MAX.default));
 		else if (f.options)
 			s = z.enum(f.options.map((o) => o.value) as [string, ...string[]]);
 		else s = z.string().trim().max(max);
-		if (f.required && !f.options && f.name !== 'email')
+		if (f.required && !f.options && f.name !== "email")
 			s = (s as z.ZodString).min(1);
-		shape[f.name] = f.required ? s : s.optional().or(z.literal(''));
+		shape[f.name] = f.required ? s : s.optional().or(z.literal(""));
 	}
 	return z.object({
 		_type: z.literal(def.type),
@@ -136,6 +136,6 @@ export function schemaFor(def: ContactFormDef) {
 		// Anti-bot fields, validated separately in the endpoint
 		nickname: z.string().max(0).optional(),
 		ts: z.number(),
-		'cf-turnstile-response': z.string().min(1),
+		"cf-turnstile-response": z.string().min(1),
 	});
 }

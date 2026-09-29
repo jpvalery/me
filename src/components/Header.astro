@@ -1,14 +1,14 @@
 ---
-import { navigation as items, type NavItem } from '../lib/site';
-import Brand from './Brand.astro';
+import { navigation as items, type NavItem } from "../lib/site";
+import Brand from "./Brand.astro";
 
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (item: NavItem) =>
 	path === item.url ||
-	(item.url !== '/' && path.startsWith(`${item.url}/`)) ||
+	(item.url !== "/" && path.startsWith(`${item.url}/`)) ||
 	item.children?.some((c) => path === c.url);
 const box =
-	'border border-stone-300 text-zinc-900 transition hover:border-international-orange-500 dark:border-ink-700 dark:text-phosphor-100 dark:hover:border-international-orange-500';
+	"border border-stone-300 text-zinc-900 transition hover:border-international-orange-500 dark:border-ink-700 dark:text-phosphor-100 dark:hover:border-international-orange-500";
 ---
 
 <header

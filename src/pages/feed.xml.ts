@@ -1,18 +1,18 @@
-import { getCollection } from 'astro:content';
-import type { APIRoute } from 'astro';
-import { site as siteInfo } from '../lib/site';
+import { getCollection } from "astro:content";
+import type { APIRoute } from "astro";
+import { site as siteInfo } from "../lib/site";
 
 const esc = (s: string) =>
 	s
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/"/g, '&quot;');
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;");
 
 /** RSS feed of the /now entries. */
 export const GET: APIRoute = async ({ site, url }) => {
-	const base = (site ?? url.origin).toString().replace(/\/$/, '');
-	const sorted = (await getCollection('now')).sort((a, b) =>
+	const base = (site ?? url.origin).toString().replace(/\/$/, "");
+	const sorted = (await getCollection("now")).sort((a, b) =>
 		b.data.date.localeCompare(a.data.date),
 	);
 
@@ -27,7 +27,7 @@ export const GET: APIRoute = async ({ site, url }) => {
       <pubDate>${date}</pubDate>
     </item>`;
 		})
-		.join('\n');
+		.join("\n");
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -43,7 +43,7 @@ ${items}
 
 	return new Response(xml, {
 		headers: {
-			'Content-Type': 'application/rss+xml; charset=utf-8',
+			"Content-Type": "application/rss+xml; charset=utf-8",
 		},
 	});
 };

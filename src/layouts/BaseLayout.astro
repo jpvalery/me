@@ -1,10 +1,10 @@
 ---
-import { getImage } from 'astro:assets';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import portrait from '../images/portrait.jpg';
-import { site } from '../lib/site';
-import '../styles/global.css';
+import { getImage } from "astro:assets";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import portrait from "../images/portrait.jpg";
+import { site } from "../lib/site";
+import "../styles/global.css";
 
 interface Props {
 	title?: string;
@@ -12,7 +12,7 @@ interface Props {
 	/** Absolute URL of the share image; defaults to the portrait */
 	image?: string;
 	noindex?: boolean;
-	type?: 'website' | 'article';
+	type?: "website" | "article";
 }
 
 const {
@@ -20,18 +20,18 @@ const {
 	description = site.description,
 	image,
 	noindex = false,
-	type = 'website',
+	type = "website",
 } = Astro.props;
 
 const fullTitle = title ? `${title} - ${site.title}` : site.title;
 const base = Astro.site ?? Astro.url.origin;
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const canonical = new URL(path, base).href;
 const defaultImage = await getImage({
 	src: portrait,
 	width: 1200,
 	height: 1200,
-	format: 'jpg',
+	format: "jpg",
 });
 const shareImage = image ?? new URL(defaultImage.src, base).href;
 ---

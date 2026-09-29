@@ -1,11 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import CtaLink from '../../components/CtaLink.astro';
-import SimpleLayout from '../../components/SimpleLayout.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { tile } from '../../lib/ui';
+import { getCollection } from "astro:content";
+import CtaLink from "../../components/CtaLink.astro";
+import SimpleLayout from "../../components/SimpleLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { tile } from "../../lib/ui";
 
-const entries = (await getCollection('recommendations')).sort(
+const entries = (await getCollection("recommendations")).sort(
 	(a, b) => a.data.order - b.data.order,
 );
 ---

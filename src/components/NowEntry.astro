@@ -1,16 +1,16 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import Container from './Container.astro';
-import Prose from './Prose.astro';
-import Tile from './Tile.astro';
-import Timeline from './Timeline.astro';
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Container from "./Container.astro";
+import Prose from "./Prose.astro";
+import Tile from "./Tile.astro";
+import Timeline from "./Timeline.astro";
 
 interface Props {
-	entry: CollectionEntry<'now'>;
+	entry: CollectionEntry<"now">;
 }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const items = (await getCollection('now')).map((e) => ({
+const items = (await getCollection("now")).map((e) => ({
 	slug: e.id,
 	date: e.data.date,
 }));

@@ -6,18 +6,18 @@ interface Props {
 }
 const { vertical = false } = Astro.props;
 const fmt = (d: string) =>
-	new Date(`${d}T13:00:00.000Z`).toLocaleDateString('en-US', {
-		year: 'numeric',
-		month: 'short',
-		timeZone: 'UTC',
+	new Date(`${d}T13:00:00.000Z`).toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "short",
+		timeZone: "UTC",
 	});
 const items = [...Astro.props.items].sort((a, b) =>
 	a.date.localeCompare(b.date),
 );
 const marker =
-	'size-3 bg-international-orange-500 ring-4 ring-stone-100 transition-transform duration-200 ease-out group-hover:scale-125 dark:ring-ink-950';
+	"size-3 bg-international-orange-500 ring-4 ring-stone-100 transition-transform duration-200 ease-out group-hover:scale-125 dark:ring-ink-950";
 const label =
-	'border border-stone-300 bg-stone-50 px-2 py-1 transition-transform duration-200 ease-out group-hover:scale-110 dark:border-ink-700 dark:bg-ink-900';
+	"border border-stone-300 bg-stone-50 px-2 py-1 transition-transform duration-200 ease-out group-hover:scale-110 dark:border-ink-700 dark:bg-ink-900";
 ---
 
 <nav aria-label="Now archive" class="mx-auto w-full pt-4 pb-10">

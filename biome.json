@@ -6,51 +6,24 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignoreUnknown": false
+		"ignoreUnknown": true,
+		"includes": ["**", "!node_modules", "!dist", "!.astro", "!.vercel"]
 	},
 	"formatter": {
 		"enabled": true,
-		"formatWithErrors": false,
 		"indentStyle": "tab",
-		"indentWidth": 2,
-		"lineEnding": "lf",
-		"lineWidth": 80,
-		"attributePosition": "auto",
-		"bracketSameLine": false,
-		"bracketSpacing": true,
-		"expand": "auto",
-		"useEditorconfig": true,
-		"includes": [
-			"**",
-			"!**/node_modules",
-			"!**/dist",
-			"!**/.astro",
-			"!**/.vercel",
-			"!**/.DS_Store",
-			"!**/*.log",
-			"!**/.env*"
-		]
+		"indentWidth": 1
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"preset": "recommended",
+			"suspicious": {
+				"noUnknownAtRules": "off"
+			},
 			"nursery": {
 				"useSortedClasses": "error"
 			}
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"jsxQuoteStyle": "double",
-			"quoteProperties": "asNeeded",
-			"trailingCommas": "all",
-			"semicolons": "always",
-			"arrowParentheses": "always",
-			"bracketSameLine": false,
-			"quoteStyle": "single",
-			"attributePosition": "auto",
-			"bracketSpacing": true
 		}
 	},
 	"css": {
@@ -58,10 +31,11 @@
 			"tailwindDirectives": true
 		}
 	},
-	"html": {
-		"formatter": {
-			"indentScriptAndStyle": false,
-			"selfCloseVoidElements": "always"
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
 		}
 	},
 	"overrides": [
@@ -73,17 +47,12 @@
 						"noUnusedVariables": "off",
 						"noUnusedImports": "off"
 					},
-					"style": { "useConst": "off", "useImportType": "off" }
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					}
 				}
 			}
 		}
-	],
-	"assist": {
-		"enabled": true,
-		"actions": {
-			"source": {
-				"organizeImports": "on"
-			}
-		}
-	}
+	]
 }
