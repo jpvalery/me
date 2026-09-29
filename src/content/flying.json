@@ -7,7 +7,7 @@
 		{ "title": "Multi-engine", "icon": "twin", "next": true },
 		{ "title": "Commercial", "icon": "briefcase", "next": true }
 	],
-	"updated": "September 29th, 2026",
+	"updated": "2026-09-29",
 	"stats": [
 		{ "title": "Flights", "metric": "122", "link": "https://foreflight.com" },
 		{ "title": "Time", "metric": "170.6", "link": "https://foreflight.com" },

@@ -27,7 +27,7 @@ Content lives in `src/content/` as Astro content collections (schemas in `src/co
 | `now/YYYY-MM-DD.md` | `/now` entries: the latest is `/now`, all of them form the timeline and the RSS feed |
 | `cards.json` | Link cards on `/work`, `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order |
 | `recommendations.json`, `stack.json` | Testimonials and `/stack`, in file order |
-| `flying.json` | Foreflight stats on `/dashboard` (updated by hand) |
+| `flying.json` | Foreflight stats on `/dashboard` (updated by hand; `updated` is a `YYYY-MM-DD` date) |
 
 Card `logo` values are file names in `src/images/logos` (the build fails on an unknown name). Site title,
 navigation and footer links are in `src/lib/site.ts`; short page intros are in the page files.
@@ -51,9 +51,10 @@ public/             # llms.txt, agent.md, favicon, avatars
 
 `/contact/{generic,photography,date}` share one config-driven form
 (`src/lib/contact.ts`). `POST /api/send` rejects cross-origin requests, wrong content types and bodies over
-8 KB, silently drops submissions with the honeypot filled, requires at least 3 seconds to fill the form,
-verifies the Turnstile token, validates with zod, then sends through Customer.io. It returns a real error
-when any step fails.
+8 KB (counted as bytes while streaming), silently drops submissions with the honeypot filled,
+verifies the Turnstile token, validates with zod, then sends through Customer.io. Requests do not depend
+on the visitor’s clock or how long the tab has been open. Both upstream requests have 10-second
+timeouts and return recoverable JSON errors when a service is unavailable.
 
 ## Development
 
@@ -64,6 +65,7 @@ pnpm install
 pnpm dev          # http://localhost:4321
 pnpm build        # static site + Vercel function in .vercel/output
 pnpm typecheck
+pnpm test         # contact and dashboard regression checks; all requests are mocked
 pnpm format
 ```
 
@@ -83,3 +85,21 @@ a default, and `/api/send` answers 503 until its runtime secrets are set.
 
 The Turnstile widget allows `jpvalery.me` and `localhost`; add another hostname (for example a Vercel
 preview domain) in the Cloudflare dashboard before testing the form there.
+
+### Dashboard snapshots
+
+The dashboard and `/dashboard-stats.json` share one build-time fetch. API requests time out after
+5 seconds. If an API fails, returns invalid counts, or has no credentials, the build retrieves the
+last production deployment’s `/dashboard-stats.json` and preserves that source’s counts and original
+refresh date. The JSON contains only public counts and dates. Each source needs one successful deploy
+to seed its fallback; before that, the page labels it temporarily unavailable. No runtime database or
+extra function is required.
+
+### Fonts
+
+JetBrains Mono files are subset to Latin (including French accents, IPA, and spacing and combining
+accent marks), punctuation, currency, arrows and mathematical symbols. Other scripts use the system
+fallback. Hinting, OpenType features and license metadata are retained. To regenerate after replacing
+the files with full upstream fonts, install `fonttools[woff]==4.60.2` and run
+`python3 scripts/subset-fonts.py`. Extend its Unicode ranges if adding another script; restore full
+font files before widening an existing subset.

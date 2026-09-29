@@ -1,83 +1,58 @@
 ---
-import {
-	BETASERIES_REFACTOR_ACCESS_TOKEN,
-	BETASERIES_REFACTOR_API_KEY,
-	UNSPLASH_REFACTOR_TOKEN,
-} from "astro:env/server";
 import MetricCard from "../components/MetricCard.astro";
 import SimpleLayout from "../components/SimpleLayout.astro";
 import Tile from "../components/Tile.astro";
 import flying from "../content/flying.json";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { dashboardStats } from "../lib/dashboard-data";
 
-// Prerendered: the API stats are fetched at build time and refresh on each deploy.
-
-interface UnsplashStats {
-	downloads?: { total?: number };
-	views?: { total?: number };
-}
-interface BetaseriesMember {
-	member?: { stats?: { episodes?: number } };
-}
-
-const fmt = (n: unknown) =>
-	typeof n === "number" ? n.toLocaleString("en-US") : "—";
-
-async function getJson<T>(
-	url: string,
-	headers: Record<string, string>,
-): Promise<T | null> {
-	try {
-		const res = await fetch(url, { headers });
-		return res.ok ? ((await res.json()) as T) : null;
-	} catch {
-		return null;
-	}
-}
-
-const [unsplash, betaseries] = await Promise.all([
-	UNSPLASH_REFACTOR_TOKEN
-		? getJson<UnsplashStats>(
-				"https://api.unsplash.com/users/jpvalery/statistics",
-				{ Authorization: `Bearer ${UNSPLASH_REFACTOR_TOKEN}` },
-			)
-		: null,
-	BETASERIES_REFACTOR_API_KEY && BETASERIES_REFACTOR_ACCESS_TOKEN
-		? getJson<BetaseriesMember>("https://api.betaseries.com/members/infos", {
-				"X-BetaSeries-Version": "3.0",
-				"X-BetaSeries-Key": BETASERIES_REFACTOR_API_KEY,
-				Authorization: `Bearer ${BETASERIES_REFACTOR_ACCESS_TOKEN}`,
-			})
-		: null,
-]);
+const { unsplash, betaseries } = await dashboardStats;
+const fmt = (n: number | undefined) => n?.toLocaleString("en-US") ?? "—";
+/** Name the source when a tile mixes several: "Betaseries last updated: …". */
+const note = (updatedAt?: string, source?: string) => {
+	if (!updatedAt)
+		return `${source ? `${source} statistics` : "Statistics"} temporarily unavailable`;
+	const date = new Date(updatedAt);
+	if (Number.isNaN(date.getTime()))
+		throw new Error(`Invalid dashboard date "${updatedAt}": use YYYY-MM-DD`);
+	const day = date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+		timeZone: "UTC",
+	});
+	return source ? `${source} last updated: ${day}` : `Last updated: ${day}`;
+};
 
 const sections = [
 	{
 		title: "Foreflight",
-		note: `Last updated: ${flying.updated}`,
+		note: note(flying.updated),
 		items: flying.stats.map((s) => ({ ...s, href: s.link })),
 	},
 	{
 		title: "Unsplash",
+		note: note(unsplash?.updatedAt),
 		items: [
 			{
 				title: "Unsplash — Downloads",
-				metric: fmt(unsplash?.downloads?.total),
+				metric: fmt(unsplash?.downloads),
 				href: "https://unsplash.com/@jpvalery",
 			},
 			{
 				title: "Unsplash — Views",
-				metric: fmt(unsplash?.views?.total),
+				metric: fmt(unsplash?.views),
 				href: "https://unsplash.com/@jpvalery",
 			},
 		],
 	},
 	{
 		title: "Shows & Movies",
+		note: note(betaseries?.updatedAt, "Betaseries"),
 		items: [
 			{
 				title: "Betaseries — Episodes seen",
-				metric: fmt(betaseries?.member?.stats?.episodes),
+				metric: fmt(betaseries?.episodes),
 				href: "https://www.betaseries.com/membre/jpvalery",
 			},
 			{
@@ -92,7 +67,7 @@ const sections = [
 
 <BaseLayout
 	title="Dashboard"
-	description="Personal metrics from Jp Valery: flight hours and landings, Unsplash views and downloads, and shows watched, pulled from live APIs."
+	description="Personal metrics from Jp Valery: flight hours and landings, Unsplash views and downloads, and shows watched, with the latest available statistics and refresh dates."
 >
 	<SimpleLayout
 		title="Dashboard"

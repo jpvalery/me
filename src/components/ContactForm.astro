@@ -133,13 +133,12 @@ const input =
 	const submit = document.getElementById('contact-submit') as HTMLButtonElement;
 	const errorEl = document.getElementById('contact-error') as HTMLElement;
 	const done = document.getElementById('contact-done') as HTMLDialogElement;
-	const opened = Date.now();
 
 	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
 		errorEl.classList.add('hidden');
 		const fd = new FormData(form);
-		const body: Record<string, unknown> = { _type: form.dataset.type, ts: opened };
+		const body: Record<string, unknown> = { _type: form.dataset.type };
 		for (const [k, v] of fd.entries()) body[k] = v;
 		body.checked = fd.get('checked') === 'on';
 		submit.disabled = true;

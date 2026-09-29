@@ -119,24 +119,23 @@ const MAX = { message: 280, default: 80 } as const;
 export function schemaFor(def: ContactFormDef) {
 	const shape: Record<string, z.ZodType> = {};
 	for (const f of def.fields) {
+		// Every form needs a validated reply address; declare it explicitly below.
+		if (f.name === "email") continue;
 		const max = f.name === "message" ? MAX.message : MAX.default;
 		let s: z.ZodType;
-		if (f.name === "email")
-			s = z.string().trim().pipe(z.email().max(MAX.default));
-		else if (f.options)
+		if (f.options)
 			s = z.enum(f.options.map((o) => o.value) as [string, ...string[]]);
 		else s = z.string().trim().max(max);
-		if (f.required && !f.options && f.name !== "email")
-			s = (s as z.ZodString).min(1);
+		if (f.required && !f.options) s = (s as z.ZodString).min(1);
 		shape[f.name] = f.required ? s : s.optional().or(z.literal(""));
 	}
 	return z.object({
 		_type: z.literal(def.type),
 		...shape,
+		email: z.string().trim().pipe(z.email().max(MAX.default)),
 		checked: z.literal(true),
 		// Anti-bot fields, validated separately in the endpoint
 		nickname: z.string().max(0).optional(),
-		ts: z.number(),
 		"cf-turnstile-response": z.string().min(1),
 	});
 }

@@ -12,6 +12,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"typecheck": "astro check",
+		"test": "node --test tests/*.test.ts",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome check --write ."

@@ -9,6 +9,10 @@ const esc = (s: string) =>
 		.replace(/>/g, "&gt;")
 		.replace(/"/g, "&quot;");
 
+/** Feed readers resolve relative URLs against the feed, so make site paths absolute. */
+const absolute = (html: string, base: string) =>
+	html.replace(/(\s(?:href|src))="\/(?!\/)/g, `$1="${base}/`);
+
 /** RSS feed of the /now entries. */
 export const GET: APIRoute = async ({ site, url }) => {
 	const base = (site ?? url.origin).toString().replace(/\/$/, "");
@@ -25,6 +29,7 @@ export const GET: APIRoute = async ({ site, url }) => {
       <link>${link}</link>
       <guid isPermaLink="true">${link}</guid>
       <pubDate>${date}</pubDate>
+      <description>${esc(absolute(e.rendered?.html ?? e.body ?? "", base))}</description>
     </item>`;
 		})
 		.join("\n");

@@ -42,7 +42,7 @@ const pilotStats = flying.stats.filter((s) =>
 );
 
 const go =
-	"mt-auto text-xs text-international-orange-600 uppercase tracking-wider hover:underline dark:text-international-orange-500";
+	"mt-auto text-xs text-international-orange-700 uppercase tracking-wider hover:underline dark:text-international-orange-500";
 const h3 = "mb-2 font-departure text-lg";
 const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 ---
@@ -57,7 +57,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 	>
 		<Tile label="About" aside={site.location} class="flex flex-col lg:col-span-7">
 			<p
-				class="font-departure text-5xl text-international-orange-600 italic sm:text-7xl dark:text-international-orange-500 dark:[text-shadow:0_0_14px_rgb(255_122_31/0.5)]"
+				class="font-departure text-5xl text-international-orange-700 italic sm:text-7xl dark:text-international-orange-500 dark:[text-shadow:0_0_14px_rgb(255_122_31/0.5)]"
 			>
 				Bonjour, hi!
 			</p>
@@ -70,7 +70,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 						socials.map(([href, label, Icon]) => (
 							<a
 								href={href}
-								class="size-6 text-zinc-900 transition hover:text-international-orange-600 dark:text-phosphor-100 dark:hover:text-international-orange-500"
+								class="size-6 text-zinc-900 transition hover:text-international-orange-700 dark:text-phosphor-100 dark:hover:text-international-orange-500"
 							>
 								<span class="sr-only">{label}</span>
 								<Icon />
@@ -80,7 +80,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 				</div>
 				<a
 					href={`mailto:${site.email}`}
-					class:list={[muted, 'transition hover:text-international-orange-600 dark:hover:text-international-orange-500']}
+					class:list={[muted, 'transition hover:text-international-orange-700 dark:hover:text-international-orange-500']}
 				>
 					{site.email}
 				</a>
@@ -133,7 +133,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 											'mr-3 -mt-0.5 inline-block size-4',
 											r.next
 												? 'text-stone-500 dark:text-phosphor-500'
-												: 'text-international-orange-600 dark:text-international-orange-500',
+												: 'text-international-orange-700 dark:text-international-orange-500',
 										]}
 									/>
 									<span class={r.next ? 'text-stone-500 dark:text-phosphor-500' : ''}>
@@ -155,7 +155,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 							<dt class="text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500">
 								{s.title}
 							</dt>
-							<dd class="font-departure text-2xl text-international-orange-600 dark:text-international-orange-500">
+							<dd class="font-departure text-2xl text-international-orange-700 dark:text-international-orange-500">
 								{s.metric}
 							</dd>
 						</div>
