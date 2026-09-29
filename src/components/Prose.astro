@@ -1,0 +1,5 @@
+---
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={[className, 'prose dark:prose-invert']}><slot /></div>

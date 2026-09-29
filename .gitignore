@@ -33,3 +33,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# astro
+dist/
+.astro/
+
+# local env (.dev.vars is left over from the Cloudflare experiment)
+.env
+.env.vercel
+.dev.vars
+.dev.vars.*

@@ -1,0 +1,71 @@
+---
+import { getEntry, render } from 'astro:content';
+import Button from '../../components/Button.astro';
+import Container from '../../components/Container.astro';
+import Photos from '../../components/Photos.astro';
+import Prose from '../../components/Prose.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// src/content/pages/date/{me,you}.md; the switcher below is fixed to these two
+export function getStaticPaths() {
+	return [{ params: { tab: 'me' } }, { params: { tab: 'you' } }];
+}
+
+const { tab } = Astro.params;
+const entry = await getEntry('pages', `date/${tab}`);
+if (!entry) throw new Error(`Missing src/content/pages/date/${tab}.md`);
+const { Content } = await render(entry);
+
+const link = (active: boolean) => [
+	'rounded-full px-4 py-2 font-semibold text-lg transition',
+	active
+		? 'text-international-orange-400 dark:text-international-orange-500'
+		: 'text-zinc-600 hover:text-international-orange-400 dark:text-zinc-400 dark:hover:text-international-orange-500',
+];
+---
+
+<BaseLayout title={entry.data.title} noindex>
+	<Container>
+		<div class="mx-auto mt-16 max-w-2xl pb-8 sm:mt-32">
+			<Prose>
+				<Content />
+			</Prose>
+		</div>
+	</Container>
+	{tab === 'me' && <Photos set="date" />}
+
+	<div
+		class="sticky right-0 bottom-0 left-0 z-50 mx-auto mt-16 flex w-full max-w-6xl justify-center bg-linear-to-t from-white via-white/90 pt-6 pb-6 dark:from-zinc-900 dark:via-zinc-900/90"
+	>
+		<div class="grid grid-flow-row gap-2">
+			<div
+				class="grid grid-flow-col items-center justify-center rounded-full bg-zinc-50/90 px-3 text-zinc-900 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-50 dark:ring-zinc-50/10"
+			>
+				<a href="/date/me" class:list={link(tab === 'me')}>Me</a>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					class="size-4 text-zinc-600 dark:text-zinc-400"
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+				>
+					<path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"></path>
+				</svg>
+				<a href="/date/you" class:list={link(tab === 'you')}>You</a>
+			</div>
+			<div
+				class="flex rounded-full bg-zinc-50/90 px-3 text-zinc-900 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:text-zinc-50 dark:ring-zinc-50/10"
+			>
+				<Button href="/contact/date" variant="secondary">
+					Sounds like we'd be a match?
+				</Button>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

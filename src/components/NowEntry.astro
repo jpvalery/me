@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Container from './Container.astro';
+import Prose from './Prose.astro';
+import Timeline from './Timeline.astro';
+
+interface Props {
+	entry: CollectionEntry<'now'>;
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const items = (await getCollection('now')).map((e) => ({
+	slug: e.id,
+	date: e.data.date,
+}));
+---
+
+<Container class="mt-16 lg:mt-32">
+	<div class="xl:relative">
+		<div class="mx-auto max-w-2xl">
+			<article>
+				<header class="flex flex-col">
+					<h1
+						class="mt-6 font-bold font-departure text-4xl text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100"
+					>
+						{entry.data.title}
+					</h1>
+				</header>
+				<Prose class="mt-8">
+					<Content />
+				</Prose>
+			</article>
+			<Timeline items={items} />
+		</div>
+	</div>
+</Container>

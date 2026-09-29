@@ -1,0 +1,23 @@
+---
+import CardSection from '../../components/CardSection.astro';
+import SimpleLayout from '../../components/SimpleLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Projects"
+	description="Things I’ve made trying to put my dent in the universe."
+>
+	<SimpleLayout
+		title="Current projects"
+		intro="These are the projects I'm currently working on in one way or another."
+	>
+		<CardSection section="projects" />
+		<a
+			href="/projects/cemetery"
+			class="mt-16 inline-block text-base text-zinc-900 underline hover:text-international-orange-500 dark:text-zinc-100"
+		>
+			Interested in past projects?
+		</a>
+	</SimpleLayout>
+</BaseLayout>

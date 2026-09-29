@@ -1,0 +1,173 @@
+---
+import { navigation as items, type NavItem } from '../lib/site';
+import Brand from './Brand.astro';
+import Container from './Container.astro';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '/';
+const isActive = (item: NavItem) =>
+	path === item.url ||
+	(item.url !== '/' && path.startsWith(`${item.url}/`)) ||
+	item.children?.some((c) => path === c.url);
+const pill =
+	'rounded-full bg-zinc-50/90 shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-900/90 dark:ring-zinc-50/10';
+---
+
+<header class="pointer-events-none relative z-50 flex flex-none flex-col">
+	<div class="top-0 z-10 h-16 pt-6">
+		<Container class="w-full">
+			<div class="relative flex gap-4">
+				<div class="flex flex-1">
+					{
+						!isHome && (
+							<a href="/" aria-label="Home" class="pointer-events-auto">
+								<Brand />
+							</a>
+						)
+					}
+				</div>
+
+				<div class="flex flex-1 justify-end md:justify-center">
+					<!-- Mobile: native disclosure, no JS -->
+					<details class="group pointer-events-auto relative md:hidden">
+						<summary
+							class:list={[
+								pill,
+								'flex cursor-pointer list-none items-center px-4 py-2 font-medium text-sm text-zinc-900 dark:text-zinc-200',
+							]}
+						>
+							Menu
+							<svg
+								viewBox="0 0 8 6"
+								aria-hidden="true"
+								class="ml-3 h-auto w-2 stroke-zinc-500 group-open:rotate-180"
+							>
+								<path
+									d="M1.75 1.75 4 4.25l2.25-2.5"
+									fill="none"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"></path>
+							</svg>
+						</summary>
+						<nav
+							class="fixed inset-x-4 top-8 z-50 rounded-sm bg-zinc-50 p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-700"
+						>
+							<p
+								class="mb-4 font-medium text-sm text-zinc-600 dark:text-zinc-400"
+							>
+								Navigation <span class="float-right">Close ✕</span>
+							</p>
+							<ul
+								class="-my-2 divide-y divide-zinc-100 text-base text-zinc-900 dark:divide-zinc-100/5 dark:text-zinc-300"
+							>
+								{
+									items.map((item) => (
+										<li>
+											<a href={item.url} class="block py-2">
+												{item.label}
+											</a>
+										</li>
+									))
+								}
+							</ul>
+						</nav>
+					</details>
+
+					<!-- Desktop: CSS-only dropdowns -->
+					<nav class="pointer-events-auto hidden md:block" aria-label="Main">
+						<ul
+							class:list={[
+								pill,
+								'flex px-3 font-medium text-sm text-zinc-900 dark:text-zinc-50',
+							]}
+						>
+							{
+								items.map((item) => (
+									<li class="group relative">
+										<a
+											href={item.url}
+											class:list={[
+												'block px-3 py-2 font-semibold transition hover:text-international-orange-400 dark:hover:text-international-orange-500',
+												isActive(item) &&
+													'text-international-orange-400 dark:text-international-orange-500',
+											]}
+										>
+											{item.label}
+										</a>
+										{item.children && item.children.length > 0 && (
+											<div class="invisible absolute left-0 z-10 pt-2 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+												<div class="grid min-w-44 gap-1 rounded-xl bg-zinc-50 p-2 text-sm shadow-lg ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-zinc-50/10">
+													{item.children.map((child) => (
+														<a
+															href={child.url}
+															target={child.external ? '_blank' : undefined}
+															rel={child.external ? 'noopener noreferrer' : undefined}
+															class="block rounded-lg px-3 py-2 transition hover:bg-zinc-900/5 dark:hover:bg-zinc-50/5"
+														>
+															{child.label}
+														</a>
+													))}
+												</div>
+											</div>
+										)}
+									</li>
+								))
+							}
+						</ul>
+					</nav>
+				</div>
+
+				<div class="flex justify-end md:flex-1">
+					<div class="pointer-events-auto">
+						<button
+							type="button"
+							id="theme-toggle"
+							aria-label="Toggle theme"
+							class:list={[
+								pill,
+								'group px-3 py-2 transition dark:hover:ring-zinc-50/20',
+							]}
+						>
+							<svg
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								class="h-6 w-6 fill-international-orange-500/10 stroke-international-orange-400 transition dark:hidden"
+							>
+								<path
+									d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z"
+								></path>
+								<path
+									d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
+									fill="none"></path>
+							</svg>
+							<svg
+								viewBox="0 0 24 24"
+								aria-hidden="true"
+								class="hidden h-6 w-6 fill-zinc-700 stroke-yellow-500/80 transition dark:block"
+							>
+								<path
+									d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</Container>
+	</div>
+</header>
+
+<script>
+	document.getElementById('theme-toggle')?.addEventListener('click', () => {
+		const dark = document.documentElement.classList.toggle('dark');
+		try {
+			localStorage.setItem('theme', dark ? 'dark' : 'light');
+		} catch {}
+	});
+</script>

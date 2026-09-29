@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Section from '../components/Section.astro';
+import SimpleLayout from '../components/SimpleLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = (await getCollection('stack')).sort(
+	(a, b) => a.data.order - b.data.order,
+);
+const intro =
+	'I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff.';
+---
+
+<BaseLayout title="My Stack" description={intro}>
+	<SimpleLayout
+		title="Software I use, gadgets I love, and other things I recommend."
+		intro={intro}
+	>
+		<div class="grid gap-24">
+			{
+				sections.map(({ data: { name, items } }) => (
+					<Section title={name}>
+						<ul class="space-y-8">
+							{items.map((item) => (
+								<li class="border p-4 dark:border-zinc-700/50">
+									<h3 class="font-semibold text-base text-zinc-900 tracking-tight dark:text-zinc-100">
+										{item.title}
+									</h3>
+									{item.description && (
+										<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+											{item.description}
+										</p>
+									)}
+								</li>
+							))}
+						</ul>
+					</Section>
+				))
+			}
+		</div>
+	</SimpleLayout>
+</BaseLayout>

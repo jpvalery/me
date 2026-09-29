@@ -6,41 +6,78 @@ Live at [jpvalery.me](https://jpvalery.me)
 
 ## Tech Stack
 
-- **Framework:** [Next.js 15](https://nextjs.org) (App Router, Turbopack)
+- **Framework:** [Astro](https://astro.build), prerendered to static HTML
+- **Hosting:** [Vercel](https://vercel.com); the contact endpoint is the only function
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com) with `@tailwindcss/typography` and `@tailwindcss/forms`
-- **Content:** MDX via `@next/mdx` with `remark-gfm` and `rehype-highlight`
-- **UI:** [Headless UI v2](https://headlessui.dev), `next-themes` for dark/light mode
-- **Fonts:** JetBrains Mono, Departure Mono
+- **Fonts:** JetBrains Mono, Departure Mono, Cartridge
 - **Analytics:** [Umami](https://umami.is) (self-hosted)
-- **Email:** [Customer.io](https://customer.io) transactional API
-- **Linting:** [Biome v2](https://biomejs.dev)
-- **Package Manager:** pnpm
+- **Email:** [Customer.io](https://customer.io) transactional API, behind [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/)
+- **Linting/formatting:** [Biome v2](https://biomejs.dev)
+- **Package manager:** pnpm
 
-## Project Structure
+## Content
+
+Content lives in `src/content/` as Astro content collections (schemas in `src/content.config.ts`):
+
+| Path | Used for |
+| --- | --- |
+| `pages/home.md` | Home page bio |
+| `pages/work/*.md` | One page per file under `/work/*`; frontmatter sets the button (`cta`), the FAQ (`faq: true`) and full-width text (`wide: true`) |
+| `pages/date/{me,you}.md` | `/date/*` (noindex) |
+| `pages/faq.md` | FAQ shown on advisorship and consultancy, one `##` heading per question |
+| `now/YYYY-MM-DD.md` | `/now` entries: the latest is `/now`, all of them form the timeline and the RSS feed |
+| `cards.json` | Link cards on `/work`, `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order |
+| `recommendations.json`, `stack.json` | Testimonials and `/stack`, in file order |
+| `flying.json` | Foreflight stats on `/dashboard` (updated by hand) |
+
+Card `logo` values are file names in `src/images/logos` (the build fails on an unknown name). Site title,
+navigation and footer links are in `src/lib/site.ts`; short page intros are in the page files.
+
+## Project structure
 
 ```
 src/
-├── app/           # Next.js App Router pages and layouts
-│   ├── about/     # About hub (/now, /stack, /dashboard)
-│   ├── contact/   # Contact forms (generic, photography, advisorship, consultancy)
-│   ├── date/      # Dating profile (noindexed)
-│   ├── now/       # /now page with historical timeline
-│   ├── photography/
-│   ├── projects/  # Active projects + cemetery
-│   └── work/      # Work, recommendations, how-to-work-with-me
-├── components/    # Reusable React components
-├── content/       # JSON data (stack, cemetery, navigation)
-├── images/        # Static images
-├── lib/           # Utilities
-└── styles/        # Global styles
-public/            # Static assets
+├── pages/          # Routes; everything is prerendered except /api/send
+├── content/        # Markdown and JSON content (see above)
+├── layouts/        # BaseLayout (meta tags, theme, analytics)
+├── components/     # .astro components (Header, LinkCard, ContactForm, ...)
+├── lib/            # site.ts (navigation), contact.ts (form definitions + zod schemas), logos.ts
+├── images/         # Optimised images and logos
+├── fonts/          # Local woff2 fonts
+└── styles/         # global.css (Tailwind + fonts)
+public/             # llms.txt, agent.md, favicon, avatars
 ```
 
-## Sections
+## Contact forms
 
-- **Home** — Bio, social links, photo strip
-- **About** — /now updates, gear/software stack, live dashboard
-- **Work** — Professional background, recommendations, advisorship & consultancy
-- **Projects** — Active projects (TrimCarbon, FLAPS, MSFS Flightlog, Cuisinomicon) and project cemetery
-- **Photography** — Links to portfolio, archive, Montréal Photo Club, Unsplash
-- **Contact** — Category-specific contact forms
+`/contact/{generic,photography,advisorship,consultancy,date}` share one config-driven form
+(`src/lib/contact.ts`). `POST /api/send` rejects cross-origin requests, wrong content types and bodies over
+8 KB, silently drops submissions with the honeypot filled, requires at least 3 seconds to fill the form,
+verifies the Turnstile token, validates with zod, then sends through Customer.io. It returns a real error
+when any step fails.
+
+## Development
+
+```bash
+pnpm install
+pnpm dev          # http://localhost:4321
+pnpm build        # static site + Vercel function in .vercel/output
+pnpm typecheck
+pnpm format
+```
+
+### Environment
+
+Declared in `astro.config.mjs` (`env.schema`) and read through `astro:env`. Locally they go in `.env` /
+`.env.local`; on Vercel, in the project's environment variables.
+
+| Name | Used | Purpose |
+| --- | --- | --- |
+| `PUBLIC_TURNSTILE_SITE_KEY` | build | Turnstile widget |
+| `TURNSTILE_SECRET_KEY` | runtime | Turnstile verification |
+| `CIO_APP_APIKEY` | runtime | Customer.io transactional API |
+| `EMAIL_CONTACT_GENERIC`, `EMAIL_CONTACT_PHOTO`, `EMAIL_CONTACT_DATE` (optional) | runtime | Recipient per form type |
+| `UNSPLASH_REFACTOR_TOKEN`, `BETASERIES_REFACTOR_API_KEY`, `BETASERIES_REFACTOR_ACCESS_TOKEN` | build | `/dashboard` stats, fetched when the site is built |
+
+The Turnstile widget allows `jpvalery.me` and `localhost`; add another hostname (for example a Vercel
+preview domain) in the Cloudflare dashboard before testing the form there.

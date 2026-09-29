@@ -42,31 +42,32 @@ Details at /work/advisorship and /work/consultancy.
 ## Key Interests & Expertise Areas
 
 - **Aviation:** Licensed private pilot (PPL + Night Rating), aerobatics, pursuing Multi-Engine and Floats ratings
-- **Photography:** 294M+ views on Unsplash, founded Montréal Photo Club, shoots DSLR/medium format/large format/infrared
+- **Photography:** 300M+ views on Unsplash, founded Montréal Photo Club, shoots DSLR/medium format/large format/infrared
 - **Tech:** Email infrastructure, developer tools, SaaS, customer success
 - **Other:** Cooking/baking, gardening, 3D printing, cycling, music (guitar, bass)
 
 ## Site Architecture
 
-This is a Next.js 15 site using the App Router pattern with MDX content.
+This is a static Astro site hosted on Vercel, with content in Markdown and JSON files and styling in Tailwind CSS v4.
 
 ### Page Map
 
 ```
 /                          → Home and bio
-/about                     → About hub
 /now                       → Current status (regularly updated)
-/now/[date]                → Historical /now snapshots (2021–2026)
+/now/[date]                → Historical /now snapshots (2021–2026, YYYY-MM-DD)
 /stack                     → Gear and software list
 /dashboard                 → Live metrics (aviation, Unsplash, shows/movies)
 /work                      → Professional background
 /work/recommendations      → Colleague testimonials
 /work/how-to-work-with-me  → Personal/professional README
+/work/advisorship         → Advisory work
+/work/consultancy         → Consulting work
 /projects                  → Active projects
 /projects/cemetery          → Retired projects graveyard
 /photography               → Photography links
-/contact                   → Contact forms (generic, photography, advisorship, consultancy)
-/feed.xml                  → RSS feed
+/contact                   → Contact; /contact/{generic,photography,advisorship,consultancy} forms (protected by Turnstile)
+/feed.xml                  → RSS feed of /now entries
 ```
 
 ### Data Sources
@@ -75,11 +76,10 @@ This is a Next.js 15 site using the App Router pattern with MDX content.
 - **BetaSeries API** — Shows and movies watched
 - **Foreflight** — Aviation statistics (manually updated)
 
-### Content Files
+### Content
 
-- MDX pages in `src/app/` for long-form content (/now updates, dating profile)
-- JSON data in `src/content/` for structured content (stack, cemetery, navigation)
-- Component-level data in `src/components/` (recommendations, photo sets, flying stats)
+- Content lives in `src/content/`: long-form pages and /now entries as Markdown; link cards, recommendations and the stack as JSON. Navigation is in `src/lib/site.ts`.
+- Foreflight stats are in `src/content/flying.json`.
 
 ## Retired Projects (Cemetery)
 

@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+import Container from '../components/Container.astro';
+import GitHub from '../components/icons/Github.astro';
+import LinkedIn from '../components/icons/Linkedin.astro';
+import Twitter from '../components/icons/Twitter.astro';
+import Unsplash from '../components/icons/Unsplash.astro';
+import Photos from '../components/Photos.astro';
+import portrait from '../images/portrait.jpg';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../lib/site';
+
+const home = await getEntry('pages', 'home');
+if (!home) throw new Error('Missing src/content/pages/home.md');
+const { Content } = await render(home);
+
+const socials = [
+	['https://twitter.com/jpvalery', 'Twitter', Twitter],
+	['https://github.com/jpvalery', 'GitHub', GitHub],
+	['https://unsplash.com/@jpvalery', 'Unsplash', Unsplash],
+	['https://linkedin.com/in/jpvalery', 'LinkedIn', LinkedIn],
+] as const;
+---
+
+<BaseLayout title={home.data.title} description={home.data.description}>
+	<Container class="mt-16 sm:mt-32">
+		<div
+			class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
+		>
+			<div class="flex items-center justify-center lg:pl-20">
+				<div class="max-w-xs px-2.5 lg:max-w-none">
+					<Image
+						src={portrait}
+						alt="Portrait of Jp Valery"
+						sizes="(min-width: 1024px) 32rem, 20rem"
+						class="aspect-square rounded-full bg-zinc-100 object-cover dark:bg-zinc-900"
+						loading="eager"
+					/>
+				</div>
+			</div>
+			<div class="lg:order-first lg:row-span-2">
+				<p
+					class="pb-1 font-bold font-departure text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100"
+				>
+					<span class="pb-2 text-4xl italic">Bonjour, hi!</span>
+				</p>
+				<h1 class="font-departure text-2xl text-zinc-900 dark:text-zinc-100">
+					I'm Jp and I wear more hats than a H1 can fit
+				</h1>
+				<div class="prose mt-6 space-y-7 text-zinc-600 dark:prose-invert dark:text-zinc-400">
+					<Content />
+				</div>
+			</div>
+			<div class="lg:pl-20">
+				<div
+					class="flex items-center justify-start space-x-6 text-zinc-900 md:order-2 dark:text-zinc-200"
+				>
+					{
+						socials.map(([href, label, Icon]) => (
+							<a
+								href={href}
+								class="h-6 w-6 hover:text-international-orange-500 dark:hover:text-international-orange-600"
+							>
+								<span class="sr-only">{label}</span>
+								<Icon />
+							</a>
+						))
+					}
+				</div>
+				<a
+					href={`mailto:${site.email}`}
+					class="group mt-8 flex border-zinc-100 border-t pt-8 font-medium text-sm text-zinc-900 transition hover:text-international-orange-500 dark:border-zinc-700/40 dark:text-zinc-200 dark:hover:text-international-orange-600"
+				>
+					<svg
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+						class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-international-orange-400 dark:group-hover:fill-international-orange-500"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+						></path>
+					</svg>
+					<span class="ml-4">{site.email}</span>
+				</a>
+				<div
+					class="mt-4 flex items-center font-medium text-sm text-zinc-900 dark:text-zinc-200"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						aria-hidden="true"
+						class="h-6 w-6 flex-none text-zinc-500"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+						></path>
+					</svg>
+					<span class="ml-4">{site.location}</span>
+				</div>
+			</div>
+		</div>
+	</Container>
+	<Photos />
+</BaseLayout>

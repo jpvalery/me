@@ -1,0 +1,18 @@
+{
+	"updated": "November 17th, 2025",
+	"stats": [
+		{ "title": "Flights", "metric": "98", "link": "https://foreflight.com" },
+		{ "title": "Time", "metric": "129.1", "link": "https://foreflight.com" },
+		{
+			"title": "Distance (2024)",
+			"metric": "1,280 NM",
+			"link": "https://foreflight.com"
+		},
+		{
+			"title": "Distance (2025)",
+			"metric": "1,488 NM",
+			"link": "https://plan.foreflight.com/recap/501e1e51-aa19-46c4-a9d7-9e148d4c921e"
+		},
+		{ "title": "Landings", "metric": "290", "link": "https://foreflight.com" }
+	]
+}

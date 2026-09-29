@@ -1,0 +1,32 @@
+---
+import ContactForm from '../../components/ContactForm.astro';
+import SimpleLayout from '../../components/SimpleLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { forms } from '../../lib/contact';
+
+export function getStaticPaths() {
+	return Object.values(forms).map((def) => ({
+		params: { type: def.type },
+		props: { def },
+	}));
+}
+
+const { def } = Astro.props;
+---
+
+<BaseLayout
+	title={def.title}
+	description={def.description}
+	noindex={def.noindex}
+>
+	<SimpleLayout title={def.title}>
+		{
+			def.intro.length > 0 && (
+				<div class="prose pb-12 text-gray-600 dark:text-gray-200">
+					{def.intro.map((p) => <p>{p}</p>)}
+				</div>
+			)
+		}
+		<ContactForm def={def} />
+	</SimpleLayout>
+</BaseLayout>

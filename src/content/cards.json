@@ -1,0 +1,191 @@
+[
+	{
+		"id": "work-resume",
+		"section": "work",
+		"title": "Resume",
+		"description": "My online resume",
+		"href": "https://resume.jpvalery.me",
+		"label": "resume.jpvalery.me",
+		"logo": "resume"
+	},
+	{
+		"id": "work-recommendations",
+		"section": "work",
+		"title": "Recommendations",
+		"description": "Hear what people I worked with have to say",
+		"href": "/work/recommendations",
+		"label": "/work/recommendations",
+		"logo": "resume"
+	},
+	{
+		"id": "work-work-with-me",
+		"section": "work",
+		"title": "Work with me",
+		"description": "Helpful-to-know background and principles when working with me",
+		"href": "/work/how-to-work-with-me",
+		"label": "/work/how-to-work-with-me",
+		"logo": "workwithme"
+	},
+	{
+		"id": "work-advisorship",
+		"section": "work",
+		"title": "Advisorship",
+		"description": "Field-tested experience to support your company",
+		"href": "/work/advisorship",
+		"label": "/work/advisorship",
+		"logo": "advisor"
+	},
+	{
+		"id": "work-consultancy",
+		"section": "work",
+		"title": "Consultancy",
+		"description": "Better, faster, stronger results — but not harder",
+		"href": "/work/consultancy",
+		"label": "/work/consultancy",
+		"logo": "hire"
+	},
+	{
+		"id": "work-raccoon-ventures",
+		"section": "work",
+		"title": "Raccoon Ventures",
+		"description": "My personal company to work on my side-projects or advise/consult for other companies",
+		"href": "https://raccoonv.com",
+		"label": "raccoonv.com",
+		"logo": "raccoonventures"
+	},
+	{
+		"id": "projects-trimcarbon-com",
+		"section": "projects",
+		"title": "TrimCarbon.com",
+		"description": "Fund verified climate projects that remove or reduce CO₂ from the atmosphere",
+		"href": "https://trimcarbon.com",
+		"label": "trimcarbon.com",
+		"logo": "trimcarbon"
+	},
+	{
+		"id": "projects-flaps",
+		"section": "projects",
+		"title": "Flaps",
+		"description": "FLAPS is an open-source platform for managing and booking seats on private or light aircraft flights.",
+		"href": "https://github.com/jpvalery/flaps",
+		"label": "jpvalery/flaps",
+		"logo": "flaps"
+	},
+	{
+		"id": "projects-msfs-flightlog",
+		"section": "projects",
+		"title": "MSFS Flightlog",
+		"description": "Screenshots and stats of my flight simulator adventures",
+		"href": "https://flightlog.jpvalery.me",
+		"label": "flightlog.jpvalery.me",
+		"logo": "flightlog"
+	},
+	{
+		"id": "projects-cuisinomicon-wip",
+		"section": "projects",
+		"title": "Cuisinomicon (WIP)",
+		"description": "My online cookbook where I share my best recipes",
+		"href": "https://cuisinomicon.com",
+		"label": "cuisinomicon.com",
+		"logo": "cuisinomicon"
+	},
+	{
+		"id": "photography-portfolio",
+		"section": "photography",
+		"title": "Portfolio",
+		"description": "My photography portfolio",
+		"href": "https://jpvalery.photo",
+		"label": "jpvalery.photo",
+		"logo": "portfolio"
+	},
+	{
+		"id": "photography-contact-sheets",
+		"section": "photography",
+		"title": "Contact Sheets",
+		"description": "An unfiltered stream of all my photos",
+		"href": "https://archive.jpvalery.photo",
+		"label": "archive.jpvalery.photo",
+		"logo": "archivephoto"
+	},
+	{
+		"id": "photography-montr-al-photo-club",
+		"section": "photography",
+		"title": "Montréal Photo Club",
+		"description": "I founded a Photo Club in Montréal in 2019",
+		"href": "https://montrealphoto.club",
+		"label": "montrealphoto.club",
+		"logo": "photoclub"
+	},
+	{
+		"id": "photography-unsplash",
+		"section": "photography",
+		"title": "Unsplash",
+		"description": "I share hundreds of photos for free on Unsplash",
+		"href": "https://unsplash.com/@jpvalery",
+		"label": "unsplash.com/@jpvalery",
+		"logo": "unsplash"
+	},
+	{
+		"id": "cemetery-meche",
+		"section": "cemetery",
+		"title": "Meche",
+		"description": "2023-2024 — Online shop for handmade and environmental-friendly candles. Overestimated the online demand and shipping hurdles. Got a few sales but nothing to sustain the activity.",
+		"href": "https://meche.ca",
+		"label": "meche.ca",
+		"logo": "cemetery"
+	},
+	{
+		"id": "cemetery-user-journey-as-a-product",
+		"section": "cemetery",
+		"title": "User Journey as a Product",
+		"description": "2019-2020 — A manifesto to methodically approach your communications with your users based on how they interact with your product. The right message at the right time for the right person with the right benefit. Never really completed it",
+		"href": "https://ujaap.com",
+		"label": "ujaap.com",
+		"logo": "cemetery"
+	},
+	{
+		"id": "cemetery-bestpricingpages",
+		"section": "cemetery",
+		"title": "BestPricingPages",
+		"description": "2019 — Inspired by ReallyGoodEmail, I challenged myself to building a Gatsby static site to document the best pricing pages out there. Pricing is oftentimes underthought and I grew tired of always going back to the same pages or bookmarks. So I made this resources for people to share. It didn't get the audience I hope it would and so I stopped maintaining it.",
+		"href": "https://bestpricingpages.com",
+		"label": "bestpricingpages.com",
+		"logo": "cemetery"
+	},
+	{
+		"id": "cemetery-drones-nation",
+		"section": "cemetery",
+		"title": "Drones Nation",
+		"description": "2015-2017 — The sister-ship to VYSUAL, this new endeavor was taking the same model but the theme were the drones. From tips, to tutorials and reviews, we covered all-things-drones.",
+		"href": "https://drones-nation.com",
+		"label": "drones-nation.com",
+		"logo": "cemetery"
+	},
+	{
+		"id": "cemetery-vysual-org",
+		"section": "cemetery",
+		"title": "VYSUAL.ORG",
+		"description": "2013-2017 — An independent magazine talking about creativity and inspiration. Our differentiator was only editorialized content (no listicles or other clickbait) in French. We were averaging 10,000 visitors per month after a year. We actually got sponsored by Google and Microsoft through non-profit programs.",
+		"href": "https://vysual.org",
+		"label": "vysual.org",
+		"logo": "cemetery"
+	},
+	{
+		"id": "cemetery-adopte-un-fran-ais",
+		"section": "cemetery",
+		"title": "Adopte un Français",
+		"description": "2014 — Looking for a job and a visa to stay in Canada in 2014, I made an interactive web résumé called AdopteUnFrançais.ca (AdoptAFrenchman.ca). This led to multiple interviews and actually landing my first job at Gameloft",
+		"href": "https://www.behance.net/gallery/17481345/AdopteUnFrancaisca",
+		"label": "adopteunfrancais.ca",
+		"logo": "cemetery"
+	},
+	{
+		"id": "cemetery-mcroach-network",
+		"section": "cemetery",
+		"title": "McRoach Network",
+		"description": "2008-2013 — An independent non-profit music label I founded when I was 16. Released multiple albums, organized one tour, and we were among the first structures to distribute on Spotify back in 2010. After 5 years and as I was moving to Canada, it felt natural to put this project to rest",
+		"href": "https://mcroach.net",
+		"label": "mcroach.net",
+		"logo": "cemetery"
+	}
+]

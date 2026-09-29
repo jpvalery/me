@@ -1,0 +1,115 @@
+---
+import {
+	BETASERIES_REFACTOR_ACCESS_TOKEN,
+	BETASERIES_REFACTOR_API_KEY,
+	UNSPLASH_REFACTOR_TOKEN,
+} from 'astro:env/server';
+import Container from '../components/Container.astro';
+import MetricCard from '../components/MetricCard.astro';
+import flying from '../content/flying.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Prerendered: the API stats are fetched at build time and refresh on each deploy.
+
+interface UnsplashStats {
+	downloads?: { total?: number };
+	views?: { total?: number };
+}
+interface BetaseriesMember {
+	member?: { stats?: { episodes?: number } };
+}
+
+const fmt = (n: unknown) =>
+	typeof n === 'number' ? n.toLocaleString('en-US') : '—';
+
+async function getJson<T>(
+	url: string,
+	headers: Record<string, string>,
+): Promise<T | null> {
+	try {
+		const res = await fetch(url, { headers });
+		return res.ok ? ((await res.json()) as T) : null;
+	} catch {
+		return null;
+	}
+}
+
+const [unsplash, betaseries] = await Promise.all([
+	UNSPLASH_REFACTOR_TOKEN
+		? getJson<UnsplashStats>(
+				'https://api.unsplash.com/users/jpvalery/statistics',
+				{ Authorization: `Bearer ${UNSPLASH_REFACTOR_TOKEN}` },
+			)
+		: null,
+	BETASERIES_REFACTOR_API_KEY && BETASERIES_REFACTOR_ACCESS_TOKEN
+		? getJson<BetaseriesMember>('https://api.betaseries.com/members/infos', {
+				'X-BetaSeries-Version': '3.0',
+				'X-BetaSeries-Key': BETASERIES_REFACTOR_API_KEY,
+				Authorization: `Bearer ${BETASERIES_REFACTOR_ACCESS_TOKEN}`,
+			})
+		: null,
+]);
+
+const sections = [
+	{
+		title: 'Foreflight',
+		note: `Last updated: ${flying.updated}`,
+		items: flying.stats.map((s) => ({ ...s, href: s.link })),
+	},
+	{
+		title: 'Unsplash',
+		items: [
+			{
+				title: 'Unsplash — Downloads',
+				metric: fmt(unsplash?.downloads?.total),
+				href: 'https://unsplash.com/@jpvalery',
+			},
+			{
+				title: 'Unsplash — Views',
+				metric: fmt(unsplash?.views?.total),
+				href: 'https://unsplash.com/@jpvalery',
+			},
+		],
+	},
+	{
+		title: 'Shows & Movies',
+		items: [
+			{
+				title: 'Betaseries — Episodes seen',
+				metric: fmt(betaseries?.member?.stats?.episodes),
+				href: 'https://www.betaseries.com/membre/jpvalery',
+			},
+			{
+				title: 'IMDB — Show/Movies seen',
+				metric: '1,324',
+				href: 'https://www.imdb.com/user/ur59148764/ratings',
+			},
+		],
+	},
+];
+---
+
+<BaseLayout
+	title="Dashboard"
+	description="Some personal metrics—mostly for the fun of connecting APIs"
+>
+	<div class="grid grid-flow-row gap-8 pt-16">
+		{
+			sections.map((section) => (
+				<Container>
+					<div class="grid grid-flow-row gap-2 pb-8">
+						<h1 class="font-bold font-departure text-4xl text-gray-600 dark:text-gray-200">
+							{section.title}
+						</h1>
+						{section.note && <span class="text-sm">{section.note}</span>}
+					</div>
+					<ul class="grid grid-cols-1 gap-12 md:grid-cols-2">
+						{section.items.map((item) => (
+							<MetricCard {...item} />
+						))}
+					</ul>
+				</Container>
+			))
+		}
+	</div>
+</BaseLayout>

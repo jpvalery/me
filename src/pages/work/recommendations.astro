@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import CtaLink from '../../components/CtaLink.astro';
+import SimpleLayout from '../../components/SimpleLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const entries = (await getCollection('recommendations')).sort(
+	(a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+	title="Recommendations"
+	description="Hear what people I worked with have to say"
+>
+	<SimpleLayout
+		title="Recommendations"
+		intro="Hear what people I worked with have to say"
+	>
+		<div
+			class="mx-auto grid max-w-2xl grid-cols-1 items-start gap-8 text-gray-900 text-sm/6 md:grid-cols-2 xl:max-w-none"
+		>
+			{
+				entries.map((r) => (
+					<figure
+						class:list={[
+							'max-h-min rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5',
+							r.data.large && 'md:col-span-2',
+						]}
+					>
+						<blockquote class="p-6 font-semibold text-gray-900 text-lg tracking-tight sm:p-12">
+							<p class="whitespace-pre-line">“{r.data.quote}”</p>
+						</blockquote>
+						<figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-gray-900/10 border-t px-6 py-4 sm:flex-nowrap">
+							<img
+								alt=""
+								src={r.data.avatar}
+								width="100"
+								height="100"
+								loading="lazy"
+								class="size-10 flex-none rounded-full bg-gray-50"
+							/>
+							<div class="flex-auto font-semibold">{r.data.author}</div>
+						</figcaption>
+					</figure>
+				))
+			}
+		</div>
+		<div class="mt-16">
+			<CtaLink href="/contact/consultancy">Get in touch about work</CtaLink>
+		</div>
+	</SimpleLayout>
+</BaseLayout>

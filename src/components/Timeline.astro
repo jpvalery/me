@@ -1,0 +1,84 @@
+---
+interface Props {
+	items: { slug: string; date: string }[];
+}
+const fmt = (d: string) =>
+	new Date(`${d}T13:00:00.000Z`).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'short',
+		timeZone: 'UTC',
+	});
+const items = [...Astro.props.items].sort((a, b) =>
+	a.date.localeCompare(b.date),
+);
+const marker =
+	'h-4 w-4 rounded-full border-4 border-zinc-300 bg-international-orange-600 shadow-lg transition-transform duration-200 ease-out group-hover:scale-125';
+const label =
+	'rounded-lg border bg-zinc-50 px-2 py-0.5 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900';
+---
+
+<nav aria-label="Now archive" class="mx-auto w-full py-12">
+	<!-- Desktop: horizontal -->
+	<div class="hidden md:block">
+		<div class="relative">
+			<div class="absolute top-1/2 right-0 left-0 h-0.5 -translate-y-1/2 bg-zinc-500"></div>
+			<div class="relative flex items-center justify-between">
+				{
+					items.map((item) => (
+						<div class="relative flex flex-col items-center">
+							<a href={`/now/${item.slug}`} class="group relative z-10">
+								<div class={marker} />
+								<div class="absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
+									<div class={label}>
+										<span class="font-medium text-[0.75rem] text-zinc-700 leading-[0.8rem] group-hover:text-international-orange-600 dark:text-zinc-50">
+											{fmt(item.date)}
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					))
+				}
+				<div class="relative flex flex-col items-center">
+					<a href="/now" class="group relative z-10">
+						<div class={marker} />
+						<div class="absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
+							<div
+								class="rounded-lg border border-international-orange-500 bg-zinc-50 px-3 py-1 shadow-md transition-transform duration-200 ease-out group-hover:scale-110 dark:bg-zinc-900"
+							>
+								<span class="font-medium text-xs text-zinc-700 group-hover:text-international-orange-600 dark:text-zinc-50">
+									Latest
+								</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Mobile: vertical -->
+	<div class="md:hidden">
+		<div class="relative">
+			<div class="absolute top-0 bottom-0 left-2 w-0.5 bg-zinc-300"></div>
+			<div class="space-y-6">
+				{
+					[...items.map((i) => [`/now/${i.slug}`, fmt(i.date)]), ['/now', 'Latest']].map(
+						([href, text]) => (
+							<div class="relative flex items-center">
+								<a href={href} class="group relative z-10 flex items-center">
+									<div class="h-4 w-4 rounded-full border-4 border-zinc-50 bg-international-orange-600 shadow-lg" />
+									<div class="ml-6 rounded-lg border bg-zinc-50 px-4 py-2 shadow-md transition-shadow duration-200 group-hover:shadow-lg dark:bg-zinc-900">
+										<span class="font-medium text-sm text-zinc-700 group-hover:text-international-orange-600 dark:text-zinc-50">
+											{text}
+										</span>
+									</div>
+								</a>
+							</div>
+						),
+					)
+				}
+			</div>
+		</div>
+	</div>
+</nav>

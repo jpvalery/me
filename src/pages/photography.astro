@@ -1,0 +1,23 @@
+---
+import CardSection from '../components/CardSection.astro';
+import CtaLink from '../components/CtaLink.astro';
+import SimpleLayout from '../components/SimpleLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Photography"
+	description="From my portfolio to my contact sheets, an overview of my photography"
+>
+	<SimpleLayout
+		title="Photography"
+		intro="From my portfolio to my contact sheets, an overview of my photography."
+	>
+		<CardSection section="photography" />
+		<div class="mt-16">
+			<CtaLink href="/contact/photography">
+				Get in touch about my photography
+			</CtaLink>
+		</div>
+	</SimpleLayout>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import NowEntry from '../../components/NowEntry.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('now');
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+---
+
+<BaseLayout
+	title={entry.data.title}
+	description="What I was up to back then"
+	type="article"
+>
+	<NowEntry entry={entry} />
+</BaseLayout>

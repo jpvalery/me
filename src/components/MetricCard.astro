@@ -1,0 +1,25 @@
+---
+import ExtLink from './icons/ExtLink.astro';
+
+const { title, metric, href } = Astro.props;
+---
+
+<li class="list-none">
+	<a href={href} rel="noopener">
+		<div
+			class="group grid min-h-36 grid-flow-col items-center justify-start gap-x-8 border p-4 hover:border-international-orange-400 dark:border-zinc-700/50 dark:hover:border-international-orange-500"
+		>
+			<div class="grid grid-flow-row items-start justify-start gap-y-2">
+				<span
+					class="grid grid-flow-col items-center justify-start gap-2 text-base text-zinc-600 group-hover:text-international-orange-400 dark:text-zinc-200 dark:group-hover:text-international-orange-500"
+				>
+					{title}
+					<ExtLink class="h-4 w-4" />
+				</span>
+				<span class="font-semibold text-3xl text-zinc-950 dark:text-zinc-50">
+					{metric}
+				</span>
+			</div>
+		</div>
+	</a>
+</li>

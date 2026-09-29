@@ -1,0 +1,102 @@
+---
+import { getImage } from 'astro:assets';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import portrait from '../images/portrait.jpg';
+import { site } from '../lib/site';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	/** Absolute URL of the share image; defaults to the portrait */
+	image?: string;
+	noindex?: boolean;
+	type?: 'website' | 'article';
+}
+
+const {
+	title,
+	description = site.description,
+	image,
+	noindex = false,
+	type = 'website',
+} = Astro.props;
+
+const fullTitle = title ? `${title} - ${site.title}` : site.title;
+const base = Astro.site ?? Astro.url.origin;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = new URL(path, base).href;
+const defaultImage = await getImage({
+	src: portrait,
+	width: 1200,
+	height: 1200,
+	format: 'jpg',
+});
+const shareImage = image ?? new URL(defaultImage.src, base).href;
+---
+
+<!doctype html>
+<html lang="en" class="h-full antialiased">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content={site.title} />
+		<meta property="og:title" content={title ?? site.title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={shareImage} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@jpvalery" />
+		<link rel="icon" href="/favicon.ico" />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={`${site.title} RSS`}
+			href="/feed.xml"
+		/>
+		<link rel="sitemap" href="/sitemap.xml" />
+		<script is:inline>
+			(() => {
+				let stored = null;
+				try {
+					stored = localStorage.getItem('theme');
+				} catch {}
+				const dark =
+					stored === 'dark' ||
+					(stored !== 'light' &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches);
+				document.documentElement.classList.toggle('dark', dark);
+			})();
+		</script>
+	</head>
+	<body
+		class="flex h-full bg-zinc-50 text-zinc-900 dark:bg-[#16161D] dark:text-zinc-100"
+	>
+		<div class="flex w-full">
+			<div class="fixed inset-0 flex justify-center sm:px-8">
+				<div class="flex w-full max-w-7xl lg:px-8">
+					<div
+						class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
+					>
+					</div>
+				</div>
+			</div>
+			<div class="relative flex w-full flex-col">
+				<Header />
+				<main class="flex-auto"><slot /></main>
+				<Footer />
+			</div>
+		</div>
+		<script
+			is:inline
+			defer
+			data-website-id="3a96b2ba-8032-491e-9ec5-df513cf57d50"
+			src="https://analytics.jpvalery.com/script.js"></script>
+	</body>
+</html>

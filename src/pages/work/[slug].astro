@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import Container from '../../components/Container.astro';
+import CtaLink from '../../components/CtaLink.astro';
+import FAQ from '../../components/FAQ.astro';
+import Prose from '../../components/Prose.astro';
+import SimpleLayout from '../../components/SimpleLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// One page per src/content/pages/work/*.md
+export async function getStaticPaths() {
+	const pages = await getCollection('pages', (p) => p.id.startsWith('work/'));
+	return pages.map((entry) => ({
+		params: { slug: entry.id.slice('work/'.length) },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { title, description, intro, cta, faq, wide } = entry.data;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={title} description={description ?? intro}>
+	{
+		wide ? (
+			<Container class="mt-16 sm:mt-32">
+				<h1 class="mb-10 font-bold font-departure text-4xl text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100">
+					{title}
+				</h1>
+				<Prose class="max-w-none">
+					<Content />
+				</Prose>
+			</Container>
+		) : (
+			<SimpleLayout title={title} intro={intro}>
+				<Prose class="prose-lg max-w-2xl">
+					<Content />
+				</Prose>
+				{cta && (
+					<div class="mt-12">
+						<CtaLink href={cta.href}>{cta.label}</CtaLink>
+					</div>
+				)}
+			</SimpleLayout>
+		)
+	}
+	{
+		faq && (
+			<SimpleLayout title="Frequently Asked Questions">
+				<FAQ />
+			</SimpleLayout>
+		)
+	}
+</BaseLayout>

@@ -23,7 +23,7 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 ## Interests
 
 - Aviation: Private Pilot License (PPL), Night Rating, aerobatics training, pursuing Multi-Engine and Floats ratings
-- Photography: 294M+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
+- Photography: 300M+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
 - Cooking & baking, gardening, 3D printing, cycling, guitar & bass, gaming
 
 ## Contact
@@ -37,22 +37,23 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 ## Site Sections
 
 - / — Home and bio
-- /about — About hub
-- /now — What Jp is currently up to (regularly updated)
+- /now — What Jp is currently up to (latest entry); /now/YYYY-MM-DD — archive
 - /stack — Gear and software
-- /dashboard — Live personal metrics (aviation, Unsplash, shows/movies)
-- /work — Professional background
+- /dashboard — Personal metrics (aviation, Unsplash, shows/movies)
+- /work — Professional background and offers
 - /work/recommendations — Colleague testimonials
 - /work/how-to-work-with-me — Personal/professional README
-- /projects — Active projects
-- /projects/cemetery — Retired projects
+- /work/advisorship — Advisory work
+- /work/consultancy — Consulting work
+- /projects — Active projects; /projects/cemetery — retired projects
 - /photography — Photography links and portfolio
-- /contact — Contact forms
+- /contact — Contact; /contact/{generic,photography,advisorship,consultancy} — category-specific forms
+- /feed.xml — RSS feed of /now entries
 
 ## Site Details
 
 - URL: https://jpvalery.me
 - RSS: https://jpvalery.me/feed.xml
-- Built with: Next.js 15 (App Router), Tailwind CSS v4, MDX, Headless UI
+- Built with: Astro (static site on Vercel), Tailwind CSS v4
 - Fonts: JetBrains Mono, Departure Mono, Cartridge
 - Analytics: Self-hosted Umami
