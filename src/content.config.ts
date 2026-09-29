@@ -15,7 +15,7 @@ const orderedFile = (path: string) =>
 			})),
 	});
 
-/** Long-form pages, addressed by path: home, faq, work/advisorship, date/me, ... */
+/** Long-form pages, addressed by path: home, work/how-to-work-with-me, date/me, ... */
 const pages = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
 	schema: z.object({
@@ -24,10 +24,6 @@ const pages = defineCollection({
 		intro: z.string().optional(),
 		/** Callout shown above the content */
 		notice: z.string().optional(),
-		/** Button under the content */
-		cta: z.object({ label: z.string(), href: z.string() }).optional(),
-		/** Show the FAQ below the page */
-		faq: z.boolean().default(false),
 		/** Full-width text instead of the narrow column */
 		wide: z.boolean().default(false),
 	}),
@@ -54,6 +50,8 @@ const cards = defineCollection({
 		label: z.string().optional(),
 		/** File name in src/images/logos, without extension */
 		logo: z.string().optional(),
+		/** Dark logo that disappears on the dark theme */
+		invertLogoOnDark: z.boolean().default(false),
 	}),
 });
 

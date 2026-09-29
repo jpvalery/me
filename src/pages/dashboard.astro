@@ -4,8 +4,9 @@ import {
 	BETASERIES_REFACTOR_API_KEY,
 	UNSPLASH_REFACTOR_TOKEN,
 } from 'astro:env/server';
-import Container from '../components/Container.astro';
 import MetricCard from '../components/MetricCard.astro';
+import SimpleLayout from '../components/SimpleLayout.astro';
+import Tile from '../components/Tile.astro';
 import flying from '../content/flying.json';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -93,23 +94,22 @@ const sections = [
 	title="Dashboard"
 	description="Some personal metrics—mostly for the fun of connecting APIs"
 >
-	<div class="grid grid-flow-row gap-8 pt-16">
-		{
-			sections.map((section) => (
-				<Container>
-					<div class="grid grid-flow-row gap-2 pb-8">
-						<h1 class="font-bold font-departure text-4xl text-gray-600 dark:text-gray-200">
-							{section.title}
-						</h1>
-						{section.note && <span class="text-sm">{section.note}</span>}
-					</div>
-					<ul class="grid grid-cols-1 gap-12 md:grid-cols-2">
-						{section.items.map((item) => (
-							<MetricCard {...item} />
-						))}
-					</ul>
-				</Container>
-			))
-		}
-	</div>
+	<SimpleLayout
+		title="Dashboard"
+		intro="Some personal metrics, mostly for the fun of connecting APIs."
+	>
+		<div class="grid gap-6 lg:gap-8">
+			{
+				sections.map((section) => (
+					<Tile label={section.title} aside={section.note}>
+						<ul class="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-5">
+							{section.items.map((item) => (
+								<MetricCard {...item} />
+							))}
+						</ul>
+					</Tile>
+				))
+			}
+		</div>
+	</SimpleLayout>
 </BaseLayout>

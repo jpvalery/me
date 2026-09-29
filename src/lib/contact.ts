@@ -1,14 +1,6 @@
 import { z } from 'zod';
 
-export type FieldName =
-	| 'name'
-	| 'email'
-	| 'role'
-	| 'company'
-	| 'website'
-	| 'reason'
-	| 'message'
-	| 'budget';
+export type FieldName = 'name' | 'email' | 'reason' | 'message';
 
 export interface Field {
 	name: FieldName;
@@ -38,23 +30,6 @@ const email: Field = {
 	label: 'Where can I write back to you?',
 	placeholder: 'you@example.com',
 	required: true,
-};
-const role: Field = {
-	name: 'role',
-	label: "What's your role?",
-	placeholder: 'Assistant to the regional manager',
-	required: true,
-};
-const company: Field = {
-	name: 'company',
-	label: "What's your company?",
-	placeholder: 'Dunder Mifflin, Inc.',
-	required: true,
-};
-const website: Field = {
-	name: 'website',
-	label: "What's your website?",
-	placeholder: 'infinity.dundermifflin.com',
 };
 const message = (label = 'Can you add more details?'): Field => ({
 	name: 'message',
@@ -119,83 +94,6 @@ export const forms: Record<string, ContactFormDef> = {
 				],
 			},
 			message(),
-		],
-	},
-	advisorship: {
-		type: 'advisorship',
-		title: 'Hire me as an advisor',
-		description: 'Hire me as an advisor',
-		intro: [
-			'The more details you give me, the faster we can start working together.',
-			"Please fill out the form below and let's get started.",
-		],
-		fields: [
-			name,
-			email,
-			role,
-			company,
-			website,
-			{
-				name: 'reason',
-				label: 'What can I help you with?',
-				required: true,
-				options: [
-					{ value: 'growth', label: 'Growth' },
-					{ value: 'cs', label: 'Customer Success' },
-					{ value: 'operations', label: 'GrowthOps / RevOps' },
-					{ value: 'automation', label: 'Automation' },
-					{ value: 'instrumentation', label: 'Instrumentation' },
-					{ value: 'analytics', label: 'Analytics' },
-					{ value: 'other', label: 'Something else' },
-				],
-			},
-			message(),
-		],
-	},
-	consultancy: {
-		type: 'consultancy',
-		title: 'Hire me as a consultant',
-		description: 'Hire me as a consultant',
-		intro: [
-			"I'm currently available for projects.",
-			'The more details you give me, the faster we can get this show on the road.',
-			"Please fill out the form below and let's get started.",
-		],
-		fields: [
-			name,
-			email,
-			role,
-			company,
-			website,
-			{
-				name: 'reason',
-				label: 'What can I help you with?',
-				required: true,
-				options: [
-					{ value: 'services', label: "You're interested in my services" },
-					{
-						value: 'scoped-project',
-						label: 'You already have a scoped project',
-					},
-					{ value: 'integration', label: 'You need an expert in integration' },
-					{
-						value: 'automation',
-						label: 'You want to automate your processes',
-					},
-					{
-						value: 'instrumentation',
-						label: 'You want to measure and instrument your product',
-					},
-					{ value: 'other', label: 'Something else' },
-				],
-			},
-			message(),
-			{
-				name: 'budget',
-				label: "What's your budget?",
-				placeholder: '1,000 USD',
-				required: true,
-			},
 		],
 	},
 	date: {

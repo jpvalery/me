@@ -16,18 +16,18 @@ const intro =
 		title="Software I use, gadgets I love, and other things I recommend."
 		intro={intro}
 	>
-		<div class="grid gap-24">
+		<div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
 			{
 				sections.map(({ data: { name, items } }) => (
 					<Section title={name}>
-						<ul class="space-y-8">
+						<ul>
 							{items.map((item) => (
-								<li class="border p-4 dark:border-zinc-700/50">
-									<h3 class="font-semibold text-base text-zinc-900 tracking-tight dark:text-zinc-100">
+								<li class="border-stone-300 border-t border-dashed py-4 first:border-0 first:pt-0 last:pb-0 dark:border-ink-700">
+									<h3 class="font-departure text-base text-zinc-900 dark:text-phosphor-100">
 										{item.title}
 									</h3>
 									{item.description && (
-										<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+										<p class="mt-1 text-sm text-stone-600 dark:text-phosphor-500">
 											{item.description}
 										</p>
 									)}

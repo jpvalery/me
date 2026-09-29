@@ -1,7 +1,21 @@
 ---
-import CardSection from '../../components/CardSection.astro';
+import { getCollection } from 'astro:content';
 import SimpleLayout from '../../components/SimpleLayout.astro';
+import Tile from '../../components/Tile.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const cards = (
+	await getCollection('cards', (c) => c.data.section === 'cemetery')
+).sort((a, b) => a.data.order - b.data.order);
+
+// Descriptions start with "2023-2024 — ..."; split the years into their own column
+const rows = cards.map(({ data }) => {
+	const m = data.description?.match(/^(\d{4}(?:-\d{4})?) — (.*)$/s);
+	return { ...data, years: m?.[1] ?? '', story: m?.[2] ?? data.description };
+});
+
+const head =
+	'px-0 py-3 text-left text-[0.68rem] font-normal uppercase tracking-[0.14em] text-stone-500 dark:text-phosphor-500';
 ---
 
 <BaseLayout
@@ -12,9 +26,46 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		title="Cemetery"
 		intro="Everything dies one day. This is the cemetery of things I built and killed off at one point"
 	>
-		<CardSection
-			section="cemetery"
-			columns="sm:grid-cols-2 lg:grid-cols-3"
-		/>
+		<Tile label="Archive" aside={`${rows.length} projects`}>
+			<table class="w-full text-sm">
+				<thead class="hidden md:table-header-group">
+					<tr class="border-stone-300 border-b dark:border-ink-700">
+						<th scope="col" class:list={[head, 'w-32 pr-6']}>Years</th>
+						<th scope="col" class:list={[head, 'w-56 pr-6']}>Project</th>
+						<th scope="col" class:list={[head, 'pr-6']}>What happened</th>
+						<th scope="col" class:list={[head, 'w-48 text-right']}>Link</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						rows.map((row) => (
+							<tr class="block border-stone-300 border-b border-dashed py-4 last:border-0 md:table-row md:py-0 dark:border-ink-700">
+								<td class="block whitespace-nowrap py-1 pr-6 align-top text-international-orange-600 tabular-nums md:table-cell md:py-4 dark:text-international-orange-500">
+									{row.years || '—'}
+								</td>
+								<th
+									scope="row"
+									class="block py-1 pr-6 text-left align-top font-departure text-base font-normal md:table-cell md:py-4"
+								>
+									{row.title}
+								</th>
+								<td class="block max-w-prose py-1 pr-6 align-top text-stone-600 md:table-cell md:py-4 dark:text-phosphor-500">
+									{row.story}
+								</td>
+								<td class="block py-1 align-top md:table-cell md:py-4 md:text-right">
+									<a
+										href={row.href}
+										rel="noopener"
+										class="text-international-orange-600 hover:underline dark:text-international-orange-500"
+									>
+										{row.label} ↗
+									</a>
+								</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</Tile>
 	</SimpleLayout>
 </BaseLayout>

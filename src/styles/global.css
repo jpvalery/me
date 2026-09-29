@@ -17,6 +17,13 @@
 	--color-international-orange-800: #a12b0b;
 	--color-international-orange-900: #82260c;
 	--color-international-orange-950: #461004;
+
+	/* dark theme: warm phosphor on near-black */
+	--color-ink-950: #0a0705;
+	--color-ink-900: #120d09;
+	--color-ink-700: #3b2a1a;
+	--color-phosphor-100: #f3e3cc;
+	--color-phosphor-500: #a58d72;
 }
 
 /* v3 -> v4: keep the default border color used across the site */

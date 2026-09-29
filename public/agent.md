@@ -25,10 +25,7 @@ Jp is a Customer Success Engineer at **Resend** (email infrastructure company). 
 
 ### Services Offered
 
-- **Advisorship:** Strategic guidance for startups and tech companies
-- **Consultancy:** Hands-on consulting engagements
-
-Details at /work/advisorship and /work/consultancy.
+Advisory and consulting engagements are handled through raccoonv.com (the old /work/advisorship and /work/consultancy pages redirect there).
 
 ## Active Projects
 
@@ -61,12 +58,10 @@ This is a static Astro site hosted on Vercel, with content in Markdown and JSON 
 /work                      → Professional background
 /work/recommendations      → Colleague testimonials
 /work/how-to-work-with-me  → Personal/professional README
-/work/advisorship         → Advisory work
-/work/consultancy         → Consulting work
 /projects                  → Active projects
 /projects/cemetery          → Retired projects graveyard
 /photography               → Photography links
-/contact                   → Contact; /contact/{generic,photography,advisorship,consultancy} forms (protected by Turnstile)
+/contact                   → Contact; /contact/{generic,photography,date} forms (protected by Turnstile)
 /feed.xml                  → RSS feed of /now entries
 ```
 

@@ -1,0 +1,22 @@
+---
+import { tile } from '../lib/ui';
+
+interface Props {
+	label: string;
+	aside?: string;
+	class?: string;
+}
+const { label, aside, class: className = '' } = Astro.props;
+---
+
+<section
+	class:list={[tile, 'p-6 sm:p-8', className]}
+>
+	<p
+		class="mb-6 flex items-baseline justify-between gap-3 text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
+	>
+		<b class="font-medium text-international-orange-600 text-sm dark:text-international-orange-500">{label}</b>
+		{aside && <span>{aside}</span>}
+	</p>
+	<slot />
+</section>

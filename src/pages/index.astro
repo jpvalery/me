@@ -1,66 +1,64 @@
 ---
 import { Image } from 'astro:assets';
-import { getEntry, render } from 'astro:content';
-import Container from '../components/Container.astro';
-import GitHub from '../components/icons/Github.astro';
-import LinkedIn from '../components/icons/Linkedin.astro';
-import Twitter from '../components/icons/Twitter.astro';
-import Unsplash from '../components/icons/Unsplash.astro';
+import { getCollection, getEntry, render } from 'astro:content';
 import Photos from '../components/Photos.astro';
+import RatingIcon from '../components/RatingIcon.astro';
+import Tile from '../components/Tile.astro';
+import flying from '../content/flying.json';
 import portrait from '../images/portrait.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../lib/site';
+import { site, socials as socialLinks } from '../lib/site';
+import { socialIcons } from '../lib/socialIcons';
+import { tile } from '../lib/ui';
 
 const home = await getEntry('pages', 'home');
 if (!home) throw new Error('Missing src/content/pages/home.md');
 const { Content } = await render(home);
 
-const socials = [
-	['https://twitter.com/jpvalery', 'Twitter', Twitter],
-	['https://github.com/jpvalery', 'GitHub', GitHub],
-	['https://unsplash.com/@jpvalery', 'Unsplash', Unsplash],
-	['https://linkedin.com/in/jpvalery', 'LinkedIn', LinkedIn],
-] as const;
+const socials = socialLinks.map(
+	({ url, label }) => [url, label, socialIcons[label]] as const,
+);
+
+const [latestNow] = (await getCollection('now')).sort((a, b) =>
+	b.data.date.localeCompare(a.data.date),
+);
+const nowExcerpt = (latestNow?.body ?? '')
+	.split(/\n{2,}/)[0]
+	.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+	.replace(/[*_`]/g, '');
+const projectCount = (await getCollection('cards')).filter(
+	(c) => c.data.section === 'projects',
+).length;
+const pilotStats = flying.stats.filter((s) =>
+	['Flights', 'Time', 'Landings'].includes(s.title),
+);
+
+const go =
+	'mt-auto text-xs text-international-orange-600 uppercase tracking-wider hover:underline dark:text-international-orange-500';
+const h3 = 'mb-2 font-departure text-lg';
+const muted = 'text-sm text-stone-600 dark:text-phosphor-500';
 ---
 
 <BaseLayout title={home.data.title} description={home.data.description}>
-	<Container class="mt-16 sm:mt-32">
-		<div
-			class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
-		>
-			<div class="flex items-center justify-center lg:pl-20">
-				<div class="max-w-xs px-2.5 lg:max-w-none">
-					<Image
-						src={portrait}
-						alt="Portrait of Jp Valery"
-						sizes="(min-width: 1024px) 32rem, 20rem"
-						class="aspect-square rounded-full bg-zinc-100 object-cover dark:bg-zinc-900"
-						loading="eager"
-					/>
-				</div>
-			</div>
-			<div class="lg:order-first lg:row-span-2">
-				<p
-					class="pb-1 font-bold font-departure text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100"
-				>
-					<span class="pb-2 text-4xl italic">Bonjour, hi!</span>
-				</p>
-				<h1 class="font-departure text-2xl text-zinc-900 dark:text-zinc-100">
-					I'm Jp and I wear more hats than a H1 can fit
-				</h1>
-				<div class="prose mt-6 space-y-7 text-zinc-600 dark:prose-invert dark:text-zinc-400">
-					<Content />
-				</div>
-			</div>
-			<div class="lg:pl-20">
-				<div
-					class="flex items-center justify-start space-x-6 text-zinc-900 md:order-2 dark:text-zinc-200"
-				>
+	<div
+		class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:px-8 sm:py-12 lg:grid-cols-12 lg:gap-8"
+	>
+		<Tile label="About" aside={site.location} class="flex flex-col lg:col-span-7">
+			<p
+				class="font-departure text-5xl text-international-orange-600 italic sm:text-7xl dark:text-international-orange-500 dark:[text-shadow:0_0_14px_rgb(255_122_31/0.5)]"
+			>
+				Bonjour, hi!
+			</p>
+			<h1 class="mt-3 max-w-none text-balance font-departure text-lg sm:text-xl">
+				I'm Jp and I wear more hats than a H1 can fit
+			</h1>
+			<div class="mt-auto flex flex-wrap items-center gap-x-8 gap-y-4 pt-10">
+				<div class="flex items-center gap-5">
 					{
 						socials.map(([href, label, Icon]) => (
 							<a
 								href={href}
-								class="h-6 w-6 hover:text-international-orange-500 dark:hover:text-international-orange-600"
+								class="size-6 text-zinc-900 transition hover:text-international-orange-600 dark:text-phosphor-100 dark:hover:text-international-orange-500"
 							>
 								<span class="sr-only">{label}</span>
 								<Icon />
@@ -70,42 +68,101 @@ const socials = [
 				</div>
 				<a
 					href={`mailto:${site.email}`}
-					class="group mt-8 flex border-zinc-100 border-t pt-8 font-medium text-sm text-zinc-900 transition hover:text-international-orange-500 dark:border-zinc-700/40 dark:text-zinc-200 dark:hover:text-international-orange-600"
+					class:list={[muted, 'transition hover:text-international-orange-600 dark:hover:text-international-orange-500']}
 				>
-					<svg
-						viewBox="0 0 24 24"
-						aria-hidden="true"
-						class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-international-orange-400 dark:group-hover:fill-international-orange-500"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-						></path>
-					</svg>
-					<span class="ml-4">{site.email}</span>
+					{site.email}
 				</a>
-				<div
-					class="mt-4 flex items-center font-medium text-sm text-zinc-900 dark:text-zinc-200"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						aria-hidden="true"
-						class="h-6 w-6 flex-none text-zinc-500"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-						></path>
-					</svg>
-					<span class="ml-4">{site.location}</span>
-				</div>
 			</div>
-		</div>
-	</Container>
+		</Tile>
+
+		<section
+			class:list={[tile, 'flex flex-col self-start lg:col-span-5']}
+		>
+			<div
+				class="relative aspect-square w-full overflow-hidden bg-international-orange-500 dark:bg-[#1a0e05]"
+			>
+				<Image
+					src={portrait}
+					alt="Portrait of Jp Valery"
+					sizes="(min-width: 1024px) 32rem, 100vw"
+					class="absolute inset-0 size-full object-cover contrast-125 grayscale mix-blend-multiply dark:mix-blend-screen"
+					loading="eager"
+				/>
+			</div>
+			<p
+				class="flex justify-between gap-3 border-stone-300 border-t px-5 py-3 text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:border-ink-700 dark:text-phosphor-500"
+			>
+				<span>Jp Valery</span><span>Pilot · Builder · Gardener</span>
+			</p>
+		</section>
+
+		<Tile label="Bio" class="lg:col-span-7 lg:row-span-2">
+			<div class="prose max-w-none dark:prose-invert prose-p:my-5 prose-p:first:mt-0 prose-p:last:mb-0">
+				<Content />
+			</div>
+		</Tile>
+
+		<Tile label="Work" aside="Resume · Company" class="flex flex-col lg:col-span-5">
+			<h2 class={h3}>Work with me</h2>
+			<p class:list={[muted, 'mb-6']}>My resume, what colleagues say, and how I like to work.</p>
+			<a href="/work" class={go}>See my work →</a>
+		</Tile>
+
+		<Tile label="Pilot log" aside="Ratings" class="lg:col-span-5">
+			<table class="w-full text-sm tabular-nums">
+				<tbody>
+					{
+						flying.ratings.map((r) => (
+							<tr class="border-stone-300 border-t border-dashed dark:border-ink-700">
+								<td class="py-3">
+									<RatingIcon
+										name={r.icon}
+										class:list={[
+											'mr-3 -mt-0.5 inline-block size-4',
+											r.next
+												? 'text-stone-500 dark:text-phosphor-500'
+												: 'text-international-orange-600 dark:text-international-orange-500',
+										]}
+									/>
+									<span class={r.next ? 'text-stone-500 dark:text-phosphor-500' : ''}>
+										{r.title}
+									</span>
+								</td>
+								<td class="py-3 text-right text-stone-500 dark:text-phosphor-500">
+									{r.next ? 'Next' : (r.when ?? '')}
+								</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+			<dl class="mt-6 grid grid-cols-3 gap-4 border-stone-300 border-t pt-6 dark:border-ink-700">
+				{
+					pilotStats.map((s) => (
+						<div>
+							<dt class="text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500">
+								{s.title}
+							</dt>
+							<dd class="font-departure text-2xl text-international-orange-600 dark:text-international-orange-500">
+								{s.metric}
+							</dd>
+						</div>
+					))
+				}
+			</dl>
+		</Tile>
+
+		<Tile label="Now" aside={latestNow?.data.date} class="flex flex-col lg:col-span-7">
+			<h2 class={h3}>What I'm up to</h2>
+			<p class:list={[muted, 'mb-6 line-clamp-5']}>{nowExcerpt}</p>
+			<a href="/now" class={go}>Read now →</a>
+		</Tile>
+
+		<Tile label="Projects" aside={`${projectCount} listed`} class="flex flex-col lg:col-span-5">
+			<h2 class={h3}>Things I made</h2>
+			<p class:list={[muted, 'mb-6']}>Side projects, tools and the odd experiment.</p>
+			<a href="/projects" class={go}>See projects →</a>
+		</Tile>
+	</div>
 	<Photos />
 </BaseLayout>

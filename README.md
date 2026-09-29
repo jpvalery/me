@@ -22,9 +22,8 @@ Content lives in `src/content/` as Astro content collections (schemas in `src/co
 | Path | Used for |
 | --- | --- |
 | `pages/home.md` | Home page bio |
-| `pages/work/*.md` | One page per file under `/work/*`; frontmatter sets the button (`cta`), the FAQ (`faq: true`) and full-width text (`wide: true`) |
+| `pages/work/*.md` | One page per file under `/work/*`; frontmatter sets full-width text (`wide: true`) |
 | `pages/date/{me,you}.md` | `/date/*` (noindex) |
-| `pages/faq.md` | FAQ shown on advisorship and consultancy, one `##` heading per question |
 | `now/YYYY-MM-DD.md` | `/now` entries: the latest is `/now`, all of them form the timeline and the RSS feed |
 | `cards.json` | Link cards on `/work`, `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order |
 | `recommendations.json`, `stack.json` | Testimonials and `/stack`, in file order |
@@ -50,7 +49,7 @@ public/             # llms.txt, agent.md, favicon, avatars
 
 ## Contact forms
 
-`/contact/{generic,photography,advisorship,consultancy,date}` share one config-driven form
+`/contact/{generic,photography,date}` share one config-driven form
 (`src/lib/contact.ts`). `POST /api/send` rejects cross-origin requests, wrong content types and bodies over
 8 KB, silently drops submissions with the honeypot filled, requires at least 3 seconds to fill the form,
 verifies the Turnstile token, validates with zod, then sends through Customer.io. It returns a real error

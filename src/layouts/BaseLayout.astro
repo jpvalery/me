@@ -76,22 +76,18 @@ const shareImage = image ?? new URL(defaultImage.src, base).href;
 		</script>
 	</head>
 	<body
-		class="flex h-full bg-zinc-50 text-zinc-900 dark:bg-[#16161D] dark:text-zinc-100"
+		class="flex min-h-full bg-stone-100 text-zinc-900 dark:bg-ink-950 dark:text-phosphor-100"
 	>
-		<div class="flex w-full">
-			<div class="fixed inset-0 flex justify-center sm:px-8">
-				<div class="flex w-full max-w-7xl lg:px-8">
-					<div
-						class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
-					>
-					</div>
-				</div>
-			</div>
-			<div class="relative flex w-full flex-col">
-				<Header />
-				<main class="flex-auto"><slot /></main>
-				<Footer />
-			</div>
+		<div class="relative flex w-full flex-col">
+			<Header />
+			<main class="flex-auto"><slot /></main>
+			<Footer />
+		</div>
+		<!-- Dark theme only: faint CRT scanlines over the page -->
+		<div
+			aria-hidden="true"
+			class="pointer-events-none fixed inset-0 z-50 hidden bg-[repeating-linear-gradient(0deg,rgb(0_0_0/0.14)_0_1px,transparent_1px_3px)] mix-blend-multiply dark:block"
+		>
 		</div>
 		<script
 			is:inline

@@ -8,7 +8,7 @@ interface Props {
 const { def } = Astro.props;
 const siteKey = PUBLIC_TURNSTILE_SITE_KEY;
 const input =
-	'block w-full rounded-sm border-gray-300 text-gray-900 shadow-xs focus:border-international-orange-400 focus:ring-international-orange-400';
+	'block w-full rounded-none border-stone-300 bg-white text-zinc-900 focus:border-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950 dark:text-phosphor-100';
 ---
 
 <form
@@ -19,10 +19,10 @@ const input =
 >
 	{
 		def.fields.map((f) => (
-			<div class="grid grid-flow-row gap-3 p-4">
+			<div class="grid grid-flow-row gap-2 py-3">
 				<label
 					for={f.name}
-					class="w-full font-medium text-gray-500 dark:text-gray-200"
+					class="w-full text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
 				>
 					{f.label}
 				</label>
@@ -64,10 +64,10 @@ const input =
 		))
 	}
 
-	<div class="grid grid-flow-col items-center justify-start gap-3 p-4">
+	<div class="grid grid-flow-col items-center justify-start gap-3 py-3">
 		<label
 			for="checked"
-			class="w-full font-medium text-gray-500 dark:text-gray-200"
+			class="w-full text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
 		>
 			Have you proofread everything?
 		</label>
@@ -76,7 +76,7 @@ const input =
 			id="checked"
 			name="checked"
 			required
-			class="order-first h-4 w-4 rounded-sm border-gray-300 text-international-orange-500 focus:ring-international-orange-400"
+			class="order-first size-4 rounded-none border-stone-300 text-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950"
 		/>
 	</div>
 
@@ -86,7 +86,7 @@ const input =
 		<input type="text" id="nickname" name="nickname" tabindex="-1" autocomplete="off" />
 	</div>
 
-	<div class="p-4">
+	<div class="py-3">
 		<div
 			class="cf-turnstile"
 			data-sitekey={siteKey}
@@ -96,29 +96,29 @@ const input =
 		</div>
 	</div>
 
-	<div class="grid grid-flow-col items-center justify-start py-5">
+	<div class="grid grid-flow-col items-center justify-start pt-6">
 		<button
 			type="submit"
 			id="contact-submit"
-			class="inline-flex w-full cursor-pointer justify-center rounded-sm border border-transparent bg-gray-100 px-4 py-2 font-medium text-base text-gray-900 shadow-xs hover:bg-green-500 hover:text-white focus:bg-green-400 focus:text-white focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-60 sm:ml-3 sm:w-auto"
+			class="inline-flex w-full cursor-pointer justify-center bg-international-orange-500 px-5 py-3 font-medium text-ink-950 text-sm uppercase tracking-wider outline-offset-2 transition hover:bg-international-orange-400 disabled:opacity-60 sm:w-auto"
 		>
 			Send now
 		</button>
 	</div>
-	<p id="contact-error" role="alert" class="hidden px-4 text-red-600 text-sm"></p>
+	<p id="contact-error" role="alert" class="hidden pt-3 text-red-600 text-sm"></p>
 </form>
 
 <dialog
 	id="contact-done"
-	class="m-auto w-full max-w-md rounded-sm bg-white p-6 text-left shadow-xl backdrop:bg-black/50 dark:border-2 dark:border-zinc-50 dark:bg-zinc-950"
+	class="m-auto w-full max-w-md border border-international-orange-500 bg-stone-50 p-6 text-left text-zinc-900 backdrop:bg-black/60 dark:bg-ink-900 dark:text-phosphor-100"
 >
-	<h3 class="font-medium text-gray-900 text-lg leading-6 dark:text-gray-100">
+	<h3 class="font-departure text-xl">
 		Your message has been sent!
 	</h3>
-	<p class="mt-2 text-gray-500 dark:text-gray-200">I'll be in touch soon</p>
+	<p class="mt-2 text-stone-600 dark:text-phosphor-500">I'll be in touch soon</p>
 	<form method="dialog" class="mt-4">
 		<button
-			class="inline-flex justify-center rounded-sm border border-transparent bg-zinc-100 px-4 py-2 font-medium text-blue-900 hover:bg-zinc-200"
+			class="inline-flex justify-center bg-international-orange-500 px-4 py-2 text-ink-950 text-sm uppercase tracking-wider hover:bg-international-orange-400"
 		>
 			Got it!
 		</button>

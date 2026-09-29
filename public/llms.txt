@@ -10,7 +10,7 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 
 - Current role: Customer Success Engineer at Resend (email infrastructure)
 - Previous: 4 years at Customer.io
-- Side company: Raccoon Ventures (raccoonv.com) — consulting, advisorship, side projects
+- Side company: Raccoon Ventures (raccoonv.com) — advisory, consulting, side projects (advisory and consulting requests go to raccoonv.com)
 - Specialties: Customer success, email infrastructure, developer tools, SaaS
 
 ## Active Projects
@@ -43,11 +43,9 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 - /work — Professional background and offers
 - /work/recommendations — Colleague testimonials
 - /work/how-to-work-with-me — Personal/professional README
-- /work/advisorship — Advisory work
-- /work/consultancy — Consulting work
 - /projects — Active projects; /projects/cemetery — retired projects
 - /photography — Photography links and portfolio
-- /contact — Contact; /contact/{generic,photography,advisorship,consultancy} — category-specific forms
+- /contact — Contact; /contact/{generic,photography,date} — category-specific forms
 - /feed.xml — RSS feed of /now entries
 
 ## Site Details

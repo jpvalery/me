@@ -7,18 +7,18 @@ Astro.response.status = 404;
 ---
 
 <BaseLayout title="Page not found" noindex>
-	<Container class="flex h-full items-center pt-16 sm:pt-32">
-		<div class="flex flex-col items-center">
-			<p class="font-semibold text-base text-zinc-400 dark:text-zinc-500">404</p>
+	<Container class="flex h-full items-center pt-16 sm:pt-24">
+		<div class="flex flex-col items-start">
+			<p class="text-[0.68rem] text-international-orange-600 uppercase tracking-[0.14em] dark:text-international-orange-500">Error 404</p>
 			<h1
-				class="mt-4 font-bold font-departure text-4xl text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100"
+				class="mt-4 font-departure text-4xl text-zinc-900 sm:text-6xl dark:text-phosphor-100"
 			>
 				Page not found
 			</h1>
-			<p class="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+			<p class="mt-4 text-base text-stone-600 dark:text-phosphor-500">
 				Sorry, we couldn’t find the page you’re looking for.
 			</p>
-			<Button href="/" variant="secondary" class="mt-4">Go back home</Button>
+			<Button href="/" variant="secondary" class="mt-6">Go back home</Button>
 		</div>
 	</Container>
 </BaseLayout>

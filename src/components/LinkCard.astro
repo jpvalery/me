@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getLogo } from '../lib/logos';
+import { eyebrow, tile } from '../lib/ui';
 
 interface Props {
 	title: string;
@@ -8,60 +9,57 @@ interface Props {
 	label?: string;
 	description?: string;
 	logo?: string;
-	compact?: boolean;
+	invertLogo?: boolean;
 }
-const { title, href, label, description, logo, compact = false } = Astro.props;
+const {
+	title,
+	href,
+	label,
+	description,
+	logo,
+	invertLogo = false,
+} = Astro.props;
 const image = getLogo(logo);
 const external = /^https?:/.test(href);
 ---
 
 <a
 	href={href}
-	class="block h-full"
+	class="group block h-full"
 	rel={external ? 'noopener' : undefined}
 >
 	<div
 		class:list={[
-			'group grid min-h-36 h-full grid-flow-col items-center justify-start gap-x-8 border p-4 hover:border-international-orange-400 dark:border-zinc-700/50 dark:hover:border-international-orange-500',
-			compact && 'items-start',
+			tile,
+			'flex h-full flex-col p-6 transition group-hover:border-international-orange-500 sm:p-8',
 		]}
 	>
-		{
-			image && (
-				<div class="z-10 flex h-16 w-16 items-center justify-center rounded-sm bg-zinc-200/25 shadow-md shadow-zinc-900/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-900 dark:ring-0">
+		<p class:list={[eyebrow, 'mb-6 flex items-baseline justify-between gap-3']}>
+			<b class="font-medium text-international-orange-600 text-sm dark:text-international-orange-500">{title}</b>
+			{label && <span class="truncate">{label}</span>}
+		</p>
+		<div
+			class:list={[
+				'grid items-start gap-5',
+				image ? 'grid-cols-[1fr_4fr]' : 'grid-cols-1',
+			]}
+		>
+			{
+				image && (
 					<Image
 						src={image}
 						alt=""
-						class="h-10 w-10 text-zinc-950 dark:text-zinc-50"
+						class:list={['size-10', invertLogo && 'dark:invert']}
 						inferSize
 					/>
-				</div>
-			)
-		}
-		<div class="grid grid-flow-row items-start justify-start">
-			<h3 class="font-semibold text-base text-zinc-900 dark:text-zinc-100">
-				{title}
-			</h3>
-			{
-				label && (
-					<span class="relative z-10 flex font-medium text-sm text-zinc-400 transition group-hover:text-international-orange-400 dark:text-zinc-200 dark:group-hover:text-international-orange-500">
-						<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none">
-							<path
-								d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
-								fill="currentColor"
-							/>
-						</svg>
-						<span>{label}</span>
-					</span>
 				)
 			}
-			{
-				description && (
-					<p class="relative z-10 mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-						{description}
-					</p>
-				)
-			}
+			<p class="text-sm text-stone-600 dark:text-phosphor-500">
+				<span class="pr-2">{description}</span>
+				<span class="whitespace-nowrap text-international-orange-600 uppercase tracking-wider group-hover:underline dark:text-international-orange-500">
+					{external ? 'Visit ↗' : 'Open →'}
+				</span>
+			</p>
 		</div>
 	</div>
 </a>

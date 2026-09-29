@@ -6,6 +6,7 @@ import photoCamera from '../images/photos/jp-valery-camera.jpg';
 import photoPilot1 from '../images/photos/jp-valery-pilot-1.jpg';
 import photoPilot2 from '../images/photos/jp-valery-pilot-2.jpg';
 import photoPilot4 from '../images/photos/jp-valery-pilot-4.jpg';
+import Tile from './Tile.astro';
 
 interface Props {
 	set?: 'home' | 'date';
@@ -29,21 +30,39 @@ const sets = {
 const images = sets[set];
 ---
 
-<div class="mt-16 sm:mt-20">
-	<div
-		class="-my-4 flex flex-col items-center gap-5 py-4 sm:flex-row sm:justify-center sm:gap-8 sm:overflow-hidden"
+<div class="mx-auto max-w-7xl px-4 pb-2 sm:px-8">
+	<Tile
+		label="Photography"
+		aside={set === 'home' ? '300M+ views on Unsplash' : undefined}
 	>
+		<ul
+			class:list={[
+				'grid grid-cols-2 gap-4 sm:gap-6',
+				images.length === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-3 lg:grid-cols-5',
+			]}
+		>
+			{
+				images.map(([image, alt]) => (
+					<li class="group relative aspect-4/5 overflow-hidden bg-international-orange-500 dark:bg-[#1a0e05]">
+						<Image
+							src={image}
+							alt={alt}
+							sizes="(min-width: 1024px) 14rem, (min-width: 640px) 30vw, 45vw"
+							class="absolute inset-0 size-full object-cover contrast-110 grayscale mix-blend-multiply transition duration-300 group-hover:mix-blend-normal group-hover:grayscale-0 dark:mix-blend-screen dark:group-hover:mix-blend-normal"
+						/>
+					</li>
+				))
+			}
+		</ul>
 		{
-			images.map(([image, alt]) => (
-				<div class="relative aspect-9/10 w-64 flex-none overflow-hidden rounded-sm bg-zinc-100 sm:w-72 dark:bg-zinc-900">
-					<Image
-						src={image}
-						alt={alt}
-						sizes="(min-width: 640px) 18rem, 11rem"
-						class="absolute inset-0 h-full w-full object-cover"
-					/>
-				</div>
-			))
+			set === 'home' && (
+				<a
+					href="/photography"
+					class="mt-6 inline-block text-xs text-international-orange-600 uppercase tracking-wider hover:underline dark:text-international-orange-500"
+				>
+					Browse photos →
+				</a>
+			)
 		}
-	</div>
+	</Tile>
 </div>

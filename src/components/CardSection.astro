@@ -12,7 +12,7 @@ const cards = (
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<ul class:list={['grid grid-cols-1 items-stretch gap-12', columns]}>
+<ul class:list={['grid grid-cols-1 items-stretch gap-6 lg:gap-8', columns]}>
 	{
 		cards.map((card) => (
 			<li class="h-full">
@@ -22,6 +22,7 @@ const cards = (
 					label={card.data.label}
 					description={card.data.description}
 					logo={card.data.logo}
+					invertLogo={card.data.invertLogoOnDark}
 				/>
 			</li>
 		))

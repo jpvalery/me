@@ -1,11 +1,16 @@
 ---
+import Button from '../../components/Button.astro';
+import ContactAside from '../../components/ContactAside.astro';
 import SimpleLayout from '../../components/SimpleLayout.astro';
+import Tile from '../../components/Tile.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Get in touch" description="Easily get in touch with me">
 	<SimpleLayout title="Get in touch">
-		<div class="prose text-gray-600 dark:text-gray-200">
+		<div class="grid gap-6 lg:grid-cols-12 lg:gap-8">
+	<Tile label="Before you write" class="lg:col-span-8">
+		<div class="prose max-w-none dark:prose-invert">
 			<p>
 				I'm gonna be real. I can't pursue every opportunity that comes my way
 				and have to be extremely picky.
@@ -29,13 +34,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</p>
 			<p>Sounds good?</p>
 		</div>
-		<div class="grid grid-flow-col items-center justify-start py-5">
-			<a
-				href="/contact/generic"
-				class="inline-flex w-full cursor-pointer justify-center rounded-sm border border-transparent bg-gray-100 px-4 py-2 font-medium text-base text-gray-900 shadow-xs hover:bg-green-500 hover:text-white focus:bg-green-400 focus:text-white focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto"
-			>
-				Contact me
-			</a>
-		</div>
+			<div class="mt-10">
+				<Button href="/contact/generic">Contact me</Button>
+			</div>
+		</Tile>
+	<ContactAside class="lg:col-span-4" />
+	</div>
 	</SimpleLayout>
 </BaseLayout>

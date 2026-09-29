@@ -1,25 +1,46 @@
 ---
 import Container from './Container.astro';
+import Tile from './Tile.astro';
 
 interface Props {
 	title: string;
 	intro?: string;
+	/** Secondary block on a page: a labelled tile instead of a page hero */
+	sub?: boolean;
 }
-const { title, intro } = Astro.props;
+const { title, intro, sub = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
-<Container class="mt-16 sm:mt-32">
-	<header class="max-w-2xl">
-		<h1
-			class="font-bold font-departure text-4xl text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100"
-		>
-			{title}
-		</h1>
+<Container class={sub ? 'pb-8' : 'pt-8 pb-8 sm:pt-12'}>
+	<div class="grid gap-6 lg:gap-8">
 		{
-			intro && (
-				<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">{intro}</p>
+			sub ? (
+				<Tile label={title}>
+					{intro && (
+						<p class="mb-6 max-w-2xl text-base text-stone-600 dark:text-phosphor-500">
+							{intro}
+						</p>
+					)}
+					<slot />
+				</Tile>
+			) : (
+				<>
+					<Tile label={path}>
+						<h1 class="max-w-4xl text-balance font-departure text-4xl text-zinc-900 sm:text-6xl dark:text-phosphor-100">
+							{title}
+						</h1>
+						{intro && (
+							<p class="mt-6 max-w-2xl text-base text-stone-600 dark:text-phosphor-500">
+								{intro}
+							</p>
+						)}
+					</Tile>
+					<div>
+						<slot />
+					</div>
+				</>
 			)
 		}
-	</header>
-	<div class="mt-16 sm:mt-20"><slot /></div>
+	</div>
 </Container>

@@ -1,8 +1,16 @@
 {
-	"updated": "November 17th, 2025",
+	"ratings": [
+		{ "title": "Private Pilot", "icon": "plane", "when": "2024" },
+		{ "title": "Night rating", "icon": "moon", "when": "2025" },
+		{ "title": "Aerobatics", "icon": "loop", "when": "2025" },
+		{ "title": "Floats (seaplane)", "icon": "floats", "when": "2026" },
+		{ "title": "Multi-engine", "icon": "twin", "next": true },
+		{ "title": "Commercial", "icon": "briefcase", "next": true }
+	],
+	"updated": "September 29th, 2026",
 	"stats": [
-		{ "title": "Flights", "metric": "98", "link": "https://foreflight.com" },
-		{ "title": "Time", "metric": "129.1", "link": "https://foreflight.com" },
+		{ "title": "Flights", "metric": "122", "link": "https://foreflight.com" },
+		{ "title": "Time", "metric": "170.6", "link": "https://foreflight.com" },
 		{
 			"title": "Distance (2024)",
 			"metric": "1,280 NM",
@@ -13,6 +21,6 @@
 			"metric": "1,488 NM",
 			"link": "https://plan.foreflight.com/recap/501e1e51-aa19-46c4-a9d7-9e148d4c921e"
 		},
-		{ "title": "Landings", "metric": "290", "link": "https://foreflight.com" }
+		{ "title": "Landings", "metric": "365", "link": "https://foreflight.com" }
 	]
 }

@@ -1,10 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Container from '../../components/Container.astro';
-import CtaLink from '../../components/CtaLink.astro';
-import FAQ from '../../components/FAQ.astro';
 import Prose from '../../components/Prose.astro';
 import SimpleLayout from '../../components/SimpleLayout.astro';
+import Tile from '../../components/Tile.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // One page per src/content/pages/work/*.md
@@ -17,38 +16,33 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, description, intro, cta, faq, wide } = entry.data;
+const { title, description, intro, wide } = entry.data;
 const { Content } = await render(entry);
 ---
 
 <BaseLayout title={title} description={description ?? intro}>
 	{
 		wide ? (
-			<Container class="mt-16 sm:mt-32">
-				<h1 class="mb-10 font-bold font-departure text-4xl text-zinc-900 tracking-tight sm:text-5xl dark:text-zinc-100">
+			<Container class="pt-12 pb-8 sm:pt-16">
+				<p class="mb-4 text-[0.68rem] text-international-orange-600 uppercase tracking-[0.14em] dark:text-international-orange-500">
+					{Astro.url.pathname.replace(/\/$/, '')}
+				</p>
+				<h1 class="mb-10 text-balance font-departure text-4xl text-zinc-900 sm:text-6xl dark:text-phosphor-100">
 					{title}
 				</h1>
-				<Prose class="max-w-none">
-					<Content />
-				</Prose>
+				<Tile label="Details">
+					<Prose class="max-w-none">
+						<Content />
+					</Prose>
+				</Tile>
 			</Container>
 		) : (
 			<SimpleLayout title={title} intro={intro}>
-				<Prose class="prose-lg max-w-2xl">
-					<Content />
-				</Prose>
-				{cta && (
-					<div class="mt-12">
-						<CtaLink href={cta.href}>{cta.label}</CtaLink>
-					</div>
-				)}
-			</SimpleLayout>
-		)
-	}
-	{
-		faq && (
-			<SimpleLayout title="Frequently Asked Questions">
-				<FAQ />
+				<Tile label="Details">
+					<Prose class="max-w-none">
+						<Content />
+					</Prose>
+				</Tile>
 			</SimpleLayout>
 		)
 	}

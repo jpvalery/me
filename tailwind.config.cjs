@@ -72,8 +72,8 @@ module.exports = {
 					'--tw-prose-th-borders': theme('colors.zinc.200'),
 					'--tw-prose-td-borders': theme('colors.zinc.100'),
 
-					'--tw-prose-invert-body': theme('colors.zinc.400'),
-					'--tw-prose-invert-headings': theme('colors.zinc.200'),
+					'--tw-prose-invert-body': '#c9b69c',
+					'--tw-prose-invert-headings': '#f3e3cc',
 					'--tw-prose-invert-links': theme('colors.internationalOrange.400'),
 					'--tw-prose-invert-links-hover': theme(
 						'colors.internationalOrange.500',
@@ -84,11 +84,11 @@ module.exports = {
 					'--tw-prose-invert-underline-hover': theme(
 						'colors.internationalOrange.500 / 0.5',
 					),
-					'--tw-prose-invert-bold': theme('colors.zinc.200'),
-					'--tw-prose-invert-counters': theme('colors.zinc.200'),
-					'--tw-prose-invert-bullets': theme('colors.zinc.200'),
-					'--tw-prose-invert-hr': theme('colors.zinc.700 / 0.4'),
-					'--tw-prose-invert-quote-borders': theme('colors.zinc.500'),
+					'--tw-prose-invert-bold': '#f3e3cc',
+					'--tw-prose-invert-counters': '#f3e3cc',
+					'--tw-prose-invert-bullets': '#f3e3cc',
+					'--tw-prose-invert-hr': '#3b2a1a',
+					'--tw-prose-invert-quote-borders': '#3b2a1a',
 					'--tw-prose-invert-captions': theme('colors.zinc.500'),
 					'--tw-prose-invert-code': theme('colors.zinc.300'),
 					'--tw-prose-invert-code-bg': theme('colors.zinc.200 / 0.05'),
@@ -137,7 +137,7 @@ module.exports = {
 
 					// Images
 					img: {
-						borderRadius: theme('borderRadius.3xl'),
+						borderRadius: 0,
 					},
 
 					// Inline elements
@@ -164,7 +164,7 @@ module.exports = {
 						fontSize: theme('fontSize.sm')[0],
 						fontWeight: theme('fontWeight.semibold'),
 						backgroundColor: 'var(--tw-prose-code-bg)',
-						borderRadius: theme('borderRadius.lg'),
+						borderRadius: 0,
 						paddingLeft: theme('spacing.1'),
 						paddingRight: theme('spacing.1'),
 					},
@@ -234,7 +234,7 @@ module.exports = {
 						fontSize: theme('fontSize.sm')[0],
 						fontWeight: theme('fontWeight.medium'),
 						backgroundColor: 'var(--tw-prose-pre-bg)',
-						borderRadius: theme('borderRadius.3xl'),
+						borderRadius: 0,
 						padding: theme('spacing.8'),
 						overflowX: 'auto',
 						border: '1px solid',

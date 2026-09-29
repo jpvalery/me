@@ -6,6 +6,13 @@ export const site = {
 	location: 'Montréal, QC',
 };
 
+export const socials = [
+	{ label: 'Twitter', url: 'https://twitter.com/jpvalery' },
+	{ label: 'GitHub', url: 'https://github.com/jpvalery' },
+	{ label: 'Unsplash', url: 'https://unsplash.com/@jpvalery' },
+	{ label: 'LinkedIn', url: 'https://linkedin.com/in/jpvalery' },
+] as const;
+
 export interface NavItem {
 	label: string;
 	url: string;
@@ -32,14 +39,18 @@ export const navigation: NavItem[] = [
 			{ label: 'Resume', url: 'https://resume.jpvalery.me', external: true },
 			{ label: 'Work with me', url: '/work/how-to-work-with-me' },
 			{ label: 'Recommendations', url: '/work/recommendations' },
-			{ label: 'Advisorship', url: '/work/advisorship' },
-			{ label: 'Consultancy', url: '/work/consultancy' },
 		],
 	},
 	{
 		label: 'Projects',
 		url: '/projects',
 		children: [
+			{ label: 'Hockay', url: 'https://hockay.com', external: true },
+			{
+				label: 'Safety Briefing',
+				url: 'https://safety-briefing.com',
+				external: true,
+			},
 			{
 				label: 'TrimCarbon.com',
 				url: 'https://trimcarbon.com',
@@ -48,11 +59,6 @@ export const navigation: NavItem[] = [
 			{
 				label: 'Flaps',
 				url: 'https://github.com/jpvalery/flaps',
-				external: true,
-			},
-			{
-				label: 'MSFS Flightlog',
-				url: 'https://flightlog.jpvalery.me',
 				external: true,
 			},
 			{ label: 'Cemetery', url: '/projects/cemetery' },

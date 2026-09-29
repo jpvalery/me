@@ -1,0 +1,32 @@
+---
+interface Props {
+	name: string;
+	class?: string;
+}
+const { name, class: className = '' } = Astro.props;
+
+// 24x24 stroke icons, one per rating (see ratings in src/content/flying.json)
+const paths: Record<string, string> = {
+	plane:
+		'M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z',
+	moon: 'M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z',
+	loop: 'M6 19V5M10 19V6.8M14 19v-7.8M18 5v4M18 19v-6M22 19V9M2 19V9a4 4 0 0 1 4-4c2 0 4 1.33 6 4s4 4 6 4a4 4 0 1 0-3-6.65',
+	floats:
+		'M2 12q2.5 2 5 0t5 0 5 0 5 0M2 19q2.5 2 5 0t5 0 5 0 5 0M2 5q2.5 2 5 0t5 0 5 0 5 0',
+	twin: 'M12 3v18M3 10h18M5.5 7h3v6h-3zM15.5 7h3v6h-3zM9.5 21h5',
+	briefcase: 'M4 8h16v11H4zM9 8V5h6v3M4 13h16',
+};
+---
+
+<svg
+	viewBox="0 0 24 24"
+	fill="none"
+	stroke="currentColor"
+	stroke-width="2"
+	stroke-linecap="round"
+	stroke-linejoin="round"
+	aria-hidden="true"
+	class={className}
+>
+	<path d={paths[name] ?? paths.plane}></path>
+</svg>

@@ -11,6 +11,17 @@ export default defineConfig({
 	trailingSlash: 'never',
 	redirects: {
 		'/about': '/',
+		// Advisory and consulting moved to Raccoon Ventures
+		'/work/advisorship': { status: 301, destination: 'https://raccoonv.com' },
+		'/work/consultancy': { status: 301, destination: 'https://raccoonv.com' },
+		'/contact/advisorship': {
+			status: 301,
+			destination: 'https://raccoonv.com',
+		},
+		'/contact/consultancy': {
+			status: 301,
+			destination: 'https://raccoonv.com',
+		},
 		'/date': { status: 302, destination: '/date/me' },
 	},
 	// Render quotes and apostrophes exactly as written in the Markdown

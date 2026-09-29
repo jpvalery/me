@@ -27,24 +27,6 @@
 		"logo": "workwithme"
 	},
 	{
-		"id": "work-advisorship",
-		"section": "work",
-		"title": "Advisorship",
-		"description": "Field-tested experience to support your company",
-		"href": "/work/advisorship",
-		"label": "/work/advisorship",
-		"logo": "advisor"
-	},
-	{
-		"id": "work-consultancy",
-		"section": "work",
-		"title": "Consultancy",
-		"description": "Better, faster, stronger results — but not harder",
-		"href": "/work/consultancy",
-		"label": "/work/consultancy",
-		"logo": "hire"
-	},
-	{
 		"id": "work-raccoon-ventures",
 		"section": "work",
 		"title": "Raccoon Ventures",
@@ -52,6 +34,24 @@
 		"href": "https://raccoonv.com",
 		"label": "raccoonv.com",
 		"logo": "raccoonventures"
+	},
+	{
+		"id": "projects-hockay",
+		"section": "projects",
+		"title": "Hockay",
+		"description": "One sport no one asked for but everyone needed. A fan-controlled ice hockey league with hourly games, bets, team shares and petitions to Le Council",
+		"href": "https://hockay.com",
+		"label": "hockay.com",
+		"logo": "hockay",
+		"invertLogoOnDark": true
+	},
+	{
+		"id": "projects-safety-briefing",
+		"section": "projects",
+		"title": "Safety Briefing",
+		"description": "A safety briefing for general aviation passengers, covering pre-flight preparation and in-flight procedures. Open source under the MIT License",
+		"href": "https://safety-briefing.com",
+		"label": "safety-briefing.com"
 	},
 	{
 		"id": "projects-trimcarbon-com",
@@ -70,15 +70,6 @@
 		"href": "https://github.com/jpvalery/flaps",
 		"label": "jpvalery/flaps",
 		"logo": "flaps"
-	},
-	{
-		"id": "projects-msfs-flightlog",
-		"section": "projects",
-		"title": "MSFS Flightlog",
-		"description": "Screenshots and stats of my flight simulator adventures",
-		"href": "https://flightlog.jpvalery.me",
-		"label": "flightlog.jpvalery.me",
-		"logo": "flightlog"
 	},
 	{
 		"id": "projects-cuisinomicon-wip",
@@ -124,6 +115,14 @@
 		"href": "https://unsplash.com/@jpvalery",
 		"label": "unsplash.com/@jpvalery",
 		"logo": "unsplash"
+	},
+	{
+		"id": "cemetery-msfs-flightlog",
+		"section": "cemetery",
+		"title": "MSFS Flightlog",
+		"description": "Screenshots and stats of my flight simulator adventures",
+		"href": "https://flightlog.jpvalery.me",
+		"label": "flightlog.jpvalery.me"
 	},
 	{
 		"id": "cemetery-meche",
