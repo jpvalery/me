@@ -22,6 +22,8 @@ const pages = defineCollection({
 		title: z.string(),
 		description: z.string().optional(),
 		intro: z.string().optional(),
+		/** Callout shown above the content */
+		notice: z.string().optional(),
 		/** Button under the content */
 		cta: z.object({ label: z.string(), href: z.string() }).optional(),
 		/** Show the FAQ below the page */

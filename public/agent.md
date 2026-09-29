@@ -41,7 +41,7 @@ Details at /work/advisorship and /work/consultancy.
 
 ## Key Interests & Expertise Areas
 
-- **Aviation:** Licensed private pilot (PPL + Night Rating), aerobatics, pursuing Multi-Engine and Floats ratings
+- **Aviation:** Licensed private pilot (PPL + Night Rating) and seaplane pilot (Floats rating, June 2026), aerobatics, pursuing Multi-Engine and Commercial
 - **Photography:** 300M+ views on Unsplash, founded Montréal Photo Club, shoots DSLR/medium format/large format/infrared
 - **Tech:** Email infrastructure, developer tools, SaaS, customer success
 - **Other:** Cooking/baking, gardening, 3D printing, cycling, music (guitar, bass)

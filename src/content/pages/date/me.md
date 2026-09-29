@@ -1,5 +1,6 @@
 ---
 title: "About me"
+notice: "I've found an amazing partner, so I'm no longer looking. I'm keeping this page up for historical purposes."
 ---
 
 ## TL;DR
@@ -28,7 +29,7 @@ Most people eventually ask me: _"Is there something you don't know how to do?"_
 
 The truth is, every time I find an answer to that question, I eliminate it. Not knowing how to do something just means I've unlocked a new sidequest.
 
-**In the air:** I earned my Private Pilot License in 2024. In 2025, I added a Night Rating and started aerobatics training. Next up: Multi-Engine and Floats ratings. The sky, it turns out, is not the limit. This started as a childhood dream and became a real part of my life.
+**In the air:** I earned my Private Pilot License in 2024. In 2025, I added a Night Rating and started aerobatics training. In June 2026, I earned my Floats rating and became a licensed seaplane pilot. Next up: Multi-Engine and Commercial. The sky, it turns out, is not the limit. This started as a childhood dream and became a real part of my life.
 
 **On the ground:** I'm usually gardening (_or in winter, convincing a mango tree to survive in Montréal_), 3D printing more or less useful contraptions, or cooking something from scratch. I bake pretty great pizzas—homemade dough, the whole thing. If you need to gauge how serious I am about that craft, I own a 30-pound encyclopedia on pizza.
 

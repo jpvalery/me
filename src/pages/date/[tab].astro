@@ -27,6 +27,18 @@ const link = (active: boolean) => [
 <BaseLayout title={entry.data.title} noindex>
 	<Container>
 		<div class="mx-auto mt-16 max-w-2xl pb-8 sm:mt-32">
+			{
+				entry.data.notice && (
+					<aside
+						role="note"
+						class="mb-12 rounded-sm border-international-orange-500 border-l-4 bg-international-orange-50 p-4 text-base text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100"
+					>
+						<p>
+							<strong class="font-semibold">Update:</strong> {entry.data.notice}
+						</p>
+					</aside>
+				)
+			}
 			<Prose>
 				<Content />
 			</Prose>
