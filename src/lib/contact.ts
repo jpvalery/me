@@ -41,7 +41,8 @@ export const forms: Record<string, ContactFormDef> = {
 	generic: {
 		type: "generic",
 		title: "Get in touch",
-		description: "Easily get in touch with me",
+		description:
+			"Get in touch with Jp Valery about work, photography, or just to say hi.",
 		intro: [],
 		fields: [
 			name,
@@ -63,7 +64,7 @@ export const forms: Record<string, ContactFormDef> = {
 	photography: {
 		type: "photography",
 		title: "Get in touch about photography",
-		description: "Get in touch about my photography",
+		description: "Get in touch with Jp Valery about photography.",
 		intro: [
 			"I'm available for editorial, commercial, and documentary projects.",
 			"While I'm currently favoring more in-depth editorial and documentary projects, I'm happy to discuss other projects if they match my vision or move me.",

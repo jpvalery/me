@@ -5,18 +5,21 @@ interface Props {
 	label: string;
 	aside?: string;
 	class?: string;
+	/** Render the label as an h2 (for tiles that title a section of the page) */
+	heading?: boolean;
 }
-const { label, aside, class: className = "" } = Astro.props;
+const { label, aside, class: className = "", heading = false } = Astro.props;
+const Label = heading ? "h2" : "b";
 ---
 
 <section
 	class:list={[tile, 'p-6 sm:p-8', className]}
 >
-	<p
+	<div
 		class="mb-6 flex items-baseline justify-between gap-3 text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
 	>
-		<b class="font-medium text-international-orange-600 text-sm dark:text-international-orange-500">{label}</b>
+		<Label class="font-medium text-international-orange-600 text-sm dark:text-international-orange-500">{label}</Label>
 		{aside && <span>{aside}</span>}
-	</p>
+	</div>
 	<slot />
 </section>

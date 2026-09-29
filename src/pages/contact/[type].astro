@@ -20,6 +20,7 @@ const { def } = Astro.props;
 	title={def.title}
 	description={def.description}
 	noindex={def.noindex}
+	canonical={def.type === "generic" ? "/contact" : undefined}
 >
 	<SimpleLayout title={def.title}>
 		<div class="grid gap-6 lg:grid-cols-12 lg:gap-8">

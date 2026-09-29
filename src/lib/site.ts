@@ -1,7 +1,7 @@
 export const site = {
-	title: "Jp Valery 🦝",
+	title: "Jp Valery",
 	description:
-		"Bonjour, Hi! I'm Jp and I wear more hats than a meta-description field can fit",
+		"Customer Success Engineer at Resend, private pilot with a floats rating, photographer and side-project builder based in Montréal.",
 	email: "contact@jpvalery.me",
 	location: "Montréal, QC",
 };

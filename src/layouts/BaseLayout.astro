@@ -1,39 +1,51 @@
 ---
-import { getImage } from "astro:assets";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import portrait from "../images/portrait.jpg";
+import departureFont from "../fonts/DepartureMono-Regular.woff2?url";
+import jetbrainsFont from "../fonts/JetBrainsMono-Regular.woff2?url";
 import { site } from "../lib/site";
 import "../styles/global.css";
 
 interface Props {
 	title?: string;
+	/** Full <title> and og:title, used as is (no site name suffix) */
+	rawTitle?: string;
 	description?: string;
-	/** Absolute URL of the share image; defaults to the portrait */
+	/** Absolute URL of the share image; defaults to /og.png */
 	image?: string;
+	imageAlt?: string;
 	noindex?: boolean;
+	/** Path (or URL) of the canonical page, when it differs from this one */
+	canonical?: string;
 	type?: "website" | "article";
+	/** ISO date, for articles */
+	publishedTime?: string;
+	/** Structured data, serialized as JSON-LD */
+	jsonLd?: object | object[];
 }
 
 const {
 	title,
+	rawTitle,
 	description = site.description,
 	image,
+	imageAlt = "Jp Valery, Customer Success Engineer, pilot and photographer",
 	noindex = false,
+	canonical: canonicalPath,
 	type = "website",
+	publishedTime,
+	jsonLd,
 } = Astro.props;
 
-const fullTitle = title ? `${title} - ${site.title}` : site.title;
+const fullTitle = rawTitle ?? (title ? `${title} - ${site.title}` : site.title);
+const shareTitle = rawTitle ?? title ?? site.title;
 const base = Astro.site ?? Astro.url.origin;
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
-const canonical = new URL(path, base).href;
-const defaultImage = await getImage({
-	src: portrait,
-	width: 1200,
-	height: 1200,
-	format: "jpg",
-});
-const shareImage = image ?? new URL(defaultImage.src, base).href;
+const canonical = new URL(canonicalPath ?? path, base).href;
+const shareImage = image ?? new URL("/og.png", base).href;
+const structuredData = jsonLd
+	? JSON.stringify(jsonLd).replace(/</g, "\\u003c")
+	: undefined;
 ---
 
 <!doctype html>
@@ -47,12 +59,23 @@ const shareImage = image ?? new URL(defaultImage.src, base).href;
 		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<meta property="og:type" content={type} />
 		<meta property="og:site_name" content={site.title} />
-		<meta property="og:title" content={title ?? site.title} />
+		<meta property="og:title" content={shareTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:image" content={shareImage} />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image:alt" content={imageAlt} />
+		{!image && <meta property="og:image:width" content="1200" />}
+		{!image && <meta property="og:image:height" content="630" />}
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@jpvalery" />
+		<meta name="twitter:title" content={shareTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={shareImage} />
+		<meta name="twitter:image:alt" content={imageAlt} />
+		<link rel="preload" href={departureFont} as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href={jetbrainsFont} as="font" type="font/woff2" crossorigin />
+		{structuredData && <script type="application/ld+json" set:html={structuredData} />}
 		<link rel="icon" href="/favicon.ico" />
 		<link
 			rel="alternate"

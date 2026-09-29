@@ -2,13 +2,21 @@
 import { getCollection } from "astro:content";
 import NowEntry from "../../components/NowEntry.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { nowJsonLd, nowStamp } from "../../lib/seo";
 
 const [latest] = (await getCollection("now")).sort((a, b) =>
 	b.data.date.localeCompare(a.data.date),
 );
+const origin = (Astro.site ?? Astro.url.origin).toString().replace(/\/$/, "");
 if (!latest) throw new Error("No /now entry in src/content/now");
 ---
 
-<BaseLayout title="Now" description="What I'm up to these days">
+<BaseLayout
+	title="Now"
+	description="What Jp Valery is up to these days: work, flying, side projects and life in Montréal."
+	type="article"
+	publishedTime={nowStamp(latest.data.date)}
+	jsonLd={nowJsonLd(latest, origin, `${origin}/now`)}
+>
 	<NowEntry entry={latest} />
 </BaseLayout>

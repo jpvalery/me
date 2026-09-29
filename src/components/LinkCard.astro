@@ -34,10 +34,10 @@ const external = /^https?:/.test(href);
 			'flex h-full flex-col p-6 transition group-hover:border-international-orange-500 sm:p-8',
 		]}
 	>
-		<p class:list={[eyebrow, 'mb-6 flex items-baseline justify-between gap-3']}>
-			<b class="font-medium text-international-orange-600 text-sm dark:text-international-orange-500">{title}</b>
+		<div class:list={[eyebrow, 'mb-6 flex items-baseline justify-between gap-3']}>
+			<h2 class="font-medium text-international-orange-600 text-sm dark:text-international-orange-500">{title}</h2>
 			{label && <span class="truncate">{label}</span>}
-		</p>
+		</div>
 		<div
 			class:list={[
 				'grid items-start gap-5',

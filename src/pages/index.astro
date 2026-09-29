@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
 import Photos from "../components/Photos.astro";
 import RatingIcon from "../components/RatingIcon.astro";
@@ -7,10 +7,18 @@ import Tile from "../components/Tile.astro";
 import flying from "../content/flying.json";
 import portrait from "../images/portrait.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { homeJsonLd } from "../lib/seo";
 import { site, socials as socialLinks } from "../lib/site";
 import { socialIcons } from "../lib/socialIcons";
 import { tile } from "../lib/ui";
 
+const origin = (Astro.site ?? Astro.url.origin).toString().replace(/\/$/, "");
+const portraitShare = await getImage({
+	src: portrait,
+	width: 1200,
+	height: 1200,
+	format: "jpg",
+});
 const home = await getEntry("pages", "home");
 if (!home) throw new Error("Missing src/content/pages/home.md");
 const { Content } = await render(home);
@@ -39,7 +47,11 @@ const h3 = "mb-2 font-departure text-lg";
 const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 ---
 
-<BaseLayout title={home.data.title} description={home.data.description}>
+<BaseLayout
+	rawTitle="Jp Valery - Customer Success Engineer, pilot and photographer"
+	description={home.data.description}
+	jsonLd={homeJsonLd(origin, new URL(portraitShare.src, origin).href)}
+>
 	<div
 		class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:px-8 sm:py-12 lg:grid-cols-12 lg:gap-8"
 	>

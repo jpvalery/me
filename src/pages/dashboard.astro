@@ -92,7 +92,7 @@ const sections = [
 
 <BaseLayout
 	title="Dashboard"
-	description="Some personal metrics—mostly for the fun of connecting APIs"
+	description="Personal metrics from Jp Valery: flight hours and landings, Unsplash views and downloads, and shows watched, pulled from live APIs."
 >
 	<SimpleLayout
 		title="Dashboard"
@@ -101,7 +101,7 @@ const sections = [
 		<div class="grid gap-6 lg:gap-8">
 			{
 				sections.map((section) => (
-					<Tile label={section.title} aside={section.note}>
+					<Tile label={section.title} aside={section.note} heading>
 						<ul class="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-5">
 							{section.items.map((item) => (
 								<MetricCard {...item} />

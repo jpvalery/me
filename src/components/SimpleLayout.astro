@@ -16,7 +16,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 	<div class="grid gap-6 lg:gap-8">
 		{
 			sub ? (
-				<Tile label={title}>
+				<Tile label={title} heading>
 					{intro && (
 						<p class="mb-6 max-w-2xl text-base text-stone-600 dark:text-phosphor-500">
 							{intro}
