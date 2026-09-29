@@ -3,3 +3,11 @@ onlyBuiltDependencies:
   - sharp
 # Pin exact versions when adding dependencies
 saveExact: true
+# @vercel/routing-utils pins path-to-regexp 6.1.0 (Dependabot alert); use the patched release
+overrides:
+  path-to-regexp: 6.3.0
+  # Transitive dependencies with published fixes (pnpm audit)
+  "picomatch@2": 2.3.2
+  "fast-uri@3": 3.1.8
+  "ajv@8": 8.20.0
+  "mdast-util-to-hast@13": 13.2.1
