@@ -21,22 +21,33 @@ export default defineConfig({
 	},
 	env: {
 		schema: {
+			// Public (it ships in the page HTML); override with the env var if the widget changes
 			PUBLIC_TURNSTILE_SITE_KEY: envField.string({
 				context: 'client',
 				access: 'public',
+				default: '0x4AAAAAAFHyQKcpbSoyVY0m',
 			}),
+			// Contact endpoint secrets, read at runtime. Optional so a build never
+			// depends on them; /api/send answers 503 while any is missing.
 			TURNSTILE_SECRET_KEY: envField.string({
 				context: 'server',
 				access: 'secret',
+				optional: true,
 			}),
-			CIO_APP_APIKEY: envField.string({ context: 'server', access: 'secret' }),
+			CIO_APP_APIKEY: envField.string({
+				context: 'server',
+				access: 'secret',
+				optional: true,
+			}),
 			EMAIL_CONTACT_GENERIC: envField.string({
 				context: 'server',
 				access: 'secret',
+				optional: true,
 			}),
 			EMAIL_CONTACT_PHOTO: envField.string({
 				context: 'server',
 				access: 'secret',
+				optional: true,
 			}),
 			EMAIL_CONTACT_DATE: envField.string({
 				context: 'server',

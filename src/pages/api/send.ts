@@ -35,13 +35,13 @@ function sameOrigin(request: Request, url: URL) {
 	}
 }
 
-async function verifyTurnstile(token: string, ip: string) {
+async function verifyTurnstile(secret: string, token: string, ip: string) {
 	const res = await fetch(
 		'https://challenges.cloudflare.com/turnstile/v0/siteverify',
 		{
 			method: 'POST',
 			body: new URLSearchParams({
-				secret: TURNSTILE_SECRET_KEY,
+				secret,
 				response: token,
 				remoteip: ip,
 			}),
@@ -53,6 +53,17 @@ async function verifyTurnstile(token: string, ip: string) {
 }
 
 export const POST: APIRoute = async ({ request, url, clientAddress }) => {
+	if (
+		!TURNSTILE_SECRET_KEY ||
+		!CIO_APP_APIKEY ||
+		!EMAIL_CONTACT_GENERIC ||
+		!EMAIL_CONTACT_PHOTO
+	) {
+		console.error(
+			'Contact form is not configured: set TURNSTILE_SECRET_KEY, CIO_APP_APIKEY, EMAIL_CONTACT_GENERIC and EMAIL_CONTACT_PHOTO',
+		);
+		return json({ error: 'The contact form is unavailable right now' }, 503);
+	}
 	if (!sameOrigin(request, url)) return json({ error: 'Forbidden' }, 403);
 	if (!request.headers.get('Content-Type')?.includes('application/json'))
 		return json({ error: 'Unsupported content type' }, 415);
@@ -89,7 +100,13 @@ export const POST: APIRoute = async ({ request, url, clientAddress }) => {
 	if (elapsed < MIN_FILL_MS || elapsed > MAX_AGE_MS)
 		return json({ error: 'Please try again' }, 400);
 
-	if (!(await verifyTurnstile(data['cf-turnstile-response'], clientAddress)))
+	if (
+		!(await verifyTurnstile(
+			TURNSTILE_SECRET_KEY,
+			data['cf-turnstile-response'],
+			clientAddress,
+		))
+	)
 		return json({ error: 'Bot check failed, please try again' }, 400);
 
 	const {

@@ -58,6 +58,8 @@ when any step fails.
 
 ## Development
 
+Uses Node 24 and pnpm 10.27.0 (pinned in `package.json`, which Vercel follows).
+
 ```bash
 pnpm install
 pnpm dev          # http://localhost:4321
@@ -69,11 +71,12 @@ pnpm format
 ### Environment
 
 Declared in `astro.config.mjs` (`env.schema`) and read through `astro:env`. Locally they go in `.env` /
-`.env.local`; on Vercel, in the project's environment variables.
+`.env.local`; on Vercel, in the project's environment variables. None is needed to build: the site key has
+a default, and `/api/send` answers 503 until its runtime secrets are set.
 
 | Name | Used | Purpose |
 | --- | --- | --- |
-| `PUBLIC_TURNSTILE_SITE_KEY` | build | Turnstile widget |
+| `PUBLIC_TURNSTILE_SITE_KEY` | build | Turnstile widget (defaults to the current widget's key) |
 | `TURNSTILE_SECRET_KEY` | runtime | Turnstile verification |
 | `CIO_APP_APIKEY` | runtime | Customer.io transactional API |
 | `EMAIL_CONTACT_GENERIC`, `EMAIL_CONTACT_PHOTO`, `EMAIL_CONTACT_DATE` (optional) | runtime | Recipient per form type |
