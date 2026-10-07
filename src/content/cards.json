@@ -82,9 +82,9 @@
 		"logo": "flaps"
 	},
 	{
-		"id": "projects-cuisinomicon-wip",
+		"id": "projects-cuisinomicon",
 		"section": "projects",
-		"title": "Cuisinomicon (WIP)",
+		"title": "Cuisinomicon",
 		"description": "My online cookbook where I share my best recipes",
 		"href": "https://cuisinomicon.com",
 		"label": "cuisinomicon.com",
