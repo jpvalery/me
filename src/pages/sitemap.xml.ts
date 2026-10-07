@@ -1,12 +1,12 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
+import { forms } from "../lib/contact";
 import { nowStamp } from "../lib/seo";
 
-// Left out on purpose: /date/* (noindex), the /contact/* forms (canonical is
-// /contact) and the latest /now/* entry (canonical is /now).
+// Left out on purpose: /date/* and noindex forms, /contact/generic (canonical
+// is /contact) and the latest /now/* entry (canonical is /now).
 const staticPaths = [
 	"/",
-	"/stack",
 	"/dashboard",
 	"/work",
 	"/work/recommendations",
@@ -29,6 +29,9 @@ export const GET: APIRoute = async ({ site, url }) => {
 			lastmod: undefined as string | undefined,
 		})),
 		...work.map((p) => ({ loc: `/${p.id}`, lastmod: undefined })),
+		...Object.values(forms)
+			.filter((f) => !f.noindex && f.type !== "generic")
+			.map((f) => ({ loc: `/contact/${f.type}`, lastmod: undefined })),
 		// /now changes whenever a new entry is added
 		...(latest ? [{ loc: "/now", lastmod: nowStamp(latest.data.date) }] : []),
 		...archive.map((e) => ({

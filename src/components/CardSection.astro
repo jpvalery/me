@@ -14,7 +14,7 @@ const cards = (
 
 <ul class:list={['grid grid-cols-1 items-stretch gap-6 lg:gap-8', columns]}>
 	{
-		cards.map((card) => (
+		cards.map((card) => card.data.href && (
 			<li class="h-full">
 				<LinkCard
 					title={card.data.title}

@@ -1,6 +1,7 @@
 import { forms, schemaFor } from "./contact.ts";
 
-const MAX_BODY_BYTES = 8 * 1024;
+// Fits a full-length message in any script, plus the Turnstile token
+export const MAX_BODY_BYTES = 16 * 1024;
 const REQUEST_TIMEOUT_MS = 10_000;
 const ALLOWED_ORIGINS = new Set([
 	"https://jpvalery.me",

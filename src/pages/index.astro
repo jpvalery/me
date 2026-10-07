@@ -34,11 +34,14 @@ const nowExcerpt = (latestNow?.body ?? "")
 	.split(/\n{2,}/)[0]
 	.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
 	.replace(/[*_`]/g, "");
-const projectCount = (await getCollection("cards")).filter(
-	(c) => c.data.section === "projects",
-).length;
+const projects = (
+	await getCollection("cards", (c) => c.data.section === "projects")
+).sort((a, b) => a.data.order - b.data.order);
+const featured = (await getCollection("recommendations")).find(
+	(r) => r.data.featured,
+);
 const pilotStats = flying.stats.filter((s) =>
-	["Flights", "Time", "Landings"].includes(s.title),
+	["Flights", "Hours", "Landings"].includes(s.title),
 );
 
 const go =
@@ -48,7 +51,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 ---
 
 <BaseLayout
-	rawTitle="Jp Valery - Customer Success Engineer, pilot and photographer"
+	rawTitle={`${site.title} - ${site.tagline}`}
 	description={home.data.description}
 	jsonLd={homeJsonLd(origin, new URL(portraitShare.src, origin).href)}
 >
@@ -98,13 +101,13 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 					alt="Portrait of Jp Valery"
 					sizes="(min-width: 1024px) 32rem, 100vw"
 					class="absolute inset-0 size-full object-cover contrast-125 grayscale mix-blend-multiply dark:mix-blend-screen"
-					loading="eager"
+					priority
 				/>
 			</div>
 			<p
-				class="flex justify-between gap-3 border-stone-300 border-t px-5 py-3 text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:border-ink-700 dark:text-phosphor-500"
+				class="flex justify-between gap-3 border-stone-300 border-t px-5 py-3 text-[0.75rem] text-stone-500 uppercase tracking-[0.14em] dark:border-ink-700 dark:text-phosphor-500"
 			>
-				<span>Jp Valery</span><span>Pilot · Builder · Gardener</span>
+				<span>{site.title}</span><span>{site.tagline}</span>
 			</p>
 		</section>
 
@@ -114,10 +117,28 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 			</div>
 		</Tile>
 
-		<Tile label="Work" aside="Resume · Company" class="flex flex-col lg:col-span-5">
-			<h2 class={h3}>Work with me</h2>
-			<p class:list={[muted, 'mb-6']}>My resume, what colleagues say, and how I like to work.</p>
-			<a href="/work" class={go}>See my work →</a>
+		<Tile label="Work" aside="Resend" class="flex flex-col lg:col-span-5">
+			<h2 class={h3}>Customer Success Engineer</h2>
+			<p class:list={[muted, 'mb-6']}>
+				Over a decade helping people do more with email. Before Resend, I built and led
+				customer success teams at Customer.io.
+			</p>
+			{
+				featured && (
+					<figure class="mb-6 border-international-orange-500 border-l-2 pl-4">
+						<blockquote class="text-balance font-departure text-base">
+							“{featured.data.highlight}”
+						</blockquote>
+						<figcaption class:list={[muted, 'mt-2']}>
+							{featured.data.author} · {featured.data.role}
+						</figcaption>
+					</figure>
+				)
+			}
+			<div class="mt-auto flex flex-wrap gap-x-6 gap-y-2">
+				<a href="/work" class={go}>See my work →</a>
+				<a href="/work/recommendations" class={go}>Recommendations →</a>
+			</div>
 		</Tile>
 
 		<Tile label="Pilot log" aside="Ratings" class="lg:col-span-5">
@@ -152,7 +173,7 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 				{
 					pilotStats.map((s) => (
 						<div>
-							<dt class="text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500">
+							<dt class="text-[0.75rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500">
 								{s.title}
 							</dt>
 							<dd class="font-departure text-2xl text-international-orange-700 dark:text-international-orange-500">
@@ -170,9 +191,24 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 			<a href="/now" class={go}>Read now →</a>
 		</Tile>
 
-		<Tile label="Projects" aside={`${projectCount} listed`} class="flex flex-col lg:col-span-5">
+		<Tile label="Projects" aside={`${projects.length} listed`} class="flex flex-col lg:col-span-5">
 			<h2 class={h3}>Things I made</h2>
-			<p class:list={[muted, 'mb-6']}>Side projects, tools and the odd experiment.</p>
+			<ul class="mb-6 text-sm">
+				{
+					projects.map(({ data }) => (
+						<li class="border-stone-300 border-t border-dashed first:border-0 dark:border-ink-700">
+							<a
+								href={data.href}
+								rel="noopener"
+								class="flex justify-between gap-3 py-2 transition hover:text-international-orange-700 dark:hover:text-international-orange-500"
+							>
+								<span>{data.title}</span>
+								<span class="truncate text-stone-500 dark:text-phosphor-500">{data.label} ↗</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
 			<a href="/projects" class={go}>See projects →</a>
 		</Tile>
 	</div>

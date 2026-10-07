@@ -29,7 +29,7 @@ const {
 	rawTitle,
 	description = site.description,
 	image,
-	imageAlt = "Jp Valery, Customer Success Engineer, pilot and photographer",
+	imageAlt = `${site.title}, Customer Success Engineer. ${site.tagline}`,
 	noindex = false,
 	canonical: canonicalPath,
 	type = "website",
@@ -106,10 +106,10 @@ const structuredData = jsonLd
 			<main class="flex-auto"><slot /></main>
 			<Footer />
 		</div>
-		<!-- Dark theme only: faint CRT scanlines over the page -->
+		<!-- Dark theme only: faint CRT scanlines over the page, off when more contrast is requested -->
 		<div
 			aria-hidden="true"
-			class="pointer-events-none fixed inset-0 z-50 hidden bg-[repeating-linear-gradient(0deg,rgb(0_0_0/0.14)_0_1px,transparent_1px_3px)] mix-blend-multiply dark:block"
+			class="pointer-events-none fixed inset-0 z-50 hidden bg-[repeating-linear-gradient(0deg,rgb(0_0_0/0.14)_0_1px,transparent_1px_3px)] mix-blend-multiply contrast-more:hidden! dark:block"
 		>
 		</div>
 		<script

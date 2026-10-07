@@ -1,6 +1,6 @@
 ---
 title: "About Jp"
-description: "Customer Success Engineer at Resend, private pilot with a floats rating, photographer and side-project builder based in Montréal."
+description: "Customer Success Engineer at Resend, private pilot with a floats rating, photographer, and side-project builder based in Montréal."
 ---
 
 By day, I'm a Customer Success Engineer at [Resend](https://resend.com), helping people do more with email—something I've been doing for [over a decade](https://resume.jpvalery.me), both as a sender and as a vendor. I occasionally tinker on side projects through my company [Raccoon Ventures](https://raccoonv.com).

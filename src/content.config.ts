@@ -38,21 +38,26 @@ const now = defineCollection({
 	}),
 });
 
-/** Link cards on /work, /projects, /photography and /projects/cemetery, in file order. */
+/** Link cards on /work, /projects, /photography, and /projects/cemetery, in file order. */
 const cards = defineCollection({
 	loader: orderedFile("src/content/cards.json"),
-	schema: z.object({
-		order: z.number(),
-		section: z.enum(["work", "projects", "photography", "cemetery"]),
-		title: z.string(),
-		description: z.string().optional(),
-		href: z.string(),
-		label: z.string().optional(),
-		/** File name in src/images/logos, without extension */
-		logo: z.string().optional(),
-		/** Dark logo that disappears on the dark theme */
-		invertLogoOnDark: z.boolean().default(false),
-	}),
+	schema: z
+		.object({
+			order: z.number(),
+			section: z.enum(["work", "projects", "photography", "cemetery"]),
+			title: z.string(),
+			description: z.string().optional(),
+			/** Optional only in the cemetery, for projects that are offline */
+			href: z.string().optional(),
+			label: z.string().optional(),
+			/** File name in src/images/logos, without extension */
+			logo: z.string().optional(),
+			/** Dark logo that disappears on the dark theme */
+			invertLogoOnDark: z.boolean().default(false),
+		})
+		.refine((c) => c.section === "cemetery" || c.href, {
+			message: "href is required outside the cemetery",
+		}),
 });
 
 const recommendations = defineCollection({
@@ -60,23 +65,35 @@ const recommendations = defineCollection({
 	schema: z.object({
 		order: z.number(),
 		author: z.string(),
+		/** How we worked together, e.g. "Direct report at Local Logic" */
+		role: z.string(),
 		/** Path under public/ */
 		avatar: z.string().optional(),
 		quote: z.string(),
-		large: z.boolean().default(false),
+		/** One line from the quote, shown as a pull quote */
+		highlight: z.string(),
+		/** Shown on the home page */
+		featured: z.boolean().default(false),
 	}),
 });
 
-/** /stack sections, in file order. */
-const stack = defineCollection({
-	loader: orderedFile("src/content/stack.json"),
+/** Career summary on /work, newest first, in file order. */
+const experience = defineCollection({
+	loader: orderedFile("src/content/experience.json"),
 	schema: z.object({
 		order: z.number(),
-		name: z.string(),
-		items: z.array(
-			z.object({ title: z.string(), description: z.string().optional() }),
-		),
+		company: z.string(),
+		url: z.string().optional(),
+		role: z.string(),
+		years: z.string(),
+		highlight: z.string(),
 	}),
 });
 
-export const collections = { pages, now, cards, recommendations, stack };
+export const collections = {
+	pages,
+	now,
+	cards,
+	recommendations,
+	experience,
+};

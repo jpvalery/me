@@ -53,7 +53,6 @@ export const forms: Record<string, ContactFormDef> = {
 				required: true,
 				options: [
 					{ value: "say-hi", label: "You just wanna say hi" },
-					{ value: "services", label: "You're interested in my services" },
 					{ value: "photo", label: "You'd like to talk photography" },
 					{ value: "other", label: "Something else" },
 				],
@@ -66,9 +65,8 @@ export const forms: Record<string, ContactFormDef> = {
 		title: "Get in touch about photography",
 		description: "Get in touch with Jp Valery about photography.",
 		intro: [
-			"I'm available for editorial, commercial, and documentary projects.",
-			"While I'm currently favoring more in-depth editorial and documentary projects, I'm happy to discuss other projects if they match my vision or move me.",
-			"Please fill out the form below and let's get started.",
+			"I shoot a lot less than I used to, mostly film and whatever my phone catches, so I rarely take on commissions these days.",
+			"I'm still happy to talk about licensing one of my photos, a project that genuinely moves me, or photography in general.",
 		],
 		fields: [
 			name,
@@ -83,6 +81,7 @@ export const forms: Record<string, ContactFormDef> = {
 						label: "You want to collaborate on a project",
 					},
 					{ value: "hire-me", label: "You'd like to hire/commission me" },
+					{ value: "licensing", label: "You'd like to license one of my photos" },
 					{
 						value: "general-chat",
 						label: "You'd like to chat about photography in general",
@@ -113,7 +112,8 @@ export const forms: Record<string, ContactFormDef> = {
 
 export const formTypes = Object.keys(forms);
 
-const MAX = { message: 280, default: 80 } as const;
+/** Maximum lengths, shared by the form inputs and the server-side schema. */
+export const MAX = { message: 2000, default: 80 } as const;
 
 /** Server-side schema for one form, built from the same definition the UI renders. */
 export function schemaFor(def: ContactFormDef) {

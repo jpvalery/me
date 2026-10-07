@@ -1,21 +1,66 @@
 ---
+import { getCollection } from "astro:content";
 import CardSection from "../../components/CardSection.astro";
 import CtaLink from "../../components/CtaLink.astro";
 import SimpleLayout from "../../components/SimpleLayout.astro";
+import Tile from "../../components/Tile.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const experience = (await getCollection("experience")).sort(
+	(a, b) => a.data.order - b.data.order,
+);
+const link =
+	"text-international-orange-700 hover:underline dark:text-international-orange-500";
 ---
 
 <BaseLayout
 	title="Work"
-	description="My resume, recommendations and how I like to work with colleagues and clients, from a Customer Success Engineer at Resend."
+	description="Jp Valery's career in customer success and growth: Resend, Customer.io, Local Logic, LANDR, and Gameloft, plus recommendations and how I like to work."
 >
 	<SimpleLayout
 		title="Work"
-		intro="Some professional and work-oriented content"
+		intro="Customer Success Engineer at Resend. I've spent over a decade helping people do more with email, as a sender and as a vendor: leading customer success teams, building growth functions, and marketing games."
 	>
-		<CardSection section="work" />
+		<div class="grid gap-6 lg:gap-8">
+			<Tile label="Experience" aside="2014—now" heading>
+				<ol>
+					{
+						experience.map(({ data }) => (
+							<li class="grid gap-1 border-stone-300 border-t border-dashed py-4 first:border-0 first:pt-0 md:grid-cols-[8rem_1fr] md:gap-6 dark:border-ink-700">
+								<span class="text-international-orange-700 text-sm tabular-nums dark:text-international-orange-500">
+									{data.years}
+								</span>
+								<div>
+									<h3 class="font-departure text-base text-zinc-900 dark:text-phosphor-100">
+										{data.url ? (
+											<a href={data.url} rel="noopener" class="hover:underline">
+												{data.company}
+											</a>
+										) : (
+											data.company
+										)}
+									</h3>
+									<p class="text-sm text-stone-600 dark:text-phosphor-500">{data.role}</p>
+									<p class="mt-1 max-w-prose text-sm text-zinc-700 dark:text-phosphor-100">
+										{data.highlight}
+									</p>
+								</div>
+							</li>
+						))
+					}
+				</ol>
+				<a href="https://resume.jpvalery.me" class:list={[link, 'mt-4 inline-block text-xs uppercase tracking-wider']}>
+					Full resume ↗
+				</a>
+			</Tile>
+			<CardSection section="work" />
+		</div>
 	</SimpleLayout>
-	<SimpleLayout title="Work with me" sub>
+	<SimpleLayout
+		title="Advisory & consulting"
+		intro="Advisory and consulting engagements go through my company, Raccoon Ventures."
+		sub
+	>
 		<CtaLink href="https://raccoonv.com">Work with Raccoon Ventures</CtaLink>
 	</SimpleLayout>
 </BaseLayout>

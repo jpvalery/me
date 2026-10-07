@@ -25,12 +25,18 @@ Content lives in `src/content/` as Astro content collections (schemas in `src/co
 | `pages/work/*.md` | One page per file under `/work/*`; frontmatter sets full-width text (`wide: true`) |
 | `pages/date/{me,you}.md` | `/date/*` (noindex) |
 | `now/YYYY-MM-DD.md` | `/now` entries: the latest is `/now`, all of them form the timeline and the RSS feed |
-| `cards.json` | Link cards on `/work`, `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order |
-| `recommendations.json`, `stack.json` | Testimonials and `/stack`, in file order |
-| `flying.json` | Foreflight stats on `/dashboard` (updated by hand; `updated` is a `YYYY-MM-DD` date) |
+| `cards.json` | Link cards on `/work`, `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order; only cemetery cards may omit `href` (shown as offline) |
+| `experience.json` | Career summary on `/work`, newest first |
+| `recommendations.json` | Testimonials on `/work/recommendations`, in file order; the `featured` one is quoted on the home page |
+| `flying.json` | Foreflight stats on `/dashboard` and the home page (updated by hand; `updated` is a `YYYY-MM-DD` date) |
+| `imdb.json` | IMDB count on `/dashboard` (updated by hand, same date format) |
 
 Card `logo` values are file names in `src/images/logos` (the build fails on an unknown name). Site title,
-navigation and footer links are in `src/lib/site.ts`; short page intros are in the page files.
+tagline, navigation, and footer links are in `src/lib/site.ts`; short page intros are in the page files.
+
+`/llms.txt` and `/agent.md` are generated from this content at build time (`src/pages/llms.txt.ts`,
+`src/pages/agent.md.ts`), so projects, experience, and ratings stay in sync with the pages. Edit the prose in
+those files; edit the facts in `src/content/`.
 
 ## Project structure
 
@@ -44,13 +50,13 @@ src/
 ├── images/         # Optimised images and logos
 ├── fonts/          # Local woff2 fonts
 └── styles/         # global.css (Tailwind + fonts)
-public/             # llms.txt, agent.md, favicon, avatars
+public/             # og.png, favicon, avatars
 ```
 
 ## Contact forms
 
 `/contact/{generic,photography,date}` share one config-driven form
-(`src/lib/contact.ts`). `POST /api/send` rejects cross-origin requests, wrong content types and bodies over
+(`src/lib/contact.ts`). `POST /api/send` rejects cross-origin requests, wrong content types, and bodies over
 8 KB (counted as bytes while streaming), silently drops submissions with the honeypot filled,
 verifies the Turnstile token, validates with zod, then sends through Customer.io. Requests do not depend
 on the visitor’s clock or how long the tab has been open. Both upstream requests have 10-second
@@ -98,8 +104,8 @@ extra function is required.
 ### Fonts
 
 JetBrains Mono files are subset to Latin (including French accents, IPA, and spacing and combining
-accent marks), punctuation, currency, arrows and mathematical symbols. Other scripts use the system
-fallback. Hinting, OpenType features and license metadata are retained. To regenerate after replacing
+accent marks), punctuation, currency, arrows, and mathematical symbols. Other scripts use the system
+fallback. Hinting, OpenType features, and license metadata are retained. To regenerate after replacing
 the files with full upstream fonts, install `fonttools[woff]==4.60.2` and run
 `python3 scripts/subset-fonts.py`. Extend its Unicode ranges if adding another script; restore full
 font files before widening an existing subset.

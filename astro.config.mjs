@@ -11,6 +11,8 @@ export default defineConfig({
 	trailingSlash: "never",
 	redirects: {
 		"/about": "/",
+		// The /stack page was retired
+		"/stack": "/",
 		// Advisory and consulting moved to Raccoon Ventures
 		"/work/advisorship": { status: 301, destination: "https://raccoonv.com" },
 		"/work/consultancy": { status: 301, destination: "https://raccoonv.com" },

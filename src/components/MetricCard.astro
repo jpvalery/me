@@ -1,21 +1,32 @@
 ---
 import ExtLink from "./icons/ExtLink.astro";
 
+interface Props {
+	title: string;
+	metric: string;
+	/** Only set for a page specific to this metric */
+	href?: string;
+}
 const { title, metric, href } = Astro.props;
+const Wrapper = href ? "a" : "div";
 ---
 
 <li class="list-none">
-	<a href={href} rel="noopener" class="group block">
+	<Wrapper href={href} rel={href ? 'noopener' : undefined} class="group block">
 		<span
-			class="flex items-center gap-2 text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] transition group-hover:text-international-orange-700 dark:text-phosphor-500 dark:group-hover:text-international-orange-500"
+			class:list={[
+				'flex items-center gap-2 text-[0.75rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500',
+				href &&
+					'transition group-hover:text-international-orange-700 dark:group-hover:text-international-orange-500',
+			]}
 		>
 			{title}
-			<ExtLink class="size-3" />
+			{href && <ExtLink class="size-3" />}
 		</span>
 		<span
 			class="mt-2 block font-departure text-3xl text-international-orange-700 dark:text-international-orange-500 dark:[text-shadow:0_0_14px_rgb(255_122_31/0.5)]"
 		>
 			{metric}
 		</span>
-	</a>
+	</Wrapper>
 </li>

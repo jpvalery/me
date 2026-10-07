@@ -1,7 +1,8 @@
 export const site = {
 	title: "Jp Valery",
+	tagline: "Tinkerer. Builder. Pilot.",
 	description:
-		"Customer Success Engineer at Resend, private pilot with a floats rating, photographer and side-project builder based in Montréal.",
+		"Customer Success Engineer at Resend, private pilot with a floats rating, photographer, and side-project builder based in Montréal.",
 	email: "contact@jpvalery.me",
 	location: "Montréal, QC",
 };
@@ -28,7 +29,6 @@ export const navigation: NavItem[] = [
 		url: "/",
 		children: [
 			{ label: "Now", url: "/now" },
-			{ label: "Stack", url: "/stack" },
 			{ label: "Dashboard", url: "/dashboard" },
 		],
 	},
@@ -37,7 +37,7 @@ export const navigation: NavItem[] = [
 		url: "/work",
 		children: [
 			{ label: "Resume", url: "https://resume.jpvalery.me", external: true },
-			{ label: "Work with me", url: "/work/how-to-work-with-me" },
+			{ label: "How to work with me", url: "/work/how-to-work-with-me" },
 			{ label: "Recommendations", url: "/work/recommendations" },
 		],
 	},
@@ -45,6 +45,11 @@ export const navigation: NavItem[] = [
 		label: "Projects",
 		url: "/projects",
 		children: [
+			{
+				label: "Decision Bowl",
+				url: "https://decisionbowl.com",
+				external: true,
+			},
 			{ label: "Hockay", url: "https://hockay.com", external: true },
 			{
 				label: "Safety Briefing",

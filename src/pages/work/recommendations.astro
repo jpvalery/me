@@ -27,6 +27,9 @@ const entries = (await getCollection("recommendations")).sort(
 						]}
 					>
 						<blockquote class="p-6 text-base text-zinc-900 sm:p-8 dark:text-phosphor-100">
+							<p class="mb-6 text-balance font-departure text-xl text-international-orange-700 sm:text-2xl dark:text-international-orange-500">
+								“{r.data.highlight}”
+							</p>
 							<p class="whitespace-pre-line">“{r.data.quote}”</p>
 						</blockquote>
 						<figcaption class="flex items-center gap-4 border-stone-300 border-t px-6 py-4 sm:px-8 dark:border-ink-700">
@@ -38,8 +41,13 @@ const entries = (await getCollection("recommendations")).sort(
 								loading="lazy"
 								class="size-10 flex-none bg-stone-200 object-cover dark:bg-ink-950"
 							/>
-							<div class="flex-auto text-sm text-international-orange-700 uppercase tracking-wider dark:text-international-orange-500">
-								{r.data.author}
+							<div class="flex-auto">
+								<div class="text-sm text-international-orange-700 uppercase tracking-wider dark:text-international-orange-500">
+									{r.data.author}
+								</div>
+								<div class="text-sm text-stone-600 dark:text-phosphor-500">
+									{r.data.role}
+								</div>
 							</div>
 						</figcaption>
 					</figure>
@@ -47,7 +55,7 @@ const entries = (await getCollection("recommendations")).sort(
 			}
 		</div>
 		<div class="mt-12">
-			<CtaLink href="https://raccoonv.com">Work with Raccoon Ventures</CtaLink>
+			<CtaLink href="https://raccoonv.com">Advisory &amp; consulting with Raccoon Ventures</CtaLink>
 		</div>
 	</SimpleLayout>
 </BaseLayout>

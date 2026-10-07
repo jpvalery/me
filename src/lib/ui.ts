@@ -4,4 +4,4 @@ export const tile =
 
 /** Small uppercase mono label used above tile content. */
 export const eyebrow =
-	"text-[0.68rem] uppercase tracking-[0.14em] text-stone-500 dark:text-phosphor-500";
+	"text-[0.75rem] uppercase tracking-[0.14em] text-stone-500 dark:text-phosphor-500";

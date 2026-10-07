@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import avatar from "../images/avatar.jpg";
+import photoAerobatics from "../images/photos/jp-valery-aerobatics.jpg";
 import photoPizzaBaking from "../images/photos/jp-valery-baking-pizza.jpg";
 import photoCamera from "../images/photos/jp-valery-camera.jpg";
-import photoPilot1 from "../images/photos/jp-valery-pilot-1.jpg";
 import photoPilot2 from "../images/photos/jp-valery-pilot-2.jpg";
 import photoPilot4 from "../images/photos/jp-valery-pilot-4.jpg";
 import Tile from "./Tile.astro";
@@ -15,11 +15,14 @@ const { set = "home" } = Astro.props;
 
 const sets = {
 	home: [
-		[photoPilot2, "Jp in a small plane, headset on"],
+		[
+			photoAerobatics,
+			"Jp flying inverted during aerobatics training, the ground overhead",
+		],
 		[photoCamera, "Jp holding a film camera"],
 		[photoPilot4, "Jp on the ground after a flight"],
 		[photoPizzaBaking, "Jp baking a pizza"],
-		[photoPilot1, "Jp by the aircraft before takeoff"],
+		[photoPilot2, "Jp in a small plane, headset on"],
 	],
 	date: [
 		[photoPilot4, "Jp on the ground after a flight"],

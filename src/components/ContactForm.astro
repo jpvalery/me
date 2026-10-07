@@ -1,6 +1,6 @@
 ---
 import { PUBLIC_TURNSTILE_SITE_KEY } from "astro:env/client";
-import type { ContactFormDef } from "../lib/contact";
+import { type ContactFormDef, MAX } from "../lib/contact";
 
 interface Props {
 	def: ContactFormDef;
@@ -22,7 +22,7 @@ const input =
 			<div class="grid grid-flow-row gap-2 py-3">
 				<label
 					for={f.name}
-					class="w-full text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
+					class="w-full text-[0.75rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
 				>
 					{f.label}
 				</label>
@@ -44,9 +44,9 @@ const input =
 					<textarea
 						id={f.name}
 						name={f.name}
-						rows="3"
+						rows="6"
 						required={f.required}
-						maxlength={280}
+						maxlength={MAX.message}
 						class={input}
 					/>
 				) : (
@@ -56,7 +56,7 @@ const input =
 						type={f.name === 'email' ? 'email' : 'text'}
 						placeholder={f.placeholder}
 						required={f.required}
-						maxlength={80}
+						maxlength={MAX.default}
 						class={input}
 					/>
 				)}
@@ -67,7 +67,7 @@ const input =
 	<div class="grid grid-flow-col items-center justify-start gap-3 py-3">
 		<label
 			for="checked"
-			class="w-full text-[0.68rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
+			class="w-full text-[0.75rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500"
 		>
 			Have you proofread everything?
 		</label>

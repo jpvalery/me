@@ -13,7 +13,7 @@ if (!latest) throw new Error("No /now entry in src/content/now");
 
 <BaseLayout
 	title="Now"
-	description="What Jp Valery is up to these days: work, flying, side projects and life in Montréal."
+	description="What Jp Valery is up to these days: work, flying, side projects, and life in Montréal."
 	type="article"
 	publishedTime={nowStamp(latest.data.date)}
 	jsonLd={nowJsonLd(latest, origin, `${origin}/now`)}

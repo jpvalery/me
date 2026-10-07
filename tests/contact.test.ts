@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { createContactHandler } from "../src/lib/contact-handler.ts";
+import { MAX } from "../src/lib/contact.ts";
+import {
+	createContactHandler,
+	MAX_BODY_BYTES,
+} from "../src/lib/contact-handler.ts";
 
 const config = {
 	turnstileSecret: "test-secret",
@@ -112,8 +116,11 @@ test("honeypot succeeds silently without sending mail", async () => {
 
 test("enforces the byte limit for Unicode and cancels oversized streams", async () => {
 	const { handler, requests } = harness();
-	const oversized = JSON.stringify({ ...valid, padding: "💛".repeat(2500) });
-	assert.ok(oversized.length < 8192);
+	const oversized = JSON.stringify({
+		...valid,
+		padding: "💛".repeat(MAX_BODY_BYTES / 4 + 1),
+	});
+	assert.ok(oversized.length < MAX_BODY_BYTES);
 	assert.equal((await handler(context(oversized))).status, 413);
 	let cancelled = false;
 	let reads = 0;
@@ -131,16 +138,16 @@ test("enforces the byte limit for Unicode and cancels oversized streams", async 
 	);
 	assert.equal((await handler(context(stream))).status, 413);
 	assert.equal(cancelled, true);
-	assert.equal(reads, 3);
+	assert.equal(reads, MAX_BODY_BYTES / 4096 + 1);
 	assert.equal(requests.length, 0);
 });
 
-test("accepts exactly 8 KB and Unicode split across stream chunks", async () => {
+test("accepts exactly the byte limit and Unicode split across stream chunks", async () => {
 	const { handler, messages } = harness();
 	const empty = JSON.stringify({ ...valid, padding: "" });
 	const exact = JSON.stringify({
 		...valid,
-		padding: "x".repeat(8192 - Buffer.byteLength(empty)),
+		padding: "x".repeat(MAX_BODY_BYTES - Buffer.byteLength(empty)),
 	});
 	assert.equal((await handler(context(exact))).status, 200);
 	const bytes = new TextEncoder().encode(
@@ -289,4 +296,12 @@ test("routes each form to its recipient and allows generic without photo configu
 		fetcher,
 	);
 	assert.equal((await genericOnly(context(JSON.stringify(valid)))).status, 200);
+});
+
+test("accepts a full-length message and rejects a longer one", async () => {
+	const { handler } = harness();
+	const full = { ...valid, message: "é".repeat(MAX.message) };
+	assert.equal((await handler(context(JSON.stringify(full)))).status, 200);
+	const tooLong = { ...valid, message: "x".repeat(MAX.message + 1) };
+	assert.equal((await handler(context(JSON.stringify(tooLong)))).status, 400);
 });

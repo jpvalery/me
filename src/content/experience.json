@@ -1,0 +1,39 @@
+[
+	{
+		"id": "resend",
+		"company": "Resend",
+		"url": "https://resend.com",
+		"role": "Customer Success Engineer",
+		"years": "2025—now",
+		"highlight": "Owned the customer experience through hypergrowth, from 5k to 130k+ paying customers, and built an AI support agent that resolves ~25% of conversations."
+	},
+	{
+		"id": "customer-io",
+		"company": "Customer.io",
+		"url": "https://customer.io",
+		"role": "Customer Success Manager → Team Lead → Success Team Manager",
+		"years": "2021—2025",
+		"highlight": "Led a global team of up to 17 across 4 continents, owning ~80% of CS-covered accounts ($40M+ ARR) at 115% net revenue retention."
+	},
+	{
+		"id": "local-logic",
+		"company": "Local Logic",
+		"role": "Manager, Growth Operations",
+		"years": "2020—2021",
+		"highlight": "Built the customer and growth functions supporting an $8M Series A."
+	},
+	{
+		"id": "landr",
+		"company": "LANDR",
+		"role": "Customer Success Specialist → Manager → Growth Architect",
+		"years": "2018—2020",
+		"highlight": "Cut campaign deployment time by 85% and reduced churn by 15% with ML-driven churn prediction."
+	},
+	{
+		"id": "gameloft",
+		"company": "Gameloft",
+		"role": "Community and product marketing",
+		"years": "2014—2017",
+		"highlight": "Built an email program to 500k+ subscribers and led global product marketing for games with 40M+ downloads."
+	}
+]
