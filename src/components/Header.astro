@@ -37,7 +37,7 @@ const box =
 							</a>
 							{item.children && item.children.length > 0 && (
 								<div class="invisible absolute left-0 z-10 pt-1 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-									<div class="grid min-w-48 border border-stone-300 bg-stone-50 p-1 text-sm dark:border-ink-700 dark:bg-ink-900">
+									<div class="grid w-max min-w-48 border border-stone-300 bg-stone-50 p-1 text-sm dark:border-ink-700 dark:bg-ink-900">
 										{item.children.map((child) => (
 											<a
 												href={child.url}
