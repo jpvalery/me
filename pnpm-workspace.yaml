@@ -11,3 +11,6 @@ overrides:
   "fast-uri@3": 3.1.8
   "ajv@8": 8.20.0
   "mdast-util-to-hast@13": 13.2.1
+  "source-map-js@1": 1.2.2
+  # @tailwindcss/typography pins 6.0.10; the fix exists only in 7.x
+  "postcss-selector-parser@6": 7.1.6
