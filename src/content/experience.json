@@ -3,37 +3,108 @@
 		"id": "resend",
 		"company": "Resend",
 		"url": "https://resend.com",
-		"role": "Customer Success Engineer",
+		"about": "Email API for developers",
 		"years": "2025—now",
-		"highlight": "Owned the customer experience through hypergrowth, from 5k to 130k+ paying customers, and built an AI support agent that resolves ~25% of conversations."
+		"roles": [
+			{
+				"title": "Customer Success Engineer",
+				"dates": "Feb 2025—now",
+				"highlights": [
+					"Employee #13. Owned the customer experience through hypergrowth: 5k → 130k+ paying customers, ARR up 15x, and tickets 200 → 1,500+/week",
+					"Built an AI support agent from scratch (intent, classification, tool use, and replies) with custom evals and benchmarks; resolves ~25% of conversations",
+					"Cut resolution time by 70% and held first-response SLAs while ticket volume grew 7x, consistently at 2–4x the throughput of peer CSEs",
+					"Closed the loop with Engineering through recurring deep dives, demos, and Feedback Friday, a weekly customer-feedback newsletter",
+					"Shipped product code directly (rate-limit automation and support tooling) and helped hire and onboard the support team"
+				]
+			}
+		]
 	},
 	{
 		"id": "customer-io",
 		"company": "Customer.io",
 		"url": "https://customer.io",
-		"role": "Customer Success Manager → Team Lead → Success Team Manager",
+		"about": "Messaging automation platform",
 		"years": "2021—2025",
-		"highlight": "Led a global team of up to 17 across 4 continents, owning ~80% of CS-covered accounts ($40M+ ARR) at 115% net revenue retention."
+		"roles": [
+			{
+				"title": "Success Team Manager, Mid-Market",
+				"dates": "May 2023—Feb 2025",
+				"highlights": [
+					"Led a global CS team of up to 17 direct and indirect reports across 4 continents: 100% retention and 7 promotions in 12 months",
+					"Owned ~80% of CS-covered accounts ($40M+ ARR) at 115% team NRR, 130% on my own book",
+					"Doubled Scale segment coverage with no added headcount through webinar programs and automation",
+					"Built Next.js automations and Gong, Planhat, Slack, and Zendesk integrations saving 2,000+ team hours a year",
+					"Automated account assignment with suggestions by region and book load, replacing a manual, Director-gated process"
+				]
+			},
+			{
+				"title": "Customer Success Team Lead",
+				"dates": "Jan 2022—May 2023",
+				"highlights": [
+					"Led the Vitally → Planhat migration; coached CSMs to 120% team NRR while carrying the largest book among leads at 140% NRR"
+				]
+			},
+			{
+				"title": "Customer Success Manager",
+				"dates": "Apr 2021—Jan 2022",
+				"highlights": [
+					"Managed 50+ strategic accounts at 145% NRR (vs. 110% target)"
+				]
+			}
+		]
 	},
 	{
 		"id": "local-logic",
 		"company": "Local Logic",
-		"role": "Manager, Growth Operations",
+		"about": "Location intelligence for real estate",
 		"years": "2020—2021",
-		"highlight": "Built the customer and growth functions supporting an $8M Series A."
+		"roles": [
+			{
+				"title": "Manager, Growth Operations",
+				"dates": "Feb 2020—Feb 2021",
+				"highlights": [
+					"Built the Customer and Growth functions supporting an $8M Series A",
+					"Implemented a GTM stack cutting costs 60%, doubling activation rate, and halving time to activate through automated user journeys"
+				]
+			}
+		]
 	},
 	{
 		"id": "landr",
 		"company": "LANDR",
-		"role": "Customer Success Specialist → Manager → Growth Architect",
+		"about": "Music creation platform",
 		"years": "2018—2020",
-		"highlight": "Cut campaign deployment time by 85% and reduced churn by 15% with ML-driven churn prediction."
+		"roles": [
+			{
+				"title": "Growth Architect",
+				"dates": "Oct 2019—Feb 2020",
+				"highlights": [
+					"Technical lead for Customer Experience and Monetization; ran messaging operations delivering 10M+ emails and 12M+ in-app messages a year"
+				]
+			},
+			{
+				"title": "Customer Success Specialist → Manager",
+				"dates": "Aug 2018—Oct 2019",
+				"highlights": [
+					"Migrated customer messaging from Intercom and Appcues to Customer.io; cut campaign deployment time by 85%",
+					"Implemented ML-driven churn prediction, reducing churn by 15%"
+				]
+			}
+		]
 	},
 	{
 		"id": "gameloft",
 		"company": "Gameloft",
-		"role": "Community and product marketing",
+		"about": "Mobile game publisher",
 		"years": "2014—2017",
-		"highlight": "Built an email program to 500k+ subscribers and led global product marketing for games with 40M+ downloads."
+		"roles": [
+			{
+				"title": "Community and product marketing",
+				"dates": "2014—2017",
+				"highlights": [
+					"Built the email program from scratch to 500k+ subscribers, then led global product marketing for mobile launches (40M+ downloads)"
+				]
+			}
+		]
 	}
 ]

@@ -3,17 +3,20 @@ import CardSection from "../components/CardSection.astro";
 import CtaLink from "../components/CtaLink.astro";
 import SimpleLayout from "../components/SimpleLayout.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { unsplashStats, unsplashViews } from "../lib/unsplash";
+
+const stats = { "photography-unsplash": await unsplashStats() };
 ---
 
 <BaseLayout
 	title="Photography"
-	description="Photography by Jp Valery: my portfolio, film contact sheets, and Unsplash work, with over 300 million views."
+	description={`Photography by Jp Valery: my portfolio, the Montréal Photo Club I founded, and Unsplash work, with over ${await unsplashViews()} views.`}
 >
 	<SimpleLayout
 		title="Photography"
-		intro="From my portfolio to my contact sheets, an overview of my photography."
+		intro="From my portfolio to the photo club I founded, an overview of my photography."
 	>
-		<CardSection section="photography" />
+		<CardSection section="photography" priority stats={stats} />
 		<div class="mt-12">
 			<CtaLink href="/contact/photography">
 				Get in touch about my photography

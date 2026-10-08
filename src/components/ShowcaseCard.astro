@@ -1,0 +1,115 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { getLogo } from "../lib/logos";
+import { tile } from "../lib/ui";
+
+interface Props {
+	title: string;
+	href: string;
+	label?: string;
+	description?: string;
+	logo?: string;
+	invertLogo?: boolean;
+	screenshot: ImageMetadata;
+	/** Above the fold: load the screenshot right away */
+	priority?: boolean;
+	/** Live numbers under the description, with a note such as their refresh date */
+	stats?: { items: { label: string; value: string }[]; note?: string };
+}
+const {
+	title,
+	href,
+	label,
+	description,
+	logo,
+	invertLogo = false,
+	screenshot,
+	priority = false,
+	stats,
+} = Astro.props;
+const image = getLogo(logo);
+const external = /^https?:/.test(href);
+---
+
+<a
+	href={href}
+	class="group block"
+	rel={external ? 'noopener' : undefined}
+>
+	<article
+		class:list={[
+			tile,
+			'grid gap-6 p-6 transition group-hover:border-international-orange-500 sm:p-8 md:grid-cols-[2fr_3fr] lg:gap-10',
+		]}
+	>
+		<div class="flex flex-col items-start">
+			{
+				image && (image.format === 'svg' ? (
+					<img
+						src={image.src}
+						alt=""
+						width="40"
+						height="40"
+						loading="lazy"
+						class:list={['mb-5 size-10', invertLogo && 'dark:invert']}
+					/>
+				) : (
+					<Image
+						src={image}
+						alt=""
+						width={40}
+						height={40}
+						layout="fixed"
+						widths={[40, 80]}
+						sizes="40px"
+						class:list={['mb-5 size-10', invertLogo && 'dark:invert']}
+					/>
+				))
+			}
+			<h2 class="text-balance font-departure text-2xl text-zinc-900 sm:text-3xl dark:text-phosphor-100">
+				{title}
+			</h2>
+			{
+				description && (
+					<p class="mt-4 max-w-prose text-sm text-stone-600 sm:text-base dark:text-phosphor-500">
+						{description}
+					</p>
+				)
+			}
+			{
+				stats && (
+					<div class="mt-6">
+						<dl class="flex flex-wrap gap-x-10 gap-y-4">
+							{stats.items.map(({ label, value }) => (
+								<div>
+									<dt class="text-[0.75rem] text-stone-500 uppercase tracking-[0.14em] dark:text-phosphor-500">
+										{label}
+									</dt>
+									<dd class="mt-1 font-departure text-2xl text-international-orange-700 tabular-nums dark:text-international-orange-500 dark:[text-shadow:0_0_14px_rgb(255_122_31/0.5)]">
+										{value}
+									</dd>
+								</div>
+							))}
+						</dl>
+						{stats.note && (
+							<p class="mt-3 text-stone-500 text-xs dark:text-phosphor-500">{stats.note}</p>
+						)}
+					</div>
+				)
+			}
+			<span class="mt-6 text-international-orange-700 text-sm uppercase tracking-wider group-hover:underline md:mt-auto md:pt-6 dark:text-international-orange-500">
+				{label ?? (external ? 'Visit' : 'Open')} {external ? '↗' : '→'}
+			</span>
+		</div>
+		<Image
+			src={screenshot}
+			alt=""
+			widths={[480, 800, 1200, 1600]}
+			sizes="(min-width: 1280px) 700px, (min-width: 768px) 55vw, calc(100vw - 4rem)"
+			loading={priority ? 'eager' : 'lazy'}
+			fetchpriority={priority ? 'high' : undefined}
+			class="aspect-16/10 w-full border border-stone-300 object-cover object-top transition group-hover:border-international-orange-500 dark:border-ink-700"
+		/>
+	</article>
+</a>

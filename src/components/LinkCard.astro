@@ -1,24 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import { getLogo } from "../lib/logos";
-import { eyebrow, tile } from "../lib/ui";
+import { tile } from "../lib/ui";
 
 interface Props {
 	title: string;
 	href: string;
-	label?: string;
 	description?: string;
 	logo?: string;
 	invertLogo?: boolean;
 }
-const {
-	title,
-	href,
-	label,
-	description,
-	logo,
-	invertLogo = false,
-} = Astro.props;
+const { title, href, description, logo, invertLogo = false } = Astro.props;
 const image = getLogo(logo);
 const external = /^https?:/.test(href);
 ---
@@ -31,43 +23,37 @@ const external = /^https?:/.test(href);
 	<div
 		class:list={[
 			tile,
-			'flex h-full flex-col p-6 transition group-hover:border-international-orange-500 sm:p-8',
+			'flex h-full items-start gap-5 p-6 transition group-hover:border-international-orange-500',
 		]}
 	>
-		<div class:list={[eyebrow, 'mb-6 flex items-baseline justify-between gap-3']}>
-			<h2 class="font-medium text-international-orange-700 text-sm dark:text-international-orange-500">{title}</h2>
-			{label && <span class="truncate">{label}</span>}
-		</div>
-		<div
-			class:list={[
-				'grid items-start gap-5',
-				image ? 'grid-cols-[1fr_4fr]' : 'grid-cols-1',
-			]}
-		>
-			{
-				image && (image.format === 'svg' ? (
-					<img
-						src={image.src}
-						alt=""
-						width="40"
-						height="40"
-						loading="lazy"
-						class:list={['size-10', invertLogo && 'dark:invert']}
-					/>
-				) : (
-					<Image
-						src={image}
-						alt=""
-						width={40}
-						height={40}
-						layout="fixed"
-						widths={[40, 80]}
-						sizes="40px"
-						class:list={['size-10', invertLogo && 'dark:invert']}
-					/>
-				))
-			}
-			<p class="text-sm text-stone-600 dark:text-phosphor-500">
+		{
+			image && (image.format === 'svg' ? (
+				<img
+					src={image.src}
+					alt=""
+					width="40"
+					height="40"
+					loading="lazy"
+					class:list={['size-10 shrink-0', invertLogo && 'dark:invert']}
+				/>
+			) : (
+				<Image
+					src={image}
+					alt=""
+					width={40}
+					height={40}
+					layout="fixed"
+					widths={[40, 80]}
+					sizes="40px"
+					class:list={['size-10 shrink-0', invertLogo && 'dark:invert']}
+				/>
+			))
+		}
+		<div class="min-w-0">
+			<h2 class="font-medium text-international-orange-700 text-sm uppercase tracking-[0.14em] dark:text-international-orange-500">
+				{title}
+			</h2>
+			<p class="mt-2 text-sm text-stone-600 dark:text-phosphor-500">
 				<span class="pr-2">{description}</span>
 				<span class="whitespace-nowrap text-international-orange-700 uppercase tracking-wider group-hover:underline dark:text-international-orange-500">
 					{external ? 'Visit ↗' : 'Open →'}

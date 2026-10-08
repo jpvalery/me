@@ -32,55 +32,9 @@ export const navigation: NavItem[] = [
 			{ label: "Dashboard", url: "/dashboard" },
 		],
 	},
-	{
-		label: "Work",
-		url: "/work",
-		children: [
-			{ label: "Resume", url: "https://resume.jpvalery.me", external: true },
-			{ label: "How to work with me", url: "/work/how-to-work-with-me" },
-			{ label: "Recommendations", url: "/work/recommendations" },
-		],
-	},
-	{
-		label: "Projects",
-		url: "/projects",
-		children: [
-			{
-				label: "Decision Bowl",
-				url: "https://decisionbowl.com",
-				external: true,
-			},
-			{ label: "Hockay", url: "https://hockay.com", external: true },
-			{
-				label: "Safety Briefing",
-				url: "https://safety-briefing.com",
-				external: true,
-			},
-			{
-				label: "TrimCarbon.com",
-				url: "https://trimcarbon.com",
-				external: true,
-			},
-			{
-				label: "Flaps",
-				url: "https://github.com/jpvalery/flaps",
-				external: true,
-			},
-			{ label: "Cemetery", url: "/projects/cemetery" },
-		],
-	},
-	{
-		label: "Photography",
-		url: "/photography",
-		children: [
-			{ label: "Portfolio", url: "https://jpvalery.photo", external: true },
-			{
-				label: "Contact Sheets",
-				url: "https://archive.jpvalery.photo",
-				external: true,
-			},
-		],
-	},
+	{ label: "Work", url: "/work" },
+	{ label: "Projects", url: "/projects" },
+	{ label: "Photography", url: "/photography" },
 	{ label: "Contact", url: "/contact" },
 ];
 

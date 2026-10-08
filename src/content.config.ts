@@ -38,13 +38,16 @@ const now = defineCollection({
 	}),
 });
 
-/** Link cards on /work, /projects, /photography, and /projects/cemetery, in file order. */
+/**
+ * Link cards in file order: /work (`work` above the experience, `advisory` below it),
+ * /projects, /photography, and /projects/cemetery.
+ */
 const cards = defineCollection({
 	loader: orderedFile("src/content/cards.json"),
 	schema: z
 		.object({
 			order: z.number(),
-			section: z.enum(["work", "projects", "photography", "cemetery"]),
+			section: z.enum(["work", "advisory", "projects", "photography", "cemetery"]),
 			title: z.string(),
 			description: z.string().optional(),
 			/** Optional only in the cemetery, for projects that are offline */
@@ -54,6 +57,8 @@ const cards = defineCollection({
 			logo: z.string().optional(),
 			/** Dark logo that disappears on the dark theme */
 			invertLogoOnDark: z.boolean().default(false),
+			/** File name in src/images/screenshots, without extension; made by `pnpm screenshots` */
+			screenshot: z.string().optional(),
 		})
 		.refine((c) => c.section === "cemetery" || c.href, {
 			message: "href is required outside the cemetery",
@@ -77,16 +82,26 @@ const recommendations = defineCollection({
 	}),
 });
 
-/** Career summary on /work, newest first, in file order. */
+/** Career on /work, from resume.jpvalery.me: companies newest first, in file order. */
 const experience = defineCollection({
 	loader: orderedFile("src/content/experience.json"),
 	schema: z.object({
 		order: z.number(),
 		company: z.string(),
 		url: z.string().optional(),
-		role: z.string(),
+		/** What the company does, e.g. "Email API for developers" */
+		about: z.string(),
 		years: z.string(),
-		highlight: z.string(),
+		/** Newest first */
+		roles: z
+			.array(
+				z.object({
+					title: z.string(),
+					dates: z.string(),
+					highlights: z.array(z.string()).min(1),
+				}),
+			)
+			.min(1),
 	}),
 });
 

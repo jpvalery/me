@@ -25,13 +25,15 @@ Content lives in `src/content/` as Astro content collections (schemas in `src/co
 | `pages/work/*.md` | One page per file under `/work/*`; frontmatter sets full-width text (`wide: true`) |
 | `pages/date/{me,you}.md` | `/date/*` (noindex) |
 | `now/YYYY-MM-DD.md` | `/now` entries: the latest is `/now`, all of them form the timeline and the RSS feed |
-| `cards.json` | Link cards on `/work`, `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order; only cemetery cards may omit `href` (shown as offline) |
-| `experience.json` | Career summary on `/work`, newest first |
+| `cards.json` | Link cards on `/work` (`work` above the experience, `advisory` below it), `/projects`, `/photography`, `/projects/cemetery` (`section`), in file order; only cemetery cards may omit `href` (shown as offline) |
+| `experience.json` | Career on `/work`, copied from [resume.jpvalery.me](https://resume.jpvalery.me): companies newest first, each with its roles and highlights |
 | `recommendations.json` | Testimonials on `/work/recommendations`, in file order; the `featured` one is quoted on the home page |
 | `flying.json` | Foreflight stats on `/dashboard` and the home page (updated by hand; `updated` is a `YYYY-MM-DD` date) |
 | `imdb.json` | IMDB count on `/dashboard` (updated by hand, same date format) |
 
-Card `logo` values are file names in `src/images/logos` (the build fails on an unknown name). Site title,
+Card `logo` values are file names in `src/images/logos`, and `screenshot` values are file names in
+`src/images/screenshots` (the build fails on an unknown name). Cards on `/projects`, `/photography`, and in
+`advisory` are full width and need a `screenshot`; see [Screenshots](#screenshots). Site title,
 tagline, navigation, and footer links are in `src/lib/site.ts`; short page intros are in the page files.
 
 `/llms.txt` and `/agent.md` are generated from this content at build time (`src/pages/llms.txt.ts`,
@@ -45,9 +47,9 @@ src/
 ├── pages/          # Routes; everything is prerendered except /api/send
 ├── content/        # Markdown and JSON content (see above)
 ├── layouts/        # BaseLayout (meta tags, theme, analytics)
-├── components/     # .astro components (Header, LinkCard, ContactForm, ...)
+├── components/     # .astro components (Header, ShowcaseCard, LinkCard, ContactForm, ...)
 ├── lib/            # site.ts (navigation), contact.ts (form definitions + zod schemas), logos.ts
-├── images/         # Optimised images and logos
+├── images/         # Optimised images, logos, and home page screenshots
 ├── fonts/          # Local woff2 fonts
 └── styles/         # global.css (Tailwind + fonts)
 public/             # og.png, favicon, avatars
@@ -73,7 +75,17 @@ pnpm build        # static site + Vercel function in .vercel/output
 pnpm typecheck
 pnpm test         # contact and dashboard regression checks; all requests are mocked
 pnpm format
+pnpm screenshots  # recapture the home page screenshots on the cards
 ```
+
+### Screenshots
+
+The full-width cards show a screenshot of each site's home page, stored in `src/images/screenshots` as
+1600 px WebP (Astro makes the smaller sizes). `pnpm screenshots` captures every card with a `screenshot`
+from its live `href` at 1280×800, in English, after declining consent banners. Pass names to capture only
+some (`pnpm screenshots dmc hockay`), or `name=url` to capture another URL, such as a local dev server
+(`pnpm screenshots hockay=http://localhost:3000`). It drives a local Chrome or Chromium (including the ones
+Playwright downloads) through the DevTools protocol; set `CHROME_PATH` if it isn't found.
 
 ### Environment
 
@@ -92,14 +104,21 @@ a default, and `/api/send` answers 503 until its runtime secrets are set.
 The Turnstile widget allows `jpvalery.me` and `localhost`; add another hostname (for example a Vercel
 preview domain) in the Cloudflare dashboard before testing the form there.
 
-### Dashboard snapshots
+### Build-time stats
 
-The dashboard and `/dashboard-stats.json` share one build-time fetch. API requests time out after
+`/dashboard`, `/dashboard-stats.json`, the Unsplash card on `/photography`, the Unsplash views on the home
+page and in the page description, and `/llms.txt` and `/agent.md` share one build-time fetch
+(`src/lib/dashboard-data.ts`; Unsplash text in `src/lib/unsplash.ts`). API requests time out after
 5 seconds. If an API fails, returns invalid counts, or has no credentials, the build retrieves the
 last production deployment’s `/dashboard-stats.json` and preserves that source’s counts and original
 refresh date. The JSON contains only public counts and dates. Each source needs one successful deploy
 to seed its fallback; before that, the page labels it temporarily unavailable. No runtime database or
 extra function is required.
+
+The counts refresh at each build. `.github/workflows/rebuild.yml` rebuilds production every day at
+09:00 UTC (or on demand from the Actions tab) by calling a Vercel deploy hook: create one in the Vercel
+project (Settings → Git → Deploy Hooks, branch `main`) and save its URL as the `VERCEL_DEPLOY_HOOK`
+repository secret. Without the secret, the workflow does nothing.
 
 ### Fonts
 

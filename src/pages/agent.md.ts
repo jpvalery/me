@@ -37,7 +37,7 @@ Jp is a Customer Success Engineer at **Resend** (email infrastructure company). 
 
 | Years | Company | Role | Highlight |
 |-------|---------|------|-----------|
-${f.experience.map((e) => `| ${e.years} | ${cell(e.company)} | ${cell(e.role)} | ${cell(e.highlight)} |`).join("\n")}
+${f.experience.map((e) => `| ${e.years} | ${cell(e.company)} | ${cell(e.role)} | ${cell(e.highlights[0])} |`).join("\n")}
 
 Full resume: https://resume.jpvalery.me
 
@@ -54,7 +54,7 @@ ${f.projects.map((p) => `| ${cell(p.title)} | ${bare(p.href)} | ${cell(p.descrip
 ## Key Interests & Expertise Areas
 
 - **Aviation:** ${list(f.ratings)}; working toward ${list(f.nextRatings)}
-- **Photography:** 300M+ views on Unsplash, founded Montréal Photo Club, shoots DSLR/medium format/large format/infrared
+- **Photography:** ${f.unsplashViews}+ views on Unsplash, founded Montréal Photo Club, shoots DSLR/medium format/large format/infrared
 - **Tech:** Email infrastructure, developer tools, SaaS, customer success
 - **Other:** Cooking/baking, gardening, 3D printing, cycling, music (guitar, bass)
 

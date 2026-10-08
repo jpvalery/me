@@ -15,7 +15,8 @@
 		"test": "node --test tests/*.test.ts",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
-		"format": "biome check --write ."
+		"format": "biome check --write .",
+		"screenshots": "node scripts/screenshots.mjs"
 	},
 	"dependencies": {
 		"@astrojs/vercel": "11.0.11",

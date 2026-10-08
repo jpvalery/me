@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import CardSection from "../../components/CardSection.astro";
-import CtaLink from "../../components/CtaLink.astro";
 import SimpleLayout from "../../components/SimpleLayout.astro";
 import Tile from "../../components/Tile.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -22,11 +21,12 @@ const link =
 		intro="Customer Success Engineer at Resend. I've spent over a decade helping people do more with email, as a sender and as a vendor: leading customer success teams, building growth functions, and marketing games."
 	>
 		<div class="grid gap-6 lg:gap-8">
+			<CardSection section="work" variant="row" />
 			<Tile label="Experience" aside="2014—now" heading>
 				<ol>
 					{
 						experience.map(({ data }) => (
-							<li class="grid gap-1 border-stone-300 border-t border-dashed py-4 first:border-0 first:pt-0 md:grid-cols-[8rem_1fr] md:gap-6 dark:border-ink-700">
+							<li class="grid gap-1 border-stone-300 border-t border-dashed py-6 first:border-0 first:pt-0 md:grid-cols-[8rem_1fr] md:gap-6 dark:border-ink-700">
 								<span class="text-international-orange-700 text-sm tabular-nums dark:text-international-orange-500">
 									{data.years}
 								</span>
@@ -40,10 +40,26 @@ const link =
 											data.company
 										)}
 									</h3>
-									<p class="text-sm text-stone-600 dark:text-phosphor-500">{data.role}</p>
-									<p class="mt-1 max-w-prose text-sm text-zinc-700 dark:text-phosphor-100">
-										{data.highlight}
-									</p>
+									<p class="text-sm text-stone-500 dark:text-phosphor-500">{data.about}</p>
+									<ol class="mt-4 grid gap-5">
+										{data.roles.map((role) => (
+											<li>
+												<p class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-sm">
+													<span class="font-medium text-zinc-900 dark:text-phosphor-100">{role.title}</span>
+													<span class="text-stone-500 text-xs uppercase tabular-nums tracking-wider dark:text-phosphor-500">
+														{role.dates}
+													</span>
+												</p>
+												<ul class="mt-2 grid max-w-3xl gap-1.5 text-sm text-zinc-700 dark:text-phosphor-100">
+													{role.highlights.map((highlight) => (
+														<li class="relative pl-4 before:absolute before:left-0 before:text-international-orange-500 before:content-['›']">
+															{highlight}
+														</li>
+													))}
+												</ul>
+											</li>
+										))}
+									</ol>
 								</div>
 							</li>
 						))
@@ -53,14 +69,7 @@ const link =
 					Full resume ↗
 				</a>
 			</Tile>
-			<CardSection section="work" />
+			<CardSection section="advisory" />
 		</div>
-	</SimpleLayout>
-	<SimpleLayout
-		title="Advisory & consulting"
-		intro="Advisory and consulting engagements go through my company, Raccoon Ventures."
-		sub
-	>
-		<CtaLink href="https://raccoonv.com">Work with Raccoon Ventures</CtaLink>
 	</SimpleLayout>
 </BaseLayout>

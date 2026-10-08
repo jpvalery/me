@@ -6,6 +6,7 @@ import photoPizzaBaking from "../images/photos/jp-valery-baking-pizza.jpg";
 import photoCamera from "../images/photos/jp-valery-camera.jpg";
 import photoPilot2 from "../images/photos/jp-valery-pilot-2.jpg";
 import photoPilot4 from "../images/photos/jp-valery-pilot-4.jpg";
+import { unsplashViews } from "../lib/unsplash";
 import Tile from "./Tile.astro";
 
 interface Props {
@@ -31,12 +32,13 @@ const sets = {
 	],
 } as const;
 const images = sets[set];
+const views = await unsplashViews("short");
 ---
 
 <div class="mx-auto max-w-7xl px-4 pb-2 sm:px-8">
 	<Tile
 		label="Photography"
-		aside={set === 'home' ? '300M+ views on Unsplash' : undefined}
+		aside={set === 'home' ? `${views}+ views on Unsplash` : undefined}
 	>
 		<ul
 			class:list={[

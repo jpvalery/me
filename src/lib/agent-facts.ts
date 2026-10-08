@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import flying from "../content/flying.json";
 import { splitYears } from "./cards";
 import { forms } from "./contact";
+import { unsplashViews } from "./unsplash";
 
 const byOrder = <T extends { data: { order: number } }>(a: T, b: T) =>
 	a.data.order - b.data.order;
@@ -31,11 +32,21 @@ export async function agentFacts() {
 				title: data.title,
 				years: splitYears(data.description).years,
 			})),
-		experience: experience.map((e) => e.data),
+		experience: experience.map(({ data }) => ({
+			...data,
+			/** "Customer Success Manager → ... → Success Team Manager", oldest first */
+			role: data.roles
+				.map((r) => r.title)
+				.reverse()
+				.join(" → "),
+			highlights: data.roles.flatMap((r) => r.highlights),
+		})),
 		ratings: flying.ratings
 			.filter((r) => !r.next)
 			.map((r) => `${r.title} (${r.when})`),
 		nextRatings: flying.ratings.filter((r) => r.next).map((r) => r.title),
+		/** "305M", from the build-time Unsplash stats */
+		unsplashViews: await unsplashViews("short"),
 		/** Indexable contact forms, for the page map */
 		contactForms: Object.values(forms)
 			.filter((f) => !f.noindex)

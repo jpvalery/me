@@ -18,7 +18,7 @@ Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. 
 
 ## Professional
 
-${lines(f.experience.map((e) => `${e.role} at ${e.company} (${e.years}): ${e.highlight}`))}
+${f.experience.map((e) => `- ${e.role} at ${e.company}, ${e.about} (${e.years})\n${e.highlights.map((h) => `  - ${h}`).join("\n")}`).join("\n")}
 - Side company: Raccoon Ventures (raccoonv.com) — advisory, consulting, side projects (advisory and consulting requests go to raccoonv.com)
 - Specialties: Customer success, email infrastructure, developer tools, SaaS
 
@@ -33,7 +33,7 @@ ${lines(f.retired.map((p) => (p.years ? `${p.title} (${p.years})` : p.title)))}
 ## Interests
 
 - Aviation: ${list(f.ratings)}; working toward ${list(f.nextRatings)}
-- Photography: 300M+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
+- Photography: ${f.unsplashViews}+ views on Unsplash, founded Montréal Photo Club (2019), shoots DSLR, medium format film, large format, infrared
 - Cooking & baking, gardening, 3D printing, cycling, guitar & bass, gaming
 
 ## Contact

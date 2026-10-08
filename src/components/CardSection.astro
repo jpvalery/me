@@ -1,29 +1,66 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import type { ComponentProps } from "astro/types";
+import { getScreenshot } from "../lib/screenshots";
 import LinkCard from "./LinkCard.astro";
+import ShowcaseCard from "./ShowcaseCard.astro";
 
 interface Props {
 	section: CollectionEntry<"cards">["data"]["section"];
-	columns?: string;
+	/** "row": compact link cards side by side; "showcase": full-width cards with a screenshot */
+	variant?: "row" | "showcase";
+	/** The first showcase card is above the fold */
+	priority?: boolean;
+	/** Live numbers for showcase cards, by card id */
+	stats?: Record<string, ComponentProps<typeof ShowcaseCard>["stats"]>;
 }
-const { section, columns = "md:grid-cols-2" } = Astro.props;
+const {
+	section,
+	variant = "showcase",
+	priority = false,
+	stats = {},
+} = Astro.props;
 const cards = (
 	await getCollection("cards", (c) => c.data.section === section)
 ).sort((a, b) => a.data.order - b.data.order);
+
+function screenshot(card: (typeof cards)[number]) {
+	if (!card.data.screenshot)
+		throw new Error(`Card "${card.id}" needs a screenshot`);
+	return getScreenshot(card.data.screenshot);
+}
 ---
 
-<ul class:list={['grid grid-cols-1 items-stretch gap-6 lg:gap-8', columns]}>
+<ul
+	class:list={[
+		'grid grid-cols-1 gap-6 lg:gap-8',
+		variant === 'row' && 'items-stretch lg:grid-cols-3',
+	]}
+>
 	{
-		cards.map((card) => card.data.href && (
+		cards.map((card, i) => card.data.href && (
 			<li class="h-full">
-				<LinkCard
-					title={card.data.title}
-					href={card.data.href}
-					label={card.data.label}
-					description={card.data.description}
-					logo={card.data.logo}
-					invertLogo={card.data.invertLogoOnDark}
-				/>
+				{variant === 'row' ? (
+					<LinkCard
+						title={card.data.title}
+						href={card.data.href}
+						description={card.data.description}
+						logo={card.data.logo}
+						invertLogo={card.data.invertLogoOnDark}
+					/>
+				) : (
+					<ShowcaseCard
+						title={card.data.title}
+						href={card.data.href}
+						label={card.data.label}
+						description={card.data.description}
+						logo={card.data.logo}
+						invertLogo={card.data.invertLogoOnDark}
+						screenshot={screenshot(card)}
+						priority={priority && i === 0}
+						stats={stats[card.id]}
+					/>
+				)}
 			</li>
 		))
 	}

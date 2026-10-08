@@ -15,7 +15,7 @@
 		"description": "Hear what people I worked with have to say",
 		"href": "/work/recommendations",
 		"label": "/work/recommendations",
-		"logo": "resume"
+		"logo": "recommendations"
 	},
 	{
 		"id": "work-work-with-me",
@@ -27,22 +27,24 @@
 		"logo": "workwithme"
 	},
 	{
-		"id": "work-raccoon-ventures",
-		"section": "work",
+		"id": "advisory-raccoon-ventures",
+		"section": "advisory",
 		"title": "Raccoon Ventures",
-		"description": "My personal company to work on my side-projects or advise/consult for other companies",
+		"description": "My company: AI workflows, process automation, and CRM integrations for revenue and customer teams. Advisory and consulting engagements go through Raccoon Ventures",
 		"href": "https://raccoonv.com",
 		"label": "raccoonv.com",
-		"logo": "raccoonventures"
+		"logo": "raccoonventures",
+		"screenshot": "raccoonventures"
 	},
 	{
-		"id": "projects-decision-bowl",
+		"id": "projects-trimcarbon-com",
 		"section": "projects",
-		"title": "Decision Bowl",
-		"description": "Stop the “you pick, no, you pick” loop. Fill a shared bowl with restaurants, activities, or movies and let it pick one for you",
-		"href": "https://decisionbowl.com",
-		"label": "decisionbowl.com",
-		"logo": "decisionbowl"
+		"title": "TrimCarbon.com",
+		"description": "Fund verified climate projects that remove or reduce CO₂ from the atmosphere",
+		"href": "https://trimcarbon.com",
+		"label": "trimcarbon.com",
+		"logo": "trimcarbon",
+		"screenshot": "trimcarbon"
 	},
 	{
 		"id": "projects-hockay",
@@ -52,7 +54,28 @@
 		"href": "https://hockay.com",
 		"label": "hockay.com",
 		"logo": "hockay",
-		"invertLogoOnDark": true
+		"invertLogoOnDark": true,
+		"screenshot": "hockay"
+	},
+	{
+		"id": "projects-decision-bowl",
+		"section": "projects",
+		"title": "Decision Bowl",
+		"description": "Stop the “you pick, no, you pick” loop. Fill a shared bowl with restaurants, activities, or movies and let it pick one for you",
+		"href": "https://decisionbowl.com",
+		"label": "decisionbowl.com",
+		"logo": "decisionbowl",
+		"screenshot": "decisionbowl"
+	},
+	{
+		"id": "projects-dmc",
+		"section": "projects",
+		"title": "DMC",
+		"description": "Dungeon Master of Ceremonies, my free native macOS app to be the best DM at the table: layered soundscapes, D&D Beyond, a combat tracker, and session notes, in one window",
+		"href": "https://dnd-dmc.vercel.app",
+		"label": "dnd-dmc.vercel.app",
+		"logo": "dmc",
+		"screenshot": "dmc"
 	},
 	{
 		"id": "projects-safety-briefing",
@@ -61,25 +84,8 @@
 		"description": "A safety briefing for general aviation passengers, covering pre-flight preparation and in-flight procedures. Open source under the MIT License",
 		"href": "https://safety-briefing.com",
 		"label": "safety-briefing.com",
-		"logo": "safetybriefing"
-	},
-	{
-		"id": "projects-trimcarbon-com",
-		"section": "projects",
-		"title": "TrimCarbon.com",
-		"description": "Fund verified climate projects that remove or reduce CO₂ from the atmosphere",
-		"href": "https://trimcarbon.com",
-		"label": "trimcarbon.com",
-		"logo": "trimcarbon"
-	},
-	{
-		"id": "projects-flaps",
-		"section": "projects",
-		"title": "Flaps",
-		"description": "FLAPS is an open-source platform for managing and booking seats on private or light aircraft flights.",
-		"href": "https://github.com/jpvalery/flaps",
-		"label": "jpvalery/flaps",
-		"logo": "flaps"
+		"logo": "safetybriefing",
+		"screenshot": "safetybriefing"
 	},
 	{
 		"id": "projects-cuisinomicon",
@@ -88,43 +94,48 @@
 		"description": "My online cookbook where I share my best recipes",
 		"href": "https://cuisinomicon.com",
 		"label": "cuisinomicon.com",
-		"logo": "cuisinomicon"
+		"logo": "cuisinomicon",
+		"screenshot": "cuisinomicon"
+	},
+	{
+		"id": "projects-flaps",
+		"section": "projects",
+		"title": "Flaps",
+		"description": "FLAPS is an open-source platform for managing and booking seats on private or light aircraft flights.",
+		"href": "https://github.com/jpvalery/flaps",
+		"label": "jpvalery/flaps",
+		"logo": "flaps",
+		"screenshot": "flaps"
 	},
 	{
 		"id": "photography-portfolio",
 		"section": "photography",
 		"title": "Portfolio",
-		"description": "My photography portfolio",
+		"description": "My photography portfolio: places and the people in them across North America, one chapter per body of work",
 		"href": "https://jpvalery.photo",
 		"label": "jpvalery.photo",
-		"logo": "portfolio"
-	},
-	{
-		"id": "photography-contact-sheets",
-		"section": "photography",
-		"title": "Contact Sheets",
-		"description": "An unfiltered stream of all my photos",
-		"href": "https://archive.jpvalery.photo",
-		"label": "archive.jpvalery.photo",
-		"logo": "archivephoto"
+		"logo": "portfolio",
+		"screenshot": "portfolio"
 	},
 	{
 		"id": "photography-montr-al-photo-club",
 		"section": "photography",
 		"title": "Montréal Photo Club",
-		"description": "I founded a Photo Club in Montréal in 2019",
+		"description": "I founded a photo club in Montréal in 2019: a friendly gathering of photographers of all backgrounds and levels, with photo walks, workshops, and challenges",
 		"href": "https://montrealphoto.club",
 		"label": "montrealphoto.club",
-		"logo": "photoclub"
+		"logo": "photoclub",
+		"screenshot": "photoclub"
 	},
 	{
 		"id": "photography-unsplash",
 		"section": "photography",
 		"title": "Unsplash",
-		"description": "I share hundreds of photos for free on Unsplash",
+		"description": "I share hundreds of photos for free on Unsplash, for anyone to use",
 		"href": "https://unsplash.com/@jpvalery",
 		"label": "unsplash.com/@jpvalery",
-		"logo": "unsplash"
+		"logo": "unsplash",
+		"screenshot": "unsplash"
 	},
 	{
 		"id": "cemetery-msfs-flightlog",
