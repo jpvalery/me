@@ -1,6 +1,7 @@
+import { checkBotId } from "botid/server";
 import { forms, schemaFor } from "./contact.ts";
 
-// Fits a full-length message in any script, plus the Turnstile token
+// Fits a full-length message in any script
 export const MAX_BODY_BYTES = 16 * 1024;
 const REQUEST_TIMEOUT_MS = 10_000;
 const ALLOWED_ORIGINS = new Set([
@@ -9,17 +10,24 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 
 interface ContactConfig {
-	turnstileSecret?: string;
 	apiKey?: string;
 	genericEmail?: string;
 	photoEmail?: string;
 	dateEmail?: string;
 }
 
+type BotCheck = (request: Request) => Promise<{ isBot: boolean }>;
+
+// On Vercel, BotID reads the request from the function context; outside
+// Next.js, `astro dev` has none, so pass the headers for local checks.
+const checkRequest: BotCheck = (request) =>
+	checkBotId({
+		advancedOptions: { headers: Object.fromEntries(request.headers) },
+	});
+
 interface ContactRequest {
 	request: Request;
 	url: URL;
-	clientAddress: string;
 }
 
 export const json = (body: unknown, status = 200) =>
@@ -63,51 +71,47 @@ async function readBody(request: Request) {
 	}
 }
 
-async function verifyTurnstile(
-	secret: string,
-	token: string,
-	ip: string,
-	fetcher: typeof fetch,
+/** True for a bot, false for a person, null when BotID gives no verdict. */
+async function detectBot(
+	checkBot: BotCheck,
+	request: Request,
 ): Promise<boolean | null> {
-	try {
-		const res = await fetcher(
-			"https://challenges.cloudflare.com/turnstile/v0/siteverify",
-			{
-				method: "POST",
-				signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-				body: new URLSearchParams({ secret, response: token, remoteip: ip }),
-			},
+	// checkBotId takes no abort signal, so stop waiting for it instead
+	let timer: ReturnType<typeof setTimeout> | undefined;
+	const timeout = new Promise<never>((_, reject) => {
+		timer = setTimeout(
+			() => reject(new DOMException("BotID timed out", "TimeoutError")),
+			REQUEST_TIMEOUT_MS,
 		);
-		if (!res.ok) {
-			console.error(`Turnstile verification failed: HTTP ${res.status}`);
-			return null;
-		}
-		const data: unknown = await res.json();
+	});
+	try {
+		const result: unknown = await Promise.race([checkBot(request), timeout]);
 		if (
-			!data ||
-			typeof data !== "object" ||
-			!("success" in data) ||
-			typeof data.success !== "boolean"
+			!result ||
+			typeof result !== "object" ||
+			!("isBot" in result) ||
+			typeof result.isBot !== "boolean"
 		) {
-			console.error("Turnstile verification returned an unexpected response");
+			console.error("BotID returned an unexpected response");
 			return null;
 		}
-		return data.success;
+		return result.isBot;
 	} catch (error) {
-		console.error("Turnstile verification failed:", error);
+		console.error("BotID check failed:", error);
 		return null;
+	} finally {
+		clearTimeout(timer);
 	}
 }
 
 export function createContactHandler(
 	config: ContactConfig,
 	fetcher: typeof fetch = fetch,
+	checkBot: BotCheck = checkRequest,
 ) {
-	return async ({ request, url, clientAddress }: ContactRequest) => {
-		if (!config.turnstileSecret || !config.apiKey) {
-			console.error(
-				"Contact form is not configured: set TURNSTILE_SECRET_KEY and CIO_APP_APIKEY",
-			);
+	return async ({ request, url }: ContactRequest) => {
+		if (!config.apiKey) {
+			console.error("Contact form is not configured: set CIO_APP_APIKEY");
 			return json({ error: "The contact form is unavailable right now" }, 503);
 		}
 		if (!sameOrigin(request, url)) return json({ error: "Forbidden" }, 403);
@@ -154,18 +158,12 @@ export function createContactHandler(
 			return json({ error: "The contact form is unavailable right now" }, 503);
 		}
 
-		const verified = await verifyTurnstile(
-			config.turnstileSecret,
-			data["cf-turnstile-response"],
-			clientAddress,
-			fetcher,
-		);
-		if (verified === null)
+		const bot = await detectBot(checkBot, request);
+		if (bot === null)
 			return json({ error: "Bot check is unavailable, please try again" }, 503);
-		if (!verified)
-			return json({ error: "Bot check failed, please try again" }, 400);
+		if (bot) return json({ error: "Bot check failed, please try again" }, 403);
 
-		const { nickname: _n, "cf-turnstile-response": _t, ...messageData } = data;
+		const { nickname: _n, ...messageData } = data;
 		const sent = await fetcher("https://api.customer.io/v1/send/email", {
 			method: "POST",
 			signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),

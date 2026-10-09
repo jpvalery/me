@@ -3,7 +3,6 @@ import {
 	EMAIL_CONTACT_DATE,
 	EMAIL_CONTACT_GENERIC,
 	EMAIL_CONTACT_PHOTO,
-	TURNSTILE_SECRET_KEY,
 } from "astro:env/server";
 import type { APIRoute } from "astro";
 import { createContactHandler, json } from "../../lib/contact-handler";
@@ -11,7 +10,6 @@ import { createContactHandler, json } from "../../lib/contact-handler";
 export const prerender = false;
 
 export const POST: APIRoute = createContactHandler({
-	turnstileSecret: TURNSTILE_SECRET_KEY,
 	apiKey: CIO_APP_APIKEY,
 	genericEmail: EMAIL_CONTACT_GENERIC,
 	photoEmail: EMAIL_CONTACT_PHOTO,

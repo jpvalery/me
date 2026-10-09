@@ -7,7 +7,6 @@ import {
 } from "../src/lib/contact-handler.ts";
 
 const config = {
-	turnstileSecret: "test-secret",
 	apiKey: "test-key",
 	genericEmail: "generic@example.test",
 	photoEmail: "photo@example.test",
@@ -19,8 +18,8 @@ const valid = {
 	reason: "say-hi",
 	message: "Bonjour!",
 	checked: true,
-	"cf-turnstile-response": "test-token",
 };
+const human = async () => ({ isBot: false });
 
 function context(body: BodyInit, headers: Record<string, string> = {}) {
 	const url = new URL("https://jpvalery.me/api/send");
@@ -34,23 +33,27 @@ function context(body: BodyInit, headers: Record<string, string> = {}) {
 			...headers,
 		},
 	} as RequestInit);
-	return { request, url, clientAddress: "127.0.0.1" };
+	return { request, url };
 }
 
-function harness(
-	verification: () => Promise<Response> = async () =>
-		Response.json({ success: true }),
-) {
+function harness(botCheck: () => Promise<unknown> = human) {
 	const messages: Record<string, unknown>[] = [];
 	const requests: string[] = [];
 	const fetcher: typeof fetch = async (input, init) => {
 		assert.ok(init?.signal, "upstream requests must have a timeout signal");
 		requests.push(String(input));
-		if (String(input).includes("siteverify")) return verification();
 		messages.push(JSON.parse(String(init?.body)));
 		return Response.json({ delivery_id: "test" });
 	};
-	return { handler: createContactHandler(config, fetcher), messages, requests };
+	const checkBot = async () => {
+		requests.push("botid");
+		return botCheck() as Promise<{ isBot: boolean }>;
+	};
+	return {
+		handler: createContactHandler(config, fetcher, checkBot),
+		messages,
+		requests,
+	};
 }
 
 test("valid messages do not depend on client clocks or tab age", async () => {
@@ -167,48 +170,67 @@ test("accepts exactly the byte limit and Unicode split across stream chunks", as
 	);
 });
 
-test("verification outages and malformed responses return JSON errors without sending", async (t) => {
+test("BotID failures and malformed verdicts return JSON errors without sending", async (t) => {
 	const logged = t.mock.method(console, "error", () => {});
-	for (const verification of [
+	for (const botCheck of [
 		async () => {
 			throw new TypeError("network failure");
 		},
 		async () => {
-			throw new DOMException("timeout", "TimeoutError");
+			throw new Error("The 'x-vercel-oidc-token' header is missing");
 		},
-		async () => new Response("unavailable", { status: 503 }),
-		async () => new Response("invalid JSON"),
-		async () => Response.json(null),
-		async () => Response.json({ success: "true" }),
+		async () => null,
+		async () => ({}),
+		async () => ({ isBot: "false" }),
 	]) {
-		const { handler, messages } = harness(verification);
+		const { handler, messages } = harness(botCheck);
 		const response = await handler(context(JSON.stringify(valid)));
 		assert.equal(response.status, 503);
 		assert.match((await response.json()).error, /Bot check is unavailable/);
 		assert.equal(messages.length, 0);
 	}
-	assert.equal(logged.mock.callCount(), 6, "each outage is logged once");
-	const { handler, messages } = harness(async () =>
-		Response.json({ success: false }),
-	);
-	assert.equal((await handler(context(JSON.stringify(valid)))).status, 400);
+	assert.equal(logged.mock.callCount(), 5, "each failure is logged once");
+	const { handler, messages } = harness(async () => ({ isBot: true }));
+	const response = await handler(context(JSON.stringify(valid)));
+	assert.equal(response.status, 403);
+	assert.match((await response.json()).error, /Bot check failed/);
 	assert.equal(messages.length, 0);
-	assert.equal(logged.mock.callCount(), 6, "rejected tokens are not errors");
+	assert.equal(logged.mock.callCount(), 5, "detected bots are not errors");
+});
+
+test("stops waiting for BotID after the timeout", async (t) => {
+	const logged = t.mock.method(console, "error", () => {});
+	t.mock.timers.enable({ apis: ["setTimeout"] });
+	let started!: () => void;
+	const checking = new Promise<void>((resolve) => {
+		started = resolve;
+	});
+	const { handler, messages } = harness(() => {
+		started();
+		return new Promise(() => {});
+	});
+	const pending = handler(context(JSON.stringify(valid)));
+	await checking;
+	t.mock.timers.tick(10_000);
+	const response = await pending;
+	assert.equal(response.status, 503);
+	assert.match((await response.json()).error, /Bot check is unavailable/);
+	assert.equal(messages.length, 0);
+	assert.match(String(logged.mock.calls[0].arguments[1]), /timed out/);
 });
 
 test("email timeouts and failures never report success", async (t) => {
 	const logged = t.mock.method(console, "error", () => {});
 	for (const timeout of [true, false]) {
-		const fetcher: typeof fetch = async (input, init) => {
+		const fetcher: typeof fetch = async (_input, init) => {
 			assert.ok(init?.signal);
-			if (String(input).includes("siteverify"))
-				return Response.json({ success: true });
 			if (timeout) throw new DOMException("timeout", "TimeoutError");
 			return new Response(null, { status: 500 });
 		};
 		const response = await createContactHandler(
 			config,
 			fetcher,
+			human,
 		)(context(JSON.stringify(valid)));
 		assert.equal(response.status, 502);
 		assert.match((await response.json()).error, /Could not send/);
@@ -224,21 +246,23 @@ test("missing configuration returns 503 and logs the setting to fix", async (t) 
 	const requests: string[] = [];
 	const fetcher: typeof fetch = async (input) => {
 		requests.push(String(input));
-		return Response.json({ success: true });
+		return Response.json({ delivery_id: "test" });
 	};
 	const unconfigured = createContactHandler(
-		{ ...config, turnstileSecret: undefined },
+		{ ...config, apiKey: undefined },
 		fetcher,
+		human,
 	);
 	assert.equal((await unconfigured(context(JSON.stringify(valid)))).status, 503);
 	const noPhoto = createContactHandler(
 		{ ...config, photoEmail: undefined },
 		fetcher,
+		human,
 	);
 	const photo = { ...valid, _type: "photography", reason: "project-pitch" };
 	assert.equal((await noPhoto(context(JSON.stringify(photo)))).status, 503);
 	const output = logged.mock.calls.map((c) => String(c.arguments[0]));
-	assert.match(output[0], /TURNSTILE_SECRET_KEY/);
+	assert.match(output[0], /CIO_APP_APIKEY/);
 	assert.match(output[1], /EMAIL_CONTACT_PHOTO/);
 	assert.equal(requests.length, 0);
 });
@@ -290,10 +314,12 @@ test("routes each form to its recipient and allows generic without photo configu
 	);
 	assert.equal(messages[0].to, config.photoEmail);
 	assert.equal(messages[1].to, config.genericEmail);
-	const fetcher: typeof fetch = async () => Response.json({ success: true });
+	const fetcher: typeof fetch = async () =>
+		Response.json({ delivery_id: "test" });
 	const genericOnly = createContactHandler(
 		{ ...config, photoEmail: undefined },
 		fetcher,
+		human,
 	);
 	assert.equal((await genericOnly(context(JSON.stringify(valid)))).status, 200);
 });

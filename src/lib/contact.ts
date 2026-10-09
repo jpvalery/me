@@ -134,8 +134,7 @@ export function schemaFor(def: ContactFormDef) {
 		...shape,
 		email: z.string().trim().pipe(z.email().max(MAX.default)),
 		checked: z.literal(true),
-		// Anti-bot fields, validated separately in the endpoint
+		// Honeypot, checked separately in the endpoint
 		nickname: z.string().max(0).optional(),
-		"cf-turnstile-response": z.string().min(1),
 	});
 }

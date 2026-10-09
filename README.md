@@ -11,7 +11,7 @@ Live at [jpvalery.me](https://jpvalery.me)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com) with `@tailwindcss/typography` and `@tailwindcss/forms`
 - **Fonts:** JetBrains Mono, Departure Mono, Cartridge
 - **Analytics:** [Umami](https://umami.is) (self-hosted)
-- **Email:** [Customer.io](https://customer.io) transactional API, behind [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/)
+- **Email:** [Customer.io](https://customer.io) transactional API, behind [Vercel BotID](https://vercel.com/docs/botid)
 - **Linting/formatting:** [Biome v2](https://biomejs.dev)
 - **Package manager:** pnpm
 
@@ -59,10 +59,17 @@ public/             # og.png, favicon, avatars
 
 `/contact/{generic,photography,date}` share one config-driven form
 (`src/lib/contact.ts`). `POST /api/send` rejects cross-origin requests, wrong content types, and bodies over
-8 KB (counted as bytes while streaming), silently drops submissions with the honeypot filled,
-verifies the Turnstile token, validates with zod, then sends through Customer.io. Requests do not depend
-on the visitor’s clock or how long the tab has been open. Both upstream requests have 10-second
-timeouts and return recoverable JSON errors when a service is unavailable.
+16 KB (counted as bytes while streaming), silently drops submissions with the honeypot filled,
+validates with zod, rejects requests that BotID classifies as bots, then sends through Customer.io.
+Requests do not depend on the visitor’s clock or how long the tab has been open. The BotID check and
+the Customer.io request have 10-second timeouts and return recoverable JSON errors when a service is
+unavailable.
+
+BotID is invisible and needs no keys. The form script calls `initBotId` for `POST /api/send`, which
+adds BotID's headers to that request. The challenge scripts load from a fixed path on this domain:
+`vercel.json` proxies it to Vercel in production, and the Vite dev server does the same in
+`astro.config.mjs`. On Vercel, `checkBotId` authenticates with the project's OIDC token and works on
+every deployment, previews included. In local development it reports every request as human.
 
 ## Development
 
@@ -90,19 +97,17 @@ Playwright downloads) through the DevTools protocol; set `CHROME_PATH` if it isn
 ### Environment
 
 Declared in `astro.config.mjs` (`env.schema`) and read through `astro:env`. Locally they go in `.env` /
-`.env.local`; on Vercel, in the project's environment variables. None is needed to build: the site key has
-a default, and `/api/send` answers 503 until its runtime secrets are set.
+`.env.local`; on Vercel, in the project's environment variables. None is needed to build: `/api/send`
+answers 503 until its runtime secrets are set.
 
 | Name | Used | Purpose |
 | --- | --- | --- |
-| `PUBLIC_TURNSTILE_SITE_KEY` | build | Turnstile widget (defaults to the current widget's key) |
-| `TURNSTILE_SECRET_KEY` | runtime | Turnstile verification |
 | `CIO_APP_APIKEY` | runtime | Customer.io transactional API |
 | `EMAIL_CONTACT_GENERIC`, `EMAIL_CONTACT_PHOTO`, `EMAIL_CONTACT_DATE` (optional) | runtime | Recipient per form type |
 | `UNSPLASH_REFACTOR_TOKEN`, `BETASERIES_REFACTOR_API_KEY`, `BETASERIES_REFACTOR_ACCESS_TOKEN` | build | `/dashboard` stats, fetched when the site is built |
 
-The Turnstile widget allows `jpvalery.me` and `localhost`; add another hostname (for example a Vercel
-preview domain) in the Cloudflare dashboard before testing the form there.
+With `CIO_APP_APIKEY` and the recipient addresses in `.env`, a form submitted to `pnpm dev` sends a
+real email. Use a placeholder key to test the form locally.
 
 ### Build-time stats
 

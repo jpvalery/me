@@ -32,6 +32,9 @@ importers:
       astro:
         specifier: 7.3.5
         version: 7.3.5(@types/node@24.19.0)(@vercel/functions@3.9.9(ws@8.22.0))(jiti@2.7.0)(terser@5.39.0)(yaml@2.9.1)
+      botid:
+        specifier: 1.5.11
+        version: 1.5.11(react@19.2.4)
       sharp:
         specifier: 0.35.5
         version: 0.35.5(@types/node@24.19.0)
@@ -1148,6 +1151,17 @@ packages:
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
+
+  botid@1.5.11:
+    resolution: {integrity: sha512-KOO1A3+/vFVJk5aFoG3sNwiogKFPVR+x4aw4gQ1b2e0XoE+i5xp48/EZn+WqR07jRHeDGwHWQUOtV5WVm7xiww==}
+    peerDependencies:
+      next: '*'
+      react: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
 
   brace-expansion@5.0.12:
     resolution: {integrity: sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==}
@@ -3375,6 +3389,10 @@ snapshots:
       file-uri-to-path: 1.0.0
 
   boolbase@1.0.0: {}
+
+  botid@1.5.11(react@19.2.4):
+    optionalDependencies:
+      react: 19.2.4
 
   brace-expansion@5.0.12:
     dependencies:

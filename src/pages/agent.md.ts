@@ -75,7 +75,7 @@ This is a static Astro site hosted on Vercel, with content in Markdown and JSON 
 /projects                  → Active projects
 /projects/cemetery         → Retired projects graveyard
 /photography               → Photography links
-/contact                   → Contact; /contact/{${f.contactForms.join(",")}} forms (protected by Turnstile)
+/contact                   → Contact; /contact/{${f.contactForms.join(",")}} forms (protected by Vercel BotID)
 /feed.xml                  → RSS feed of /now entries
 \`\`\`
 

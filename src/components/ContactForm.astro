@@ -1,12 +1,10 @@
 ---
-import { PUBLIC_TURNSTILE_SITE_KEY } from "astro:env/client";
 import { type ContactFormDef, MAX } from "../lib/contact";
 
 interface Props {
 	def: ContactFormDef;
 }
 const { def } = Astro.props;
-const siteKey = PUBLIC_TURNSTILE_SITE_KEY;
 const input =
 	"block w-full rounded-none border-stone-300 bg-white text-zinc-900 focus:border-international-orange-500 focus:ring-international-orange-500 dark:border-ink-700 dark:bg-ink-950 dark:text-phosphor-100";
 ---
@@ -86,16 +84,6 @@ const input =
 		<input type="text" id="nickname" name="nickname" tabindex="-1" autocomplete="off" />
 	</div>
 
-	<div class="py-3">
-		<div
-			class="cf-turnstile"
-			data-sitekey={siteKey}
-			data-theme="auto"
-			data-response-field-name="cf-turnstile-response"
-		>
-		</div>
-	</div>
-
 	<div class="grid grid-flow-col items-center justify-start pt-6">
 		<button
 			type="submit"
@@ -125,10 +113,12 @@ const input =
 	</form>
 </dialog>
 
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
-></script>
-
 <script>
+	import { initBotId } from 'botid/client/core';
+
+	// Vercel BotID adds its verdict headers to this request; /api/send checks them
+	initBotId({ protect: [{ path: '/api/send', method: 'POST' }] });
+
 	const form = document.getElementById('contact-form') as HTMLFormElement;
 	const submit = document.getElementById('contact-submit') as HTMLButtonElement;
 	const errorEl = document.getElementById('contact-error') as HTMLElement;
@@ -160,8 +150,6 @@ const input =
 			errorEl.classList.remove('hidden');
 		} finally {
 			submit.disabled = false;
-			// Turnstile tokens are single-use
-			(window as unknown as { turnstile?: { reset(): void } }).turnstile?.reset();
 		}
 	});
 </script>

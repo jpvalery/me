@@ -2,6 +2,10 @@ import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
 
+// Vercel BotID serves its challenge scripts from this fixed path (see vercel.json)
+const BOTID_PATH =
+	"/149e9513-01fa-4fb0-aad4-566afd725d1b/2d206a39-8ed7-437e-a3be-862e0f06eea3";
+
 export default defineConfig({
 	site: "https://jpvalery.me",
 	// Every page is prerendered to static HTML; only /api/send runs as a Vercel function.
@@ -34,19 +38,8 @@ export default defineConfig({
 	},
 	env: {
 		schema: {
-			// Public (it ships in the page HTML); override with the env var if the widget changes
-			PUBLIC_TURNSTILE_SITE_KEY: envField.string({
-				context: "client",
-				access: "public",
-				default: "0x4AAAAAAFHyQKcpbSoyVY0m",
-			}),
 			// Contact endpoint secrets, read at runtime. Optional so a build never
 			// depends on them; /api/send answers 503 while any is missing.
-			TURNSTILE_SECRET_KEY: envField.string({
-				context: "server",
-				access: "secret",
-				optional: true,
-			}),
 			CIO_APP_APIKEY: envField.string({
 				context: "server",
 				access: "secret",
@@ -87,6 +80,23 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [tailwindcss()],
+		// vercel.json proxies these in production; this does the same for `astro dev`
+		// so the contact form can load the BotID challenge locally.
+		server: {
+			proxy: {
+				[`${BOTID_PATH}/a-4-a/c.js`]: {
+					target: "https://api.vercel.com",
+					changeOrigin: true,
+					rewrite: (path) =>
+						path.replace(`${BOTID_PATH}/a-4-a/c.js`, "/bot-protection/v1/challenge"),
+				},
+				[BOTID_PATH]: {
+					target: "https://api.vercel.com",
+					changeOrigin: true,
+					rewrite: (path) => path.replace(BOTID_PATH, "/bot-protection/v1/proxy"),
+				},
+			},
+		},
 	},
 	devToolbar: { enabled: false },
 });
