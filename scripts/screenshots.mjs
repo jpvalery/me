@@ -8,6 +8,7 @@
  *
  * Drives a local Chrome or Chromium through the DevTools protocol, so it needs no extra
  * dependency. Set CHROME_PATH if it isn't found. Consent banners are declined first.
+ * Some sites get a setup script before their own, e.g. to pick a color mode.
  */
 import { spawn } from "node:child_process";
 import {
@@ -45,6 +46,12 @@ const declineConsent = `(() => {
 	}
 	scrollTo(0, 0);
 })()`;
+
+/** Scripts that run before the page's own, by screenshot name */
+const setup = {
+	// Mèche in its "Flamme" color mode
+	meche: `localStorage.setItem("meche-theme", "flamme")`,
+};
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -142,7 +149,7 @@ async function launch() {
 	};
 }
 
-async function capture(browser, userAgent, { name, url }) {
+async function capture(browser, userAgent, { name, url, script }) {
 	const { send, once } = browser;
 	const { targetId } = await send("Target.createTarget", { url: "about:blank" });
 	try {
@@ -157,6 +164,8 @@ async function capture(browser, userAgent, { name, url }) {
 			userAgent,
 			acceptLanguage: `${language},en;q=0.9`,
 		});
+		if (script)
+			await page("Page.addScriptToEvaluateOnNewDocument", { source: script });
 		const loaded = once("Page.loadEventFired", sessionId);
 		const { errorText } = await page("Page.navigate", { url });
 		if (errorText) throw new Error(errorText);
@@ -190,6 +199,7 @@ const jobs = cards
 	.map((card) => ({
 		name: card.screenshot,
 		url: overrides.get(card.screenshot) ?? card.href,
+		script: setup[card.screenshot],
 	}));
 const unknown = [...overrides.keys()].filter(
 	(name) => !cards.some((card) => card.screenshot === name),

@@ -108,6 +108,17 @@
 		"screenshot": "flaps"
 	},
 	{
+		"id": "projects-meche",
+		"section": "projects",
+		"title": "Mèche",
+		"description": "My small candle workshop in Québec: soy wax candles with a wooden wick, hand-poured in small batches and reserved for the members of the circle",
+		"href": "https://meche.ca",
+		"label": "meche.ca",
+		"logo": "meche",
+		"invertLogoOnDark": true,
+		"screenshot": "meche"
+	},
+	{
 		"id": "photography-portfolio",
 		"section": "photography",
 		"title": "Portfolio",
@@ -144,15 +155,6 @@
 		"description": "Screenshots and stats of my flight simulator adventures",
 		"href": "https://flightlog.jpvalery.me",
 		"label": "flightlog.jpvalery.me"
-	},
-	{
-		"id": "cemetery-meche",
-		"section": "cemetery",
-		"title": "Meche",
-		"description": "2023-2024 — Online shop for handmade and environmental-friendly candles. Overestimated the online demand and shipping hurdles. Got a few sales but nothing to sustain the activity.",
-		"href": "https://meche.ca",
-		"label": "meche.ca",
-		"logo": "cemetery"
 	},
 	{
 		"id": "cemetery-user-journey-as-a-product",
