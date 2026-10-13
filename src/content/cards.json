@@ -68,6 +68,16 @@
 		"screenshot": "decisionbowl"
 	},
 	{
+		"id": "projects-monobath",
+		"section": "projects",
+		"title": "Monobath",
+		"description": "My native Mac app that turns camera scans of film into finished photos: it takes the orange out, finds the frame, and does the whole roll. Color negatives, black and white, and slides",
+		"href": "https://monobath.app",
+		"label": "monobath.app",
+		"logo": "monobath",
+		"screenshot": "monobath"
+	},
+	{
 		"id": "projects-dmc",
 		"section": "projects",
 		"title": "DMC",
