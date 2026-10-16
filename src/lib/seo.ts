@@ -28,6 +28,11 @@ export const homeJsonLd = (origin: string, image: string) => ({
 					name: "Raccoon Ventures",
 					url: "https://raccoonv.com",
 				},
+				{
+					"@type": "Organization",
+					name: "Studio Concorde",
+					url: "https://studioconcorde.com",
+				},
 			],
 			homeLocation: {
 				"@type": "Place",

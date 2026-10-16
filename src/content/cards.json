@@ -30,11 +30,21 @@
 		"id": "advisory-raccoon-ventures",
 		"section": "advisory",
 		"title": "Raccoon Ventures",
-		"description": "My company: AI workflows, process automation, and CRM integrations for revenue and customer teams. Advisory and consulting engagements go through Raccoon Ventures",
+		"description": "My product company: we build, launch, and run our own software, like TrimCarbon, Monobath, Decision Bowl, and Hockay",
 		"href": "https://raccoonv.com",
 		"label": "raccoonv.com",
 		"logo": "raccoonventures",
 		"screenshot": "raccoonventures"
+	},
+	{
+		"id": "advisory-studio-concorde",
+		"section": "advisory",
+		"title": "Studio Concorde",
+		"description": "My AI and automation agency for fast-growing SaaS companies and local businesses. We find the work your team repeats every week and automate it inside the tools you already use. Advisory and consulting engagements go through Studio Concorde",
+		"href": "https://studioconcorde.com",
+		"label": "studioconcorde.com",
+		"logo": "studioconcorde",
+		"screenshot": "studioconcorde"
 	},
 	{
 		"id": "projects-trimcarbon-com",

@@ -14,12 +14,13 @@ export const GET: APIRoute = async ({ site, url }) => {
 
 ## Who is Jp Valery?
 
-Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. Originally from Southern France, he immigrated to Canada at 22. He holds an MSc in Management (Marketing major, Design minor) from a French Grande École. He also runs Raccoon Ventures, a side company for projects and consulting.
+Jp Valery is a Customer Success Engineer at Resend, based in Montréal, Canada. Originally from Southern France, he immigrated to Canada at 22. He holds an MSc in Management (Marketing major, Design minor) from a French Grande École. He also runs Raccoon Ventures, a product company that builds its own software, and Studio Concorde, an AI and automation agency.
 
 ## Professional
 
 ${f.experience.map((e) => `- ${e.role} at ${e.company}, ${e.about} (${e.years})\n${e.highlights.map((h) => `  - ${h}`).join("\n")}`).join("\n")}
-- Side company: Raccoon Ventures (raccoonv.com) — advisory, consulting, side projects (advisory and consulting requests go to raccoonv.com)
+- Product company: Raccoon Ventures (raccoonv.com) — builds, launches, and runs its own software
+- AI and automation agency: Studio Concorde (studioconcorde.com) — advisory and consulting (requests go to studioconcorde.com)
 - Specialties: Customer success, email infrastructure, developer tools, SaaS
 
 ## Active Projects

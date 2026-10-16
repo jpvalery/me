@@ -31,7 +31,7 @@ ${socials.map((s) => `| ${s.label} | ${s.url} |`).join("\n")}
 
 ## Professional Summary
 
-Jp is a Customer Success Engineer at **Resend** (email infrastructure company). He runs **Raccoon Ventures** (raccoonv.com) as a side company for consulting, advisorship, and side projects. He holds an MSc in Management with a Marketing major and Design minor.
+Jp is a Customer Success Engineer at **Resend** (email infrastructure company). He runs **Raccoon Ventures** (raccoonv.com), a product company that builds its own software, and **Studio Concorde** (studioconcorde.com), an AI and automation agency. He holds an MSc in Management with a Marketing major and Design minor.
 
 ### Experience
 
@@ -43,7 +43,7 @@ Full resume: https://resume.jpvalery.me
 
 ### Services Offered
 
-Advisory and consulting engagements are handled through raccoonv.com (the old /work/advisorship and /work/consultancy pages redirect there).
+Advisory and consulting engagements are handled through Studio Concorde at studioconcorde.com (the old /work/advisorship and /work/consultancy pages redirect there).
 
 ## Active Projects
 

@@ -17,16 +17,22 @@ export default defineConfig({
 		"/about": "/",
 		// The /stack page was retired
 		"/stack": "/",
-		// Advisory and consulting moved to Raccoon Ventures
-		"/work/advisorship": { status: 301, destination: "https://raccoonv.com" },
-		"/work/consultancy": { status: 301, destination: "https://raccoonv.com" },
+		// Advisory and consulting moved to Studio Concorde
+		"/work/advisorship": {
+			status: 301,
+			destination: "https://studioconcorde.com",
+		},
+		"/work/consultancy": {
+			status: 301,
+			destination: "https://studioconcorde.com",
+		},
 		"/contact/advisorship": {
 			status: 301,
-			destination: "https://raccoonv.com",
+			destination: "https://studioconcorde.com",
 		},
 		"/contact/consultancy": {
 			status: 301,
-			destination: "https://raccoonv.com",
+			destination: "https://studioconcorde.com",
 		},
 		"/date": { status: 302, destination: "/date/me" },
 	},
