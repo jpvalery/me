@@ -30,7 +30,7 @@
 		"id": "advisory-raccoon-ventures",
 		"section": "advisory",
 		"title": "Raccoon Ventures",
-		"description": "My product company: we build, launch, and run our own software, like TrimCarbon, Monobath, Decision Bowl, and Hockay",
+		"description": "My product company: we build, launch, and run our own software, like ClearMETAR, TrimCarbon, Monobath, Decision Bowl, and Hockay",
 		"href": "https://raccoonv.com",
 		"label": "raccoonv.com",
 		"logo": "raccoonventures",
@@ -86,6 +86,16 @@
 		"label": "monobath.app",
 		"logo": "monobath",
 		"screenshot": "monobath"
+	},
+	{
+		"id": "projects-clearmetar",
+		"section": "projects",
+		"title": "ClearMETAR",
+		"description": "My iPhone and Apple Watch app for pilots: every METAR and TAF in one plain sentence, for free. Tap any code to learn what it means. No report at your field? It uses the nearest station and tells you which",
+		"href": "https://clearmetar.com",
+		"label": "clearmetar.com",
+		"logo": "clearmetar",
+		"screenshot": "clearmetar"
 	},
 	{
 		"id": "projects-dmc",

@@ -51,6 +51,9 @@ const declineConsent = `(() => {
 const setup = {
 	// Mèche in its "Flamme" color mode
 	meche: `localStorage.setItem("meche-theme", "flamme")`,
+	// ClearMETAR's film grain overlays stop Chrome's screen capture from finishing
+	clearmetar: `document.addEventListener("DOMContentLoaded", () =>
+		document.head.insertAdjacentHTML("beforeend", "<style>.grain { display: none !important }</style>"))`,
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
