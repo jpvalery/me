@@ -7,6 +7,7 @@ import Tile from "../components/Tile.astro";
 import flying from "../content/flying.json";
 import portrait from "../images/portrait.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLogo } from "../lib/logos";
 import { homeJsonLd } from "../lib/seo";
 import { site, socials as socialLinks } from "../lib/site";
 import { socialIcons } from "../lib/socialIcons";
@@ -185,32 +186,58 @@ const muted = "text-sm text-stone-600 dark:text-phosphor-500";
 			</dl>
 		</Tile>
 
-		<Tile label="Now" aside={latestNow?.data.date} class="flex flex-col lg:col-span-7">
-			<h2 class={h3}>What I'm up to</h2>
-			<p class:list={[muted, 'mb-6 line-clamp-5']}>{nowExcerpt}</p>
-			<a href="/now" class={go}>Read now →</a>
-		</Tile>
-
-		<Tile label="Projects" aside={`${projects.length} listed`} class="flex flex-col lg:col-span-5">
+		<Tile label="Projects" aside={`${projects.length} listed`} class="flex flex-col lg:col-span-7">
 			<h2 class={h3}>Things I made</h2>
 			<ul class="mb-6 text-sm">
 				{
-					projects.map(({ data }) => (
+					projects.map(({ data }) => {
+						const logo = getLogo(data.logo);
+						return (
 						<li class="border-stone-300 border-t border-dashed first:border-0 dark:border-ink-700">
 							<a
 								href={data.href}
 								rel="noopener"
 								class="flex justify-between gap-3 py-2 transition hover:text-international-orange-700 dark:hover:text-international-orange-500"
 							>
-								<span>{data.title}</span>
+								<span class="flex items-center gap-3">
+									{logo && (logo.format === "svg" ? (
+										<img
+											src={logo.src}
+											alt=""
+											width="20"
+											height="20"
+											loading="lazy"
+											class:list={["size-5 shrink-0", data.invertLogoOnDark && "dark:invert"]}
+										/>
+									) : (
+										<Image
+											src={logo}
+											alt=""
+											width={20}
+											height={20}
+											layout="fixed"
+											widths={[20, 40, 60]}
+											sizes="20px"
+											class:list={["size-5 shrink-0", data.invertLogoOnDark && "dark:invert"]}
+										/>
+									))}
+									{data.title}
+								</span>
 								<span class="truncate text-stone-500 dark:text-phosphor-500">{data.label} ↗</span>
 							</a>
 						</li>
-					))
+						);
+					})
 				}
 			</ul>
 			<a href="/projects" class={go}>See projects →</a>
 		</Tile>
+		<Tile label="Now" aside={latestNow?.data.date} class="flex flex-col lg:col-span-5">
+			<h2 class={h3}>What I'm up to</h2>
+			<p class:list={[muted, 'mb-6 line-clamp-5']}>{nowExcerpt}</p>
+			<a href="/now" class={go}>Read now →</a>
+		</Tile>
+
 	</div>
 	<Photos />
 </BaseLayout>
